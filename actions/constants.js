@@ -1,0 +1,9 @@
+export default {
+    GET_CASES: 'GET_CASES',
+    POST_CASE: 'POST_CASE',
+    DELETE_CASE: 'DELETE_CASE',
+    UPDATE_CASE: 'UPDATE_CASE',
+    ADD_TO_CART: 'ADD_TO_CART',
+
+}
+
