@@ -68,7 +68,8 @@ class CasePage extends Component {
   };
 
   render() {
-    const { match } = this.props;
+    const { currentCase } = this.props;
+    console.log("Current Case: ", currentCase);
     return (
       <RootContainer>
         <ItemWrapper>
@@ -78,7 +79,7 @@ class CasePage extends Component {
           </CaseImageWrapper>
           <ItemDetails>
             <ItemDescription>
-              <ItemTitle>{match.params.title}</ItemTitle>
+              <ItemTitle>{currentCase.title}</ItemTitle>
             </ItemDescription>
           </ItemDetails>
         </ItemWrapper>
@@ -88,7 +89,7 @@ class CasePage extends Component {
 }
 
 const mapStateToProps = state => ({
-  currentCase: state.cases.currentCase
+  currentCase: state.cases.currentCase,
 });
 
 const mapDispatchToProps = dispatch => {
