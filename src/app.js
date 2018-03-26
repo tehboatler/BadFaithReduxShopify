@@ -4,40 +4,32 @@ import ReactDOM from 'react-dom';
 import { applyMiddleware, createStore } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
+import Client from 'graphql-js-client';
+import thunk from 'redux-thunk';
+import { composeWithDevTools } from 'redux-devtools-extension';
+
+import typeBundle from './types';
 
 import 'normalize.css';
 import reducers from '../reducers/index';
 
 import Main from './components/pages/Main';
 
-const middleware = applyMiddleware(logger);
-const store = createStore(reducers, middleware);
+const middleware = applyMiddleware(logger, thunk);
+const store = createStore(reducers, {}, composeWithDevTools(middleware));
+
+export const client = new Client(typeBundle, {
+  url: 'https://cigarettesandbadfaith.myshopify.com/api/graphql',
+  fetcherOptions: {
+    headers: {
+      'X-Shopify-Storefront-Access-Token': 'b402cc39e5e0928c0ddd82989a1efc5a'
+    }
+  }
+});
 
 ReactDOM.render(
   <Provider store={store}>
-    <Main/>
+    <Main client={client} />
   </Provider>,
   document.getElementById('app')
 );
-
-// store.dispatch(
-//   postBook([
-//     {
-//       id: 3,
-//       title: 'Book 3',
-//       desc: 'Book 1 Description',
-//       price: 10
-//     }
-//   ])
-// );
-
-// store.dispatch(
-//   postBook([
-//     {
-//       id: 4,
-//       title: 'Book 4',
-//       desc: 'Book 2 Description',
-//       price: 100
-//     }
-//   ])
-// );

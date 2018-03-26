@@ -32,7 +32,7 @@ class CasesList extends Component {
           <CaseItem
             key={casesArray.id}
             title={casesArray.title}
-            desc={casesArray.desc}
+            desc={casesArray.description}
           />
         ))}
       </Grid>
@@ -47,10 +47,12 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => {
   return bindActionCreators(
     {
-      getCases: getCases
+      getCases,
     },
     dispatch
   );
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CasesList)) 
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(CasesList)
+);
