@@ -1,5 +1,6 @@
 export default {
     GET_CASES: 'GET_CASES',
+    GET_CASE: 'GET_CASE',
     POST_CASE: 'POST_CASE',
     DELETE_CASE: 'DELETE_CASE',
     UPDATE_CASE: 'UPDATE_CASE',

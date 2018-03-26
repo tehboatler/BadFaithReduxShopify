@@ -55,7 +55,7 @@ const GoToCaseButton = styled.div`
   border-radius: 0.5vh;
 `;
 
-const CaseItem = ({ title, desc }) => {
+const CaseItem = ({ title, desc, id }) => {
   return (
     <CaseItemContainer>
       <Grid>

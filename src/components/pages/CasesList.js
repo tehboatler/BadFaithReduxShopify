@@ -10,7 +10,6 @@ import CaseItem from '../CaseItem';
 
 const Grid = styled.div`
   display: grid;
-
   grid-template-columns: 1fr 1fr;
   grid-template-columns: repeat(auto-fill, minmax(700px, 1fr));
   grid-gap: 1em;
@@ -31,6 +30,7 @@ class CasesList extends Component {
         {cases.map(casesArray => (
           <CaseItem
             key={casesArray.id}
+            id={casesArray.id}
             title={casesArray.title}
             desc={casesArray.description}
           />

@@ -1,7 +1,8 @@
 import actions from '../actions/constants';
 
 const initialState = {
-  cases: []
+  cases: [],
+  currentCase: [],
 };
 
 export default (state = initialState, action) => {
@@ -13,6 +14,11 @@ export default (state = initialState, action) => {
 
     case actions.GET_CASES:
       return { ...state, cases: [...data] };
+      break;
+    
+      case actions.GET_CASE:
+      return { ...state, currentCase: [...data] };
+      break;
 
     default:
       return state;

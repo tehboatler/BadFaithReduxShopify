@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { withRouter } from 'react-router-dom';
+import { getCase } from '../../../actions/caseActions';
 
 import PhoneCase from '../../img/BadFaithHeaderPhone.png';
 
@@ -18,13 +22,13 @@ const ItemWrapper = styled.div`
   background-color: #333;
   display: grid;
   grid-template-columns: 1fr 4fr 5fr;
-//   grid-gap: 1em;
+  //   grid-gap: 1em;
 `;
 
 const ItemImageCarousel = styled.div`
-width: 100%;
-height: 33vw;
-background-color: red;
+  width: 100%;
+  height: 33vw;
+  background-color: red;
 `;
 
 const CaseImageWrapper = styled.div`
@@ -41,26 +45,61 @@ const CaseImage = styled.img`
   width: 100%;
 `;
 
-const ItemDescription = styled.div`
+const ItemDetails = styled.div`
   height: 33vw;
   background-color: blue;
-`
+`;
 
-export default class CasePage extends Component {
+const ItemDescription = styled.div`
+  height: 10vw;
+  width: 100%;
+  background-color: red;
+`;
+
+const ItemTitle = styled.h1``;
+
+class CasePage extends Component {
   state = {};
-  render() {
 
-        const { title } = this.props;
+  componentDidMount = () => {
+    console.log('test');
+    const { match, getCase } = this.props;
+    getCase(match.params.title);
+  };
+
+  render() {
+    const { match } = this.props;
     return (
       <RootContainer>
         <ItemWrapper>
-            <ItemImageCarousel/>
-            <CaseImageWrapper>
-                <CaseImage src={PhoneCase}/>
-            </CaseImageWrapper>            
-            <ItemDescription/>
+          <ItemImageCarousel />
+          <CaseImageWrapper>
+            <CaseImage src={PhoneCase} />
+          </CaseImageWrapper>
+          <ItemDetails>
+            <ItemDescription>
+              <ItemTitle>{match.params.title}</ItemTitle>
+            </ItemDescription>
+          </ItemDetails>
         </ItemWrapper>
       </RootContainer>
     );
   }
 }
+
+const mapStateToProps = state => ({
+  currentCase: state.cases.currentCase
+});
+
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators(
+    {
+      getCase
+    },
+    dispatch
+  );
+};
+
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(CasePage)
+);

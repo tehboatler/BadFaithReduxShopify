@@ -74,6 +74,38 @@ export function getCases() {
   }
 }
 
+export function getCase(handle) {
+  return async function(dispatch) {
+    // const idVariable = client.variable('handle', 'String!', `${handle}`);
+    console.log(handle)
+    const query = gql(client)`
+    query ($handle:String!){
+      shop {
+        name
+          products(first: 1, query: $handle){
+            pageInfo {
+              hasNextPage
+              hasPreviousPage
+            }
+            edges {
+              node {
+                id
+                title
+                description
+              }
+            }
+        }
+      }
+    }
+  `
+   const res = await client.send(query, {handle} )
+      const phonecase = await res.model.shop.products
+      return dispatch({
+        type: actions.GET_CASE,
+        data: phonecase
+      })
+  }
+}
 
 export const postCase = (caseItem) => ({
   type: actions.POST_CASE,
