@@ -16,10 +16,69 @@ const RootContainer = styled.div`
 `;
 
 export default class Main extends Component {
-  state = { shop: '' };
+  state = { shop: '', checkout: [], isCartOpen: false };
+  constructor(props) {
+    super(props)
+    
 
+  }
+  
+
+  
   componentWillMount() {
     const client = this.props.client;
+
+    // ============================================================
+    // Fetch Cart
+    // ============================================================
+    client
+      .send(
+        gql(client)`
+    mutation {
+      checkoutCreate(input: {}) {
+        userErrors {
+          message
+          field
+        }
+        checkout {
+          id
+          webUrl
+          subtotalPrice
+          totalTax
+          totalPrice
+          lineItems (first:250) {
+            pageInfo {
+              hasNextPage
+              hasPreviousPage
+            }
+            edges {
+              node {
+                title
+                variant {
+                  title
+                  image {
+                    src
+                  }
+                  price
+                }
+                quantity
+              }
+            }
+          }
+        }
+      }
+    }
+  `
+      )
+      .then(res => {
+        this.setState({
+          checkout: res.model.checkoutCreate.checkout
+        });
+      });
+
+    // ============================================================
+    // Fetch Products
+    // ============================================================
     client
       .send(
         gql(client)`
@@ -48,6 +107,7 @@ export default class Main extends Component {
                     }
                     edges {
                       node {
+                        id
                         title
                         selectedOptions {
                           name
@@ -86,20 +146,84 @@ export default class Main extends Component {
       });
   }
 
+  // ============================================================
+  // Add Item Variant to Cart
+  // ============================================================
+
+  addVariantToCart(variantId, quantity) {
+        const { client } = this.props;
+    this.setState({
+      isCartOpen: true
+    });
+
+    const lineItems = [{ variantId, quantity: parseInt(quantity, 10) }];
+    const checkoutId = this.state.checkout.id;
+
+    return client
+      .send(
+        gql(client)`
+  mutation ($checkoutId: ID!, $lineItems: [CheckoutLineItemInput!]!) {
+    checkoutLineItemsAdd(checkoutId: $checkoutId, lineItems: $lineItems) {
+      userErrors {
+        message
+        field
+      }
+      checkout {
+        webUrl
+        subtotalPrice
+        totalTax
+        totalPrice
+        lineItems (first:250) {
+          pageInfo {
+            hasNextPage
+            hasPreviousPage
+          }
+          edges {
+            node {
+              title
+              variant {
+                title
+                image {
+                  src
+                }
+                price
+              }
+              quantity
+            }
+          }
+        }
+      }
+    }
+  }
+`,
+        { checkoutId, lineItems }
+      )
+      .then(res => {
+        this.setState({
+          checkout: res.model.checkoutLineItemsAdd.checkout
+        });
+      });
+  }
+
   render() {
-    const { shop, products } = this.state;
+    const { shop, products, checkout } = this.state;
     return (
       <Router>
         <RootContainer>
-          <Nav />
+          <Nav checkout={checkout}/>
           <Header />
           <Switch>
             <Route exact path="/" component={CasesList} />
             <Route
               path="/starsigned/:title"
-              render={() => <CasePage productlist={products} />}
+              render={props => (
+                <CasePage
+                  productlist={products}
+                  addVariantToCart={this.addVariantToCart.bind(this)}
+                  {...props}
+                />
+              )}
             />
-
             <Route path="/cart" component={Cart} />
           </Switch>
         </RootContainer>

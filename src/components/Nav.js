@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import faShoppingCart from '@fortawesome/fontawesome-free-solid/faShoppingCart';
@@ -22,7 +22,7 @@ const LogoWrapper = styled.div`
   align-items: center;
   height: 7.5vh;
   width: 50%;
-//   background-color: red;
+  //   background-color: red;
 `;
 
 const LogoImage = styled.h3`
@@ -37,7 +37,7 @@ const MenuWrapper = styled.div`
   align-items: center;
   height: 7.5vh;
   width: 50%;
-//   background-color: whitesmoke;
+  //   background-color: whitesmoke;
 `;
 
 const MenuItemWrapper = styled.div`
@@ -50,20 +50,51 @@ const MenuItemWrapper = styled.div`
 `;
 
 const MenuItem = styled.h3`
-color: white;`;
+  color: white;
+`;
 
 const CartImageWrapper = styled.div`
   display: flex;
   width: 7.5vh;
   height: 7.5vh;
-    background-color: orange;
+  background-color: orange;
   justify-content: center;
   align-items: center;
 `;
 
+// ============================================================
+// Cart Drawer
+// ============================================================
+const CartDrawerWrapper = styled.div`
+  position: absolute;
+  top: 7.5vh;
+  width: 20vw;
+  height: auto;
+  background-color: #f2f2f2;
+  right: 0;
+`;
+
+const LineItem = styled.div`
+  height: 7.5vh;
+  width: 100%;
+  background-color: red;
+`;
+
 export default class Nav extends Component {
   state = {};
+
+  componentWillReceiveProps(nextProps) {
+    let line_items = nextProps.checkout.lineItems.map(line_item => {
+      return <LineItem key={line_item.id}/>;
+    });
+    console.log(line_items);
+    this.setState({
+      lineitems: line_items,
+    })
+    
+  }
   render() {
+        const { lineitems } = this.state;
     return (
       <RootContainer>
         <LogoWrapper>
@@ -77,9 +108,12 @@ export default class Nav extends Component {
             <MenuItem>Ranges</MenuItem>
           </MenuItemWrapper>
           <CartImageWrapper>
-            <Link to="/cart"><FontAwesomeIcon size="2x" color="#111" icon={faShoppingCart} /></Link>
+            <Link to="/cart">
+              <FontAwesomeIcon size="2x" color="#111" icon={faShoppingCart} />
+            </Link>
           </CartImageWrapper>
         </MenuWrapper>
+        <CartDrawerWrapper>{lineitems}</CartDrawerWrapper>
       </RootContainer>
     );
   }
