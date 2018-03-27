@@ -58,18 +58,42 @@ const ItemDescription = styled.div`
 
 const ItemTitle = styled.h1``;
 
-class CasePage extends Component {
+export default class CasePage extends Component {
   state = {};
 
-  componentDidMount = () => {
-    console.log('test');
-    const { match, getCase } = this.props;
-    getCase(match.params.title);
+  checkProduct = test => {
+    const { match } = this.props;
+    return test.title === match.params.title;
   };
 
+  retrieveCurrentCase = () => {
+    const { productlist } = this.props;
+    const products = productlist.find(this.checkProduct);
+    this.setState({
+      currentCaseParams: products
+    });
+  };
+
+  componentWillMount = () => {
+    console.log('test');
+    this.retrieveCurrentCase();
+    const { match, getCase } = this.props;
+    // getCase(match.params.title);
+  };
+
+  //   componentDidMount = () => {
+  // const { currentCase } = this.props;
+  // console.log('Current Case CDM: ', currentCase[0]);
+  //   };
+
+  //   componentWillReceiveProps(nextProps) {
+  //     console.log(nextProps.currentCase[0].title);
+  //     this.setState({ loading: false });
+  //   }
+
   render() {
-    const { currentCase } = this.props;
-    console.log("Current Case: ", currentCase);
+    // const { currentCase } = this.props;
+    const { currentCaseParams } = this.state;
     return (
       <RootContainer>
         <ItemWrapper>
@@ -79,7 +103,8 @@ class CasePage extends Component {
           </CaseImageWrapper>
           <ItemDetails>
             <ItemDescription>
-              <ItemTitle>{currentCase.title}</ItemTitle>
+            <ItemTitle>{currentCaseParams.title}</ItemTitle>
+            <ItemTitle>{currentCaseParams.description}</ItemTitle>
             </ItemDescription>
           </ItemDetails>
         </ItemWrapper>
@@ -87,20 +112,3 @@ class CasePage extends Component {
     );
   }
 }
-
-const mapStateToProps = state => ({
-  currentCase: state.cases.currentCase,
-});
-
-const mapDispatchToProps = dispatch => {
-  return bindActionCreators(
-    {
-      getCase
-    },
-    dispatch
-  );
-};
-
-export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(CasePage)
-);

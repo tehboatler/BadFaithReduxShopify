@@ -36,6 +36,7 @@ export default class Main extends Component {
                 node {
                   id
                   title
+                  description
                   options {
                     name
                     values
@@ -86,7 +87,7 @@ export default class Main extends Component {
   }
 
   render() {
-    const { shop } = this.state;
+    const { shop, products } = this.state;
     return (
       <Router>
         <RootContainer>
@@ -94,7 +95,11 @@ export default class Main extends Component {
           <Header />
           <Switch>
             <Route exact path="/" component={CasesList} />
-            <Route path="/starsigned/:title" component={CasePage} />
+            <Route
+              path="/starsigned/:title"
+              render={() => <CasePage productlist={products} />}
+            />
+
             <Route path="/cart" component={Cart} />
           </Switch>
         </RootContainer>
