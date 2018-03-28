@@ -37,6 +37,7 @@
     "express": "^4.16.3",
     "graphql-js-client": "^0.9.1",
     "normalize.css": "^8.0.0",
+    "rc-select": "^7.7.5",
     "react": "^16.2.0",
     "react-aspect-ratio": "^1.0.22",
     "react-css-grid": "^2.0.0-0",

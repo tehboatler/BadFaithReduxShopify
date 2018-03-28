@@ -91,7 +91,7 @@ export class Header extends Component {
         <PhoneImageWrapper>
           <BadFaithLogoContainer>
             <BadFaithLogo>BadFaith</BadFaithLogo>
-            <BadFaithLogoTagline>Not just a case.</BadFaithLogoTagline>
+            <BadFaithLogoTagline>Cases that speak.</BadFaithLogoTagline>
           </BadFaithLogoContainer>
           <PhoneImage src={HeaderPhone} />
         </PhoneImageWrapper>

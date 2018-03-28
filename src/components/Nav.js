@@ -11,7 +11,8 @@ const RootContainer = styled.div`
   justify-content: space-between;
   z-index: 1;
   height: 7.5vh;
-  width: 100%;
+  width: 98%;
+  margin-left: 2%;
   background-color: #222;
   margin: 0;
 `;
@@ -78,8 +79,11 @@ const LineItem = styled.div`
   height: 7.5vh;
   width: 100%;
   background-color: red;
-  margin: 0.5vh;
+  margin-top: 0.5vh;
+  margin-bottom: 0;
   border-radius: 0.5vh;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
 `;
 
 const CheckoutButton = styled.button`
@@ -87,14 +91,14 @@ const CheckoutButton = styled.button`
   height: 5vh;
   width: 100%;
   border: none;
-  border-radius: 0.5vh;
-  margin: 0.5vh;
+  border-bottom-right-radius: 0.5vh;
+  border-bottom-left-radius: 0.5vh;
 `;
 
 export default class Nav extends Component {
   constructor(props) {
     super(props);
-    
+
     this.openCheckout = this.openCheckout.bind(this);
   }
   state = {};
@@ -135,7 +139,9 @@ export default class Nav extends Component {
         </MenuWrapper>
         <CartDrawerWrapper>
           {lineitems}
-          <CheckoutButton onClick={this.openCheckout} />
+          <CheckoutButton onClick={this.openCheckout}>
+            0 items in your cart
+          </CheckoutButton>
         </CartDrawerWrapper>
       </RootContainer>
     );
