@@ -68,9 +68,9 @@ const CartImageWrapper = styled.div`
 const CartDrawerWrapper = styled.div`
   position: absolute;
   top: 7.5vh;
-  width: 20vw;
+  width: 15vw;
   height: auto;
-  background-color: #f2f2f2;
+  // background-color: #f2f2f2;
   right: 0;
 `;
 
@@ -78,23 +78,43 @@ const LineItem = styled.div`
   height: 7.5vh;
   width: 100%;
   background-color: red;
+  margin: 0.5vh;
+  border-radius: 0.5vh;
+`;
+
+const CheckoutButton = styled.button`
+  background-color: #ddd;
+  height: 5vh;
+  width: 100%;
+  border: none;
+  border-radius: 0.5vh;
+  margin: 0.5vh;
 `;
 
 export default class Nav extends Component {
+  constructor(props) {
+    super(props);
+    
+    this.openCheckout = this.openCheckout.bind(this);
+  }
   state = {};
 
   componentWillReceiveProps(nextProps) {
     let line_items = nextProps.checkout.lineItems.map(line_item => {
-      return <LineItem key={line_item.id}/>;
+      return <LineItem key={line_item.id} />;
     });
     console.log(line_items);
     this.setState({
-      lineitems: line_items,
-    })
-    
+      lineitems: line_items
+    });
   }
+
+  openCheckout() {
+    window.open(this.props.checkout.webUrl);
+  }
+
   render() {
-        const { lineitems } = this.state;
+    const { lineitems } = this.state;
     return (
       <RootContainer>
         <LogoWrapper>
@@ -113,7 +133,10 @@ export default class Nav extends Component {
             </Link>
           </CartImageWrapper>
         </MenuWrapper>
-        <CartDrawerWrapper>{lineitems}</CartDrawerWrapper>
+        <CartDrawerWrapper>
+          {lineitems}
+          <CheckoutButton onClick={this.openCheckout} />
+        </CartDrawerWrapper>
       </RootContainer>
     );
   }
