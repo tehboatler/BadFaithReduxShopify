@@ -11,8 +11,7 @@ const RootContainer = styled.div`
   justify-content: space-between;
   z-index: 1;
   height: 7.5vh;
-  width: 98%;
-  margin-left: 2%;
+  width: 100%;
   background-color: #222;
   margin: 0;
 `;
@@ -81,9 +80,6 @@ const LineItem = styled.div`
   background-color: red;
   margin-top: 0.5vh;
   margin-bottom: 0;
-  border-radius: 0.5vh;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
 `;
 
 const CheckoutButton = styled.button`
@@ -104,13 +100,15 @@ export default class Nav extends Component {
   state = {};
 
   componentWillReceiveProps(nextProps) {
-    let line_items = nextProps.checkout.lineItems.map(line_item => {
-      return <LineItem key={line_item.id} />;
-    });
-    console.log(line_items);
-    this.setState({
-      lineitems: line_items
-    });
+    if (nextProps.checkout.lineItems) {
+      let line_items = nextProps.checkout.lineItems.map(line_item => {
+        return <LineItem key={line_item.id} />;
+      });
+      console.log(line_items);
+      this.setState({
+        lineitems: line_items
+      });
+    }
   }
 
   openCheckout() {

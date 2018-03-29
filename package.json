@@ -37,17 +37,23 @@
     "express": "^4.16.3",
     "graphql-js-client": "^0.9.1",
     "normalize.css": "^8.0.0",
+    "pure-react-carousel": "^1.11.1",
     "rc-select": "^7.7.5",
     "react": "^16.2.0",
+    "react-alice-carousel": "^1.9.1",
     "react-aspect-ratio": "^1.0.22",
     "react-css-grid": "^2.0.0-0",
     "react-dom": "^16.2.0",
+    "react-image-gallery": "^0.8.7",
     "react-redux": "^5.0.7",
+    "react-responsive-carousel": "^3.1.33",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
+    "react-slick": "^0.22.3",
     "react-sticky": "^6.0.1",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
+    "slick-carousel": "^1.8.1",
     "styled-components": "^3.2.3"
   }
 }

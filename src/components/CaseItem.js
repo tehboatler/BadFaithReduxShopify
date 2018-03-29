@@ -13,6 +13,7 @@ const CaseTitle = styled.h1`
   color: white;
   margin-bottom: 5vh;
   font-size: 6rem;
+  font-family: 'Permanent Marker', cursive;
 `;
 
 const CaseDesc = styled.h3`
