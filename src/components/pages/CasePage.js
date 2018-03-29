@@ -115,9 +115,13 @@ const ItemCheckoutDetail = styled.div`
 `;
 
 const PhoneVariantSelectorWrapper = styled.div`
-  align-self: flex-start;
+display: flex;
+flex-direction: column;
+justify-content: flex-end;
+  align-self: flex-end;
   height: 7.5vw;
   width: 100%;
+  margin-bottom: 1vw;
   //   background-color: #eee;
 `;
 const ProductDetailsWrapper = styled.div`
@@ -217,6 +221,10 @@ class CasePage extends Component {
       });
     });
     this.setState({ variantImages: arr });
+
+    // ============================================================
+
+    this.onChange("iPhone X")
   };
 
   onChange = value => {
@@ -238,7 +246,7 @@ class CasePage extends Component {
       selectedOptions: {
         [option]: selectedVariant.title,
         variantID: selectedVariant.id,
-        price: selectedVariant.price
+        price: selectedVariant.price,
       }
     });
   };
@@ -292,23 +300,7 @@ class CasePage extends Component {
                     {variants}
                   </Select>
                 </SingleSelectWrapper>
-                <SelectTitle>Quantity:</SelectTitle>
-                <SingleSelectWrapper>
-                  <Select
-                    allowClear
-                    placeholder="Select A Phone"
-                    defaultValue="iPhone X"
-                    style={{
-                      width: '100%',
-                      backgroundColor: 'transparent'
-                    }}
-                    animation="slide-up"
-                    showSearch={false}
-                    onChange={this.onChange}
-                  >
-                    {variants}
-                  </Select>
-                </SingleSelectWrapper>
+               
               </PhoneVariantSelectorWrapper>
               <ProductDetailsWrapper>
                 <SelectTitle>Product Details:</SelectTitle>
@@ -331,7 +323,7 @@ class CasePage extends Component {
                 <AddToCartButton
                   onClick={() =>
                     addVariantToCart(
-                      'Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0VmFyaWFudC83MzIxNTI1MDI2ODY5',
+                      selectedOptions.variantID,
                       1
                     )
                   }
