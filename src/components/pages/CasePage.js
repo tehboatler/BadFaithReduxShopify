@@ -50,15 +50,15 @@ const CaseImageWrapper = styled.div`
 const CaseImage = styled.img`
   height: 100%;
   width: 100%;
-//   mix-blend-mode: multiply;
+  //   mix-blend-mode: multiply;
   user-select: none;
   pointer-events: none;
 `;
 
 const ItemDetails = styled.div`
-display: flex;
-flex-direction: column;
-justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   height: 33vw;
   align-self: end;
   width: 100%;
@@ -67,9 +67,9 @@ justify-content: space-between;
 `;
 
 const ItemDescription = styled.div`
-  height: 13vw;
+  height: 10vw;
   width: 100%;
-  //   background-color: red;
+  // background-color: red;
 `;
 
 const ItemTitle = styled.h1`
@@ -78,9 +78,9 @@ const ItemTitle = styled.h1`
   font-size: 3vw;
   color: black;
   margin: 0;
-  `;
-  
-  const ItemTagline = styled.h1`
+`;
+
+const ItemPrice = styled.h1`
   // background-color: black;
   font-family: 'Permanent Marker', cursive;
   font-size: 1.3vw;
@@ -88,22 +88,39 @@ const ItemTitle = styled.h1`
   color: black;
   margin: 0;
 `;
+const ItemTagline = styled.h1`
+  // background-color: black;
+  font-family: 'Patua One', cursive;
+  font-size: 1vw;
+  font-weight: 300;
+  color: black;
+  margin-top: 0.5vw;
+`;
+const ProductDetailSummary = styled.h1`
+  // background-color: black;
+  font-family: 'Patua One', cursive;
+  font-size: 0.75vw;
+  font-weight: 300;
+  color: black;
+  margin-top: 0.5vw;
+`;
 
 const ItemCheckoutDetail = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  height: 20vw;
+  height: 23vw;
   width: 100%;
-//   background-color: grey;
+  //   background-color: grey;
 `;
 
 const PhoneVariantSelectorWrapper = styled.div`
+  align-self: flex-start;
   height: 7.5vw;
   width: 100%;
-//   background-color: #eee;
+  //   background-color: #eee;
 `;
-const PhoneQuantitySelectorWrapper = styled.div`
+const ProductDetailsWrapper = styled.div`
   height: 7.5vw;
   width: 100%;
 //   background-color: #eee;
@@ -119,7 +136,7 @@ const AddToCartWrapper = styled.div`
 `;
 
 const AddToCartButton = styled.button`
-  width: 100%;
+  width: 66%;
   height: 3vw;
   background-color: red;
   border: none;
@@ -129,6 +146,15 @@ const AddToCartButton = styled.button`
 const AddToCartButtonText = styled.h1`
   color: white;
   font-size: 1.1vw;
+`;
+
+const SelectTitle = styled.h1`
+  // background-color: black;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 1vw;
+  font-weight: 300;
+  color: black;
+  margin: 0;
 `;
 
 const SingleSelectWrapper = styled.div`
@@ -175,9 +201,13 @@ class CasePage extends Component {
 
     currentCaseParams.options.forEach(selector => {
       this.setState({
-        selectedOptions: { [selector.name]: selector.values[0].value }
+        selectedOptions: {
+          [selector.name]: selector.values[0].value
+        }
       });
     });
+
+    // ============================================================
     let arr = [];
     const variantImages = currentCaseParams.images.map((image, index) => {
       //   return <CaseImage key={image.src} original={image.src} />;
@@ -192,9 +222,6 @@ class CasePage extends Component {
   onChange = value => {
     const { selectedOptions, currentCaseParams } = this.state;
     console.log(value);
-    // const target = value.target;
-    // let selectedOptions = this.state.selectedOptions;
-    // selectedOptions[target.name] = target.value;
 
     // ============================================================
     // Note: Hardcoded
@@ -210,15 +237,19 @@ class CasePage extends Component {
     this.setState({
       selectedOptions: {
         [option]: selectedVariant.title,
-        variantID: selectedVariant.id
+        variantID: selectedVariant.id,
+        price: selectedVariant.price
       }
     });
   };
 
   render() {
-    const { currentCaseParams, variantImages } = this.state;
+    const { currentCaseParams, variantImages, selectedOptions } = this.state;
     const { addVariantToCart } = this.props;
 
+    let initialVariantPrice = currentCaseParams.variants[0];
+
+    console.log('Variant Price: ', initialVariantPrice.price);
     let variants = currentCaseParams.variants.map(variant => (
       <Option key={variant.title} value={variant.title}>
         {variant.title}
@@ -239,11 +270,12 @@ class CasePage extends Component {
           <ItemDetails>
             <ItemDescription>
               <ItemTitle>{currentCaseParams.title}</ItemTitle>
+              <ItemPrice>{initialVariantPrice.price}</ItemPrice>
               <ItemTagline>{currentCaseParams.description}</ItemTagline>
             </ItemDescription>
             <ItemCheckoutDetail>
-              <PhoneVariantSelectorWrapper />
-              <PhoneQuantitySelectorWrapper>
+              <PhoneVariantSelectorWrapper>
+                <SelectTitle>Pick a phone size:</SelectTitle>
                 <SingleSelectWrapper>
                   <Select
                     allowClear
@@ -260,7 +292,41 @@ class CasePage extends Component {
                     {variants}
                   </Select>
                 </SingleSelectWrapper>
-              </PhoneQuantitySelectorWrapper>
+                <SelectTitle>Quantity:</SelectTitle>
+                <SingleSelectWrapper>
+                  <Select
+                    allowClear
+                    placeholder="Select A Phone"
+                    defaultValue="iPhone X"
+                    style={{
+                      width: '100%',
+                      backgroundColor: 'transparent'
+                    }}
+                    animation="slide-up"
+                    showSearch={false}
+                    onChange={this.onChange}
+                  >
+                    {variants}
+                  </Select>
+                </SingleSelectWrapper>
+              </PhoneVariantSelectorWrapper>
+              <ProductDetailsWrapper>
+                <SelectTitle>Product Details:</SelectTitle>
+                <ProductDetailSummary>
+                  These premium, super slim cases fit flawlessly, in the
+                  meantime being the strongest, lightest and most flexible cases
+                  on the market. 
+                </ProductDetailSummary>
+                <ProductDetailSummary>
+                  - Impact Resistant
+                </ProductDetailSummary>
+                <ProductDetailSummary>
+                  - Rubber plate lining the inside
+                </ProductDetailSummary>
+                <ProductDetailSummary>
+                  - Super slim
+                </ProductDetailSummary>
+              </ProductDetailsWrapper>
               <AddToCartWrapper>
                 <AddToCartButton
                   onClick={() =>
