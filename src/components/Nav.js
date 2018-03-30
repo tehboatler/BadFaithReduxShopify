@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+import LineItem from './LineItem';
+
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import faShoppingCart from '@fortawesome/fontawesome-free-solid/faShoppingCart';
 
@@ -74,14 +76,6 @@ const CartDrawerWrapper = styled.div`
   right: 0;
 `;
 
-const LineItem = styled.div`
-  height: 7.5vh;
-  width: 100%;
-  background-color: red;
-  margin-top: 0.5vh;
-  margin-bottom: 0;
-`;
-
 const CheckoutButton = styled.button`
   background-color: #ddd;
   height: 5vh;
@@ -102,7 +96,14 @@ export default class Nav extends Component {
   componentWillReceiveProps(nextProps) {
     if (nextProps.checkout.lineItems) {
       let line_items = nextProps.checkout.lineItems.map(line_item => {
-        return <LineItem key={line_item.id} />;
+        return (
+          <LineItem
+            key={line_item.id.toString()}
+                  updateQuantityInCart={this.props.updateQuantityInCart}
+                  removeLineItemInCart={this.props.removeLineItemInCart}
+                  line_item={line_item}
+          />
+        );
       });
       console.log(line_items);
       this.setState({
@@ -117,6 +118,8 @@ export default class Nav extends Component {
 
   render() {
     const { lineitems } = this.state;
+
+
     return (
       <RootContainer>
         <LogoWrapper>

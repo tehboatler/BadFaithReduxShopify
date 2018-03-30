@@ -11,6 +11,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import typeBundle from './types';
 
 import 'normalize.css';
+import './app.css';
 import reducers from '../reducers/index';
 
 import Main from './components/pages/Main';

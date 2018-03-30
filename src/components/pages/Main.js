@@ -18,13 +18,9 @@ const RootContainer = styled.div`
 export default class Main extends Component {
   state = { shop: '', checkout: [], isCartOpen: false };
   constructor(props) {
-    super(props)
-    
-
+    super(props);
   }
-  
 
-  
   componentWillMount() {
     const client = this.props.client;
 
@@ -151,7 +147,7 @@ export default class Main extends Component {
   // ============================================================
 
   addVariantToCart(variantId, quantity) {
-        const { client } = this.props;
+    const { client } = this.props;
     this.setState({
       isCartOpen: true
     });
@@ -205,12 +201,117 @@ export default class Main extends Component {
       });
   }
 
+  updateQuantityInCart(lineItemId, quantity) {
+    const { client } = this.props;
+    const checkoutId = this.state.checkout.id;
+    const lineItems = [{ id: lineItemId, quantity: parseInt(quantity, 10) }];
+
+    return client
+      .send(
+        gql(client)`
+      mutation ($checkoutId: ID!, $lineItems: [CheckoutLineItemUpdateInput!]!) {
+        checkoutLineItemsUpdate(checkoutId: $checkoutId, lineItems: $lineItems) {
+          userErrors {
+            message
+            field
+          }
+          checkout {
+            webUrl
+            subtotalPrice
+            totalTax
+            totalPrice
+            lineItems (first:250) {
+              pageInfo {
+                hasNextPage
+                hasPreviousPage
+              }
+              edges {
+                node {
+                  title
+                  variant {
+                    title
+                    image {
+                      src
+                    }
+                    price
+                  }
+                  quantity
+                }
+              }
+            }
+          }
+        }
+      }
+    `,
+        { checkoutId, lineItems }
+      )
+      .then(res => {
+        this.setState({
+          checkout: res.model.checkoutLineItemsUpdate.checkout
+        });
+      });
+  }
+
+  removeLineItemInCart(lineItemId) {
+    const { client } = this.props;
+    const checkoutId = this.state.checkout.id;
+
+    return client
+      .send(
+        gql(client)`
+      mutation ($checkoutId: ID!, $lineItemIds: [ID!]!) {
+        checkoutLineItemsRemove(checkoutId: $checkoutId, lineItemIds: $lineItemIds) {
+          userErrors {
+            message
+            field
+          }
+          checkout {
+            webUrl
+            subtotalPrice
+            totalTax
+            totalPrice
+            lineItems (first:250) {
+              pageInfo {
+                hasNextPage
+                hasPreviousPage
+              }
+              edges {
+                node {
+                  title
+                  variant {
+                    title
+                    image {
+                      src
+                    }
+                    price
+                  }
+                  quantity
+                }
+              }
+            }
+          }
+        }
+      }
+    `,
+        { checkoutId, lineItemIds: [lineItemId] }
+      )
+      .then(res => {
+        this.setState({
+          checkout: res.model.checkoutLineItemsRemove.checkout
+        });
+      });
+  }
+
   render() {
     const { shop, products, checkout } = this.state;
     return (
       <Router>
         <RootContainer>
-          <Nav checkout={checkout}/>
+          <Nav
+            checkout={checkout}
+            updateQuantityInCart={this.updateQuantityInCart.bind(this)}
+            removeLineItemInCart={this.removeLineItemInCart.bind(this)}
+          />
           <Header />
           <Switch>
             <Route exact path="/" component={CasesList} />
