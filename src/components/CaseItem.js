@@ -6,14 +6,19 @@ import { Link } from 'react-router-dom';
 const CaseItemContainer = styled.div`
   width: 100%;
   height: auto;
-  background-color: #222;
+  margin: 0.5vw 0;
+  // background-color: #DDD;
 `;
 
 const CaseTitle = styled.h1`
-  color: white;
-  margin-bottom: 5vh;
-  font-size: 6rem;
+  color: #111;
+  margin: 1vw;
+  font-size: 2vw;
   font-family: 'Permanent Marker', cursive;
+
+  @media (max-width: 415px) {
+    font-size: 5vw;
+  }
 `;
 
 const CaseDesc = styled.h3`
@@ -22,52 +27,69 @@ const CaseDesc = styled.h3`
 `;
 
 const Grid = styled.div`
-  display: grid;
-  // grid-template-columns: 6fr 10fr;
-  grid-template-columns: 6fr minmax(150px, 10fr);
   height: auto;
-  width: 100%;
+  width: 99%;
 `;
 
 const CaseImageWrapper = styled.div`
   position: relative;
-  justify-self: center;
-  align-self: center;
-  background-color: #222;
-  height: 35.5vw;
-  width: 20vw;
+  // background-color: #222;
+  height: 25vw;
+  width: 25vw;
+
+  @media (max-width: 415px) {
+    height: 49vw;
+    width: 49vw;
+  }
 `;
 
 const CaseImage = styled.img`
+  // position: absolute;
   height: 100%;
   width: 100%;
 `;
 
 const DescriptionWrapper = styled.div`
-  background-color: #333;
-  padding: 5vh 5vh 0vh 5vh;
+  position: absolute;
+  height: 7.5vw;
+  width: 100%;
+  bottom: 0;
+  background-color: #fff;
+  // padding: 1vw 1vw 0vh 1vw;
+  @media (max-width: 415px) {
+    width: 49vw;
+    height: 7.5vw;
+  }
 `;
 
 const GoToCaseButton = styled.div`
   background-color: red;
-  margin: 5vh;
-  height: 5vh;
-  width: 15vh;
+  margin: 1vw;
+  height: 2vw;
+  width: 5vw;
   border-radius: 0.5vh;
+
+  @media (max-width: 415px) {
+    height: 0;
+    width: 0;
+  }
 `;
 
-const CaseItem = ({ title, desc, id }) => {
+const CaseItem = ({ title, desc, id, image }) => {
   return (
     <CaseItemContainer>
       <Grid>
-        <CaseImageWrapper>
-          <CaseImage src={ItemPhone} />
-        </CaseImageWrapper>
-        <DescriptionWrapper>
-          <CaseTitle>{title}</CaseTitle>
-          <CaseDesc>{desc}</CaseDesc>
-          <Link to={`/starsigned/${title}`}><GoToCaseButton/></Link>
-        </DescriptionWrapper>
+      <CaseImageWrapper>
+      <Link to={`/starsigned/${title}`}>
+            <CaseImage src={image.src} />
+            </Link>
+            <DescriptionWrapper>
+              <CaseTitle>{title}</CaseTitle>
+              <Link to={`/starsigned/${title}`}>
+                <GoToCaseButton />
+              </Link>
+            </DescriptionWrapper>
+          </CaseImageWrapper>
       </Grid>
     </CaseItemContainer>
   );

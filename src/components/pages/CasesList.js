@@ -9,11 +9,15 @@ import { getCases } from '../../../actions/caseActions';
 import CaseItem from '../CaseItem';
 
 const Grid = styled.div`
+  width: 100%;
   display: grid;
   // grid-template-columns: 1fr 1fr 1fr;
-  grid-template-columns: repeat(auto-fill, minmax(650px, 1fr));
-  grid-gap: 1em;
-  background-color: #222;
+  grid-template-columns: repeat(4,1fr);
+  background-color: #EEE;
+  grid-gap: 1vw;
+  @media (max-width: 415px) {
+    grid-template-columns: repeat(2,1fr);
+  }
 `;
 
 class CasesList extends Component {
@@ -27,14 +31,18 @@ class CasesList extends Component {
     console.log('State Access: ', cases);
     return (
       <Grid>
-        {cases.map(casesArray => (
-          <CaseItem
-            key={casesArray.id}
-            id={casesArray.id}
-            title={casesArray.title}
-            desc={casesArray.description}
-          />
-        ))}
+        {cases.map(casesArray => {
+          let image = casesArray.images[0];
+          return (
+            <CaseItem
+              key={casesArray.id}
+              id={casesArray.id}
+              title={casesArray.title}
+              desc={casesArray.description}
+              image={image}
+            />
+          );
+        })}
       </Grid>
     );
   }
@@ -47,7 +55,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => {
   return bindActionCreators(
     {
-      getCases,
+      getCases
     },
     dispatch
   );
