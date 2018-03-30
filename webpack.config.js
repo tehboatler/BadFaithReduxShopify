@@ -1,5 +1,7 @@
 var path = require('path');
 const webpack = require('webpack');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+
 module.exports = {
   entry: './src/app.js',
   output: {
@@ -15,7 +17,7 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader',
         query: {
-          presets: ['es2015']
+          presets: ['es2017']
         }
       },
       {
@@ -23,7 +25,7 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader',
         query: {
-          presets: ['react', 'es2015', 'stage-1'],
+          presets: ['react', 'es2017', 'stage-1'],
           plugins: ['graphql-js-client-transform']
         }
       },
@@ -42,6 +44,9 @@ module.exports = {
       }
     ]
   },
+  plugins: [
+    new UglifyJSPlugin()
+  ],
   devServer: {
     historyApiFallback: true
   }
