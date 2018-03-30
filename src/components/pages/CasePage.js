@@ -6,6 +6,7 @@ import { withRouter } from 'react-router-dom';
 import Select, { Option } from 'rc-select';
 import ReactDOM from 'react-dom';
 import ImageGallery from 'react-image-gallery';
+import createHistory from "history/createBrowserHistory"
 
 import 'react-image-gallery/styles/css/image-gallery.css';
 import 'rc-select/assets/index.css';
@@ -13,6 +14,10 @@ import './slider.css';
 
 import { getCase } from '../../../actions/caseActions';
 import PhoneCase from '../../img/BadFaithHeaderPhone.png';
+
+const history = createHistory({
+    forceRefresh: true,
+});
 
 const RootContainer = styled.div`
   display: flex;
@@ -179,10 +184,14 @@ class CasePage extends Component {
 
   retrieveCurrentCase = () => {
     const { productlist } = this.props;
+    if (productlist) {
     const products = productlist.find(this.checkProduct);
     this.setState({
       currentCaseParams: products
     });
+    } else {
+        history.push('/');
+    }
   };
 
   componentWillMount = () => {
@@ -256,7 +265,7 @@ class CasePage extends Component {
     const { addVariantToCart } = this.props;
 
     let initialVariantPrice = currentCaseParams.variants[0];
-
+ 
     console.log('Variant Price: ', initialVariantPrice.price);
     let variants = currentCaseParams.variants.map(variant => (
       <Option key={variant.title} value={variant.title}>
