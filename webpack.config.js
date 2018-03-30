@@ -5,11 +5,19 @@ module.exports = {
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'public'),
-    publicPath: '/',
+    publicPath: '/'
   },
   watch: true,
   module: {
     rules: [
+      {
+        test: /\.es6$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+        query: {
+          presets: ['es2017']
+        }
+      },
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -35,6 +43,6 @@ module.exports = {
     ]
   },
   devServer: {
-    historyApiFallback: true,
-  },
+    historyApiFallback: true
+  }
 };
