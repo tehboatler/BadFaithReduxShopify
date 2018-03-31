@@ -13,12 +13,14 @@ const Grid = styled.div`
   display: grid;
   // grid-template-columns: 1fr 1fr 1fr;
   grid-template-columns: repeat(4,1fr);
-  background-color: #EEE;
+  background-color: #FFF;
   grid-gap: 1vw;
   @media (max-width: 415px) {
     grid-template-columns: repeat(2,1fr);
   }
 `;
+
+
 
 class CasesList extends Component {
   componentDidMount() {

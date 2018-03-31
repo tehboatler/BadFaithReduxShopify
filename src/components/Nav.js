@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 import LineItem from './LineItem';
+import Cart from './pages/Cart';
 
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import faShoppingCart from '@fortawesome/fontawesome-free-solid/faShoppingCart';
@@ -11,10 +12,10 @@ const RootContainer = styled.div`
   position: fixed;
   display: flex;
   justify-content: space-between;
-  z-index: 1;
+  z-index: 999;
   height: 7.5vh;
   width: 100%;
-  background-color: #222;
+  background-color: #111;
   margin: 0;
 `;
 
@@ -64,6 +65,7 @@ const CartImageWrapper = styled.div`
   align-items: center;
 `;
 
+
 // ============================================================
 // Cart Drawer
 // ============================================================
@@ -74,6 +76,9 @@ const CartDrawerWrapper = styled.div`
   height: auto;
   // background-color: #f2f2f2;
   right: 0;
+  @media (max-width: 415px) {
+    width: 30vw;
+  }
 `;
 
 const CheckoutButton = styled.button`
@@ -83,42 +88,58 @@ const CheckoutButton = styled.button`
   border: none;
   border-bottom-right-radius: 0.5vh;
   border-bottom-left-radius: 0.5vh;
+`
+;
+const OpenCartButton = styled.button`
+  height: 100%;
+  width: 100%;
+  border: none;
 `;
 
 export default class Nav extends Component {
   constructor(props) {
     super(props);
+    this.state = { isCartOpen: false };
 
     this.openCheckout = this.openCheckout.bind(this);
   }
-  state = {};
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.checkout.lineItems) {
+    if (nextProps.checkout.lineItems.length === 0) {
+      this.setState({lineitems: []})
+    } else {
       let line_items = nextProps.checkout.lineItems.map(line_item => {
         return (
           <LineItem
             key={line_item.id.toString()}
-                  updateQuantityInCart={this.props.updateQuantityInCart}
-                  removeLineItemInCart={this.props.removeLineItemInCart}
-                  line_item={line_item}
+            updateQuantityInCart={this.props.updateQuantityInCart}
+            removeLineItemInCart={this.props.removeLineItemInCart}
+            line_item={line_item}
           />
         );
       });
-      console.log(line_items);
+      console.log('line_items: ', line_items);
       this.setState({
-        lineitems: line_items
+        lineitems: line_items,
+        isCartOpen: true
       });
     }
   }
+
+  handleCartClose = () => {
+    this.setState({ isCartOpen: false });
+  };
+
+  handleCartOpen = () => {
+    this.setState({ isCartOpen: true });
+  };
 
   openCheckout() {
     window.open(this.props.checkout.webUrl);
   }
 
   render() {
-    const { lineitems } = this.state;
-
+    const { lineitems, isCartOpen } = this.state;
 
     return (
       <RootContainer>
@@ -129,21 +150,27 @@ export default class Nav extends Component {
           <MenuItemWrapper>
             <MenuItem>Home</MenuItem>
           </MenuItemWrapper>
-          <MenuItemWrapper>
+          {/*<MenuItemWrapper>
             <MenuItem>Ranges</MenuItem>
-          </MenuItemWrapper>
+          </MenuItemWrapper>*/}
           <CartImageWrapper>
-            <Link to="/cart">
+            <OpenCartButton onClick={this.handleCartOpen}>
               <FontAwesomeIcon size="2x" color="#111" icon={faShoppingCart} />
-            </Link>
+              </OpenCartButton>
           </CartImageWrapper>
         </MenuWrapper>
-        <CartDrawerWrapper>
+        {/*CartDrawerWrapper>
           {lineitems}
           <CheckoutButton onClick={this.openCheckout}>
             0 items in your cart
           </CheckoutButton>
-        </CartDrawerWrapper>
+        </CartDrawerWrapper>*/}
+        <Cart
+          checkout={this.props.checkout}
+          handleCartClose={this.handleCartClose}
+          isCartOpen={isCartOpen}
+          line_items={lineitems}
+        />
       </RootContainer>
     );
   }

@@ -7,7 +7,7 @@ const CaseItemContainer = styled.div`
   width: 100%;
   height: auto;
   margin: 0.5vw 0;
-  // background-color: #DDD;
+  background-color: #EEE;
 `;
 
 const CaseTitle = styled.h1`
@@ -45,6 +45,7 @@ const CaseImageWrapper = styled.div`
 
 const CaseImage = styled.img`
   // position: absolute;
+  mix-blend-mode: multiply;
   height: 100%;
   width: 100%;
 `;

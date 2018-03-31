@@ -1,91 +1,56 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import styled from 'styled-components';
+import React, {Component} from 'react';
+import LineItem from '../LineItem';
 
-import { withRouter } from 'react-router-dom';
+class Cart extends Component {
+  constructor(props) {
+    super(props);
 
-const RootContainer = styled.div`
-  height: 30vh;
-  width: 100%;
-  // background-color: red;
-  padding: 0vw 10vw;
-`;
+    this.openCheckout = this.openCheckout.bind(this);
+  }
 
-const CartTitleWrapper = styled.div`
-  height: auto;
-  width: 10vw;
-  // background-color: grey;
-`;
-
-const CartTitle = styled.h1`
-  color: black;
-  font-size: 2rem;
-`;
-
-const OrderSummaryTitle = styled.h1`
-  color: black;
-  font-size: 1.5rem;
-`;
-
-const CartSeparatorLarge = styled.div`
-  height: 1vh;
-  width: 80vw;
-  background-color: black;
-`;
-
-const CartSeparatorSmall = styled.div`
-  height: 0.2vh;
-  width: 80vw;
-  background-color: black;
-`;
-
-const CartItem = styled.div`
-  height: 10vh;
-  width: 80vw;
-  background-color: lightblue;
-`;
-
-export class Cart extends Component {
-  renderCart = () => {
-    return (
-      <RootContainer>
-        <div />
-      </RootContainer>
-    );
-  };
-  renderEmpty = () => {
-    const { cart } = this.props;
-    return (
-      <RootContainer>
-        <CartTitleWrapper>
-          <CartTitle>Cart</CartTitle>
-        </CartTitleWrapper>
-        <CartSeparatorLarge />
-        <OrderSummaryTitle>Order Summary</OrderSummaryTitle>
-        <CartSeparatorSmall />
-        {cart.map(CartItems => {
-          return <CartItem />;
-        })}
-        <CartSeparatorSmall />
-        <div />
-      </RootContainer>
-    );
-  };
+  openCheckout() {
+    window.open(this.props.checkout.webUrl);
+  }
 
   render() {
-    const { cart } = this.props;
-    if (cart[0]) {
-      return this.renderCart();
-    } else {
-      return this.renderEmpty();
-    }
+
+    return (
+      <div className={`Cart ${this.props.isCartOpen ? 'Cart--open' : ''}`}>
+        <header className="Cart__header">
+          <h2>Your cart</h2>
+          <button
+            onClick={this.props.handleCartClose}
+            className="Cart__close">
+            ×
+          </button>
+        </header>
+        <ul className="Cart__line-items">
+          {this.props.line_items}
+        </ul>
+        <footer className="Cart__footer">
+          <div className="Cart-info clearfix">
+            <div className="Cart-info__total Cart-info__small">Subtotal</div>
+            <div className="Cart-info__pricing">
+              <span className="pricing">$ {this.props.checkout.subtotalPrice}</span>
+            </div>
+          </div>
+          <div className="Cart-info clearfix">
+            <div className="Cart-info__total Cart-info__small">Taxes</div>
+            <div className="Cart-info__pricing">
+              <span className="pricing">$ {this.props.checkout.totalTax}</span>
+            </div>
+          </div>
+          <div className="Cart-info clearfix">
+            <div className="Cart-info__total Cart-info__small">Total</div>
+            <div className="Cart-info__pricing">
+              <span className="pricing">$ {this.props.checkout.totalPrice}</span>
+            </div>
+          </div>
+          <button className="Cart__checkout button" onClick={this.openCheckout}>Checkout</button>
+        </footer>
+      </div>
+    )
   }
 }
 
-const mapStateToProps = state => ({
-  cart: state.cart.cart
-});
-
-const mapDispatchToProps = {};
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Cart));
+export default Cart;

@@ -8,6 +8,7 @@ import CasesList from './CasesList';
 import Header from '../Header';
 import Cart from './Cart';
 import CasePage from './CasePage';
+import StarSignedFeatured from './StarsignedFeatured';
 
 const RootContainer = styled.div`
   width: 100%;
@@ -313,6 +314,7 @@ export default class Main extends Component {
             removeLineItemInCart={this.removeLineItemInCart.bind(this)}
           />
           <Header />
+          <Route path="/" component={StarSignedFeatured} />
           <Switch>
             <Route exact path="/" component={CasesList} />
             <Route
@@ -325,7 +327,6 @@ export default class Main extends Component {
                 />
               )}
             />
-            <Route path="/cart" component={Cart} />
           </Switch>
         </RootContainer>
       </Router>

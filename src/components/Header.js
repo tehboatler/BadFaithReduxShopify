@@ -12,16 +12,15 @@ const HeaderContainer = styled.div`
   justify-content: center;
   height: ${({ isHome }) => (isHome ? '70vh' : '0vh')};
   width: 100%;
-  background-color: #222;
+  background-color: #111;
   overflow: hidden;
 `;
 
-// 422 * 749
+// 541 × 1085
 const PhoneImageWrapper = styled.div`
   position: relative;
   display: flex;
-  overflow: hidden;
-  width: 39.44vh;
+  width: 34.90vh;
   height: 70vh;
   //   background-color: red;
   justify-content: center;
@@ -35,23 +34,37 @@ const BadFaithLogoContainer = styled.div`
   z-index: 1;
   width: 39.44vh;
   height: 65vh;
-  bottom: 5vh;
+  bottom: 10vh;
+  text-align: center;
 `;
 
 const BadFaithLogo = styled.h1`
-  position: absolute;
-  align-self: center;
-  color: black;
-  z-index: 1;
-  bottom: 5vh;
+font-family: 'Bungee', cursive;
+font-size: 5vw;
+margin-bottom: 2vw;
+position: absolute;
+align-self: center;
+color: #EEE;
+z-index: 1;
+bottom: 5vh;
+@media (max-width: 415px) {
+  font-size: 15vw;
+  // margin-bottom: 3vw;
+}
 `;
 
 const BadFaithLogoTagline = styled.h2`
-  position: absolute;
+font-family: 'Bungee', cursive;
+font-size: 2vw;
+position: absolute;
   align-self: center;
-  color: black;
+  color: #EEE;
   z-index: 1;
   bottom: 0;
+
+  @media (max-width: 415px) {
+    font-size: 6vw;
+  }
 `;
 
 const PhoneImage = styled.img`
@@ -60,6 +73,7 @@ const PhoneImage = styled.img`
   width: 39.44vh;
   height: 70vh;
 `;
+
 
 export class Header extends Component {
   componentDidUpdate(prevProps, prevState) {
@@ -91,7 +105,7 @@ export class Header extends Component {
         <PhoneImageWrapper>
           <BadFaithLogoContainer>
             <BadFaithLogo>BadFaith</BadFaithLogo>
-            <BadFaithLogoTagline>Art for the heart.</BadFaithLogoTagline>
+            <BadFaithLogoTagline>Not just a case.</BadFaithLogoTagline>
           </BadFaithLogoContainer>
           <PhoneImage src={HeaderPhone} />
         </PhoneImageWrapper>

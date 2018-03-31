@@ -66,7 +66,6 @@ class LineItem extends Component {
             <span className="Line-item__price">
               $ { (this.props.line_item.quantity * this.props.line_item.variant.price).toFixed(2) }
             </span>
-            <button className="Line-item__remove" onClick={()=> this.props.removeLineItemInCart(this.props.line_item.id)}>×</button>
           </div>
         </div>
       </li>

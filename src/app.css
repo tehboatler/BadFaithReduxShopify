@@ -2,9 +2,9 @@
  * ============================== */
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');
 
-*, *:before, *:after {
+/* *, *:before, *:after { */
   /* box-sizing: border-box; */
-}
+/* } */
 
 html {
   font-size: 65%;
@@ -164,6 +164,13 @@ h2 {
   transform: translateX(0);
 }
 
+@media (min-width:480px)  { 
+  .Cart__close {
+    top: 8px;
+    right: -4px;
+  }
+ }
+
 .Cart__close {
   position: absolute;
   right: 9px;
@@ -186,7 +193,7 @@ h2 {
 .Cart__line-items {
   flex: 1 0 auto;
   margin: 0;
-  padding: 20px;
+  padding: 15px;
 }
 
 .Cart__footer {
@@ -252,7 +259,7 @@ h2 {
 }
 
 .Line-item__content {
-  width: 100%;
+  width: 75%;
   padding-left: 75px;
 }
 
@@ -282,7 +289,7 @@ h2 {
   float: right;
   font-weight: bold;
   font-size: 15px;
-  margin-right: 40px;
+  
 }
 
 .Line-item__quantity-container {
