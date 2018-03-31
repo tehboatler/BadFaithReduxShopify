@@ -314,7 +314,7 @@ export default class Main extends Component {
             removeLineItemInCart={this.removeLineItemInCart.bind(this)}
           />
           <Header />
-          <Route path="/" component={StarSignedFeatured} />
+          {/*<Route path="/" component={StarSignedFeatured} />*/}
           <Switch>
             <Route exact path="/" component={CasesList} />
             <Route

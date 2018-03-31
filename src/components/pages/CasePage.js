@@ -26,6 +26,12 @@ const RootContainer = styled.div`
   width: 100%;
   height: 92.5vh;
   background-color: #fff;
+
+  @media (max-width: 415px) {
+      height: auto;
+    align-items: none;
+  }
+
 `;
 
 const ItemWrapper = styled.div`
@@ -35,12 +41,12 @@ const ItemWrapper = styled.div`
   display: grid;
   grid-template-columns: 7fr 5fr;
   grid-gap: 2em;
-`;
 
-const ItemImageCarousel = styled.div`
-  width: 100%;
-  height: 33vw;
-  background-color: #111;
+  @media (max-width: 415px) {
+    grid-template-columns: 1fr;
+    height: auto;
+    width: 100vw;
+  }
 `;
 
 const CaseImageWrapper = styled.div`
@@ -50,6 +56,12 @@ const CaseImageWrapper = styled.div`
   border-radius: 1vw;
   height: 30.5vw;
   width: 30.5vw;
+  @media (max-width: 415px) {
+    height: 100vw;
+    width:100vw;
+    margin-bottom: 20vw;
+    
+  }
 `;
 
 const CaseImage = styled.img`
@@ -69,29 +81,47 @@ const ItemDetails = styled.div`
   width: 100%;
   //   padding-left: 2.5vw;
   //   background-color: blue;
+  @media (max-width: 415px) {
+      margin: 0 5%;
+      width: 90%;
+    height: 150vw;
+    border-top: 2px solid #e5e5e5;
+    align-items: center;
+  }
 `;
 
 const ItemDescription = styled.div`
   height: 10vw;
   width: 100%;
   // background-color: red;
+  @media (max-width: 415px) {
+      height: auto;
+    border-bottom: 2px solid #e5e5e5;
+    margin-bottom: 2vw;
+  }
 `;
-
 const ItemTitle = styled.h1`
   // background-color: black;
   font-family: 'Permanent Marker', cursive;
   font-size: 3vw;
   color: black;
   margin: 0;
+  @media (max-width: 415px) {
+    font-size: 9vw;
+  }
 `;
 
 const ItemPrice = styled.h1`
   // background-color: black;
-  font-family: 'Permanent Marker', cursive;
+  font-family: 'Bungee', cursive;
   font-size: 1.3vw;
   font-weight: 300;
   color: black;
   margin: 0;
+  @media (max-width: 415px) {
+    font-size: 6vw;
+    
+  }
 `;
 const ItemTagline = styled.h1`
   // background-color: black;
@@ -100,15 +130,12 @@ const ItemTagline = styled.h1`
   font-weight: 300;
   color: black;
   margin-top: 0.5vw;
+  @media (max-width: 415px) {
+    font-size: 4vw;
+ 
+  }
 `;
-const ProductDetailSummary = styled.h1`
-  // background-color: black;
-  font-family: 'Patua One', cursive;
-  font-size: 0.75vw;
-  font-weight: 300;
-  color: black;
-  margin-top: 0.5vw;
-`;
+
 
 const ItemCheckoutDetail = styled.div`
   display: flex;
@@ -117,6 +144,9 @@ const ItemCheckoutDetail = styled.div`
   height: 23vw;
   width: 100%;
   //   background-color: grey;
+  @media (max-width: 415px) {
+    height: 100vw;
+  }
 `;
 
 const PhoneVariantSelectorWrapper = styled.div`
@@ -128,11 +158,33 @@ justify-content: flex-end;
   width: 100%;
   margin-bottom: 1vw;
   //   background-color: #eee;
+  //   background-color: grey;
+  @media (max-width: 415px) {
+    height: 10vw;
+    align-self: center;
+    justify-content: center;
+    margin-bottom: 5vw;
+  }
 `;
 const ProductDetailsWrapper = styled.div`
   height: 7.5vw;
   width: 100%;
 //   background-color: #eee;
+@media (max-width: 415px) {
+    height: 60vw;
+  }
+`;
+
+const ProductDetailSummary = styled.h1`
+  // background-color: black;
+  font-family: 'Patua One', cursive;
+  font-size: 0.75vw;
+  font-weight: 300;
+  color: black;
+  margin-top: 0.5vw;
+  @media (max-width: 415px) {
+    font-size: 4vw;
+  }
 `;
 
 const AddToCartWrapper = styled.div`
@@ -142,6 +194,11 @@ const AddToCartWrapper = styled.div`
   height: 5vw;
   width: 100%;
   // background-color: #111;
+  @media (max-width: 415px) {
+    height: 30vw;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
 `;
 
 const AddToCartButton = styled.button`
@@ -150,20 +207,34 @@ const AddToCartButton = styled.button`
   background-color: red;
   border: none;
   border-radius: 0.2vw;
+  @media (max-width: 415px) {
+    height: 15vw;
+  }
 `;
 
 const AddToCartButtonText = styled.h1`
   color: white;
   font-size: 1.1vw;
+  font-family: 'Bungee', cursive;
+  @media (max-width: 415px) {
+   font-size: 6vw;
+   line-height: 0;
+   margin: 0;
+  }
 `;
 
 const SelectTitle = styled.h1`
   // background-color: black;
-  font-family: 'Permanent Marker', cursive;
+  font-family: 'Bungee', cursive;
   font-size: 1vw;
   font-weight: 300;
   color: black;
   margin: 0;
+  @media (max-width: 415px) {
+    font-size: 5vw;
+    
+  }
+  
 `;
 
 const SingleSelectWrapper = styled.div`
@@ -172,6 +243,10 @@ const SingleSelectWrapper = styled.div`
   width: 66%;
   background-color: #ddd;
   border-radius: 0.2vw;
+  @media (max-width: 415px) {
+    width: 100%;
+    height: 7vw;
+  }
 `;
 
 class CasePage extends Component {
@@ -211,7 +286,7 @@ class CasePage extends Component {
 
   componentDidMount = () => {
     const { currentCaseParams } = this.state;
-
+        window.scrollTo(0, 0);
     currentCaseParams.options.forEach(selector => {
       this.setState({
         selectedOptions: {
@@ -300,7 +375,7 @@ class CasePage extends Component {
                     defaultValue="iPhone X"
                     style={{
                       width: '100%',
-                      backgroundColor: 'transparent'
+                      backgroundColor: 'transparent',
                     }}
                     animation="slide-up"
                     showSearch={false}
