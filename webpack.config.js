@@ -1,6 +1,6 @@
 var path = require('path');
 const webpack = require('webpack');
-// const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
   entry: ["babel-polyfill", './src/app.js'],
@@ -36,24 +36,12 @@ module.exports = {
       }
     ]
   },
-  // plugins: [
-  //   // This helps ensure the builds are consistent if source hasn't changed:
-  //   new webpack.optimize.OccurrenceOrderPlugin(),
-  //   // Try to dedupe duplicated modules, if any:
-  //   new webpack.optimize.UglifyJsPlugin({
-  //     compress: {
-  //       screw_ie8: true, // React doesn't support IE8
-  //       warnings: false
-  //     },
-  //     mangle: {
-  //       screw_ie8: true
-  //     },
-  //     output: {
-  //       comments: false,
-  //       screw_ie8: true
-  //     }
-  //   }),
-  // ],
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('production')
+    }),
+    new webpack.optimize.UglifyJsPlugin()
+  ],
   devServer: {
     historyApiFallback: true
   }
