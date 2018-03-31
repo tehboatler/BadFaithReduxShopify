@@ -65,18 +65,18 @@ export class Header extends Component {
   componentDidUpdate(prevProps, prevState) {
     if (location.pathname !== prevProps.location.pathname) {
       if (location.pathname === '/') {
-        this.header.animate([{ height: '0vh' }, { height: '70vh' }], {
-          duration: 300,
-          fill: 'forwards',
-          easing: 'cubic-bezier(0.86, 0, 0.07, 1)'
-        });
+        // this.header.animate([{ height: '0vh' }, { height: '70vh' }], {
+        //   duration: 300,
+        //   fill: 'forwards',
+        //   easing: 'cubic-bezier(0.86, 0, 0.07, 1)'
+        // });
       } else {
         if (prevProps.location.pathname === '/') {
-          this.header.animate([{ height: '70vh' }, { height: '0vh' }], {
-            duration: 300,
-            fill: 'forwards',
-            easing: 'cubic-bezier(0.86, 0, 0.07, 1)'
-          });
+          // this.header.animate([{ height: '70vh' }, { height: '0vh' }], {
+          //   duration: 300,
+          //   fill: 'forwards',
+          //   easing: 'cubic-bezier(0.86, 0, 0.07, 1)'
+          // });
         }
       }
     }
