@@ -49,12 +49,28 @@ z-index: 1;
 bottom: 5vh;
 @media (max-width: 415px) {
   font-size: 15vw;
-  // margin-bottom: 3vw;
+  margin-bottom: 3vw;
+}
+`;
+
+const CigarettesLogo = styled.h1`
+font-family: 'Bungee', cursive;
+font-size: 3vw;
+margin-bottom: 2vw;
+position: absolute;
+align-self: center;
+color: #EEE;
+z-index: 1;
+bottom: 15vh;
+@media (max-width: 415px) {
+  bottom: 13vh;
+  font-size: 10vw;
+  margin-bottom: 3vw;
 }
 `;
 
 const BadFaithLogoTagline = styled.h2`
-font-family: 'Bungee', cursive;
+font-family: 'Patua One', cursive;
 font-size: 2vw;
 position: absolute;
   align-self: center;
@@ -63,7 +79,7 @@ position: absolute;
   bottom: 0;
 
   @media (max-width: 415px) {
-    font-size: 6vw;
+    font-size: 5vw;
   }
 `;
 
@@ -104,6 +120,7 @@ export class Header extends Component {
       >
         <PhoneImageWrapper>
           <BadFaithLogoContainer>
+          <CigarettesLogo>Cigarettes&</CigarettesLogo>
             <BadFaithLogo>BadFaith</BadFaithLogo>
             <BadFaithLogoTagline>Cases with a little heart.</BadFaithLogoTagline>
           </BadFaithLogoContainer>

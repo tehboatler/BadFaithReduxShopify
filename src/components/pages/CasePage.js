@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom';
 import Select, { Option } from 'rc-select';
 import ReactDOM from 'react-dom';
 import ImageGallery from 'react-image-gallery';
-import createHistory from "history/createBrowserHistory"
+import createHistory from 'history/createBrowserHistory';
 
 import 'react-image-gallery/styles/css/image-gallery.css';
 import 'rc-select/assets/index.css';
@@ -16,7 +16,7 @@ import { getCase } from '../../../actions/caseActions';
 import PhoneCase from '../../img/BadFaithHeaderPhone.png';
 
 const history = createHistory({
-    forceRefresh: true,
+  forceRefresh: true
 });
 
 const RootContainer = styled.div`
@@ -25,13 +25,13 @@ const RootContainer = styled.div`
   align-items: center;
   width: 100%;
   height: 92.5vh;
-  background-color: #fff;
-
+  background-color: #FFF;
+  
   @media (max-width: 415px) {
       height: auto;
+      background-color: #F5f5f5;
     align-items: none;
   }
-
 `;
 
 const ItemWrapper = styled.div`
@@ -58,9 +58,8 @@ const CaseImageWrapper = styled.div`
   width: 30.5vw;
   @media (max-width: 415px) {
     height: 100vw;
-    width:100vw;
+    width: 100vw;
     margin-bottom: 20vw;
-    
   }
 `;
 
@@ -82,8 +81,8 @@ const ItemDetails = styled.div`
   //   padding-left: 2.5vw;
   //   background-color: blue;
   @media (max-width: 415px) {
-      margin: 0 5%;
-      width: 90%;
+    margin: 0 5%;
+    width: 90%;
     height: 150vw;
     border-top: 2px solid #e5e5e5;
     align-items: center;
@@ -95,7 +94,7 @@ const ItemDescription = styled.div`
   width: 100%;
   // background-color: red;
   @media (max-width: 415px) {
-      height: auto;
+    height: auto;
     border-bottom: 2px solid #e5e5e5;
     margin-bottom: 2vw;
   }
@@ -120,7 +119,6 @@ const ItemPrice = styled.h1`
   margin: 0;
   @media (max-width: 415px) {
     font-size: 6vw;
-    
   }
 `;
 const ItemTagline = styled.h1`
@@ -132,10 +130,8 @@ const ItemTagline = styled.h1`
   margin-top: 0.5vw;
   @media (max-width: 415px) {
     font-size: 4vw;
- 
   }
 `;
-
 
 const ItemCheckoutDetail = styled.div`
   display: flex;
@@ -150,9 +146,9 @@ const ItemCheckoutDetail = styled.div`
 `;
 
 const PhoneVariantSelectorWrapper = styled.div`
-display: flex;
-flex-direction: column;
-justify-content: flex-end;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   align-self: flex-end;
   height: 7.5vw;
   width: 100%;
@@ -169,8 +165,8 @@ justify-content: flex-end;
 const ProductDetailsWrapper = styled.div`
   height: 7.5vw;
   width: 100%;
-//   background-color: #eee;
-@media (max-width: 415px) {
+  //   background-color: #eee;
+  @media (max-width: 415px) {
     height: 60vw;
   }
 `;
@@ -217,9 +213,9 @@ const AddToCartButtonText = styled.h1`
   font-size: 1.1vw;
   font-family: 'Bungee', cursive;
   @media (max-width: 415px) {
-   font-size: 6vw;
-   line-height: 0;
-   margin: 0;
+    font-size: 6vw;
+    line-height: 0;
+    margin: 0;
   }
 `;
 
@@ -232,9 +228,7 @@ const SelectTitle = styled.h1`
   margin: 0;
   @media (max-width: 415px) {
     font-size: 5vw;
-    
   }
-  
 `;
 
 const SingleSelectWrapper = styled.div`
@@ -246,6 +240,7 @@ const SingleSelectWrapper = styled.div`
   @media (max-width: 415px) {
     width: 100%;
     height: 7vw;
+    margin-bottom: 2vw;
   }
 `;
 
@@ -260,12 +255,12 @@ class CasePage extends Component {
   retrieveCurrentCase = () => {
     const { productlist } = this.props;
     if (productlist) {
-    const products = productlist.find(this.checkProduct);
-    this.setState({
-      currentCaseParams: products
-    });
+      const products = productlist.find(this.checkProduct);
+      this.setState({
+        currentCaseParams: products
+      });
     } else {
-        history.push('/');
+      history.push('/');
     }
   };
 
@@ -286,7 +281,7 @@ class CasePage extends Component {
 
   componentDidMount = () => {
     const { currentCaseParams } = this.state;
-        window.scrollTo(0, 0);
+    window.scrollTo(0, 0);
     currentCaseParams.options.forEach(selector => {
       this.setState({
         selectedOptions: {
@@ -308,7 +303,7 @@ class CasePage extends Component {
 
     // ============================================================
 
-    this.onChange("iPhone X")
+    this.onChange('iPhone X Slim');
   };
 
   onChange = value => {
@@ -330,7 +325,7 @@ class CasePage extends Component {
       selectedOptions: {
         [option]: selectedVariant.title,
         variantID: selectedVariant.id,
-        price: selectedVariant.price,
+        price: selectedVariant.price
       }
     });
   };
@@ -340,7 +335,7 @@ class CasePage extends Component {
     const { addVariantToCart } = this.props;
 
     let initialVariantPrice = currentCaseParams.variants[0];
- 
+
     console.log('Variant Price: ', initialVariantPrice.price);
     let variants = currentCaseParams.variants.map(variant => (
       <Option key={variant.title} value={variant.title}>
@@ -372,10 +367,10 @@ class CasePage extends Component {
                   <Select
                     allowClear
                     placeholder="Select A Phone"
-                    defaultValue="iPhone X"
+                    defaultValue="iPhone X Slim"
                     style={{
                       width: '100%',
-                      backgroundColor: 'transparent',
+                      backgroundColor: 'transparent'
                     }}
                     animation="slide-up"
                     showSearch={false}
@@ -384,33 +379,24 @@ class CasePage extends Component {
                     {variants}
                   </Select>
                 </SingleSelectWrapper>
-               
               </PhoneVariantSelectorWrapper>
               <ProductDetailsWrapper>
                 <SelectTitle>Product Details:</SelectTitle>
                 <ProductDetailSummary>
-                  These premium, super slim cases fit flawlessly, in the
-                  meantime being the strongest, lightest and most flexible cases
-                  on the market. 
+                  Our Slim Case combines premium protection with
+                  brilliant design. The slim profile keeps your tech looking
+                  sleek, while guarding against scuffs and scratches. Just snap
+                  it onto the case and you’re good to go.
                 </ProductDetailSummary>
+                <ProductDetailSummary>- Impact Resistant</ProductDetailSummary>
                 <ProductDetailSummary>
-                  - Impact Resistant
+                  - One-piece build: flexible plastic hard case
                 </ProductDetailSummary>
-                <ProductDetailSummary>
-                  - Rubber plate lining the inside
-                </ProductDetailSummary>
-                <ProductDetailSummary>
-                  - Super slim
-                </ProductDetailSummary>
+                <ProductDetailSummary>- Extremely slim profile</ProductDetailSummary>
               </ProductDetailsWrapper>
               <AddToCartWrapper>
                 <AddToCartButton
-                  onClick={() =>
-                    addVariantToCart(
-                      selectedOptions.variantID,
-                      1
-                    )
-                  }
+                  onClick={() => addVariantToCart(selectedOptions.variantID, 1)}
                 >
                   <AddToCartButtonText>Add To Cart</AddToCartButtonText>
                 </AddToCartButton>
