@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
+  mode: 'production',
   entry: ["babel-polyfill", './src/app.js'],
   output: {
     filename: 'bundle.js',
