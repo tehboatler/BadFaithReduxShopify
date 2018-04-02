@@ -34,12 +34,12 @@ const Grid = styled.div`
 const CaseImageWrapper = styled.div`
   position: relative;
   // background-color: #222;
-  height: 25vw;
-  width: 25vw;
+  height: 24vw;
+  width: 24vw;
 
   @media (max-width: 415px) {
-    height: 49vw;
-    width: 49vw;
+    height: 47vw;
+    width: 47vw;
   }
 `;
 

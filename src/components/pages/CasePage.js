@@ -29,7 +29,7 @@ const RootContainer = styled.div`
   
   @media (max-width: 415px) {
       height: auto;
-      background-color: #F5f5f5;
+      background-color: #FFF;
     align-items: none;
   }
 `;
@@ -51,12 +51,13 @@ const ItemWrapper = styled.div`
 
 const CaseImageWrapper = styled.div`
   justify-self: center;
-  align-self: start;
-  background-color: #222;
-  border-radius: 1vw;
-  height: 30.5vw;
-  width: 30.5vw;
-  @media (max-width: 415px) {
+//   background-color: #DDD;
+align-self: start;
+border-radius: 1vw;
+height: 30.5vw;
+width: 30.5vw;
+@media (max-width: 415px) {
+      background-color: #EEE;
     height: 100vw;
     width: 100vw;
     margin-bottom: 20vw;
@@ -66,8 +67,7 @@ const CaseImageWrapper = styled.div`
 const CaseImage = styled.img`
   height: 100%;
   width: 100%;
-  //   mix-blend-mode: multiply;
-  user-select: none;
+ user-select: none;
   pointer-events: none;
 `;
 
@@ -100,13 +100,35 @@ const ItemDescription = styled.div`
   }
 `;
 const ItemTitle = styled.h1`
+// background-color: black;
+font-family: 'Permanent Marker', cursive;
+font-size: 3vw;
+color: black;
+margin: 0;
+@media (max-width: 415px) {
+    font-size: 9vw;
+}
+`;
+const PriceWrapper = styled.div`
+  height: 10vw;
+  width: 100%;
+  // background-color: red;
+  @media (max-width: 415px) {
+    height: auto;
+    margin-bottom: 2vw;
+  }
+`;
+
+const ItemFullPrice = styled.h1`
   // background-color: black;
-  font-family: 'Permanent Marker', cursive;
-  font-size: 3vw;
+  font-family: 'Bungee', cursive;
+  font-size: 1.3vw;
+  font-weight: 300;
+  text-decoration: line-through;
   color: black;
   margin: 0;
   @media (max-width: 415px) {
-    font-size: 9vw;
+    font-size: 5vw;
   }
 `;
 
@@ -115,21 +137,22 @@ const ItemPrice = styled.h1`
   font-family: 'Bungee', cursive;
   font-size: 1.3vw;
   font-weight: 300;
-  color: black;
+  color: red;
   margin: 0;
   @media (max-width: 415px) {
-    font-size: 6vw;
+    font-size: 5vw;
   }
 `;
 const ItemTagline = styled.h1`
   // background-color: black;
   font-family: 'Patua One', cursive;
   font-size: 1vw;
-  font-weight: 300;
+  font-weight: 200;
   color: black;
   margin-top: 0.5vw;
   @media (max-width: 415px) {
     font-size: 4vw;
+    color: #222;
   }
 `;
 
@@ -138,10 +161,13 @@ const ItemCheckoutDetail = styled.div`
   flex-direction: column;
   justify-content: flex-end;
   height: 23vw;
-  width: 100%;
+  width: 90%;
   //   background-color: grey;
   @media (max-width: 415px) {
     height: 100vw;
+    padding: 5%;
+    background-color: #EEE;
+    border-radius: 2vw;
   }
 `;
 
@@ -163,11 +189,11 @@ const PhoneVariantSelectorWrapper = styled.div`
   }
 `;
 const ProductDetailsWrapper = styled.div`
-  height: 7.5vw;
+  height: 10vw;
   width: 100%;
   //   background-color: #eee;
   @media (max-width: 415px) {
-    height: 60vw;
+    height: 50vw;
   }
 `;
 
@@ -179,7 +205,8 @@ const ProductDetailSummary = styled.h1`
   color: black;
   margin-top: 0.5vw;
   @media (max-width: 415px) {
-    font-size: 4vw;
+    font-size: 3.5vw;
+    color: #333;
   }
 `;
 
@@ -296,7 +323,8 @@ class CasePage extends Component {
       //   return <CaseImage key={image.src} original={image.src} />;
       return (arr[index] = {
         original: `${image.src}`,
-        thumbnail: `${image.src}`
+        thumbnail: `${image.src}`,
+        originalClass: `image_styles`,
       });
     });
     this.setState({ variantImages: arr });
@@ -338,7 +366,7 @@ class CasePage extends Component {
 
     console.log('Variant Price: ', initialVariantPrice.price);
     let variants = currentCaseParams.variants.map(variant => (
-      <Option key={variant.title} value={variant.title}>
+      <Option className="selector_option_styles" key={variant.title} value={variant.title}>
         {variant.title}
       </Option>
     ));
@@ -349,6 +377,7 @@ class CasePage extends Component {
           <CaseImageWrapper>
             <ImageGallery
               showFullscreenButton={false}
+              style={{background: 'transparent'}}
               //   showNav={false}
               showPlayButton={false}
               items={variantImages}
@@ -357,21 +386,21 @@ class CasePage extends Component {
           <ItemDetails>
             <ItemDescription>
               <ItemTitle>{currentCaseParams.title}</ItemTitle>
-              <ItemPrice>{initialVariantPrice.price}</ItemPrice>
               <ItemTagline>{currentCaseParams.description}</ItemTagline>
-            </ItemDescription>
+              </ItemDescription>
+              <PriceWrapper>
+              <ItemFullPrice>31.97</ItemFullPrice>
+              <ItemPrice>{initialVariantPrice.price} - 22% off this week only</ItemPrice>
+              </PriceWrapper> 
             <ItemCheckoutDetail>
               <PhoneVariantSelectorWrapper>
-                <SelectTitle>Pick a phone size:</SelectTitle>
+                <SelectTitle>Model:</SelectTitle>
                 <SingleSelectWrapper>
                   <Select
                     allowClear
                     placeholder="Select A Phone"
                     defaultValue="iPhone X Slim"
-                    style={{
-                      width: '100%',
-                      backgroundColor: 'transparent'
-                    }}
+                    className="selector_wrapper_styles"
                     animation="slide-up"
                     showSearch={false}
                     onChange={this.onChange}

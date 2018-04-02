@@ -12,15 +12,27 @@ const Grid = styled.div`
   width: 100%;
   display: grid;
   // grid-template-columns: 1fr 1fr 1fr;
-  grid-template-columns: repeat(4,1fr);
-  background-color: #FFF;
+  grid-template-columns: repeat(4, 1fr);
+  background-color: #fff;
   grid-gap: 1vw;
   @media (max-width: 415px) {
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 `;
 
-
+const Loading = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  height: 10vh;
+  width: 100%;
+`;
+const LoadingText = styled.h1`
+  font-family: 'Patua One', cursive;
+  color: #222;
+  font-size: 3vw;
+`;
 
 class CasesList extends Component {
   componentDidMount() {
@@ -31,22 +43,30 @@ class CasesList extends Component {
   render() {
     const { cases } = this.props;
     console.log('State Access: ', cases);
-    return (
-      <Grid>
-        {cases.map(casesArray => {
-          let image = casesArray.images[0];
-          return (
-            <CaseItem
-              key={casesArray.id}
-              id={casesArray.id}
-              title={casesArray.title}
-              desc={casesArray.description}
-              image={image}
-            />
-          );
-        })}
-      </Grid>
-    );
+    if (cases.length === 0) {
+      return (
+        <Loading>
+          <LoadingText>Loading...</LoadingText>
+        </Loading>
+      );
+    } else {
+      return (
+        <Grid>
+          {cases.map(casesArray => {
+            let image = casesArray.images[0];
+            return (
+              <CaseItem
+                key={casesArray.id}
+                id={casesArray.id}
+                title={casesArray.title}
+                desc={casesArray.description}
+                image={image}
+              />
+            );
+          })}
+        </Grid>
+      );
+    }
   }
 }
 

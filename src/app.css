@@ -163,10 +163,18 @@ h2 {
   transform: translateX(0);
 }
 
-@media (min-width:480px)  { 
+@media (max-width:480px)  { 
   .Cart__close {
     top: 8px;
     right: -4px;
+  }
+  .selector_option_styles {
+    font-size: 4vw;
+    height: 5vw;
+  }
+  .selector_wrapper_styles {
+    width: 100%;
+    font-size: 4vw;
   }
  }
 
@@ -466,4 +474,22 @@ h2 {
   min-height: 2.64286em;
   background: #fbefee;
   color: #c23628;
+}
+
+/* CASE PAGE IMAGE GALLERY
+ * ============================== */
+
+ .image_styles {
+   mix-blend-mode: multiply;
+ }
+
+ /* CASE PAGE SELECTOR
+ * ============================== */
+
+ .selector_option_styles {
+
+}
+
+.selector_wrapper_styles {
+ width: 100%;
 }

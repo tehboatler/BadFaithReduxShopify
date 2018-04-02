@@ -65,7 +65,6 @@ const CartImageWrapper = styled.div`
   align-items: center;
 `;
 
-
 // ============================================================
 // Cart Drawer
 // ============================================================
@@ -88,8 +87,7 @@ const CheckoutButton = styled.button`
   border: none;
   border-bottom-right-radius: 0.5vh;
   border-bottom-left-radius: 0.5vh;
-`
-;
+`;
 const OpenCartButton = styled.button`
   height: 100%;
   width: 100%;
@@ -106,7 +104,7 @@ export default class Nav extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.checkout.lineItems.length === 0) {
-      this.setState({lineitems: []})
+      this.setState({ lineitems: [] });
     } else {
       let line_items = nextProps.checkout.lineItems.map(line_item => {
         return (
@@ -147,16 +145,18 @@ export default class Nav extends Component {
           <LogoImage>C&BF</LogoImage>
         </LogoWrapper>
         <MenuWrapper>
-          <MenuItemWrapper>
-            <MenuItem>Home</MenuItem>
-          </MenuItemWrapper>
+          <Link to="/">
+            <MenuItemWrapper>
+              <MenuItem>Home</MenuItem>
+            </MenuItemWrapper>
+          </Link>
           {/*<MenuItemWrapper>
             <MenuItem>Ranges</MenuItem>
           </MenuItemWrapper>*/}
           <CartImageWrapper>
             <OpenCartButton onClick={this.handleCartOpen}>
               <FontAwesomeIcon size="2x" color="#111" icon={faShoppingCart} />
-              </OpenCartButton>
+            </OpenCartButton>
           </CartImageWrapper>
         </MenuWrapper>
         {/*CartDrawerWrapper>
