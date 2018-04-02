@@ -164,8 +164,9 @@ const ItemCheckoutDetail = styled.div`
   width: 90%;
   //   background-color: grey;
   @media (max-width: 415px) {
-    height: 100vw;
+    height: 110vw;
     padding: 5%;
+    margin-bottom: 5vh;
     background-color: #EEE;
     border-radius: 2vw;
   }
@@ -218,7 +219,8 @@ const AddToCartWrapper = styled.div`
   width: 100%;
   // background-color: #111;
   @media (max-width: 415px) {
-    height: 30vw;
+    height: auto;
+    padding-bottom: 3vh;
     align-items: flex-start;
     justify-content: flex-start;
   }
