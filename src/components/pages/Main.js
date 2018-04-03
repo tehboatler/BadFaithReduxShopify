@@ -83,7 +83,7 @@ export default class Main extends Component {
           shop {
             name
             description
-            products(first:25) {
+            products(first:250) {
               pageInfo {
                 hasNextPage
                 hasPreviousPage
