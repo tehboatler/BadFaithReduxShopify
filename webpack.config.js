@@ -2,11 +2,11 @@ var path = require('path');
 var webpack = require('webpack');
 var UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 var HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
-var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-
+var BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+  .BundleAnalyzerPlugin;
 
 module.exports = {
-  entry: ["babel-polyfill", './src/app.js'],
+  entry: ['babel-polyfill', './src/app.js'],
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'public'),
@@ -21,7 +21,11 @@ module.exports = {
         loader: 'babel-loader',
         query: {
           presets: ['react', 'env'],
-          plugins: ['graphql-js-client-transform',"transform-object-rest-spread", "transform-class-properties" ]
+          plugins: [
+            'graphql-js-client-transform',
+            'transform-object-rest-spread',
+            'transform-class-properties'
+          ]
         }
       },
       {
@@ -40,11 +44,11 @@ module.exports = {
     ]
   },
   plugins: [
-      // new HardSourceWebpackPlugin(),
+    // new HardSourceWebpackPlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production')
     }),
-    new UglifyJSPlugin(),
+    new UglifyJSPlugin()
     // new BundleAnalyzerPlugin()
   ],
   // devtool: 'eval',
