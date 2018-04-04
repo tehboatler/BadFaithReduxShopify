@@ -452,8 +452,8 @@ class CasePage extends Component {
                 <ProductDetailSummary>
                   Our Slim Case combines premium protection with brilliant
                   design. The slim profile keeps your tech looking sleek, while
-                  guarding against scuffs and scratches. Just snap it onto the
-                  case and you’re good to go.
+                  guarding against scuffs and scratches. Just snap it onto your
+                  phone and you’re good to go.
                 </ProductDetailSummary>
                 <ProductDetailSummary>- Impact Resistant</ProductDetailSummary>
                 <ProductDetailSummary>

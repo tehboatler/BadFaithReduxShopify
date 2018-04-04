@@ -43,7 +43,7 @@ class CasesList extends Component {
   render() {
     const { cases } = this.props;
     console.log('State Access: ', cases);
-    if (cases.length === 0) {
+    if ( cases === null || cases.length === 0) {
       return (
         <Loading>
           <LoadingText>Loading...</LoadingText>
