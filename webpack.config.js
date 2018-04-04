@@ -6,7 +6,6 @@ var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlug
 
 
 module.exports = {
-  mode: 'production',
   entry: ["babel-polyfill", './src/app.js'],
   output: {
     filename: 'bundle.js',
