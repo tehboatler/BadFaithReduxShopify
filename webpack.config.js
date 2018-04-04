@@ -1,7 +1,9 @@
 var path = require('path');
-const webpack = require('webpack');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+var webpack = require('webpack');
+var UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 var HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
+var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
 
 module.exports = {
   mode: 'production',
@@ -43,7 +45,8 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production')
     }),
-    new webpack.optimize.UglifyJsPlugin()
+    new UglifyJSPlugin(),
+    // new BundleAnalyzerPlugin()
   ],
   // devtool: 'eval',
   devServer: {
