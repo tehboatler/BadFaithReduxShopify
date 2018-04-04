@@ -4,9 +4,6 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import reactDOM from 'react-dom';
 
-import HeaderPhone from '../img/BadFaithHeaderPhone.png';
-import HeaderBG from '../img/headerbgstars.jpg';
-import BackgroundStars from '../img/stardust.png';
 import Lined from '../img/lined-paper-2.png';
 
 const HeaderContainer = styled.div`
