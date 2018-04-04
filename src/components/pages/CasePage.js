@@ -25,11 +25,11 @@ const RootContainer = styled.div`
   align-items: center;
   width: 100%;
   height: 92.5vh;
-  background-color: #FFF;
-  
+  background-color: #fff;
+
   @media (max-width: 415px) {
-      height: auto;
-      background-color: #FFF;
+    height: auto;
+    background-color: #fff;
     align-items: none;
   }
 `;
@@ -40,7 +40,7 @@ const ItemWrapper = styled.div`
   // background-color: #333;
   display: grid;
   grid-template-columns: 7fr 5fr;
-  grid-gap: 2em;
+  grid-gap: 0.5em;
 
   @media (max-width: 415px) {
     grid-template-columns: 1fr;
@@ -51,23 +51,23 @@ const ItemWrapper = styled.div`
 
 const CaseImageWrapper = styled.div`
   justify-self: center;
-//   background-color: #DDD;
-align-self: start;
-border-radius: 1vw;
-height: 30.5vw;
-width: 30.5vw;
-@media (max-width: 415px) {
-      background-color: #EEE;
+  //   background-color: #DDD;
+  align-self: start;
+  border-radius: 1vw;
+  height: 30.5vw;
+  width: 30.5vw;
+  @media (max-width: 415px) {
+    background-color: #eee;
     height: 100vw;
     width: 100vw;
-    margin-bottom: 20vw;
+    // margin-bottom: 20vw;
   }
 `;
 
 const CaseImage = styled.img`
   height: 100%;
   width: 100%;
- user-select: none;
+  user-select: none;
   pointer-events: none;
 `;
 
@@ -81,10 +81,10 @@ const ItemDetails = styled.div`
   //   padding-left: 2.5vw;
   //   background-color: blue;
   @media (max-width: 415px) {
-    margin: 0 5%;
-    width: 90%;
+    // margin: 0 5%;
+    // width: 90%;
     height: 150vw;
-    border-top: 2px solid #e5e5e5;
+    // border-top: 2px solid #e5e5e5;
     align-items: center;
   }
 `;
@@ -95,19 +95,24 @@ const ItemDescription = styled.div`
   // background-color: red;
   @media (max-width: 415px) {
     height: auto;
+    padding: 5% 0;
+    background-color: #fff;
     border-bottom: 2px solid #e5e5e5;
     margin-bottom: 2vw;
   }
 `;
 const ItemTitle = styled.h1`
-// background-color: black;
-font-family: 'Permanent Marker', cursive;
-font-size: 3vw;
-color: black;
-margin: 0;
-@media (max-width: 415px) {
-    font-size: 9vw;
-}
+  // background-color: black;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 3vw;
+  display: block;
+  background-color: #111;
+  color: #eee;
+  margin: 0;
+  @media (max-width: 415px) {
+    font-size: 7vw;
+    padding: 2vw 5%;
+  }
 `;
 const PriceWrapper = styled.div`
   height: 10vw;
@@ -121,26 +126,33 @@ const PriceWrapper = styled.div`
 
 const ItemFullPrice = styled.h1`
   // background-color: black;
-  font-family: 'Bungee', cursive;
+  font-family: 'Patua One', cursive;
   font-size: 1.3vw;
   font-weight: 300;
   text-decoration: line-through;
   color: black;
   margin: 0;
   @media (max-width: 415px) {
-    font-size: 5vw;
+    font-size: 4vw;
+    padding: 0 5%;
+    color: #111;
   }
 `;
 
 const ItemPrice = styled.h1`
   // background-color: black;
-  font-family: 'Bungee', cursive;
+  display: block;
+  float: right;
+  font-family: 'Patua One', cursive;
   font-size: 1.3vw;
   font-weight: 300;
-  color: red;
+  color: black;
   margin: 0;
   @media (max-width: 415px) {
-    font-size: 5vw;
+    font-size: 4vw;
+    padding: 0 5%;
+    color: white;
+    background-color: red;
   }
 `;
 const ItemTagline = styled.h1`
@@ -151,8 +163,10 @@ const ItemTagline = styled.h1`
   color: black;
   margin-top: 0.5vw;
   @media (max-width: 415px) {
+    margin-top: 2vw;
     font-size: 4vw;
-    color: #222;
+    color: #111;
+    padding: 0 5%;
   }
 `;
 
@@ -167,8 +181,23 @@ const ItemCheckoutDetail = styled.div`
     height: 110vw;
     padding: 5%;
     margin-bottom: 5vh;
-    background-color: #EEE;
-    border-radius: 2vw;
+    // background-color: #f2f2f2;
+    // border-radius: 2vw;
+    background: -moz-linear-gradient(
+      top,
+      rgba(238, 238, 238, 1) 0%,
+      rgba(255, 255, 255, 0) 100%
+    ); /* FF3.6-15 */
+    background: -webkit-linear-gradient(
+      top,
+      rgba(238, 238, 238, 1) 0%,
+      rgba(255, 255, 255, 0) 100%
+    ); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(
+      to bottom,
+      rgba(238, 238, 238, 1) 0%,
+      rgba(255, 255, 255, 0) 100%
+    ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   }
 `;
 
@@ -207,7 +236,7 @@ const ProductDetailSummary = styled.h1`
   margin-top: 0.5vw;
   @media (max-width: 415px) {
     font-size: 3.5vw;
-    color: #333;
+    color: #111;
   }
 `;
 
@@ -234,6 +263,7 @@ const AddToCartButton = styled.button`
   border-radius: 0.2vw;
   @media (max-width: 415px) {
     height: 15vw;
+    border-radius: 1vw;
   }
 `;
 
@@ -256,7 +286,8 @@ const SelectTitle = styled.h1`
   color: black;
   margin: 0;
   @media (max-width: 415px) {
-    font-size: 5vw;
+    font-size: 4vw;
+    color: #111;
   }
 `;
 
@@ -326,7 +357,7 @@ class CasePage extends Component {
       return (arr[index] = {
         original: `${image.src}`,
         thumbnail: `${image.src}`,
-        originalClass: `image_styles`,
+        originalClass: `image_styles`
       });
     });
     this.setState({ variantImages: arr });
@@ -368,7 +399,11 @@ class CasePage extends Component {
 
     console.log('Variant Price: ', initialVariantPrice.price);
     let variants = currentCaseParams.variants.map(variant => (
-      <Option className="selector_option_styles" key={variant.title} value={variant.title}>
+      <Option
+        className="selector_option_styles"
+        key={variant.title}
+        value={variant.title}
+      >
         {variant.title}
       </Option>
     ));
@@ -379,7 +414,8 @@ class CasePage extends Component {
           <CaseImageWrapper>
             <ImageGallery
               showFullscreenButton={false}
-              style={{background: 'transparent'}}
+              showThumbnails={false}
+              style={{ background: 'transparent' }}
               //   showNav={false}
               showPlayButton={false}
               items={variantImages}
@@ -389,11 +425,11 @@ class CasePage extends Component {
             <ItemDescription>
               <ItemTitle>{currentCaseParams.title}</ItemTitle>
               <ItemTagline>{currentCaseParams.description}</ItemTagline>
-              </ItemDescription>
-              <PriceWrapper>
+              <ItemPrice>
+                {initialVariantPrice.price} - this week only
+              </ItemPrice>
               <ItemFullPrice>31.97</ItemFullPrice>
-              <ItemPrice>{initialVariantPrice.price} - 22% off this week only</ItemPrice>
-              </PriceWrapper> 
+            </ItemDescription>
             <ItemCheckoutDetail>
               <PhoneVariantSelectorWrapper>
                 <SelectTitle>Model:</SelectTitle>
@@ -414,16 +450,18 @@ class CasePage extends Component {
               <ProductDetailsWrapper>
                 <SelectTitle>Product Details:</SelectTitle>
                 <ProductDetailSummary>
-                  Our Slim Case combines premium protection with
-                  brilliant design. The slim profile keeps your tech looking
-                  sleek, while guarding against scuffs and scratches. Just snap
-                  it onto the case and you’re good to go.
+                  Our Slim Case combines premium protection with brilliant
+                  design. The slim profile keeps your tech looking sleek, while
+                  guarding against scuffs and scratches. Just snap it onto the
+                  case and you’re good to go.
                 </ProductDetailSummary>
                 <ProductDetailSummary>- Impact Resistant</ProductDetailSummary>
                 <ProductDetailSummary>
                   - One-piece build: flexible plastic hard case
                 </ProductDetailSummary>
-                <ProductDetailSummary>- Extremely slim profile</ProductDetailSummary>
+                <ProductDetailSummary>
+                  - Extremely slim profile
+                </ProductDetailSummary>
               </ProductDetailsWrapper>
               <AddToCartWrapper>
                 <AddToCartButton

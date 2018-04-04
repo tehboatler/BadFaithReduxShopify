@@ -8,6 +8,9 @@ const CaseItemContainer = styled.div`
   height: auto;
   margin: 0.5vw 0;
   background-color: #EEE;
+  -webkit-box-shadow: 0px 4px 30px -9px rgba(54,54,54,0.44);
+-moz-box-shadow: 0px 4px 30px -9px rgba(54,54,54,0.44);
+box-shadow: 0px 4px 30px -9px rgba(54,54,54,0.44);
 `;
 
 const CaseTitle = styled.h1`
@@ -58,7 +61,7 @@ const DescriptionWrapper = styled.div`
   background-color: #fff;
   // padding: 1vw 1vw 0vh 1vw;
   @media (max-width: 415px) {
-    width: 49vw;
+    width: 47vw;
     height: 7.5vw;
   }
 `;

@@ -29,6 +29,7 @@ const LogoWrapper = styled.div`
 `;
 
 const LogoImage = styled.h3`
+font-family: 'Permanent Marker', cursive;
   font-size: 2em;
   color: white;
   margin-left: 1rem;
@@ -142,7 +143,7 @@ export default class Nav extends Component {
     return (
       <RootContainer>
         <LogoWrapper>
-          <LogoImage>C&BF</LogoImage>
+          <LogoImage>SS</LogoImage>
         </LogoWrapper>
         <MenuWrapper>
           <Link to="/">

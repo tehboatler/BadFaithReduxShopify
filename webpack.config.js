@@ -1,6 +1,7 @@
 var path = require('path');
 const webpack = require('webpack');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+var HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 
 module.exports = {
   mode: 'production',
@@ -37,12 +38,14 @@ module.exports = {
       }
     ]
   },
-  plugins: [
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('production')
-    }),
-    new webpack.optimize.UglifyJsPlugin()
-  ],
+  // plugins: [
+      // new HardSourceWebpackPlugin(),
+  //   new webpack.DefinePlugin({
+  //     'process.env.NODE_ENV': JSON.stringify('production')
+  //   }),
+  //   new webpack.optimize.UglifyJsPlugin()
+  // ],
+  // devtool: 'eval',
   devServer: {
     historyApiFallback: true
   }

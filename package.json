@@ -34,6 +34,7 @@
     "express": "^4.16.3",
     "file-loader": "^1.1.11",
     "graphql-js-client": "^0.9.1",
+    "hard-source-webpack-plugin": "^0.6.4",
     "history": "^4.7.2",
     "normalize.css": "^8.0.0",
     "rc-select": "^7.7.5",

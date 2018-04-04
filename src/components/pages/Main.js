@@ -83,7 +83,7 @@ export default class Main extends Component {
           shop {
             name
             description
-            products(first:250) {
+            products(first:25) {
               pageInfo {
                 hasNextPage
                 hasPreviousPage
@@ -314,7 +314,6 @@ export default class Main extends Component {
             removeLineItemInCart={this.removeLineItemInCart.bind(this)}
           />
           <Header />
-          <Route path="/" component={StarSignedFeatured} />
           <Switch>
             <Route exact path="/" component={CasesList} />
             <Route

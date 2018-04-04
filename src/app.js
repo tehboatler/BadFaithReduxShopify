@@ -20,10 +20,10 @@ const middleware = applyMiddleware(logger, thunk);
 const store = createStore(reducers, {}, composeWithDevTools(middleware));
 
 export const client = new Client(typeBundle, {
-  url: 'https://cigarettesandbadfaith.myshopify.com/api/graphql',
+  url: 'https://starsigned.myshopify.com/api/graphql',
   fetcherOptions: {
     headers: {
-      'X-Shopify-Storefront-Access-Token': 'b402cc39e5e0928c0ddd82989a1efc5a'
+      'X-Shopify-Storefront-Access-Token': '558a78d02d960b9882b555efa0f443e5'
     }
   }
 });

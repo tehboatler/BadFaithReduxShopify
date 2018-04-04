@@ -5,6 +5,9 @@ import { withRouter } from 'react-router-dom';
 import reactDOM from 'react-dom';
 
 import HeaderPhone from '../img/BadFaithHeaderPhone.png';
+import HeaderBG from '../img/headerbgstars.jpg';
+import BackgroundStars from '../img/stardust.png';
+import Lined from '../img/lined-paper-2.png';
 
 const HeaderContainer = styled.div`
   padding-top: 7.5vh;
@@ -13,6 +16,12 @@ const HeaderContainer = styled.div`
   height: ${({ isHome }) => (isHome ? '70vh' : '0vh')};
   width: 100%;
   background-color: #111;
+  // background: rgb(0,0,0); /* Old browsers */
+  // background: -moz-linear-gradient(top, rgba(0,0,0,1) 14%, rgba(34,34,34,1) 100%); /* FF3.6-15 */
+  // background: -webkit-linear-gradient(top, rgba(0,0,0,1) 14%,rgba(34,34,34,1) 100%); /* Chrome10-25,Safari5.1-6 */
+  // background: linear-gradient(to bottom, rgba(0,0,0,1) 14%,rgba(34,34,34,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+
+  background-image: url(${Lined});
   overflow: hidden;
 `;
 
@@ -20,7 +29,7 @@ const HeaderContainer = styled.div`
 const PhoneImageWrapper = styled.div`
   position: relative;
   display: flex;
-  width: 34.90vh;
+  width: 34.9vh;
   height: 70vh;
   //   background-color: red;
   justify-content: center;
@@ -39,44 +48,44 @@ const BadFaithLogoContainer = styled.div`
 `;
 
 const BadFaithLogo = styled.h1`
-font-family: 'Bungee', cursive;
-font-size: 5vw;
-margin-bottom: 2vw;
-position: absolute;
-align-self: center;
-color: #EEE;
-z-index: 1;
-bottom: 5vh;
-@media (max-width: 415px) {
-  font-size: 15vw;
-  margin-bottom: 3vw;
-}
+  font-family: 'Permanent Marker', cursive;
+  font-size: 5vw;
+  margin-bottom: 2vw;
+  position: absolute;
+  align-self: center;
+  color: #eee;
+  z-index: 1;
+  bottom: 5vh;
+  @media (max-width: 415px) {
+    font-size: 15vw;
+    margin-bottom: 6vw;
+  }
 `;
 
 const CigarettesLogo = styled.h1`
-font-family: 'Bungee', cursive;
-font-size: 3vw;
-margin-bottom: 2vw;
-position: absolute;
-align-self: center;
-color: #EEE;
-z-index: 1;
-bottom: 15vh;
-@media (max-width: 415px) {
-  bottom: 13vh;
-  font-size: 10vw;
-  margin-bottom: 3vw;
-}
+  font-family: 'Bungee', cursive;
+  font-size: 3vw;
+  margin-bottom: 2vw;
+  position: absolute;
+  align-self: center;
+  color: #eee;
+  z-index: 1;
+  bottom: 15vh;
+  @media (max-width: 415px) {
+    bottom: 13vh;
+    font-size: 10vw;
+    margin-bottom: 3vw;
+  }
 `;
 
 const BadFaithLogoTagline = styled.h2`
-font-family: 'Patua One', cursive;
-font-size: 2vw;
-position: absolute;
+  font-family: 'Patua One', cursive;
+  font-size: 2vw;
+  position: absolute;
   align-self: center;
-  color: #EEE;
+  color: #eee;
   z-index: 1;
-  bottom: 0;
+  bottom: 0vw;
 
   @media (max-width: 415px) {
     font-size: 5vw;
@@ -85,11 +94,11 @@ position: absolute;
 
 const PhoneImage = styled.img`
   position: absolute;
+  opacity: 0.8;
   transform: translate3d(0, 15vh, 0);
   width: 39.44vh;
   height: 70vh;
 `;
-
 
 export class Header extends Component {
   componentDidUpdate(prevProps, prevState) {
@@ -120,11 +129,12 @@ export class Header extends Component {
       >
         <PhoneImageWrapper>
           <BadFaithLogoContainer>
-          <CigarettesLogo>Cigarettes&</CigarettesLogo>
-            <BadFaithLogo>BadFaith</BadFaithLogo>
-            <BadFaithLogoTagline>Cases with a little heart.</BadFaithLogoTagline>
+            <BadFaithLogo>StarSigned</BadFaithLogo>
+            <BadFaithLogoTagline>
+              Cases for the starbound.
+            </BadFaithLogoTagline>
           </BadFaithLogoContainer>
-          <PhoneImage src={HeaderPhone} />
+       
         </PhoneImageWrapper>
       </HeaderContainer>
     );
