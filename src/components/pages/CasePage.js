@@ -129,7 +129,7 @@ const ItemFullPrice = styled.h1`
   font-family: 'Patua One', cursive;
   font-size: 1.3vw;
   font-weight: 300;
-  text-decoration: line-through;
+//   text-decoration: line-through;
   color: black;
   margin: 0;
   @media (max-width: 415px) {
@@ -425,10 +425,7 @@ class CasePage extends Component {
             <ItemDescription>
               <ItemTitle>{currentCaseParams.title}</ItemTitle>
               <ItemTagline>{currentCaseParams.description}</ItemTagline>
-              <ItemPrice>
-                {initialVariantPrice.price} - this week only
-              </ItemPrice>
-              <ItemFullPrice>31.97</ItemFullPrice>
+              <ItemFullPrice>${initialVariantPrice.price}</ItemFullPrice>
             </ItemDescription>
             <ItemCheckoutDetail>
               <PhoneVariantSelectorWrapper>

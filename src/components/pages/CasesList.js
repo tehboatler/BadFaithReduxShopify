@@ -5,9 +5,24 @@ import { withRouter } from 'react-router-dom';
 
 import styled from 'styled-components';
 
-import { getCases } from '../../../actions/caseActions';
+import {
+  getCases,
+  getSimpleCases,
+  nullCases
+} from '../../../actions/caseActions';
 import CaseItem from '../CaseItem';
 
+const RootGrid = styled.div`
+  width: 100%;
+  display: grid;
+  // grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(1, 1fr);
+  background-color: #fff;
+  grid-gap: 1vw;
+  @media (max-width: 415px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+`;
 const Grid = styled.div`
   width: 100%;
   display: grid;
@@ -16,7 +31,7 @@ const Grid = styled.div`
   background-color: #fff;
   grid-gap: 1vw;
   @media (max-width: 415px) {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
   }
 `;
 
@@ -34,16 +49,30 @@ const LoadingText = styled.h1`
   font-size: 3vw;
 `;
 
+const CaseTypeToggle = styled.div`
+  background-color: red;
+  height: 10vh;
+  width: 100%;
+`;
+
+const SimpleCaseButton = styled.button`
+  background-color: black;
+  width: 50%;
+  height: 100%;
+`;
+
 class CasesList extends Component {
   componentDidMount() {
-    const { getCases } = this.props;
+    const { getCases, getSimpleCases } = this.props;
     getCases();
+    getSimpleCases();
   }
 
   render() {
-    const { cases } = this.props;
+    const { cases, getSimpleCases, getCases, nullCases, simplecases } = this.props;
+
     console.log('State Access: ', cases);
-    if ( cases === null || cases.length === 0) {
+    if (cases === null || cases.length === 0) {
       return (
         <Loading>
           <LoadingText>Loading...</LoadingText>
@@ -51,33 +80,54 @@ class CasesList extends Component {
       );
     } else {
       return (
+        <div>
+        <RootGrid>
         <Grid>
-          {cases.map(casesArray => {
-            let image = casesArray.images[0];
-            return (
-              <CaseItem
-                key={casesArray.id}
-                id={casesArray.id}
-                title={casesArray.title}
-                desc={casesArray.description}
-                image={image}
-              />
-            );
-          })}
+        {cases.map(casesArray => {
+          let image = casesArray.images[0];
+          return (
+            <CaseItem
+            key={casesArray.id}
+            id={casesArray.id}
+            title={casesArray.title}
+            desc={casesArray.description}
+            image={image}
+            />
+          );
+        })}
         </Grid>
+        <Grid>
+        {simplecases && simplecases.map(casesArray => {
+          let image = casesArray.images[0];
+          return (
+            <CaseItem
+            key={casesArray.id}
+            id={casesArray.id}
+            title={casesArray.title}
+            desc={casesArray.description}
+            image={image}
+            />
+          );
+        })}
+        </Grid>
+        </RootGrid>
+        </div>
       );
     }
   }
 }
 
 const mapStateToProps = state => ({
-  cases: state.cases.cases
+  cases: state.cases.cases,
+  simplecases: state.cases.simplecases
 });
 
 const mapDispatchToProps = dispatch => {
   return bindActionCreators(
     {
-      getCases
+      getCases,
+      getSimpleCases,
+      nullCases
     },
     dispatch
   );

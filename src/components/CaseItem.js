@@ -90,7 +90,7 @@ const CaseItem = ({ title, desc, id, image }) => {
             <DescriptionWrapper>
               <CaseTitle>{title}</CaseTitle>
               <Link to={`/starsigned/${title}`}>
-                <GoToCaseButton />
+                
               </Link>
             </DescriptionWrapper>
           </CaseImageWrapper>
