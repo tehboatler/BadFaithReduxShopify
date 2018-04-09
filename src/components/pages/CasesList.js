@@ -8,29 +8,33 @@ import styled from 'styled-components';
 import {
   getCases,
   getSimpleCases,
-  nullCases
 } from '../../../actions/caseActions';
 import CaseItem from '../CaseItem';
 
 const RootGrid = styled.div`
   width: 100%;
+  padding: 5vw 0 0 0;
   display: grid;
   // grid-template-columns: 1fr 1fr 1fr;
   grid-template-columns: repeat(1, 1fr);
   background-color: #fff;
   grid-gap: 1vw;
   @media (max-width: 415px) {
+    padding: 20vw 0 0 0;
+    width: 100%;
     grid-template-columns: repeat(2, 1fr);
   }
 `;
 const Grid = styled.div`
-  width: 100%;
+  width: 65%;
+  justify-self: center;
   display: grid;
   // grid-template-columns: 1fr 1fr 1fr;
   grid-template-columns: repeat(4, 1fr);
   background-color: #fff;
   grid-gap: 1vw;
   @media (max-width: 415px) {
+    width: 100%;
     grid-template-columns: repeat(1, 1fr);
   }
 `;
@@ -40,7 +44,8 @@ const Loading = styled.div`
   justify-content: center;
   align-items: center;
   background-color: #fff;
-  height: 10vh;
+  padding: 20vw 0 0 0;
+  height: 10vw;
   width: 100%;
 `;
 const LoadingText = styled.h1`
@@ -69,7 +74,7 @@ class CasesList extends Component {
   }
 
   render() {
-    const { cases, getSimpleCases, getCases, nullCases, simplecases } = this.props;
+    const { cases, getSimpleCases, getCases, simplecases } = this.props;
 
     console.log('State Access: ', cases);
     if (cases === null || cases.length === 0) {
@@ -127,7 +132,6 @@ const mapDispatchToProps = dispatch => {
     {
       getCases,
       getSimpleCases,
-      nullCases
     },
     dispatch
   );

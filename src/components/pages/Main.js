@@ -5,10 +5,12 @@ import { gql } from 'babel-plugin-graphql-js-client-transform';
 
 import Nav from '../Nav';
 import CasesList from './CasesList';
+import CollectionList from './Necklaces/CollectionList';
 import Header from '../Header';
 import Cart from './Cart';
 import CasePage from './CasePage';
-import StarSignedFeatured from './StarsignedFeatured';
+import Featured from './Featured';
+import Footer from '../Footer';
 
 const RootContainer = styled.div`
   width: 100%;
@@ -313,9 +315,21 @@ export default class Main extends Component {
             updateQuantityInCart={this.updateQuantityInCart.bind(this)}
             removeLineItemInCart={this.removeLineItemInCart.bind(this)}
           />
-          <Header />
+
+          <Route exact path="/" component={Header} />
           <Switch>
-            <Route exact path="/" component={CasesList} />
+            <Route exact path="/" component={Featured} />
+            <Route exact path="/starsigned" component={CasesList} />
+            <Route
+              exact
+              path="/starsigned-necklaces"
+              render={props => (
+                <CollectionList
+                  collectionStringProps="starsigned-necklaces"
+                  {...props}
+                />
+              )}
+            />
             <Route
               path="/starsigned/:title"
               render={props => (
@@ -327,6 +341,7 @@ export default class Main extends Component {
               )}
             />
           </Switch>
+          <Footer />
         </RootContainer>
       </Router>
     );

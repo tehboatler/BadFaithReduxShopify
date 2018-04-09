@@ -37,8 +37,8 @@ const Grid = styled.div`
 const CaseImageWrapper = styled.div`
   position: relative;
   // background-color: #222;
-  height: 24vw;
-  width: 24vw;
+  height: 13.25vw;
+  width: 13.25vw;
 
   @media (max-width: 415px) {
     height: 47vw;

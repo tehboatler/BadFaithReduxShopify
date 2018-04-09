@@ -8,7 +8,8 @@ import Client from 'graphql-js-client';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-import typeBundle from './types';
+// import typeBundle from './types';
+import typeBundle from '../schema/types';
 
 import 'normalize.css';
 import './app.css';

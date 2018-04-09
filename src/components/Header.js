@@ -5,14 +5,16 @@ import { withRouter } from 'react-router-dom';
 import reactDOM from 'react-dom';
 
 import Lined from '../img/lined-paper-2.png';
+import HeaderFeature from '../img/NecklacesHeader.png';
+import MobileHeroFeature from '../img/NecklacesHeaderMobile.jpg';
 
 const HeaderContainer = styled.div`
-  padding-top: 7.5vh;
+  padding-top: 5vw;
   display: flex;
   justify-content: center;
-  height: ${({ isHome }) => (isHome ? '70vh' : '0vh')};
+  height: auto;
   width: 100%;
-  background-color: #111;
+  background-color: #f2f2f2;
   // background: rgb(0,0,0); /* Old browsers */
   // background: -moz-linear-gradient(top, rgba(0,0,0,1) 14%, rgba(34,34,34,1) 100%); /* FF3.6-15 */
   // background: -webkit-linear-gradient(top, rgba(0,0,0,1) 14%,rgba(34,34,34,1) 100%); /* Chrome10-25,Safari5.1-6 */
@@ -20,17 +22,53 @@ const HeaderContainer = styled.div`
 
   background-image: url(${Lined});
   overflow: hidden;
+  @media (max-width: 415px) {
+    padding-top: 22.5vw;
+    background-color: #000;
+  }
 `;
 
 // 541 × 1085
 const PhoneImageWrapper = styled.div`
   position: relative;
   display: flex;
-  width: 34.9vh;
-  height: 70vh;
-  //   background-color: red;
+  width: 100vw;
+  height: 22.61vw;
   justify-content: center;
+  @media (max-width: 415px) {
+    height: 107.34vw;
+  }
 `;
+
+//960x334
+const HeaderIcon = styled.div`
+  background-color: black;
+  opacity: 0.95;
+  position: absolute;
+  top: 0vh;
+  width: 65vw;
+  height: 22.61vw;
+  @media (max-width: 415px) {
+    width: 100vw;
+    height: 107.34vw;
+  }
+  `;
+  
+  const HeaderIconImage = styled.div`
+  height: 100%;
+  width: 100%;
+  background-image: url(${HeaderFeature});
+  background-size: contain;
+  @media (max-width: 415px) {
+    background-image: url(${MobileHeroFeature});
+    background-size: contain;
+  }
+`;
+
+const HeaderGreenNecklace = styled.div`
+
+  
+`
 
 const BadFaithLogoContainer = styled.div`
   position: absolute;
@@ -98,25 +136,25 @@ const PhoneImage = styled.img`
 `;
 
 export class Header extends Component {
-  componentDidUpdate(prevProps, prevState) {
-    if (location.pathname !== prevProps.location.pathname) {
-      if (location.pathname === '/') {
-        // this.header.animate([{ height: '0vh' }, { height: '70vh' }], {
-        //   duration: 300,
-        //   fill: 'forwards',
-        //   easing: 'cubic-bezier(0.86, 0, 0.07, 1)'
-        // });
-      } else {
-        if (prevProps.location.pathname === '/') {
-          // this.header.animate([{ height: '70vh' }, { height: '0vh' }], {
-          //   duration: 300,
-          //   fill: 'forwards',
-          //   easing: 'cubic-bezier(0.86, 0, 0.07, 1)'
-          // });
-        }
-      }
-    }
-  }
+  // componentDidUpdate(prevProps, prevState) {
+  //   if (location.pathname !== prevProps.location.pathname) {
+  //     if (location.pathname === '/') {
+  //       // this.header.animate([{ height: '0vh' }, { height: '70vh' }], {
+  //       //   duration: 300,
+  //       //   fill: 'forwards',
+  //       //   easing: 'cubic-bezier(0.86, 0, 0.07, 1)'
+  //       // });
+  //     } else {
+  //       if (prevProps.location.pathname === '/') {
+  //         // this.header.animate([{ height: '70vh' }, { height: '0vh' }], {
+  //         //   duration: 300,
+  //         //   fill: 'forwards',
+  //         //   easing: 'cubic-bezier(0.86, 0, 0.07, 1)'
+  //         // });
+  //       }
+  //     }
+  //   }
+  // }
 
   render() {
     return (
@@ -125,13 +163,11 @@ export class Header extends Component {
         ref={c => (this.header = reactDOM.findDOMNode(c))}
       >
         <PhoneImageWrapper>
-          <BadFaithLogoContainer>
-            <BadFaithLogo>StarSigned</BadFaithLogo>
-            <BadFaithLogoTagline>
-              Cases for the starbound.
-            </BadFaithLogoTagline>
-          </BadFaithLogoContainer>
-       
+          
+            <HeaderIcon>
+              <HeaderIconImage/>
+            </HeaderIcon>
+        
         </PhoneImageWrapper>
       </HeaderContainer>
     );
