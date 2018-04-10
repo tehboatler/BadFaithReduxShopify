@@ -23,7 +23,20 @@ export function getCollection(collection_handle) {
                         node {
                           title
                           id
+                          handle
                           description
+                          variants(first: 1) {
+                            pageInfo {
+                              hasNextPage
+                              hasPreviousPage
+                            }
+                            edges {
+                              node {
+                                compareAtPrice
+                                price
+                              }
+                            }
+                          }
                           images(first: 1) {
                             pageInfo {
                               hasNextPage

@@ -6,6 +6,7 @@ import { gql } from 'babel-plugin-graphql-js-client-transform';
 import Nav from '../Nav';
 import CasesList from './CasesList';
 import CollectionList from './Necklaces/CollectionList';
+import ProductPage from './Necklaces/ProductPage';
 import Header from '../Header';
 import Cart from './Cart';
 import CasePage from './CasePage';
@@ -320,6 +321,7 @@ export default class Main extends Component {
           <Switch>
             <Route exact path="/" component={Featured} />
             <Route exact path="/starsigned" component={CasesList} />
+
             <Route
               exact
               path="/starsigned-necklaces"
@@ -330,6 +332,17 @@ export default class Main extends Component {
                 />
               )}
             />
+
+            <Route
+              path="/starsigned-necklaces/:handle"
+              render={props => (
+                <ProductPage
+                  addVariantToCart={this.addVariantToCart.bind(this)}
+                  {...props}
+                />
+              )}
+            />
+
             <Route
               path="/starsigned/:title"
               render={props => (

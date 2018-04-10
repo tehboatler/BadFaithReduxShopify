@@ -6,14 +6,13 @@ import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { getCollection } from '../../../../reducers/collectionReducers';
-import NecklaceItem from './NecklaceItem';
+import ProductItem from './ProductItem';
 
 const RootContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
   height: auto;
-  padding-bottom: 50vh;
 `;
 
 const Grid = styled.div`
@@ -23,7 +22,7 @@ const Grid = styled.div`
 
   // grid-template-columns: 1fr 1fr 1fr;
   grid-template-columns: repeat(4, 1fr);
-//   background-color: #fff;
+  //   background-color: #fff;
   grid-gap: 1vw;
   @media (max-width: 415px) {
     width: 95%;
@@ -59,12 +58,16 @@ const SimpleCaseButton = styled.button`
   height: 100%;
 `;
 
-
 class CollectionList extends Component {
   componentWillMount() {
     const { getCollection, collectionStringProps } = this.props;
+
     getCollection(collectionStringProps);
   }
+
+  componentDidMount = () => {
+    window.scrollTo(0, 0);
+  };
 
   render() {
     const { collection, collectionStringProps } = this.props;
@@ -81,14 +84,18 @@ class CollectionList extends Component {
           <Grid>
             {collection[collectionStringProps].map(collectionItem => {
               let image = collectionItem.images[0];
-              console.log("images: ",image.originalSrc)
+              let variants = collectionItem.variants[0];
+              console.log('images: ', image.originalSrc);
               return (
-                <NecklaceItem
+                <ProductItem
                   key={collectionItem.id}
                   id={collectionItem.id}
+                  handle={collectionItem.handle}
                   title={collectionItem.title}
                   image={image.originalSrc}
                   pathString={collectionStringProps}
+                  price={variants.price}
+                  compareAtPrice={variants.compareAtPrice}
                 />
               );
             })}

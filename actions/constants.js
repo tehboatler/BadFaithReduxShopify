@@ -9,5 +9,8 @@ export default {
 
     //collections
     GET_COLLECTION: 'GET_COLLECTION',
+
+    //products
+    GET_PRODUCT: 'GET_PRODUCT',
 }
 
