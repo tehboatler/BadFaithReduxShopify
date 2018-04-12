@@ -16,6 +16,10 @@ export function getProduct(product_handle) {
             productByHandle(handle: $product_handle) {
               title
               description
+              options {
+                name
+                values
+              }
               images(first:20) {
                 pageInfo {
                   hasNextPage
@@ -51,8 +55,41 @@ export function getProduct(product_handle) {
     return dispatch({
       type: actions.GET_PRODUCT,
       product: product,
-      productHandle: product_handle,
-      productLoaded: true,
+      productHandle: product_handle
+    });
+  };
+}
+
+export function getSelectedVariantByID(selected_variants, product_handle) {
+  console.log('getSelectedVariantByID() fired');
+  return async function(dispatch) {
+    const res = await client.send(
+      gql(client)`
+      query ($product_handle: String!, $selected_variants: [SelectedOptionInput!]!){
+        shop {
+          productByHandle(handle: $product_handle) {
+            title
+            description
+            variantBySelectedOptions(selectedOptions: $selected_variants) {
+              id
+              title
+              image {
+                id
+              }
+            }
+          }
+        }
+      }
+      
+      `,
+      { selected_variants, product_handle }
+    );
+    const product = await res.model.shop.productByHandle.variantBySelectedOptions;
+    console.log(product);
+    return dispatch({
+      type: actions.GET_PRODUCT_BY_ID,
+      product: product,
+      productHandle: product_handle
     });
   };
 }
@@ -61,7 +98,8 @@ export function getProduct(product_handle) {
 // Reducers
 // ============================================================
 const initialState = {
-  products: []
+  products: [],
+  selectedVariant: {}
 };
 
 export default (state = initialState, action) => {
@@ -70,7 +108,13 @@ export default (state = initialState, action) => {
     case actions.GET_PRODUCT:
       return {
         ...state,
-        products: {[productHandle]: {...product}}
+        products: { [productHandle]: { ...product } }
+      };
+      break;
+    case actions.GET_PRODUCT_BY_ID:
+      return {
+        ...state,
+        selectedVariant: product,
       };
       break;
 
