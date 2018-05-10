@@ -14,6 +14,7 @@ import typeBundle from '../schema/types';
 import 'normalize.css';
 import './app.css';
 import reducers from '../reducers/index';
+import "react-image-gallery/styles/css/image-gallery.css";
 
 import Main from './components/pages/Main';
 

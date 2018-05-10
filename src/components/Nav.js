@@ -5,7 +5,7 @@ import Drawer from 'react-motion-drawer';
 import ReactDOM from 'react-dom';
 
 import LineItem from './LineItem';
-import Cart from './pages/Cart';
+import Cart from './Cart';
 
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import faShoppingCart from '@fortawesome/fontawesome-free-solid/faShoppingCart';
@@ -220,15 +220,7 @@ export default class Nav extends Component {
           </FreeShippingText>
         </FreeShipping>
         <RootContainer>
-          <Drawer
-            open={drawerOpen}
-            onChange={open => this.setState({ drawerOpen: open })}
-          >
-            <DrawerBase />
-          </Drawer>
-          <DrawerButton onClick={this.openDrawer}>
-            <FontAwesomeIcon size="2x" color="#eee" icon={faMenuBars} />
-          </DrawerButton>
+          
           <LogoWrapper>
             <LogoImage>StarSigned</LogoImage>
           </LogoWrapper>
@@ -255,3 +247,15 @@ export default class Nav extends Component {
     );
   }
 }
+
+// Drawer
+// ============================================================
+// <Drawer
+//             open={drawerOpen}
+//             onChange={open => this.setState({ drawerOpen: open })}
+//           >
+//             <DrawerBase />
+//           </Drawer>
+//           <DrawerButton onClick={this.openDrawer}>
+//             <FontAwesomeIcon size="2x" color="#eee" icon={faMenuBars} />
+//           </DrawerButton>

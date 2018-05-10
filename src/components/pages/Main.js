@@ -4,12 +4,9 @@ import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import { gql } from 'babel-plugin-graphql-js-client-transform';
 
 import Nav from '../Nav';
-import CasesList from './CasesList';
-import CollectionList from './Necklaces/CollectionList';
-import ProductPage from './Necklaces/ProductPage';
+import CollectionList from './CollectionList';
+import ProductPage from './ProductPage';
 import Header from '../Header';
-import Cart from './Cart';
-import CasePage from './CasePage';
 import Featured from './Featured';
 import Footer from '../Footer';
 
@@ -320,7 +317,25 @@ export default class Main extends Component {
           <Route exact path="/" component={Header} />
           <Switch>
             <Route exact path="/" component={Featured} />
-            <Route exact path="/starsigned" component={CasesList} />
+            <Route
+              exact
+              path="/simple-stars"
+              render={props => (
+                <CollectionList
+                  collectionStringProps="simple-stars"
+                  {...props}
+                />
+              )}
+            />
+            <Route
+              path="/simple-stars/:handle"
+              render={props => (
+                <ProductPage
+                  addVariantToCart={this.addVariantToCart.bind(this)}
+                  {...props}
+                />
+              )}
+            />
 
             <Route
               exact
@@ -332,7 +347,6 @@ export default class Main extends Component {
                 />
               )}
             />
-
             <Route
               path="/starsigned-necklaces/:handle"
               render={props => (
@@ -344,10 +358,39 @@ export default class Main extends Component {
             />
 
             <Route
-              path="/starsigned/:title"
+              exact
+              path="/starsigned-bracelets"
               render={props => (
-                <CasePage
-                  productlist={products}
+                <CollectionList
+                  collectionStringProps="starsigned-bracelets"
+                  {...props}
+                />
+              )}
+            />
+            <Route
+              path="/starsigned-bracelets/:handle"
+              render={props => (
+                <ProductPage
+                  addVariantToCart={this.addVariantToCart.bind(this)}
+                  {...props}
+                />
+              )}
+            />
+
+            <Route
+              exact
+              path="/starsigned-rings"
+              render={props => (
+                <CollectionList
+                  collectionStringProps="starsigned-rings"
+                  {...props}
+                />
+              )}
+            />
+            <Route
+              path="/starsigned-rings/:handle"
+              render={props => (
+                <ProductPage
                   addVariantToCart={this.addVariantToCart.bind(this)}
                   {...props}
                 />

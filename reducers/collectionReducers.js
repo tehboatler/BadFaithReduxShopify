@@ -14,6 +14,8 @@ export function getCollection(collection_handle) {
         query($collection_handle: String! ) {
           shop {
             collectionByHandle(handle: $collection_handle) {
+              title
+              description
                     products(first: 12) {
                       pageInfo {
                         hasNextPage
@@ -60,8 +62,10 @@ export function getCollection(collection_handle) {
       { collection_handle }
     );
     const collectionProducts = await res.model.shop.collectionByHandle.products;
+    const collectionNode = await res.model.shop.collectionByHandle
     return dispatch({
       type: actions.GET_COLLECTION,
+      collectionNode: collectionNode,
       collectionItems: collectionProducts,
       collectionHandle: collection_handle
     });
@@ -76,7 +80,7 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-  const { type, data, collectionItems, collectionHandle } = action;
+  const { type, data, collectionItems, collectionHandle, collectionNode } = action;
   switch (type) {
     case actions.NULL_CASE_LIST:
       return { ...state, cases: [] };
@@ -85,7 +89,7 @@ export default (state = initialState, action) => {
     case actions.GET_COLLECTION:
       return {
         ...state,
-        collections: [ {[collectionHandle]: [...collectionItems]}]
+        collections: {[collectionHandle]: collectionItems, collectionNode}
       };
       break;
 

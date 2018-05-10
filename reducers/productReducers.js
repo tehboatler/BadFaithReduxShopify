@@ -73,6 +73,8 @@ export function getSelectedVariantByID(selected_variants, product_handle) {
             variantBySelectedOptions(selectedOptions: $selected_variants) {
               id
               title
+              price
+              compareAtPrice
               image {
                 id
               }

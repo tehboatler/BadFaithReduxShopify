@@ -13,7 +13,7 @@ const CaseItemContainer = styled.div`
   box-shadow: 0px 4px 30px -9px rgba(54, 54, 54, 0.44);
 
   @media (max-width: 415px) {
-    border-radius: 2.5vw;
+    border-radius: 1.5vw;
     overflow: hidden;
   }
 `;
@@ -35,8 +35,9 @@ const DescriptionWrapper = styled.div`
   background-color: #fff;
   // padding: 1vw 1vw 0vh 1vw;
   @media (max-width: 415px) {
+    padding-top: 5vw;
     width: 95vw;
-    height: 17.5vw;
+    height: 20vw;
     text-align: center;
   }
 `;
@@ -44,12 +45,13 @@ const DescriptionWrapper = styled.div`
 const CaseTitle = styled.h1`
   color: #111;
   margin: 1vw;
-  padding-top: 1vw;
+  padding-top: 5vw;
   font-size: 2vw;
-  font-family: 'Permanent Marker', cursive;
+  font-family: 'Amatic SC', cursive;
 
   @media (max-width: 415px) {
-    font-size: 5vw;
+    font-size: 7vw;
+    font-weight: 700;
     line-height: 0;
     padding-top: 4vw;
     color: #444;

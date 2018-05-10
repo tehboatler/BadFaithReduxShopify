@@ -1,16 +1,22 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Select, { Option } from 'rc-select';
+import 'rc-select/assets/index.css';
 
 const SelectorWrapper = styled.div`
-  background-color: pink;
-  width: 100%;
+  width: 90%;
   height: auto;
+  padding: 0 5%;
+  padding-bottom: 2.5%;
+  margin: 1vw 0;
 `;
 
 const Title = styled.h1`
-  color: red;
+  color: black;
   @media (max-width: 415px) {
+      font-size: 4vw;
+      padding-top: 2vw;
+      margin: 0;
   }
 `;
 
