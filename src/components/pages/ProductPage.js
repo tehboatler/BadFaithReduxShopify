@@ -6,6 +6,7 @@ import { withRouter } from 'react-router-dom';
 import ImageGallery from 'react-image-gallery';
 
 import VariantSelector from '../VariantSelector';
+import Header from '../Header';
 
 import {
   getProduct,
@@ -60,18 +61,17 @@ const Title = styled.h1`
 `;
 
 const Price = styled.h1`
-color: #b86161;
-font-family: 'Gamja Flower', cursive;
-@media (max-width: 415px) {
-  width: 25%;
-  font-size: 5vw;
-  padding: 2vw;
-  margin: 0 37.5%;
-  border-radius: 2vw;
-  margin-bottom: 4vw;
-}
-  
-`
+  color: #b86161;
+  font-family: 'Gamja Flower', cursive;
+  @media (max-width: 415px) {
+    width: 25%;
+    font-size: 5vw;
+    padding: 2vw;
+    margin: 0 37.5%;
+    border-radius: 2vw;
+    margin-bottom: 4vw;
+  }
+`;
 
 const Description = styled.h1`
   font-family: 'Patua One', cursive;
@@ -143,11 +143,11 @@ const AddToCartText = styled.h1`
 // Trust Badge Image
 // ============================================================
 const TrustBadgeWrapper = styled.div`
-height: 16vw;
-width: 90vw;
-background-image: url(${TrustBadge});
-background-size: contain;
-`
+  height: 16vw;
+  width: 90vw;
+  background-image: url(${TrustBadge});
+  background-size: contain;
+`;
 
 const Loading = styled.div`
   height: 20vh;
@@ -251,28 +251,29 @@ export class ProductPage extends Component {
             <Description>{product.description}</Description>
             <Price>${selectedVariant.price}</Price>
             <VariantSelectorAndCartWrapper>
-            {product.options.map(option => {
-              return (
-                <VariantSelector
-                initialLoad={this.initialVariantSelectorLoad}
-                onHandleChange={this.onSelectorChange}
-                name={option.name}
-                options={option}
-                />
-              );
-            })}
-            <AddToCartWrapper>
-            <AddToCartButton
-            onClick={() => addVariantToCart(selectedVariant.id, 1)}
-            >
-            <AddToCartText>Add To Cart</AddToCartText>
-            </AddToCartButton>
-            </AddToCartWrapper>
-            <TrustBadgeWrapper/>
+              {product.options.map(option => {
+                return (
+                  <VariantSelector
+                    initialLoad={this.initialVariantSelectorLoad}
+                    onHandleChange={this.onSelectorChange}
+                    name={option.name}
+                    options={option}
+                  />
+                );
+              })}
+              <AddToCartWrapper>
+                <AddToCartButton
+                  onClick={() => addVariantToCart(selectedVariant.id, 1)}
+                >
+                  <AddToCartText>Add To Cart</AddToCartText>
+                </AddToCartButton>
+              </AddToCartWrapper>
+              <TrustBadgeWrapper />
             </VariantSelectorAndCartWrapper>
             </ProductCardWrapper>
-            </RootContainer>
-          );
+            <Header />
+        </RootContainer>
+      );
     } else {
       return <Loading />;
     }

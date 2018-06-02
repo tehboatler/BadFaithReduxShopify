@@ -67,11 +67,12 @@ const PriceWrapper = styled.div`
 const Price = styled.h1`
   color: #111;
   margin: 1vw;
-  padding-top: 1vw;
+  margin-top: 3vw;
   font-size: 2vw;
   font-family: 'Gamja Flower', cursive;
 
   @media (max-width: 415px) {
+    background-color: #eee;
     font-size: 5vw;
     color: #444;
   }
@@ -123,7 +124,7 @@ const ProductItem = ({
         <CaseTitle>{title}</CaseTitle>
         <PriceWrapper>
           <Price>${price} USD</Price>
-          <CompareAtPrice>${compareAtPrice} USD</CompareAtPrice>
+          
         </PriceWrapper>
         <Link to={`/${pathString}/${handle}`} />
       </DescriptionWrapper>

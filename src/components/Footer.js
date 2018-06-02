@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom'
+
 
 import PaymentOptionIcons from '../img/PaymentOptions.png';
 
@@ -71,7 +73,9 @@ const Footer = () => {
           <TitleWrapper>
             <Title>Need Help?</Title>
           </TitleWrapper>
+          <Link style={{ gridArea: 'feat1' }} to="/simple-stars">
           <SubTitle>Support Center</SubTitle>
+          </Link>
           <SubTitle>Contact Us</SubTitle>
           <SubTitle>About Us</SubTitle>
           <TitleWrapper>

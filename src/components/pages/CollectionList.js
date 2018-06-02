@@ -10,6 +10,7 @@ import styled from 'styled-components';
 import { getCollection } from '../../../reducers/collectionReducers';
 import ProductItem from '../ProductItem';
 import Featured from './Featured';
+import Header from '../Header';
 
 const RootContainer = styled.div`
   width: 100%;
@@ -135,6 +136,7 @@ class CollectionList extends Component {
         <div>
           <RootContainer>
             <TopNav>
+              <Header />
               <TopNavTitle>{collectionNode.title}</TopNavTitle>
               <TopNavDescription>
                 {collectionNode.description}
@@ -158,39 +160,8 @@ class CollectionList extends Component {
                   />
                 );
               })}
-              <Nav>
-                <NavItemWrapper>
-                  <Link to="/starsigned-necklaces">
-                    <NavItem>Necklaces</NavItem>
-                  </Link>
-                </NavItemWrapper>
-                <NavItemWrapper>
-                  <Link to="/starsigned-rings">
-                    <NavItem>Rings</NavItem>
-                  </Link>
-                </NavItemWrapper>
-                <NavItemWrapper>
-                  <Link to="/starsigned-bracelets">
-                    <NavItem>Bracelets</NavItem>
-                  </Link>
-                </NavItemWrapper>
-                <NavItemWrapper>
-                  <Link to="/simple-stars">
-                    <NavItem>Phone Cases</NavItem>
-                  </Link>
-                </NavItemWrapper>
-                <NavItemWrapper>
-                  <Link to="/starsigned-necklaces">
-                    <NavItem>Pins & Badges</NavItem>
-                  </Link>
-                </NavItemWrapper>
-                <NavItemWrapper>
-                  <Link to="/starsigned-necklaces">
-                    <NavItem>Lights & Home Decor</NavItem>
-                  </Link>
-                </NavItemWrapper>
-              </Nav>
-            </Grid>
+              </Grid>
+              <Header /> 
           </RootContainer>
         </div>
       );

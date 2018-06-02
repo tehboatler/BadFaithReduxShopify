@@ -396,6 +396,28 @@ export default class Main extends Component {
                 />
               )}
             />
+
+            <Route
+              exact
+              path="/starsigned-lights-home"
+              render={props => (
+                <CollectionList
+                  collectionStringProps="starsigned-lights-home"
+                  {...props}
+                />
+              )}
+            />
+            <Route
+              path="/starsigned-lights-home/:handle"
+              render={props => (
+                <ProductPage
+                  addVariantToCart={this.addVariantToCart.bind(this)}
+                  {...props}
+                />
+              )}
+            />
+
+
           </Switch>
           <Footer />
         </RootContainer>
