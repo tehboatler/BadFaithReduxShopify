@@ -16,6 +16,7 @@ export function getProduct(product_handle) {
             productByHandle(handle: $product_handle) {
               title
               description
+              descriptionHtml
               options {
                 name
                 values

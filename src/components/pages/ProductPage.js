@@ -49,7 +49,7 @@ const Title = styled.h1`
   @media (max-width: 415px) {
     background-color: #fff;
     width: auto;
-    font-size: 10vw;
+    font-size: 8vw;
     font-weight: 700;
     padding: 2vw;
     margin-top: 0;
@@ -74,13 +74,13 @@ const Price = styled.h1`
 `;
 
 const Description = styled.h1`
-  font-family: 'Patua One', cursive;
+  font-family: 'Roboto', cursive;
   font-size: 0.75vw;
-  font-weight: 300;
+  font-weight: 500;
   color: black;
   margin-top: 0.5vw;
   @media (max-width: 415px) {
-    font-size: 3.5vw;
+    font-size: 4vw;
     padding: 0 2vw;
     color: #333;
   }
@@ -240,7 +240,7 @@ export class ProductPage extends Component {
           <ImageGallery
             showFullscreenButton={false}
             showThumbnails={true}
-            style={{ background: 'transparent' }}
+            style={{ background: 'transparent'}}
             //   showNav={false}
             showPlayButton={false}
             items={variantImages}
@@ -248,7 +248,7 @@ export class ProductPage extends Component {
 
           <ProductCardWrapper>
             <Title>{product.title}</Title>
-            <Description>{product.description}</Description>
+            <Description dangerouslySetInnerHTML={{__html: product.descriptionHtml}}></Description>
             <Price>${selectedVariant.price}</Price>
             <VariantSelectorAndCartWrapper>
               {product.options.map(option => {
