@@ -3,10 +3,11 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { withRouter, Link } from 'react-router-dom';
 import reactDOM from 'react-dom';
+import Sticky from 'react-stickynode';
 
-import Lined from '../img/lined-paper-2.png';
-import HeaderFeature from '../img/NecklacesHeader.png';
-import MobileHeroFeature from '../img/NecklacesHeaderMobile.jpg';
+
+
+import IntroBanner from './IntroBanner';
 
 const HeaderContainer = styled.div`
   padding-top: 5vw;
@@ -20,15 +21,12 @@ const HeaderContainer = styled.div`
   // background: -moz-linear-gradient(top, rgba(0,0,0,1) 14%, rgba(34,34,34,1) 100%); /* FF3.6-15 */
   // background: -webkit-linear-gradient(top, rgba(0,0,0,1) 14%,rgba(34,34,34,1) 100%); /* Chrome10-25,Safari5.1-6 */
   // background: linear-gradient(to bottom, rgba(0,0,0,1) 14%,rgba(34,34,34,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-
-  background-image: url(${Lined});
   overflow: hidden;
   @media (max-width: 415px) {
-    padding-top: 22.5vw;
+    padding-top: 20vw;
     background-color: #000;
   }
 `;
-
 
 const HeaderTaglineWrapper = styled.div`
   // background-color: #121212;
@@ -36,32 +34,42 @@ const HeaderTaglineWrapper = styled.div`
   width: 100%;
   text-align: center;
   align-items: center;
+  -webkit-box-shadow: 0px 10px 13px -1px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0px 10px 13px -1px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 10px 13px -1px rgba(0, 0, 0, 0.15);
+  z-index: 2;
 `;
 
 const HeaderTagline = styled.h1`
   color: white;
-  font-size: 10vw;
+  font-size: 4vw;
   font-weight: 700;
-  font-family: 'Amatic SC', cursive;
+  font-family: 'Permanent Marker', cursive;
 `;
 
 const HeaderLinks = styled.div`
-  background-color: #121212;
+  background-color: #f2f2f2;
   display: flex;
   justify-content: space-between;
   width: 90%;
-  padding: 3% 5%;
-`
+  padding: 5% 5%;
+  -webkit-box-shadow: 0px 10px 13px -1px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0px 10px 13px -1px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 10px 13px -1px rgba(0, 0, 0, 0.15);
+  z-index: 999;
+`;
 
 const LinkText = styled.h1`
-font-size: 6vw;
-display: inline;
-font-weight: 700;
-font-family: 'Amatic SC', cursive;
-color: white;
-text-decoration: underline;
-  
-`
+  font-size: 3.5vw;
+  display: inline;
+  background-color: white;
+  padding: 2vw 2vw;
+  font-weight: 700;
+  font-family: 'Roboto Condensed', cursive;
+  color: #fff6e5;
+  color: black;
+  text-decoration: underline;
+`;
 
 export class Header extends Component {
   render() {
@@ -71,15 +79,26 @@ export class Header extends Component {
         ref={c => (this.header = reactDOM.findDOMNode(c))}
       >
         <HeaderTaglineWrapper>
-          <HeaderTagline>Style for the StarBound</HeaderTagline>
+          <HeaderTagline>Style for the Starbound</HeaderTagline>
         </HeaderTaglineWrapper>
+        
+        <Sticky innerZ={999} enabled={true} top={75} bottomBoundary={2400}>
         <HeaderLinks>
-          <Link to="/starsigned-rings"><LinkText>Rings</LinkText></Link>
-          <Link to="/starsigned-necklaces"><LinkText>Necklaces</LinkText></Link>
-          <Link to="/starsigned-bracelets"><LinkText>Bracelets</LinkText></Link>
-          <Link to="/starsigned-lights-home"><LinkText>Lights&Home</LinkText></Link>
-        </HeaderLinks>
-      </HeaderContainer>
+    <Link to="/starsigned-rings">
+    <LinkText>RINGS</LinkText>
+    </Link>
+    <Link to="/starsigned-necklaces">
+    <LinkText>NECKLACES</LinkText>
+    </Link>
+    <Link to="/starsigned-bracelets">
+    <LinkText>BRACELETS</LinkText>
+    </Link>
+    <Link to="/starsigned-lights-home">
+    <LinkText>LIGHTS&HOME</LinkText>
+    </Link>
+    </HeaderLinks>
+    </Sticky>
+    </HeaderContainer>
     );
   }
 }

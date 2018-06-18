@@ -3,15 +3,15 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import { Instagram } from 'react-content-loader';
-import { Link } from 'react-router-dom';
 
 import styled from 'styled-components';
 
 import { getCollection } from '../../../reducers/collectionReducers';
 import ProductItem from '../ProductItem';
-import Featured from './Featured';
 import Header from '../Header';
 
+// Root
+// ============================================================
 const RootContainer = styled.div`
   width: 100%;
   display: flex;
@@ -36,6 +36,8 @@ const Grid = styled.div`
   }
 `;
 
+// Loading
+// ============================================================
 const Loading = styled.div`
   display: flex;
   justify-content: center;
@@ -49,18 +51,6 @@ const LoadingText = styled.h1`
   font-family: 'Patua One', cursive;
   color: #222;
   font-size: 3vw;
-`;
-
-const CaseTypeToggle = styled.div`
-  background-color: red;
-  height: 10vh;
-  width: 100%;
-`;
-
-const SimpleCaseButton = styled.button`
-  background-color: black;
-  width: 50%;
-  height: 100%;
 `;
 
 // Collection Page Description + Top Nav
@@ -96,18 +86,6 @@ const Nav = styled.div`
   width: 100%;
   height: auto;
 `;
-const NavItemWrapper = styled.div`
-  background-color: #111;
-  text-align: center;
-  border-radius: 2px;
-  border: 2px solid #111;
-`;
-
-const NavItem = styled.h1`
-  font-size: 4vw;
-  font-family: 'Patua One', cursive;
-  color: #ddd;
-`;
 
 class CollectionList extends Component {
   componentWillMount() {
@@ -136,11 +114,9 @@ class CollectionList extends Component {
         <div>
           <RootContainer>
             <TopNav>
-              <Header />
+            
               <TopNavTitle>{collectionNode.title}</TopNavTitle>
-              <TopNavDescription>
-                {collectionNode.description}
-              </TopNavDescription>
+
             </TopNav>
             <Grid>
               {collection.map(collectionItem => {

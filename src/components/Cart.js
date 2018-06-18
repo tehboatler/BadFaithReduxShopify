@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import LineItem from './LineItem';
 
 class Cart extends Component {
   constructor(props) {
