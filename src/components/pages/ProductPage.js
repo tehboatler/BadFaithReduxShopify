@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import ImageGallery from 'react-image-gallery';
+import { renderToStaticMarkup } from 'react-dom/server';
 
 import VariantSelector from '../VariantSelector';
 import Header from '../Header';
@@ -165,6 +166,35 @@ const Loading = styled.div`
 // Yotpo Reviews Widget
 // ============================================================
 
+const ReviewsStarRating = () => {
+  return renderToStaticMarkup(
+    <div
+      className={'yotpo bottomLine'}
+      data-product-id={'SKUaaa12'}
+      data-url={
+        'http://starsigned.herokuapp.com/starsigned-rings/sterling-silver-starsigned-rings'
+      }
+    />
+  );
+};
+
+const ReviewsWidget = () => {
+  return renderToStaticMarkup(
+    <div
+      className={'yotpo yotpo-main-widget'}
+      data-product-id={'SKUaaa12'}
+      data-price={'30'}
+      data-currency={'USD'}
+      data-name={'Sterling Silver StarSigned Ring'}
+      data-url={
+        'http://starsigned.herokuapp.com/starsigned-rings/sterling-silver-starsigned-rings'
+      }
+      data-image-url={'The product image url. Url escaped'}
+      data-description={'An awesome ring!'}
+    />
+  );
+};
+
 export class ProductPage extends Component {
   state = { selectedOptions: [] };
 
@@ -258,11 +288,7 @@ export class ProductPage extends Component {
 
           <ProductCardWrapper>
             <Title>{product.title}</Title>
-            <div
-              className="yotpo bottomLine"
-              data-product-id="SKUaaa12"
-              data-url="http://starsigned.herokuapp.com/starsigned-rings/sterling-silver-starsigned-rings"
-            />
+            <ReviewsStarRating />
             <Price>${selectedVariant.price}</Price>
             <VariantSelectorAndCartWrapper>
               {product.options.map(option => {
@@ -289,20 +315,9 @@ export class ProductPage extends Component {
               <TrustBadgeWrapper />
             </VariantSelectorAndCartWrapper>
           </ProductCardWrapper>
-          
+
           <IntroBanner />
           <Header />
-          <div
-            className="yotpo yotpo-main-widget"
-            data-product-id="SKUaaa12"
-            data-price="30"
-            data-currency="USD"
-            data-name="Sterling Silver StarSigned Ring"
-            data-url="http://starsigned.herokuapp.com/starsigned-rings/sterling-silver-starsigned-rings"
-            data-image-url="The product image url. Url escaped"
-            data-description="An awesome ring!"
-          />
-          
         </RootContainer>
       );
     } else {
