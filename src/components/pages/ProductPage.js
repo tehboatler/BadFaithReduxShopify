@@ -28,14 +28,14 @@ const RootContainer = styled.div`
 const ProductCardWrapper = styled.div`
   background-color: #fff;
   text-align: left;
-  width: 96%;
+  width: 99%;
   height: auto;
   padding-bottom: 5vw;
   // border: solid 1px #ccc;
   border-bottom: solid 3px #ddd;
   // border-radius: 5px;
   overflow: hidden;
-  margin: 0 2%;
+  margin: 0 0.5%;
   -webkit-box-shadow: 0px 4px 14px -4px rgba(0, 0, 0, 0.21);
   -moz-box-shadow: 0px 4px 14px -4px rgba(0, 0, 0, 0.21);
   box-shadow: 0px 4px 14px -4px rgba(0, 0, 0, 0.21);
@@ -51,8 +51,9 @@ const Title = styled.h1`
     background-color: #fff;
     width: auto;
     font-size: 6vw;
-    font-weight: 700;
-    padding: 2vw;
+    font-weight: 400;
+    padding: 3vw;
+    padding-bottom: 0;
     margin-top: 0;
     margin-bottom: 1vw;
     margin-left: 2vw;
@@ -67,17 +68,15 @@ const Price = styled.h1`
   font-family: 'Roboto Condensed', cursive;
   @media (max-width: 415px) {
     width: auto;
-    font-size: 5vw;
+    font-size: 6vw;
     font-weight: 700;
-    padding: 2vw;
-    margin-top: 0;
-    margin-bottom: 4vw;
+    padding: 3vw;
     margin-left: 2vw;
     -webkit-box-shadow: 0px 4px 14px -4px rgba(0, 0, 0, 0.07);
     -moz-box-shadow: 0px 4px 14px -4px rgba(0, 0, 0, 0.07);
     box-shadow: 0px 4px 14px -4px rgba(0, 0, 0, 0.07);
     border-radius: 2vw;
-    margin-bottom: 4vw;
+    margin-bottom: 0vw;
   }
 `;
 
@@ -97,13 +96,13 @@ const Description = styled.h1`
 //  VariantSelector Wrapper
 // ============================================================
 const VariantSelectorAndCartWrapper = styled.div`
-  width: 96%;
+  width: 100%;
   background-color: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 1vw 2%;
+  margin: 1vw 0;
   margin-bottom: 0;
   border: solid 1px #eee;
   border-bottom: solid 1px #ddd;
@@ -122,7 +121,7 @@ const AddToCartWrapper = styled.div`
   justify-content: space-between;
   height: 5vw;
   width: 100%;
-  // background-color: #111;
+  background-color: #fff;
   @media (max-width: 415px) {
     height: auto;
     padding-bottom: 3vh;
@@ -162,6 +161,9 @@ const Loading = styled.div`
   width: 100%;
   background-color: red;
 `;
+
+// Yotpo Reviews Widget
+// ============================================================
 
 export class ProductPage extends Component {
   state = { selectedOptions: [] };
@@ -256,6 +258,11 @@ export class ProductPage extends Component {
 
           <ProductCardWrapper>
             <Title>{product.title}</Title>
+            <div
+              class="yotpo bottomLine"
+              data-product-id="SKUaaa12"
+              data-url="http://starsigned.herokuapp.com/starsigned-rings/sterling-silver-starsigned-rings"
+            />
             <Price>${selectedVariant.price}</Price>
             <VariantSelectorAndCartWrapper>
               {product.options.map(option => {
