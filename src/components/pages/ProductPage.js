@@ -196,11 +196,11 @@ export class ProductPage extends Component {
   ReviewsStarRating = () => {
     return {
       __html: `<div
-          class={'yotpo bottomLine'}
-          data-product-id={'SKUaaa12'}
-          data-url={
+          class='yotpo bottomLine'
+          data-product-id='SKUaaa12'
+          data-url=
             'http://starsigned.herokuapp.com/starsigned-rings/sterling-silver-starsigned-rings'
-          }
+          
         />`
     };
   };
@@ -208,16 +208,16 @@ export class ProductPage extends Component {
   ReviewsWidget = () => {
     return {
       __html: `<div
-        class={'yotpo yotpo-main-widget'}
-        data-product-id={'SKUaaa12'}
-        data-price={'30'}
-        data-currency={'USD'}
-        data-name={'Sterling Silver StarSigned Ring'}
-        data-url={
+        class='yotpo yotpo-main-widget'
+        data-product-id='SKUaaa12'
+        data-price='30'
+        data-currency='USD'
+        data-name='Sterling Silver StarSigned Ring'
+        data-url=
           'http://starsigned.herokuapp.com/starsigned-rings/sterling-silver-starsigned-rings'
-        }
-        data-image-url={'The product image url. Url escaped'}
-        data-description={'An awesome ring!'}
+        
+        data-image-url='The product image url. Url escaped'
+        data-description='An awesome ring!'
       />`
     };
   };
