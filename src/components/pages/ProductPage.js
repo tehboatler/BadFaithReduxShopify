@@ -196,7 +196,7 @@ export class ProductPage extends Component {
   ReviewsStarRating = () => {
     return {
       __html: `<div
-          className={'yotpo bottomLine'}
+          class={'yotpo bottomLine'}
           data-product-id={'SKUaaa12'}
           data-url={
             'http://starsigned.herokuapp.com/starsigned-rings/sterling-silver-starsigned-rings'
@@ -208,7 +208,7 @@ export class ProductPage extends Component {
   ReviewsWidget = () => {
     return {
       __html: `<div
-        className={'yotpo yotpo-main-widget'}
+        class={'yotpo yotpo-main-widget'}
         data-product-id={'SKUaaa12'}
         data-price={'30'}
         data-currency={'USD'}
