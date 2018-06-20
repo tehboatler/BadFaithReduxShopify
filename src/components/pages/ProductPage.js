@@ -315,7 +315,7 @@ export class ProductPage extends Component {
               <TrustBadgeWrapper />
             </VariantSelectorAndCartWrapper>
           </ProductCardWrapper>
-
+            <ReviewsWidget/>
           <IntroBanner />
           <Header />
         </RootContainer>
