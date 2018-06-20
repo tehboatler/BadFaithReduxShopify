@@ -259,7 +259,7 @@ export class ProductPage extends Component {
           <ProductCardWrapper>
             <Title>{product.title}</Title>
             <div
-              class="yotpo bottomLine"
+              className="yotpo bottomLine"
               data-product-id="SKUaaa12"
               data-url="http://starsigned.herokuapp.com/starsigned-rings/sterling-silver-starsigned-rings"
             />
@@ -293,7 +293,7 @@ export class ProductPage extends Component {
           <IntroBanner />
           <Header />
           <div
-            class="yotpo yotpo-main-widget"
+            className="yotpo yotpo-main-widget"
             data-product-id="SKUaaa12"
             data-price="30"
             data-currency="USD"
