@@ -302,6 +302,7 @@ export class ProductPage extends Component {
             data-image-url="The product image url. Url escaped"
             data-description="An awesome ring!"
           />
+          
         </RootContainer>
       );
     } else {
