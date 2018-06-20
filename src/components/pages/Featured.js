@@ -20,6 +20,7 @@ import SterlingSilverSimpleNecklaceImage from '../../img/SterlingSilverSimpleNec
 import v2Feat3 from '../../img/v2Feat3.jpg';
 import v2Feat4 from '../../img/v2Feat4.jpg';
 import Header from '../Header';
+import IntroBanner from '../IntroBanner';
 
 import NewReleasesBracelet from '../../img/NewReleasesBracelet.png';
 
@@ -47,7 +48,7 @@ const SterlingSilverFeatureContentWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 18vw;
+  margin-top: 24vw;
   width: 100vw;
   text-align: center;
   // opacity: 0.8;
@@ -55,7 +56,7 @@ const SterlingSilverFeatureContentWrapper = styled.div`
 
 const SterlingSilverFeatureTitle = styled.h1`
   font-family: 'Permanent Marker', Arial, Helvetica, sans-serif;
-  font-size: 10vw;
+  font-size: 9vw;
   color: #f2f2f2;
   padding: 0vw 10vw;
   // background-color: white;
@@ -65,6 +66,7 @@ const SterlingSilverFeatureTitle = styled.h1`
   -webkit-text-stroke-color: #999;
   -moz-text-stroke-width: 2px;
   -webkit-text-stroke-width: 2px;
+  margin-bottom: 10vw;
 `;
 
 const SterlingSilverFeatureButton = styled.div`
@@ -330,12 +332,14 @@ export default class Featured extends Component {
         <SterlingSilverFeature>
           <SterlingSilverFeatureContentWrapper>
             <SterlingSilverFeatureTitle>
-              StarSigned Sterling Silver
+              StarSigned Sterling Silver & Stainless Steel
             </SterlingSilverFeatureTitle>
             <SterlingSilverFeatureButton>
-              <SterlingSilverFeatureButtonText>
-                Shop Now
-              </SterlingSilverFeatureButtonText>
+              <Link to="/starsigned-sterling-silver-stainless-steel">
+                <SterlingSilverFeatureButtonText>
+                  Shop Now
+                </SterlingSilverFeatureButtonText>
+              </Link>
             </SterlingSilverFeatureButton>
           </SterlingSilverFeatureContentWrapper>
         </SterlingSilverFeature>
@@ -362,33 +366,37 @@ export default class Featured extends Component {
         <MediumBlackSeparator />
 
         <NewReleasesWrapper>
-        <NewReleasesCard />
-        <NewReleasesBraceletImage />
-        <NewReleasesTitle>Shop Best-Selling</NewReleasesTitle>
-        <NewReleasesFeatureButton>
-          <NewReleasesFeatureButtonText>
-            Shop Now
-          </NewReleasesFeatureButtonText>
-        </NewReleasesFeatureButton>
-        <NewReleasesShowcase>
-          <NewReleaseFeat1>
-            <NewReleaseFeat1Image />
-            <NewReleaseFeatDescription>
-              <NewReleaseFeatDescriptionTitle>
-                StarSigned Sterling Silver Necklace
-              </NewReleaseFeatDescriptionTitle>
-            </NewReleaseFeatDescription>
-          </NewReleaseFeat1>
-          <NewReleaseFeat2>
-            <NewReleaseFeat2Image />
-            <NewReleaseFeatDescription>
-              <NewReleaseFeatDescriptionTitle>
-                Stainless Steel Gold/Silver-plated Starbound Necklace
-              </NewReleaseFeatDescriptionTitle>
-            </NewReleaseFeatDescription>
-          </NewReleaseFeat2>
-        </NewReleasesShowcase>
-      </NewReleasesWrapper>
+          <NewReleasesCard />
+          <NewReleasesBraceletImage />
+          <NewReleasesTitle>Shop Best-Selling</NewReleasesTitle>
+          <NewReleasesFeatureButton>
+            <Link to="/starsigned-best-selling">
+              <NewReleasesFeatureButtonText>
+                Shop Now
+              </NewReleasesFeatureButtonText>
+            </Link>
+          </NewReleasesFeatureButton>
+          <NewReleasesShowcase>
+            <NewReleaseFeat1>
+              <NewReleaseFeat1Image />
+              <NewReleaseFeatDescription>
+                <NewReleaseFeatDescriptionTitle>
+                  StarSigned Sterling Silver Necklace
+                </NewReleaseFeatDescriptionTitle>
+              </NewReleaseFeatDescription>
+            </NewReleaseFeat1>
+            <NewReleaseFeat2>
+              <NewReleaseFeat2Image />
+              <NewReleaseFeatDescription>
+                <NewReleaseFeatDescriptionTitle>
+                  Stainless Steel Gold/Silver-plated Starbound Necklace
+                </NewReleaseFeatDescriptionTitle>
+              </NewReleaseFeatDescription>
+            </NewReleaseFeat2>
+          </NewReleasesShowcase>
+        </NewReleasesWrapper>
+
+        <IntroBanner />
 
         <Feature1>
           <Feature2Image />
@@ -403,8 +411,6 @@ export default class Featured extends Component {
           </Feature1Card>
         </Feature1>
 
-       
-
         <MediumBlackSeparator />
 
         <WhiteSeparator />
@@ -414,9 +420,6 @@ export default class Featured extends Component {
           </SterlingSilverFeatureButtonText>
         </SterlingSilverFeatureButton>
         <MediumBlackSeparator />
-
-        
-
 
         <Feature1>
           <Feature3Image />
@@ -441,7 +444,6 @@ export default class Featured extends Component {
         </SterlingSilverFeatureButton>
         <MediumBlackSeparator />
 
-
         <Feature1>
           <Feature4Image />
           <Feature1Card>
@@ -465,8 +467,7 @@ export default class Featured extends Component {
         </SterlingSilverFeatureButton>
         <MediumBlackSeparator />
 
-
-        <Header/>
+        <Header />
       </RootContainer>
     );
   }

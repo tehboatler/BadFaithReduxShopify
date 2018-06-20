@@ -7,6 +7,7 @@ import ImageGallery from 'react-image-gallery';
 
 import VariantSelector from '../VariantSelector';
 import Header from '../Header';
+import IntroBanner from '../IntroBanner';
 
 import {
   getProduct,
@@ -26,13 +27,13 @@ const RootContainer = styled.div`
 
 const ProductCardWrapper = styled.div`
   background-color: #fff;
-  text-align: center;
+  text-align: left;
   width: 96%;
   height: auto;
   padding-bottom: 5vw;
-  border: solid 1px #ccc;
+  // border: solid 1px #ccc;
   border-bottom: solid 3px #ddd;
-  border-radius: 5px;
+  // border-radius: 5px;
   overflow: hidden;
   margin: 0 2%;
   -webkit-box-shadow: 0px 4px 14px -4px rgba(0, 0, 0, 0.21);
@@ -45,29 +46,36 @@ const ProductCardWrapper = styled.div`
 
 const Title = styled.h1`
   color: #111;
-  font-family: 'Amatic SC', cursive;
+  font-family: 'Roboto Condensed', cursive;
   @media (max-width: 415px) {
     background-color: #fff;
     width: auto;
-    font-size: 8vw;
+    font-size: 6vw;
     font-weight: 700;
     padding: 2vw;
     margin-top: 0;
-    margin-bottom: 4vw;
-    -webkit-box-shadow: 0px 4px 14px -4px rgba(0, 0, 0, 0.07);
-    -moz-box-shadow: 0px 4px 14px -4px rgba(0, 0, 0, 0.07);
-    box-shadow: 0px 4px 14px -4px rgba(0, 0, 0, 0.07);
+    margin-bottom: 1vw;
+    margin-left: 2vw;
+    // -webkit-box-shadow: 0px 4px 14px -4px rgba(0, 0, 0, 0.07);
+    // -moz-box-shadow: 0px 4px 14px -4px rgba(0, 0, 0, 0.07);
+    // box-shadow: 0px 4px 14px -4px rgba(0, 0, 0, 0.07);
   }
 `;
 
 const Price = styled.h1`
-  color: #b86161;
-  font-family: 'Gamja Flower', cursive;
+  color: #131313;
+  font-family: 'Roboto Condensed', cursive;
   @media (max-width: 415px) {
-    width: 25%;
+    width: auto;
     font-size: 5vw;
+    font-weight: 700;
     padding: 2vw;
-    margin: 0 37.5%;
+    margin-top: 0;
+    margin-bottom: 4vw;
+    margin-left: 2vw;
+    -webkit-box-shadow: 0px 4px 14px -4px rgba(0, 0, 0, 0.07);
+    -moz-box-shadow: 0px 4px 14px -4px rgba(0, 0, 0, 0.07);
+    box-shadow: 0px 4px 14px -4px rgba(0, 0, 0, 0.07);
     border-radius: 2vw;
     margin-bottom: 4vw;
   }
@@ -126,7 +134,7 @@ const AddToCartWrapper = styled.div`
 const AddToCartButton = styled.button`
   width: 90%;
   height: 3vw;
-  background-color: #b86161;
+  background-color: #131313;
   border: none;
   border-radius: 0.2vw;
   @media (max-width: 415px) {
@@ -240,7 +248,7 @@ export class ProductPage extends Component {
           <ImageGallery
             showFullscreenButton={false}
             showThumbnails={true}
-            style={{ background: 'transparent'}}
+            style={{ background: 'transparent' }}
             //   showNav={false}
             showPlayButton={false}
             items={variantImages}
@@ -248,7 +256,6 @@ export class ProductPage extends Component {
 
           <ProductCardWrapper>
             <Title>{product.title}</Title>
-            <Description dangerouslySetInnerHTML={{__html: product.descriptionHtml}}></Description>
             <Price>${selectedVariant.price}</Price>
             <VariantSelectorAndCartWrapper>
               {product.options.map(option => {
@@ -263,15 +270,20 @@ export class ProductPage extends Component {
               })}
               <AddToCartWrapper>
                 <AddToCartButton
-                  onClick={() => addVariantToCart(selectedVariant.id, 1)}
-                >
+                  onClick={() => addVariantToCart(selectedVariant.id, 1)}>
                   <AddToCartText>Add To Cart</AddToCartText>
                 </AddToCartButton>
               </AddToCartWrapper>
+
+              <Description
+                dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
+              />
+
               <TrustBadgeWrapper />
             </VariantSelectorAndCartWrapper>
-            </ProductCardWrapper>
-            <Header />
+          </ProductCardWrapper>
+          <IntroBanner />
+          <Header />
         </RootContainer>
       );
     } else {
@@ -296,5 +308,8 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(ProductPage)
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(ProductPage)
 );

@@ -23,8 +23,8 @@ const CaseImageWrapper = styled.div`
   width: 13.25vw;
 
   @media (max-width: 415px) {
-    height: 95vw;
-    width: 95vw;
+    height: 100vw;
+    width: 100vw;
   }
 `;
 
@@ -36,7 +36,7 @@ const DescriptionWrapper = styled.div`
   // padding: 1vw 1vw 0vh 1vw;
   @media (max-width: 415px) {
     padding-top: 5vw;
-    width: 95vw;
+    width: 100vw;
     height: 20vw;
     text-align: center;
   }
@@ -46,15 +46,15 @@ const CaseTitle = styled.h1`
   color: #111;
   margin: 1vw;
   padding-top: 5vw;
-  font-size: 2vw;
-  font-family: 'Amatic SC', cursive;
+  font-size: 1vw;
+  font-family: 'Roboto Condensed', cursive;
 
   @media (max-width: 415px) {
-    font-size: 7vw;
+    font-size: 4vw;
     font-weight: 700;
     line-height: 0;
     padding-top: 4vw;
-    color: #444;
+    color: #131313;
   }
 `;
 

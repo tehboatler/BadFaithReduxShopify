@@ -9,6 +9,7 @@ import styled from 'styled-components';
 import { getCollection } from '../../../reducers/collectionReducers';
 import ProductItem from '../ProductItem';
 import Header from '../Header';
+import IntroBanner from '../IntroBanner';
 
 // Root
 // ============================================================
@@ -30,9 +31,9 @@ const Grid = styled.div`
   //   background-color: #fff;
   grid-gap: 1vw;
   @media (max-width: 415px) {
-    width: 95%;
+    width: 100%;
     grid-template-columns: repeat(1, 1fr);
-    padding: 0vw 2.5% 0 2.5%;
+    // padding: 0vw 2.5% 0 2.5%;
   }
 `;
 
@@ -59,6 +60,7 @@ const TopNav = styled.div`
   margin-top: 20vw;
   background-color: #111;
   height: auto;
+  text-align: center;
   width: 100%;
   -webkit-box-shadow: 0px 4px 30px -9px rgba(54, 54, 54, 0.44);
   -moz-box-shadow: 0px 4px 30px -9px rgba(54, 54, 54, 0.44);
@@ -114,9 +116,8 @@ class CollectionList extends Component {
         <div>
           <RootContainer>
             <TopNav>
-            
+              <Header />
               <TopNavTitle>{collectionNode.title}</TopNavTitle>
-
             </TopNav>
             <Grid>
               {collection.map(collectionItem => {
@@ -136,8 +137,9 @@ class CollectionList extends Component {
                   />
                 );
               })}
-              </Grid>
-              <Header /> 
+            </Grid>
+            <IntroBanner/>
+            <Header />
           </RootContainer>
         </div>
       );
@@ -167,5 +169,8 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(CollectionList)
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(CollectionList)
 );

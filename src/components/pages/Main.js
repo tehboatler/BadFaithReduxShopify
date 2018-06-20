@@ -417,6 +417,46 @@ export default class Main extends Component {
               )}
             />
 
+            <Route
+              exact
+              path="/starsigned-sterling-silver-stainless-steel"
+              render={props => (
+                <CollectionList
+                  collectionStringProps="starsigned-sterling-silver-stainless-steel"
+                  {...props}
+                />
+              )}
+            />
+            <Route
+              path="/starsigned-sterling-silver-stainless-steel/:handle"
+              render={props => (
+                <ProductPage
+                  addVariantToCart={this.addVariantToCart.bind(this)}
+                  {...props}
+                />
+              )}
+            />
+
+            <Route
+              exact
+              path="/starsigned-best-selling"
+              render={props => (
+                <CollectionList
+                  collectionStringProps="starsigned-best-selling"
+                  {...props}
+                />
+              )}
+            />
+            <Route
+              path="/starsigned-best-selling/:handle"
+              render={props => (
+                <ProductPage
+                  addVariantToCart={this.addVariantToCart.bind(this)}
+                  {...props}
+                />
+              )}
+            />
+
 
           </Switch>
           <Footer />
