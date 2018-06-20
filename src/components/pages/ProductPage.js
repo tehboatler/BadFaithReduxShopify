@@ -166,35 +166,6 @@ const Loading = styled.div`
 // Yotpo Reviews Widget
 // ============================================================
 
-const ReviewsStarRating = () => {
-  return renderToStaticMarkup(
-    <div
-      className={'yotpo bottomLine'}
-      data-product-id={'SKUaaa12'}
-      data-url={
-        'http://starsigned.herokuapp.com/starsigned-rings/sterling-silver-starsigned-rings'
-      }
-    />
-  );
-};
-
-const ReviewsWidget = () => {
-  return renderToStaticMarkup(
-    <div
-      className={'yotpo yotpo-main-widget'}
-      data-product-id={'SKUaaa12'}
-      data-price={'30'}
-      data-currency={'USD'}
-      data-name={'Sterling Silver StarSigned Ring'}
-      data-url={
-        'http://starsigned.herokuapp.com/starsigned-rings/sterling-silver-starsigned-rings'
-      }
-      data-image-url={'The product image url. Url escaped'}
-      data-description={'An awesome ring!'}
-    />
-  );
-};
-
 export class ProductPage extends Component {
   state = { selectedOptions: [] };
 
@@ -221,6 +192,35 @@ export class ProductPage extends Component {
       this.setState({ variantImages: arr });
     }
   }
+
+  ReviewsStarRating = () => {
+    return {
+      __html: `<div
+          className={'yotpo bottomLine'}
+          data-product-id={'SKUaaa12'}
+          data-url={
+            'http://starsigned.herokuapp.com/starsigned-rings/sterling-silver-starsigned-rings'
+          }
+        />`
+    };
+  };
+
+  ReviewsStarRating = () => {
+    return {
+      __html: `<div
+        className={'yotpo yotpo-main-widget'}
+        data-product-id={'SKUaaa12'}
+        data-price={'30'}
+        data-currency={'USD'}
+        data-name={'Sterling Silver StarSigned Ring'}
+        data-url={
+          'http://starsigned.herokuapp.com/starsigned-rings/sterling-silver-starsigned-rings'
+        }
+        data-image-url={'The product image url. Url escaped'}
+        data-description={'An awesome ring!'}
+      />`
+    };
+  };
 
   onSelectorChange = (value, props) => {
     console.log('Value: ', props.props.value);
@@ -288,7 +288,7 @@ export class ProductPage extends Component {
 
           <ProductCardWrapper>
             <Title>{product.title}</Title>
-            <ReviewsStarRating />
+            <div dangerouslySetInnerHTML={this.ReviewsStarRating()} />
             <Price>${selectedVariant.price}</Price>
             <VariantSelectorAndCartWrapper>
               {product.options.map(option => {
@@ -315,7 +315,7 @@ export class ProductPage extends Component {
               <TrustBadgeWrapper />
             </VariantSelectorAndCartWrapper>
           </ProductCardWrapper>
-            <ReviewsWidget/>
+          <div dangerouslySetInnerHTML={this.ReviewsWidget()} />
           <IntroBanner />
           <Header />
         </RootContainer>
