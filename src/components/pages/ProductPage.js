@@ -205,7 +205,7 @@ export class ProductPage extends Component {
     };
   };
 
-  ReviewsStarRating = () => {
+  ReviewsWidget = () => {
     return {
       __html: `<div
         className={'yotpo yotpo-main-widget'}
