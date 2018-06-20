@@ -289,6 +289,9 @@ export class ProductPage extends Component {
               <TrustBadgeWrapper />
             </VariantSelectorAndCartWrapper>
           </ProductCardWrapper>
+          
+          <IntroBanner />
+          <Header />
           <div
             class="yotpo yotpo-main-widget"
             data-product-id="SKUaaa12"
@@ -299,8 +302,6 @@ export class ProductPage extends Component {
             data-image-url="The product image url. Url escaped"
             data-description="An awesome ring!"
           />
-          <IntroBanner />
-          <Header />
         </RootContainer>
       );
     } else {
