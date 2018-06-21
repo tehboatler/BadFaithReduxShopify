@@ -6,14 +6,12 @@ import { Link } from 'react-router-dom'
 import PaymentOptionIcons from '../img/PaymentOptions.png';
 
 const RootContainer = styled.div`
-  margin-top: 5vw;
   height: auto;
   width: 100%;
 `;
 const RootGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  grid-gap: 2vw;
 `;
 
 const GridItem = styled.div`

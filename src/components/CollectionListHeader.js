@@ -5,10 +5,6 @@ import { withRouter, Link } from 'react-router-dom';
 import reactDOM from 'react-dom';
 import Sticky from 'react-stickynode';
 
-
-
-import IntroBanner from './IntroBanner';
-
 const HeaderContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -26,25 +22,6 @@ const HeaderContainer = styled.div`
   }
 `;
 
-const HeaderTaglineWrapper = styled.div`
-  // background-color: #121212;
-  height: auto;
-  width: 100%;
-  text-align: center;
-  align-items: center;
-  -webkit-box-shadow: 0px 10px 13px -1px rgba(0, 0, 0, 0.15);
-  -moz-box-shadow: 0px 10px 13px -1px rgba(0, 0, 0, 0.15);
-  box-shadow: 0px 10px 13px -1px rgba(0, 0, 0, 0.15);
-  z-index: 2;
-`;
-
-const HeaderTagline = styled.h1`
-  color: white;
-  font-size: 4vw;
-  font-weight: 700;
-  font-family: 'Permanent Marker', cursive;
-`;
-
 const HeaderLinks = styled.div`
   background-color: #f2f2f2;
   display: flex;
@@ -54,7 +31,7 @@ const HeaderLinks = styled.div`
   -webkit-box-shadow: 0px 10px 13px -1px rgba(0, 0, 0, 0.15);
   -moz-box-shadow: 0px 10px 13px -1px rgba(0, 0, 0, 0.15);
   box-shadow: 0px 10px 13px -1px rgba(0, 0, 0, 0.15);
-  z-index: 998;
+  z-index: 999;
 `;
 
 const LinkText = styled.h1`
@@ -69,7 +46,7 @@ const LinkText = styled.h1`
   text-decoration: underline;
 `;
 
-export class Header extends Component {
+export class CollectionListHeader extends Component {
   render() {
     return (
       <HeaderContainer
@@ -102,4 +79,4 @@ const mapStateToProps = state => ({});
 
 const mapDispatchToProps = {};
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CollectionListHeader));

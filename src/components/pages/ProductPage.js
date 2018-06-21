@@ -7,7 +7,7 @@ import ImageGallery from 'react-image-gallery';
 import { renderToStaticMarkup } from 'react-dom/server';
 
 import VariantSelector from '../VariantSelector';
-import Header from '../Header';
+import CollectionListHeader from '../CollectionListHeader';
 import IntroBanner from '../IntroBanner';
 
 import {
@@ -160,7 +160,7 @@ const TrustBadgeWrapper = styled.div`
 const Loading = styled.div`
   height: 20vh;
   width: 100%;
-  background-color: red;
+  background-color: white;
 `;
 
 // Yotpo Reviews Widget
@@ -317,7 +317,7 @@ export class ProductPage extends Component {
           </ProductCardWrapper>
           <div dangerouslySetInnerHTML={this.ReviewsWidget()} />
           <IntroBanner />
-          <Header />
+          <CollectionListHeader />
         </RootContainer>
       );
     } else {

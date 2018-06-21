@@ -42,14 +42,14 @@ module.exports = {
         ]
       },
       {
-        test: /\.(html)$/,
-        use: {
-          loader: 'html-loader',
-          options: {
-            attrs: [':data-src']
-          }
-        }
-      }
+  test: /\.(html)$/,
+  use: {
+    loader: 'html-loader',
+    options: {
+      attrs: [':data-src']
+    }
+  }
+}
     ]
   },
   plugins: [
@@ -60,7 +60,7 @@ module.exports = {
     new UglifyJSPlugin()
     // new BundleAnalyzerPlugin()
   ],
-  // devtool: 'eval',
+  devtool: 'eval',
   devServer: {
     historyApiFallback: true
   }

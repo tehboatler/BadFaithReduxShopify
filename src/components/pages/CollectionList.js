@@ -8,8 +8,9 @@ import styled from 'styled-components';
 
 import { getCollection } from '../../../reducers/collectionReducers';
 import ProductItem from '../ProductItem';
-import Header from '../Header';
+import CollectionListHeader from '../CollectionListHeader';
 import IntroBanner from '../IntroBanner';
+import BestSellerBanner from '../BestSellerBanner';
 
 // Root
 // ============================================================
@@ -34,6 +35,8 @@ const Grid = styled.div`
     width: 100%;
     grid-template-columns: repeat(1, 1fr);
     // padding: 0vw 2.5% 0 2.5%;
+    margin-bottom: 2vw;
+    padding-bottom: 2vw;
   }
 `;
 
@@ -68,10 +71,20 @@ const TopNav = styled.div`
 `;
 
 const TopNavTitle = styled.h1`
-  color: white;
-  margin: 5vw 5vw;
+  font-family: 'Permanent Marker', Arial, Helvetica, sans-serif;
   font-size: 7vw;
+  color: black;
+  font-weight: 800;
+  background-color: white;
+  padding: 1vw;
+  margin-top: 0.5vw;
+  margin-bottom: 1vw;
+  -webkit-box-shadow: 0px 10px 13px -2px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0px 10px 13px -2px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 10px 13px -2px rgba(0, 0, 0, 0.4);
+  z-index: 2;
 `;
+
 const TopNavDescription = styled.h1`
   color: white;
   margin: 5vw 5vw;
@@ -87,6 +100,17 @@ const Nav = styled.div`
   grid-gap: 1vw;
   width: 100%;
   height: auto;
+`;
+
+// Guarantee
+// ============================================================
+const GuaranteeWrapper = styled.div`
+  width: 100%;
+  margin: 2vw 0;
+  background-color: black;
+  -webkit-box-shadow: 0px 10px 13px -1px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0px 10px 13px -1px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 10px 13px -1px rgba(0, 0, 0, 0.4);
 `;
 
 class CollectionList extends Component {
@@ -116,8 +140,11 @@ class CollectionList extends Component {
         <div>
           <RootContainer>
             <TopNav>
-              <Header />
+              <CollectionListHeader />
               <TopNavTitle>{collectionNode.title}</TopNavTitle>
+              <TopNavDescription>
+                What are we made of? Learn more.
+              </TopNavDescription>
             </TopNav>
             <Grid>
               {collection.map(collectionItem => {
@@ -138,8 +165,15 @@ class CollectionList extends Component {
                 );
               })}
             </Grid>
-            <IntroBanner/>
-            <Header />
+            <BestSellerBanner/>
+            <GuaranteeWrapper>
+              <TopNavDescription>
+                Our products have high quality standards that will give you the
+                best value for your money. Every product we sell come with a
+                30-day money back guarantee.
+              </TopNavDescription>
+            </GuaranteeWrapper>
+            <CollectionListHeader />
           </RootContainer>
         </div>
       );

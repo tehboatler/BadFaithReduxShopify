@@ -21,13 +21,17 @@ import v2Feat3 from '../../img/v2Feat3.jpg';
 import v2Feat4 from '../../img/v2Feat4.jpg';
 import Header from '../Header';
 import IntroBanner from '../IntroBanner';
+import BestSellerBanner from '../BestSellerBanner';
+
 
 import NewReleasesBracelet from '../../img/NewReleasesBracelet.png';
 
 const RootContainer = styled.div`
+padding-top: 17.5vw;
   width: 100%;
   height: auto;
   background-color: #131313;
+  text-align: center;
 `;
 
 // Sterling Silver Feature
@@ -39,6 +43,7 @@ const SterlingSilverFeature = styled.div`
   align-items: start;
   width: 100vw;
   height: 100vw;
+  background-color: #f2f2f2;
   background-image: url(${SterlingSilverBracletFeatureImage});
   background-size: cover;
 `;
@@ -86,10 +91,12 @@ const SterlingSilverFeatureButtonText = styled.h1`
 // Feature
 // ============================================================
 
+
+
 const Feature1 = styled.div`
   height: auto;
   width: auto;
-  background-color: red;
+  background-color: black;
 `;
 const Feature1Image = styled.div`
   width: 100vw;
@@ -144,7 +151,6 @@ const Feature1CardButtonAndPrice = styled.div`
 const FeatureButton = styled.h1`
   font-family: 'Roboto Condensed', cursive;
   font-size: 5vw;
-  border-radius: 1vw;
   background-color: white;
   font-weight: 700;
   color: black;
@@ -172,7 +178,7 @@ const NewReleasesWrapper = styled.div`
   border-radius: 5px;
   justify-content: center;
   background-color: #f2f2f2;
-  height: 172vw;
+  height: 102vw;
   text-align: center;
 `;
 
@@ -262,7 +268,7 @@ const NewReleasesShowcase = styled.div`
 `;
 
 const NewReleaseFeat1 = styled.div`
-  background-color: red;
+  background-color: black;
   z-index: 2;
   width: 50vw;
   height: 70vw;
@@ -272,7 +278,7 @@ const NewReleaseFeat1 = styled.div`
   box-shadow: 0px 10px 13px -1px rgba(0, 0, 0, 0.15);
 `;
 const NewReleaseFeat2 = styled.div`
-  background-color: red;
+  background-color: black;
   z-index: 2;
   width: 50vw;
   height: 70vw;
@@ -320,8 +326,8 @@ const MediumBlackSeparator = styled.div`
 `;
 
 const WhiteSeparator = styled.div`
-  background-color: #e1e1e1;
-  height: 1vw;
+  background-color: #f2f2f2;
+  height: 3vw;
 `;
 
 export default class Featured extends Component {
@@ -344,6 +350,8 @@ export default class Featured extends Component {
           </SterlingSilverFeatureContentWrapper>
         </SterlingSilverFeature>
 
+        <Header/>
+
         <Feature1>
           <Feature1Image />
           <Feature1Card>
@@ -357,68 +365,31 @@ export default class Featured extends Component {
           </Feature1Card>
         </Feature1>
 
-        <WhiteSeparator />
-        <SterlingSilverFeatureButton>
-          <SterlingSilverFeatureButtonText>
-            #LowKeyStarSigned #Titanium
-          </SterlingSilverFeatureButtonText>
-        </SterlingSilverFeatureButton>
+
+        <MediumBlackSeparator />
         <MediumBlackSeparator />
 
-        <NewReleasesWrapper>
-          <NewReleasesCard />
-          <NewReleasesBraceletImage />
-          <NewReleasesTitle>Shop Best-Selling</NewReleasesTitle>
-          <NewReleasesFeatureButton>
-            <Link to="/starsigned-best-selling">
-              <NewReleasesFeatureButtonText>
-                Shop Now
-              </NewReleasesFeatureButtonText>
-            </Link>
-          </NewReleasesFeatureButton>
-          <NewReleasesShowcase>
-            <NewReleaseFeat1>
-              <NewReleaseFeat1Image />
-              <NewReleaseFeatDescription>
-                <NewReleaseFeatDescriptionTitle>
-                  StarSigned Sterling Silver Necklace
-                </NewReleaseFeatDescriptionTitle>
-              </NewReleaseFeatDescription>
-            </NewReleaseFeat1>
-            <NewReleaseFeat2>
-              <NewReleaseFeat2Image />
-              <NewReleaseFeatDescription>
-                <NewReleaseFeatDescriptionTitle>
-                  Stainless Steel Gold/Silver-plated Starbound Necklace
-                </NewReleaseFeatDescriptionTitle>
-              </NewReleaseFeatDescription>
-            </NewReleaseFeat2>
-          </NewReleasesShowcase>
-        </NewReleasesWrapper>
+       <BestSellerBanner/>
 
-        <IntroBanner />
+        <MediumBlackSeparator />
 
         <Feature1>
-          <Feature2Image />
-          <Feature1Card>
-            <Feature1CardTitle>
-              Titanium Rose-gold Plated Starsigned Rings
-            </Feature1CardTitle>
-            <Feature1CardButtonAndPrice>
-              <FeatureButton>Shop Necklaces</FeatureButton>
-              <FeaturePrice>$24.95</FeaturePrice>
-            </Feature1CardButtonAndPrice>
-          </Feature1Card>
+        <Feature2Image />
+        <Feature1Card>
+        <Feature1CardTitle>
+        Titanium Rose-gold Plated Starsigned Rings
+        </Feature1CardTitle>
+        <Feature1CardButtonAndPrice>
+        <FeatureButton>Shop Necklaces</FeatureButton>
+        <FeaturePrice>$24.95</FeaturePrice>
+        </Feature1CardButtonAndPrice>
+        </Feature1Card>
         </Feature1>
-
+        
         <MediumBlackSeparator />
-
-        <WhiteSeparator />
-        <SterlingSilverFeatureButton>
-          <SterlingSilverFeatureButtonText>
-            #StarboundShowoff #StainlessSteel
-          </SterlingSilverFeatureButtonText>
-        </SterlingSilverFeatureButton>
+        
+        <IntroBanner />
+        
         <MediumBlackSeparator />
 
         <Feature1>
@@ -436,14 +407,6 @@ export default class Featured extends Component {
 
         <MediumBlackSeparator />
 
-        <WhiteSeparator />
-        <SterlingSilverFeatureButton>
-          <SterlingSilverFeatureButtonText>
-            #LowKeyStarSigned #925SterlingSilver
-          </SterlingSilverFeatureButtonText>
-        </SterlingSilverFeatureButton>
-        <MediumBlackSeparator />
-
         <Feature1>
           <Feature4Image />
           <Feature1Card>
@@ -459,16 +422,27 @@ export default class Featured extends Component {
 
         <MediumBlackSeparator />
 
-        <WhiteSeparator />
-        <SterlingSilverFeatureButton>
-          <SterlingSilverFeatureButtonText>
-            #StarSignedLights #WarmGlow
-          </SterlingSilverFeatureButtonText>
-        </SterlingSilverFeatureButton>
-        <MediumBlackSeparator />
-
         <Header />
       </RootContainer>
     );
   }
 }
+
+// <NewReleasesShowcase>
+//             <NewReleaseFeat1>
+//               <NewReleaseFeat1Image />
+//               <NewReleaseFeatDescription>
+//                 <NewReleaseFeatDescriptionTitle>
+//                   StarSigned Sterling Silver Necklace
+//                 </NewReleaseFeatDescriptionTitle>
+//               </NewReleaseFeatDescription>
+//             </NewReleaseFeat1>
+//             <NewReleaseFeat2>
+//               <NewReleaseFeat2Image />
+//               <NewReleaseFeatDescription>
+//                 <NewReleaseFeatDescriptionTitle>
+//                   Stainless Steel Gold/Silver-plated Starbound Necklace
+//                 </NewReleaseFeatDescriptionTitle>
+//               </NewReleaseFeatDescription>
+//             </NewReleaseFeat2>
+//           </NewReleasesShowcase>

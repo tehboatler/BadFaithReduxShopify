@@ -313,8 +313,8 @@ export default class Main extends Component {
             updateQuantityInCart={this.updateQuantityInCart.bind(this)}
             removeLineItemInCart={this.removeLineItemInCart.bind(this)}
           />
+          
 
-          <Route exact path="/" component={Header} />
           <Switch>
             <Route exact path="/" component={Featured} />
             <Route

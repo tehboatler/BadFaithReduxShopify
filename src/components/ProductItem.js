@@ -13,7 +13,6 @@ const CaseItemContainer = styled.div`
   box-shadow: 0px 4px 30px -9px rgba(54, 54, 54, 0.44);
 
   @media (max-width: 415px) {
-    border-radius: 1.5vw;
     overflow: hidden;
   }
 `;
@@ -69,7 +68,8 @@ const Price = styled.h1`
   margin: 1vw;
   margin-top: 3vw;
   font-size: 2vw;
-  font-family: 'Gamja Flower', cursive;
+  font-family: 'Roboto Condensed', cursive;
+  font-weight: 800;
 
   @media (max-width: 415px) {
     background-color: #eee;
