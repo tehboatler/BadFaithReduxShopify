@@ -42,14 +42,44 @@ module.exports = {
         ]
       },
       {
-  test: /\.(html)$/,
-  use: {
-    loader: 'html-loader',
-    options: {
-      attrs: [':data-src']
-    }
-  }
-}
+        test: /\.(gif|png|jpe?g|svg)$/i,
+        use: [
+          'file-loader',
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              mozjpeg: {
+                progressive: true,
+                quality: 65
+              },
+              // optipng.enabled: false will disable optipng
+              optipng: {
+                enabled: false
+              },
+              pngquant: {
+                quality: '65-90',
+                speed: 4
+              },
+              gifsicle: {
+                interlaced: false
+              },
+              // the webp option will enable WEBP
+              webp: {
+                quality: 75
+              }
+            }
+          }
+        ]
+      },
+      {
+        test: /\.(html)$/,
+        use: {
+          loader: 'html-loader',
+          options: {
+            attrs: [':data-src']
+          }
+        }
+      }
     ]
   },
   plugins: [
@@ -60,7 +90,7 @@ module.exports = {
     new UglifyJSPlugin()
     // new BundleAnalyzerPlugin()
   ],
-  // devtool: 'eval',
+  // devtool: 'cheap-eval-source-map',
   devServer: {
     historyApiFallback: true
   }
