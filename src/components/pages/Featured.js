@@ -2,13 +2,6 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-import Feature1Img from '../../img/Feat1.jpg';
-import Feature2Img from '../../img/Feat2.jpg';
-import Feature3Img from '../../img/Feat3.jpg';
-import Feature4Img from '../../img/Feat4.jpg';
-import Feature5Img from '../../img/Feat5.jpg';
-import Feature6Img from '../../img/Feat6.jpg';
-
 import Lined from '../../img/lined-paper-2.png';
 
 import v2Feat1 from '../../img/v2Feat1.jpg';
