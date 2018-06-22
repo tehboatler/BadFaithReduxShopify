@@ -16,11 +16,10 @@ import Header from '../Header';
 import IntroBanner from '../IntroBanner';
 import BestSellerBanner from '../BestSellerBanner';
 
-
 import NewReleasesBracelet from '../../img/NewReleasesBracelet.png';
 
 const RootContainer = styled.div`
-padding-top: 17.5vw;
+  padding-top: 17.5vw;
   width: 100%;
   height: auto;
   background-color: #131313;
@@ -83,8 +82,6 @@ const SterlingSilverFeatureButtonText = styled.h1`
 
 // Feature
 // ============================================================
-
-
 
 const Feature1 = styled.div`
   height: auto;
@@ -343,7 +340,7 @@ export default class Featured extends Component {
           </SterlingSilverFeatureContentWrapper>
         </SterlingSilverFeature>
 
-        <Header/>
+        <Header />
 
         <Feature1>
           <Feature1Image />
@@ -352,48 +349,53 @@ export default class Featured extends Component {
               Titanium Rose-gold Plated Starsigned Rings
             </Feature1CardTitle>
             <Feature1CardButtonAndPrice>
-              <FeatureButton>Shop Rings</FeatureButton>
-              <FeaturePrice>$19.95</FeaturePrice>
+              <Link to="/starsigned-rings">
+                <FeatureButton>Shop Rings</FeatureButton>
+              </Link>
+              <FeaturePrice>$14.95 USD</FeaturePrice>
             </Feature1CardButtonAndPrice>
           </Feature1Card>
         </Feature1>
 
-
         <MediumBlackSeparator />
         <MediumBlackSeparator />
 
-       <BestSellerBanner/>
+        <BestSellerBanner />
 
         <MediumBlackSeparator />
 
         <Feature1>
-        <Feature2Image />
-        <Feature1Card>
-        <Feature1CardTitle>
-        Titanium Rose-gold Plated Starsigned Rings
-        </Feature1CardTitle>
-        <Feature1CardButtonAndPrice>
-        <FeatureButton>Shop Necklaces</FeatureButton>
-        <FeaturePrice>$24.95</FeaturePrice>
-        </Feature1CardButtonAndPrice>
-        </Feature1Card>
+          <Feature2Image />
+          <Feature1Card>
+            <Feature1CardTitle>
+              StarSigned Birthstone Necklace
+            </Feature1CardTitle>
+            <Feature1CardButtonAndPrice>
+              <Link to="/starsigned-necklaces">
+                <FeatureButton>Shop Necklaces</FeatureButton>
+              </Link>
+              <FeaturePrice>$15.95 USD</FeaturePrice>
+            </Feature1CardButtonAndPrice>
+          </Feature1Card>
         </Feature1>
-        
+
         <MediumBlackSeparator />
-        
+
         <IntroBanner />
-        
+
         <MediumBlackSeparator />
 
         <Feature1>
           <Feature3Image />
           <Feature1Card>
             <Feature1CardTitle>
-              Titanium Rose-gold Plated Starsigned Rings
+              Rose-gold Plated Stainless Steel Bracelet
             </Feature1CardTitle>
             <Feature1CardButtonAndPrice>
-              <FeatureButton>Shop Rings</FeatureButton>
-              <FeaturePrice>$19.95</FeaturePrice>
+              <Link to="/starsigned-bracelets">
+                <FeatureButton>Shop Bracelets</FeatureButton>
+              </Link>
+              <FeaturePrice>$14.95 USD</FeaturePrice>
             </Feature1CardButtonAndPrice>
           </Feature1Card>
         </Feature1>
@@ -407,8 +409,10 @@ export default class Featured extends Component {
               Titanium Rose-gold Plated Starsigned Rings
             </Feature1CardTitle>
             <Feature1CardButtonAndPrice>
-              <FeatureButton>Shop Rings</FeatureButton>
-              <FeaturePrice>$19.95</FeaturePrice>
+              <Link to="/starsigned-lights-home">
+                <FeatureButton>Shop Lights</FeatureButton>
+              </Link>
+              <FeaturePrice>$59.95 USD</FeaturePrice>
             </Feature1CardButtonAndPrice>
           </Feature1Card>
         </Feature1>
