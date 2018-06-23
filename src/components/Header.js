@@ -50,7 +50,7 @@ const HeaderLinks = styled.div`
   display: flex;
   justify-content: space-between;
   width: 90%;
-  padding: 5% 5%;
+  padding: 4.5% 5%;
   -webkit-box-shadow: 0px 10px 13px -1px rgba(0, 0, 0, 0.15);
   -moz-box-shadow: 0px 10px 13px -1px rgba(0, 0, 0, 0.15);
   box-shadow: 0px 10px 13px -1px rgba(0, 0, 0, 0.15);
@@ -61,7 +61,7 @@ const LinkText = styled.h1`
   font-size: 3.5vw;
   display: inline;
   background-color: white;
-  padding: 2vw 2vw;
+  padding: 2vw 6vw;
   font-weight: 700;
   font-family: 'Roboto Condensed', cursive;
   color: #fff6e5;
@@ -87,9 +87,6 @@ export class Header extends Component {
     </Link>
     <Link to="/starsigned-bracelets">
     <LinkText>BRACELETS</LinkText>
-    </Link>
-    <Link to="/starsigned-lights-home">
-    <LinkText>LIGHTS&HOME</LinkText>
     </Link>
     </HeaderLinks>
     </Sticky>

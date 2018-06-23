@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import ImageGallery from 'react-image-gallery';
-import { renderToStaticMarkup } from 'react-dom/server';
 
 import VariantSelector from '../VariantSelector';
 import CollectionListHeader from '../CollectionListHeader';
@@ -165,6 +164,10 @@ const Loading = styled.div`
 
 // Yotpo Reviews Widget
 // ============================================================
+const ReviewsWidget = styled.div`
+  background-color: white;
+  width: 100%;
+`;
 
 export class ProductPage extends Component {
   state = { selectedOptions: [] };
@@ -194,14 +197,15 @@ export class ProductPage extends Component {
   }
 
   ReviewsStarRating = () => {
+    console.log('test');
     return {
       __html: `<div
-          class='yotpo bottomLine'
-          data-product-id='SKUaaa12'
-          data-url=
-            'http://starsigned.herokuapp.com/starsigned-rings/sterling-silver-starsigned-rings'
-          
-        />`
+      class='yotpo bottomLine'
+      data-product-id='SKUaaa12'
+      data-url=
+      'http://starsigned.herokuapp.com/starsigned-rings/sterling-silver-starsigned-rings'
+      
+      />`
     };
   };
 
@@ -315,9 +319,11 @@ export class ProductPage extends Component {
               <TrustBadgeWrapper />
             </VariantSelectorAndCartWrapper>
           </ProductCardWrapper>
-          <div dangerouslySetInnerHTML={this.ReviewsWidget()} />
+          <ReviewsWidget dangerouslySetInnerHTML={this.ReviewsWidget()} />
           <IntroBanner />
           <CollectionListHeader />
+          {console.log(yotpo)}
+        {yotpo.initWidgets()}
         </RootContainer>
       );
     } else {

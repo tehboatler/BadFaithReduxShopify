@@ -362,8 +362,6 @@ export default class Featured extends Component {
 
         <BestSellerBanner />
 
-        <MediumBlackSeparator />
-
         <Feature1>
           <Feature2Image />
           <Feature1Card>
@@ -383,8 +381,6 @@ export default class Featured extends Component {
 
         <IntroBanner />
 
-        <MediumBlackSeparator />
-
         <Feature1>
           <Feature3Image />
           <Feature1Card>
@@ -400,22 +396,6 @@ export default class Featured extends Component {
           </Feature1Card>
         </Feature1>
 
-        <MediumBlackSeparator />
-
-        <Feature1>
-          <Feature4Image />
-          <Feature1Card>
-            <Feature1CardTitle>
-              Titanium Rose-gold Plated Starsigned Rings
-            </Feature1CardTitle>
-            <Feature1CardButtonAndPrice>
-              <Link to="/starsigned-lights-home">
-                <FeatureButton>Shop Lights</FeatureButton>
-              </Link>
-              <FeaturePrice>$59.95 USD</FeaturePrice>
-            </Feature1CardButtonAndPrice>
-          </Feature1Card>
-        </Feature1>
 
         <MediumBlackSeparator />
 
@@ -443,3 +423,21 @@ export default class Featured extends Component {
 //               </NewReleaseFeatDescription>
 //             </NewReleaseFeat2>
 //           </NewReleasesShowcase>
+
+//
+// <MediumBlackSeparator />
+
+// <Feature1>
+//   <Feature4Image />
+//   <Feature1Card>
+//     <Feature1CardTitle>
+//       Titanium Rose-gold Plated Starsigned Rings
+//     </Feature1CardTitle>
+//     <Feature1CardButtonAndPrice>
+//       <Link to="/starsigned-lights-home">
+//         <FeatureButton>Shop Lights</FeatureButton>
+//       </Link>
+//       <FeaturePrice>$59.95 USD</FeaturePrice>
+//     </Feature1CardButtonAndPrice>
+//   </Feature1Card>
+// </Feature1>
