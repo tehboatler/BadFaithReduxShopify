@@ -15,6 +15,7 @@ export function getProduct(product_handle) {
         shop {
             productByHandle(handle: $product_handle) {
               title
+              id
               description
               descriptionHtml
               options {
@@ -70,6 +71,7 @@ export function getSelectedVariantByID(selected_variants, product_handle) {
         shop {
           productByHandle(handle: $product_handle) {
             title
+            id
             description
             variantBySelectedOptions(selectedOptions: $selected_variants) {
               id

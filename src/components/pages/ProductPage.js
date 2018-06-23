@@ -169,6 +169,11 @@ const ReviewsWidget = styled.div`
   width: 100%;
 `;
 
+const ReviewsStarRating = styled.div`
+  padding-left: 5vw;
+  padding-top: 1vw;
+`
+
 export class ProductPage extends Component {
   state = { selectedOptions: [] };
 
@@ -197,31 +202,33 @@ export class ProductPage extends Component {
   }
 
   ReviewsStarRating = () => {
-    console.log('test');
+    const { product, match } = this.props;
+    console.log('match: ', match.params.handle);
     return {
       __html: `<div
       class='yotpo bottomLine'
-      data-product-id='SKUaaa12'
+      data-product-id='${match.params.handle}'
       data-url=
-      'http://starsigned.herokuapp.com/starsigned-rings/sterling-silver-starsigned-rings'
+      'http://starsigned.herokuapp.com/'
       
       />`
     };
   };
 
   ReviewsWidget = () => {
+    const { product, match } = this.props;
     return {
       __html: `<div
         class='yotpo yotpo-main-widget'
-        data-product-id='SKUaaa12'
+        data-product-id='${match.params.handle}'
         data-price='30'
         data-currency='USD'
-        data-name='Sterling Silver StarSigned Ring'
+        data-name='${product.name}'
         data-url=
-          'http://starsigned.herokuapp.com/starsigned-rings/sterling-silver-starsigned-rings'
+          'http://starsigned.herokuapp.com/'
         
         data-image-url='The product image url. Url escaped'
-        data-description='An awesome ring!'
+        data-description='${product.description}'
       />`
     };
   };
@@ -292,7 +299,7 @@ export class ProductPage extends Component {
 
           <ProductCardWrapper>
             <Title>{product.title}</Title>
-            <div dangerouslySetInnerHTML={this.ReviewsStarRating()} />
+            <ReviewsStarRating dangerouslySetInnerHTML={this.ReviewsStarRating()} />
             <Price>${selectedVariant.price}</Price>
             <VariantSelectorAndCartWrapper>
               {product.options.map(option => {
@@ -323,7 +330,7 @@ export class ProductPage extends Component {
           <IntroBanner />
           <CollectionListHeader />
           {console.log(yotpo)}
-        {yotpo.initWidgets()}
+          {yotpo.initWidgets()}
         </RootContainer>
       );
     } else {
