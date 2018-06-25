@@ -88,7 +88,7 @@ const Description = styled.h1`
   margin-top: 0.5vw;
   @media (max-width: 415px) {
     font-size: 4vw;
-    padding: 0 2vw;
+    padding: 0 4vw;
     color: #333;
   }
 `;
@@ -189,6 +189,7 @@ export class ProductPage extends Component {
   componentWillReceiveProps(nextProps) {
     const { product } = this.props;
     let arr = [];
+    window.scrollTo(0, 0);
     if (product) {
       const variantImages = product.images.map((image, index) => {
         return (arr[index] = {

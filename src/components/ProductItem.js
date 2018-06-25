@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 const CaseItemContainer = styled.div`
   width: 100%;
+  // margin: 5% 0;
   height: auto;
   justify-self: center;
   margin: 0.5vw 0;
@@ -23,20 +24,20 @@ const CaseImageWrapper = styled.div`
 
   @media (max-width: 415px) {
     height: 100vw;
-    width: 100vw;
+    width: 100%;
   }
 `;
 
 const DescriptionWrapper = styled.div`
   text-align: center;
-  height: 7.5vw;
+  height: 10vw;
   width: 100%;
   background-color: #fff;
   // padding: 1vw 1vw 0vh 1vw;
   @media (max-width: 415px) {
     padding-top: 5vw;
-    width: 100vw;
-    height: 20vw;
+    width: 100%;
+    height: auto;
     text-align: center;
   }
 `;
@@ -52,7 +53,7 @@ const CaseTitle = styled.h1`
     font-size: 4vw;
     font-weight: 700;
     line-height: 0;
-    padding-top: 4vw;
+    padding-top: 1vw;
     color: #131313;
   }
 `;
@@ -75,6 +76,7 @@ const Price = styled.h1`
     background-color: #eee;
     font-size: 5vw;
     color: #444;
+    margin-bottom: 3vw;
   }
 `;
 const CompareAtPrice = styled.h1`
@@ -103,33 +105,63 @@ const CaseImage = styled.img`
   width: 100%;
 `;
 
-const ProductItem = ({
-  title,
-  handle,
-  desc,
-  id,
-  image,
-  pathString,
-  price,
-  compareAtPrice
-}) => {
-  return (
-    <CaseItemContainer>
-      <CaseImageWrapper>
-        <Link to={`/${pathString}/${handle}`}>
-          <CaseImage src={image} />
-        </Link>
-      </CaseImageWrapper>
-      <DescriptionWrapper>
-        <CaseTitle>{title}</CaseTitle>
-        <PriceWrapper>
-          <Price>${price} USD</Price>
-          
-        </PriceWrapper>
-        <Link to={`/${pathString}/${handle}`} />
-      </DescriptionWrapper>
-    </CaseItemContainer>
-  );
-};
+// Yotpo
+// ============================================================
+const ReviewsWidget = styled.div`
+  display: flex;
+  padding-top: 2vw;
+  background-color: white;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+`;
 
-export default ProductItem;
+export default class ProductItem extends Component {
+  state = {};
+
+  ReviewsStarRating = handle => {
+    console.log('match: ', handle);
+    return {
+      __html: `<div
+      class='yotpo bottomLine'
+      data-product-id='${handle}'
+      data-url=
+      'http://starsigned.herokuapp.com/'
+      
+      />`
+    };
+  };
+
+  render() {
+    const {
+      title,
+      handle,
+      desc,
+      id,
+      image,
+      pathString,
+      price,
+      compareAtPrice
+    } = this.props;
+    return (
+      <CaseItemContainer>
+        <CaseImageWrapper>
+          <Link to={`/${pathString}/${handle}`}>
+            <CaseImage src={image} />
+          </Link>
+        </CaseImageWrapper>
+        <DescriptionWrapper>
+          <CaseTitle>{title}</CaseTitle>
+          <ReviewsWidget
+            dangerouslySetInnerHTML={this.ReviewsStarRating(handle)}
+          />
+          <PriceWrapper>
+            <Price>${price} USD</Price>
+          </PriceWrapper>
+          <Link to={`/${pathString}/${handle}`} />
+        </DescriptionWrapper>
+        {yotpo.initWidgets()}
+      </CaseItemContainer>
+    );
+  }
+}

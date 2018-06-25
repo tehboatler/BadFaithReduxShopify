@@ -343,7 +343,7 @@ export default class Featured extends Component {
         <Header />
 
         <Feature1>
-          <Feature1Image />
+        <Link to="/starsigned-rings"> <Feature1Image /></Link>
           <Feature1Card>
             <Feature1CardTitle>
               Titanium Rose-gold Plated Starsigned Rings
@@ -363,7 +363,7 @@ export default class Featured extends Component {
         <BestSellerBanner />
 
         <Feature1>
-          <Feature2Image />
+        <Link to="/starsigned-necklaces"><Feature2Image />  </Link>
           <Feature1Card>
             <Feature1CardTitle>
               StarSigned Birthstone Necklace
@@ -382,7 +382,7 @@ export default class Featured extends Component {
         <IntroBanner />
 
         <Feature1>
-          <Feature3Image />
+        <Link to="/starsigned-bracelets"><Feature3Image /></Link>
           <Feature1Card>
             <Feature1CardTitle>
               Rose-gold Plated Stainless Steel Bracelet

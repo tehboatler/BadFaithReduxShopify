@@ -54,7 +54,7 @@ const HeaderLinks = styled.div`
   -webkit-box-shadow: 0px 10px 13px -1px rgba(0, 0, 0, 0.15);
   -moz-box-shadow: 0px 10px 13px -1px rgba(0, 0, 0, 0.15);
   box-shadow: 0px 10px 13px -1px rgba(0, 0, 0, 0.15);
-  z-index: 998;
+  z-index: 5;
 `;
 
 const LinkText = styled.h1`

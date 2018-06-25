@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { gql } from 'babel-plugin-graphql-js-client-transform';
+import ReactOrientation from 'react-orientation';
 
 import Nav from '../Nav';
 import CollectionList from './CollectionList';
@@ -9,11 +10,30 @@ import ProductPage from './ProductPage';
 import Header from '../Header';
 import Featured from './Featured';
 import Footer from '../Footer';
+import SupportCenter from './SupportCenter';
 
 const RootContainer = styled.div`
   width: 100%;
   height: auto;
   margin: 0;
+`;
+
+const PromptForPortrait = styled.div`
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #f2f2f2;
+  z-index: 999;
+`;
+
+const PromptForPortraitText = styled.h1`
+  font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
+  font-size: 4vw;
+  color: black;
+  z-index: 1000;
 `;
 
 export default class Main extends Component {
@@ -308,33 +328,25 @@ export default class Main extends Component {
     return (
       <Router>
         <RootContainer>
+          <ReactOrientation type="portrait">
+            <PromptForPortrait>
+              <PromptForPortraitText>
+                Please rotate your phone to portrait mode.
+              </PromptForPortraitText>
+            </PromptForPortrait>
+          </ReactOrientation>
           <Nav
             checkout={checkout}
             updateQuantityInCart={this.updateQuantityInCart.bind(this)}
             removeLineItemInCart={this.removeLineItemInCart.bind(this)}
           />
-          
 
           <Switch>
             <Route exact path="/" component={Featured} />
             <Route
               exact
-              path="/simple-stars"
-              render={props => (
-                <CollectionList
-                  collectionStringProps="simple-stars"
-                  {...props}
-                />
-              )}
-            />
-            <Route
-              path="/simple-stars/:handle"
-              render={props => (
-                <ProductPage
-                  addVariantToCart={this.addVariantToCart.bind(this)}
-                  {...props}
-                />
-              )}
+              path="/support-center"
+              render={props => <SupportCenter />}
             />
 
             <Route
@@ -456,8 +468,6 @@ export default class Main extends Component {
                 />
               )}
             />
-
-
           </Switch>
           <Footer />
         </RootContainer>

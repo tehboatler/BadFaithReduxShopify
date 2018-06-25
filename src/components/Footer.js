@@ -1,48 +1,65 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom'
-
+import { Link } from 'react-router-dom';
 
 import PaymentOptionIcons from '../img/PaymentOptions.png';
 
 const RootContainer = styled.div`
   height: auto;
   width: 100%;
+  background-color: #eee;
+  text-align: center;
+  margin-top: 1vw;
+  padding-top: 4vw;
 `;
 const RootGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
+  grid-template-columns: repeat(2, 50vw);
+  align-items: center;
+  width: 100%;
 `;
 
 const GridItem = styled.div`
   background-color: #eee;
   height: auto;
+  width: auto;
+  text-align: center;
   justify-content: center;
+  align-items: center;
 `;
 const GridItem2 = styled.div`
   background-color: #eee;
   height: auto;
+  text-align: center;
   justify-content: center;
+  align-items: center;
 `;
 const TitleWrapper = styled.div`
-  // background-color: blue;
+  background-color: blue;
   border-bottom: 1px solid #333;
-  width: 90%;
-  margin: 0 5%;
-  margin-top: 5vw;
+  width: 75%;
+  margin: 0 12.5%;
+  margin-top: 1vw;
   height: auto;
 `;
 
 const Title = styled.h1`
   font-size: 4vw;
   color: #111;
-  font-family: 'Bungee', cursive;
+  font-family: 'Roboto Condensed', cursive;
 `;
 const SubTitle = styled.h1`
-  font-size: 3vw;
+  font-size: 3.5vw;
   color: #555;
   margin: 4% 5%;
-  font-family: 'Bungee', cursive;
+  font-family: 'Roboto Condensed', cursive;
+`;
+
+const StarSignedCopyRight = styled.h1`
+  font-size: 3.5vw;
+  color: #555;
+  padding: 4% 5%;
+  font-family: 'Roboto Condensed', cursive;
 `;
 
 // ============================================================
@@ -68,28 +85,26 @@ const Footer = () => {
     <RootContainer>
       <RootGrid>
         <GridItem>
-          <TitleWrapper>
-            <Title>Need Help?</Title>
-          </TitleWrapper>
-          <Link style={{ gridArea: 'feat1' }} to="/simple-stars">
-          <SubTitle>Support Center</SubTitle>
+          <Title>Need Help?</Title>
+          <TitleWrapper />
+          <Link style={{ gridArea: 'feat1' }} to="/support-center">
+            <SubTitle>Support Center</SubTitle>
           </Link>
           <SubTitle>Contact Us</SubTitle>
           <SubTitle>About Us</SubTitle>
-          <TitleWrapper>
-            <Title>Explore</Title>
-          </TitleWrapper>
+        </GridItem>
+        <GridItem2>
+          <Title>Explore</Title>
+          <TitleWrapper />
           <SubTitle>Privacy Policy</SubTitle>
           <SubTitle>Returns Policy</SubTitle>
           <SubTitle>Terms of Use</SubTitle>
-        </GridItem>
-        <GridItem2>
-          <SubTitle>© StarSigned 2018 ☾</SubTitle>
-          <PaymentOptionsSection>
-            <PaymentOptionsWrapper />
-          </PaymentOptionsSection>
         </GridItem2>
       </RootGrid>
+      <StarSignedCopyRight>© StarSigned 2018 ☾</StarSignedCopyRight>
+      <PaymentOptionsSection>
+        <PaymentOptionsWrapper />
+      </PaymentOptionsSection>
     </RootContainer>
   );
 };

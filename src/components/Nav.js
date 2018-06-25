@@ -16,7 +16,7 @@ const RootContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 999;
+  z-index: 3;
   height: 3.5vw;
   width: 100%;
   background-color: #111;
@@ -30,7 +30,7 @@ const RootContainer = styled.div`
 // ============================================================
 const FreeShipping = styled.div`
   position: fixed;
-  z-index: 999;
+  z-index: 4;
   margin: 0;
   text-align: center;
   top: 3.5vw;
