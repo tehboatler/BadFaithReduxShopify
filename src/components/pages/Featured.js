@@ -24,7 +24,10 @@ const RootContainer = styled.div`
   height: auto;
   background-color: #131313;
   text-align: center;
+  z-index: 2;
 `;
+
+
 
 // Sterling Silver Feature
 // ============================================================

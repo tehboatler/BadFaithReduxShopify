@@ -113,6 +113,8 @@ const GuaranteeWrapper = styled.div`
   box-shadow: 0px 10px 13px -1px rgba(0, 0, 0, 0.4);
 `;
 
+
+
 class CollectionList extends Component {
   componentWillMount() {
     const { getCollection, collectionStringProps } = this.props;

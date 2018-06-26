@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import Drawer from 'react-motion-drawer';
 import ReactDOM from 'react-dom';
 
 import LineItem from './LineItem';
@@ -9,14 +8,13 @@ import Cart from './Cart';
 
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import faShoppingCart from '@fortawesome/fontawesome-free-solid/faShoppingCart';
-import faMenuBars from '@fortawesome/fontawesome-free-solid/faBars';
 
 const RootContainer = styled.div`
   position: fixed;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 3;
+  z-index: 4;
   height: 3.5vw;
   width: 100%;
   background-color: #111;
@@ -30,7 +28,7 @@ const RootContainer = styled.div`
 // ============================================================
 const FreeShipping = styled.div`
   position: fixed;
-  z-index: 4;
+  z-index: 3;
   margin: 0;
   text-align: center;
   top: 3.5vw;

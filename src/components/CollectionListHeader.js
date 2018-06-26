@@ -54,7 +54,7 @@ export class CollectionListHeader extends Component {
         ref={c => (this.header = reactDOM.findDOMNode(c))}
       >
         
-        <Sticky innerZ={999} enabled={true} top={75} bottomBoundary={2400}>
+        <Sticky innerZ={3} enabled={true} top={75} bottomBoundary={2400}>
         <HeaderLinks>
     <Link to="/starsigned-rings">
     <LinkText>RINGS</LinkText>

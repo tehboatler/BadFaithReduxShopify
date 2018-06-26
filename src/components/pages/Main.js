@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { gql } from 'babel-plugin-graphql-js-client-transform';
-import ReactOrientation from 'react-orientation';
+
 
 import Nav from '../Nav';
 import CollectionList from './CollectionList';
@@ -18,23 +18,7 @@ const RootContainer = styled.div`
   margin: 0;
 `;
 
-const PromptForPortrait = styled.div`
-  position: fixed;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-  height: 100vh;
-  background-color: #f2f2f2;
-  z-index: 999;
-`;
 
-const PromptForPortraitText = styled.h1`
-  font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
-  font-size: 4vw;
-  color: black;
-  z-index: 1000;
-`;
 
 export default class Main extends Component {
   state = { shop: '', checkout: [], isCartOpen: false };
@@ -328,18 +312,12 @@ export default class Main extends Component {
     return (
       <Router>
         <RootContainer>
-          <ReactOrientation type="portrait">
-            <PromptForPortrait>
-              <PromptForPortraitText>
-                Please rotate your phone to portrait mode.
-              </PromptForPortraitText>
-            </PromptForPortrait>
-          </ReactOrientation>
-          <Nav
-            checkout={checkout}
-            updateQuantityInCart={this.updateQuantityInCart.bind(this)}
-            removeLineItemInCart={this.removeLineItemInCart.bind(this)}
-          />
+        <Nav
+          checkout={checkout}
+          updateQuantityInCart={this.updateQuantityInCart.bind(this)}
+          removeLineItemInCart={this.removeLineItemInCart.bind(this)}
+        />
+          
 
           <Switch>
             <Route exact path="/" component={Featured} />

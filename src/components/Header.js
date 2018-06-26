@@ -21,6 +21,7 @@ const HeaderContainer = styled.div`
   // background: -webkit-linear-gradient(top, rgba(0,0,0,1) 14%,rgba(34,34,34,1) 100%); /* Chrome10-25,Safari5.1-6 */
   // background: linear-gradient(to bottom, rgba(0,0,0,1) 14%,rgba(34,34,34,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   overflow: hidden;
+  z-index: 3;
   @media (max-width: 415px) {
     background-color: #000;
   }
@@ -77,7 +78,7 @@ export class Header extends Component {
         ref={c => (this.header = reactDOM.findDOMNode(c))}
       >
         
-        <Sticky innerZ={999} enabled={true} top={75} bottomBoundary={2400}>
+        <Sticky innerZ={3} enabled={true} top={75} bottomBoundary={2400}>
         <HeaderLinks>
     <Link to="/starsigned-rings">
     <LinkText>RINGS</LinkText>
