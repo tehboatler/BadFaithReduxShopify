@@ -8,10 +8,11 @@ const CaseItemContainer = styled.div`
   height: auto;
   justify-self: center;
   margin: 0.5vw 0;
+  border-radius: 1vw;
   //   background-color: #eee;
-  -webkit-box-shadow: 0px 4px 30px -9px rgba(54, 54, 54, 0.44);
-  -moz-box-shadow: 0px 4px 30px -9px rgba(54, 54, 54, 0.44);
-  box-shadow: 0px 4px 30px -9px rgba(54, 54, 54, 0.44);
+  -webkit-box-shadow: 0px 4px 30px -9px rgba(54, 54, 54, 0.14);
+  -moz-box-shadow: 0px 4px 30px -9px rgba(54, 54, 54, 0.14);
+  box-shadow: 0px 4px 30px -9px rgba(54, 54, 54, 0.14);
 
   @media (max-width: 415px) {
     overflow: hidden;
@@ -23,7 +24,7 @@ const CaseImageWrapper = styled.div`
   width: 13.25vw;
 
   @media (max-width: 415px) {
-    height: 100vw;
+    height: 90vw;
     width: 100%;
   }
 `;

@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import Fade from 'react-reveal/Fade';
+import { Spring } from 'react-spring';
 
 import Lined from '../../img/lined-paper-2.png';
 
 import v2Feat1 from '../../img/v2Feat1.jpg';
-import v2Feat2 from '../../img/v2Feat2.jpg';
-import SterlingSilverBracletFeatureImage from '../../img/SterlingSilverBracelet.jpg';
+import v2Feat2 from '../../img/DesktopFeat2.jpg';
+import SterlingSilverBracletFeatureImage from '../../img/IntroBannerFeatureImage.jpg';
 import SterlingSilverNecklaceImage from '../../img/SterlingSilverNecklace.jpg';
 import NewReleasesNecklace from '../../img/SterlingSilverNewReleasesNecklace.jpg';
 import SterlingSilverSimpleNecklaceImage from '../../img/SterlingSilverSimpleNecklace.jpg';
@@ -19,21 +21,79 @@ import BestSellerBanner from '../BestSellerBanner';
 import NewReleasesBracelet from '../../img/NewReleasesBracelet.png';
 
 const RootContainer = styled.div`
-  padding-top: 17.5vw;
+  padding-top: 25vw;
   width: 100%;
   height: auto;
-  background-color: #131313;
+  background-color: white;
   text-align: center;
   z-index: 2;
 `;
 
+// Promo Banner
+// ============================================================
+const PromoBanner = styled.div`
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  height: 10vw;
+  width: 100%;
+  justify-content: center;
+  align-items: flex-end;
 
+  margin-bottom: 1vw;
+  // -webkit-box-shadow: 0px 3px 30px -2px rgba(54, 54, 54, 0.14);
+  // -moz-box-shadow: 0px 3px 10px -2px rgba(54, 54, 54, 0.14);
+  // box-shadow: 0px 3px 10px -2px rgba(54, 54, 54, 0.14);
+  //   background: rgba(255, 202, 110, 1);
+  //   background: -moz-linear-gradient(
+  //     top,
+  //     rgba(255, 202, 110, 1) 0%,
+  //     rgba(242, 201, 76, 1) 100%
+  //   );
+  //   background: -webkit-gradient(
+  //     left top,
+  //     left bottom,
+  //     color-stop(0%, rgba(255, 202, 110, 1)),
+  //     color-stop(100%, rgba(242, 201, 76, 1))
+  //   );
+  //   background: -webkit-linear-gradient(
+  //     top,
+  //     rgba(255, 202, 110, 1) 0%,
+  //     rgba(242, 201, 76, 1) 100%
+  //   );
+  //   background: -o-linear-gradient(
+  //     top,
+  //     rgba(255, 202, 110, 1) 0%,
+  //     rgba(242, 201, 76, 1) 100%
+  //   );
+  //   background: -ms-linear-gradient(
+  //     top,
+  //     rgba(255, 202, 110, 1) 0%,
+  //     rgba(242, 201, 76, 1) 100%
+  //   );
+  //   background: linear-gradient(
+  //     to bottom,
+  //     rgba(255, 202, 110, 1) 0%,
+  //     rgba(242, 201, 76, 1) 100%
+  //   );
+  //   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffca6e', endColorstr='#f2c94c', GradientType=0 );
+  background-color: #f5f5f5;
+`;
+
+const PromoBannerText = styled.h1`
+  font-family: 'Archivo Black', Arial;
+  align-self: flex-end;
+  font-size: 2vw;
+  padding-right: 3vw;
+  color: black;
+`;
 
 // Sterling Silver Feature
 // ============================================================
 
 const SterlingSilverFeature = styled.div`
   display: flex;
+  position: relative;
   justify-content: center;
   align-items: start;
   width: 100vw;
@@ -41,37 +101,48 @@ const SterlingSilverFeature = styled.div`
   background-color: #f2f2f2;
   background-image: url(${SterlingSilverBracletFeatureImage});
   background-size: cover;
+  background-position: center center;
 `;
 
 const SterlingSilverFeatureContentWrapper = styled.div`
+  position: absolute;
+  bottom: 15vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 24vw;
-  width: 100vw;
+  margin: 0;
+  margin-left: -8vw;
+  width: 100%;
+  //   padding-right: 15vw;
+  height: 30%;
+  //   background-color: #131313;
   text-align: center;
   // opacity: 0.8;
 `;
 
-const SterlingSilverFeatureTitle = styled.h1`
-  font-family: 'Permanent Marker', Arial, Helvetica, sans-serif;
-  font-size: 9vw;
-  color: #f2f2f2;
-  padding: 0vw 10vw;
-  // background-color: white;
-  // border: 5px black solid;
-  text-shadow: 1px 3px 0px rgba(0, 0, 0, 0.2);
-  -moz-text-stroke-color: #999;
-  -webkit-text-stroke-color: #999;
-  -moz-text-stroke-width: 2px;
-  -webkit-text-stroke-width: 2px;
-  margin-bottom: 10vw;
+const IntroBannerText = styled.h1`
+  font-family: 'Archivo Black', Courier, monospace;
+  font-size: 8vw;
+  line-height: 0;
+  background-color: white;
+  color: black;
+  font-weight: 700vw;
+`;
+
+const IntroBannerTopTextWrapper = styled.div`
+  background-color: #f2f2f2;
+`;
+
+const IntroBannerBottomText_Shift = styled.div`
+  margin-left: 30vw;
+  background-color: white;
 `;
 
 const SterlingSilverFeatureButton = styled.div`
   border-radius: 1px;
   z-index: 2;
+  margin-left: 8vw;
 `;
 
 const SterlingSilverFeatureButtonText = styled.h1`
@@ -86,22 +157,63 @@ const SterlingSilverFeatureButtonText = styled.h1`
 // Feature
 // ============================================================
 
-const Feature1 = styled.div`
-  height: auto;
-  width: auto;
-  background-color: black;
+const FeatureGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  justify-content: center;
+  margin-bottom: 4vw;
+  margin-top: vw;
+  z-index: 2;
 `;
+
+const FeatureHeadingWrapper = styled.div`
+  width: 100%;
+  text-align: left;
+  background-color: white;
+  padding: 5% 0;
+  padding-bottom: 2.5%;
+`;
+
+const FeatureHeading = styled.h1`
+  font-family: 'Archivo Black', Arial, Helvetica, sans-serif;
+  font-size: 4vw;
+  color: black;
+  background-color: white;
+  margin: 0 5%;
+`;
+
+const Feature1 = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  width: 90vw;
+  margin: 0 5vw;
+  background-color: white;
+  border-radius: 1vw;
+  z-index: 3;
+  overflow: hidden;
+`;
+
 const Feature1Image = styled.div`
-  width: 100vw;
-  height: 100vw;
+  width: 90vw;
+  height: 90vw;
+  z-index: 1;
   background-image: url(${v2Feat1});
   background-size: cover;
+  border-radius: 1vw;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 `;
 const Feature2Image = styled.div`
-  width: 100vw;
-  height: 115.66vw;
+  width: 90vw;
+  height: 104.09vw;
   background-image: url(${v2Feat2});
   background-size: cover;
+  border-radius: 1vw;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 `;
 const Feature3Image = styled.div`
   width: 100vw;
@@ -119,11 +231,12 @@ const Feature4Image = styled.div`
 const Feature1Card = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 2vw;
   text-align: right;
   background-color: #131313;
-  width: 96vw;
-  height: auto;
+  width: 90vw;
+  height: 10vw;
+  border-bottom-left-radius: 1vw;
+  border-bottom-right-radius: 1vw;
 `;
 
 const Feature1CardTitle = styled.h1`
@@ -132,6 +245,7 @@ const Feature1CardTitle = styled.h1`
   font-weight: 700;
   color: white;
   margin: 5vw 0;
+  padding-right: 2vw;
 `;
 
 const Feature1CardButtonAndPrice = styled.div`
@@ -139,6 +253,7 @@ const Feature1CardButtonAndPrice = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  padding-right: 2vw;
 `;
 
 const FeatureButton = styled.h1`
@@ -148,6 +263,8 @@ const FeatureButton = styled.h1`
   font-weight: 700;
   color: black;
   margin: 0;
+  margin-left: 2vw;
+  margin-bottom: 2vw;
   padding: 2vw;
 `;
 const FeaturePrice = styled.h1`
@@ -156,158 +273,6 @@ const FeaturePrice = styled.h1`
   font-weight: 700;
   color: white;
   margin: 0;
-`;
-// New Releases
-// ============================================================
-
-const Separator = styled.div`
-  background-color: #131313;
-  height: 20vw;
-`;
-
-const NewReleasesWrapper = styled.div`
-  position: relative;
-  display: flex;
-  border-radius: 5px;
-  justify-content: center;
-  background-color: #f2f2f2;
-  height: 102vw;
-  text-align: center;
-`;
-
-const NewReleasesCard = styled.div`
-  position: absolute;
-  background-color: #f2f2f2;
-  top: -3vw;
-  height: 105vw;
-  width: 100vw;
-  // /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffd34d+0,f7bb53+100 */
-  // background: rgb(255, 211, 77); /* Old browsers */
-  // background: -moz-linear-gradient(
-  //   top,
-  //   rgba(255, 211, 77, 1) 0%,
-  //   rgba(247, 187, 83, 1) 100%
-  // ); /* FF3.6-15 */
-  // background: -webkit-linear-gradient(
-  //   top,
-  //   rgba(255, 211, 77, 1) 0%,
-  //   rgba(247, 187, 83, 1) 100%
-  // ); /* Chrome10-25,Safari5.1-6 */
-  // background: linear-gradient(
-  //   to bottom,
-  //   rgba(255, 211, 77, 1) 0%,
-  //   rgba(247, 187, 83, 1) 100%
-  // ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  // filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffd34d', endColorstr='#f7bb53',GradientType=0 ); /* IE6-9 */
-  -webkit-box-shadow: 0px 10px 13px -1px rgba(0, 0, 0, 0.15);
-  -moz-box-shadow: 0px 10px 13px -1px rgba(0, 0, 0, 0.15);
-  box-shadow: 0px 10px 13px -1px rgba(0, 0, 0, 0.15);
-`;
-
-const NewReleasesBraceletImage = styled.div`
-  position: absolute;
-  top: -3vw;
-  background-image: url(${NewReleasesNecklace});
-  height: 105vw;
-  width: 100vw;
-  opacity: 0.9;
-  background-size: cover;
-  z-index: 1;
-  mix-blend-mode: multiply;
-`;
-
-const NewReleasesTitle = styled.h1`
-  position: absolute;
-  top: 25vw;
-  z-index: 2;
-  font-family: 'Permanent Marker', Arial, Helvetica, sans-serif;
-  font-size: 9vw;
-  color: #f2f2f2;
-  // background-color: white;
-  // border: 5px black solid;
-  text-shadow: 1px 3px 0px rgba(0, 0, 0, 0.2);
-  -moz-text-stroke-color: #999;
-  -webkit-text-stroke-color: #999;
-  -moz-text-stroke-width: 2px;
-  -webkit-text-stroke-width: 2px;
-`;
-
-const NewReleasesFeatureButton = styled.div`
-  position: absolute;
-  border-radius: 1px;
-  top: 75vw;
-  z-index: 2;
-`;
-
-const NewReleasesFeatureButtonText = styled.h1`
-  font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
-  font-size: 4vw;
-  color: #131313;
-  padding: 3vw 10vw;
-  background-color: white;
-  text-shadow: 1px 3px 3px rgba(0, 0, 0, 0.2);
-`;
-
-const NewReleasesShowcase = styled.div`
-  background-color: #f2f2f2;
-  border-radius: 5px;
-  position: absolute;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  top: 103vw;
-  height: 70vw;
-  width: 100vw;
-`;
-
-const NewReleaseFeat1 = styled.div`
-  background-color: black;
-  z-index: 2;
-  width: 50vw;
-  height: 70vw;
-  text-align: center;
-  -webkit-box-shadow: 0px 10px 13px -1px rgba(0, 0, 0, 0.15);
-  -moz-box-shadow: 0px 10px 13px -1px rgba(0, 0, 0, 0.15);
-  box-shadow: 0px 10px 13px -1px rgba(0, 0, 0, 0.15);
-`;
-const NewReleaseFeat2 = styled.div`
-  background-color: black;
-  z-index: 2;
-  width: 50vw;
-  height: 70vw;
-  text-align: center;
-  -webkit-box-shadow: 0px 10px 13px -1px rgba(0, 0, 0, 0.15);
-  -moz-box-shadow: 0px 10px 13px -1px rgba(0, 0, 0, 0.15);
-  box-shadow: 0px 10px 13px -1px rgba(0, 0, 0, 0.15);
-`;
-
-const NewReleaseFeat1Image = styled.div`
-  background-color: blue;
-  background-image: url(${SterlingSilverNecklaceImage});
-  background-size: cover;
-  width: 100%;
-  height: 50vw;
-`;
-const NewReleaseFeat2Image = styled.div`
-  background-color: blue;
-  background-image: url(${SterlingSilverSimpleNecklaceImage});
-  background-size: cover;
-  width: 100%;
-  height: 50vw;
-`;
-const NewReleaseFeatDescription = styled.div`
-  background-color: #131313;
-  width: 100%;
-  height: 20vw;
-`;
-
-const NewReleaseFeatDescriptionTitle = styled.h1`
-  font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
-  font-weight: 800;
-  font-size: 3.5vw;
-  color: white;
-  margin: 0 2vw;
-  padding-top: 4vw;
 `;
 
 // Misc
@@ -323,124 +288,143 @@ const WhiteSeparator = styled.div`
   height: 3vw;
 `;
 
+const VignetteOverlay = styled.div`
+  position: fixed;
+  height: 30vw;
+  width: 100vw;
+  opacity: 0.7;
+  bottom: 0;
+  mix-blend-mode: multiply;
+  margin-left: -16.5%;
+  padding-right: 33%;
+  background: rgba(255, 255, 255, 1);
+  background: -moz-linear-gradient(
+    top,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(237, 237, 237, 1) 25%,
+    rgba(204, 204, 204, 1) 48%,
+    rgba(140, 140, 140, 1) 73%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  background: -webkit-gradient(
+    left top,
+    left bottom,
+    color-stop(0%, rgba(255, 255, 255, 1)),
+    color-stop(25%, rgba(237, 237, 237, 1)),
+    color-stop(48%, rgba(204, 204, 204, 1)),
+    color-stop(73%, rgba(140, 140, 140, 1)),
+    color-stop(100%, rgba(0, 0, 0, 1))
+  );
+  background: -webkit-linear-gradient(
+    top,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(237, 237, 237, 1) 25%,
+    rgba(204, 204, 204, 1) 48%,
+    rgba(140, 140, 140, 1) 73%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  background: -o-linear-gradient(
+    top,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(237, 237, 237, 1) 25%,
+    rgba(204, 204, 204, 1) 48%,
+    rgba(140, 140, 140, 1) 73%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  background: -ms-linear-gradient(
+    top,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(237, 237, 237, 1) 25%,
+    rgba(204, 204, 204, 1) 48%,
+    rgba(140, 140, 140, 1) 73%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(237, 237, 237, 1) 25%,
+    rgba(204, 204, 204, 1) 48%,
+    rgba(140, 140, 140, 1) 73%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000', GradientType=0 );
+`;
+
 export default class Featured extends Component {
   state = {};
   render() {
     return (
       <RootContainer>
-        <SterlingSilverFeature>
-          <SterlingSilverFeatureContentWrapper>
-            <SterlingSilverFeatureTitle>
-              StarSigned Sterling Silver & Stainless Steel
-            </SterlingSilverFeatureTitle>
-            <SterlingSilverFeatureButton>
-              <Link to="/starsigned-sterling-silver-stainless-steel">
-                <SterlingSilverFeatureButtonText>
-                  Shop Now
-                </SterlingSilverFeatureButtonText>
-              </Link>
-            </SterlingSilverFeatureButton>
-          </SterlingSilverFeatureContentWrapper>
-        </SterlingSilverFeature>
+        <VignetteOverlay />
 
-        <Header />
+        <Spring
+          from={{ opacity: 0, height: '0vw' }}
+          to={{ opacity: 1, height: '10vw' }}>
+          {styles => (
+            <PromoBanner style={styles}>
+              <PromoBannerText>
+                25% off on Gemini Items storewide! COUPON CODE: GEMINI25
+              </PromoBannerText>
+            </PromoBanner>
+          )}
+        </Spring>
 
-        <Feature1>
-        <Link to="/starsigned-rings"> <Feature1Image /></Link>
-          <Feature1Card>
-            <Feature1CardTitle>
-              Titanium Rose-gold Plated Starsigned Rings
-            </Feature1CardTitle>
-            <Feature1CardButtonAndPrice>
+        <Spring
+          from={{ opacity: 0, backgroundSize: '150%' }}
+          to={{ opacity: 1, backgroundSize: '100%' }}>
+          {styles => (
+            <SterlingSilverFeature style={styles}>
+              <SterlingSilverFeatureContentWrapper>
+                <IntroBannerTopTextWrapper>
+                  <IntroBannerText>925 Sterling/</IntroBannerText>
+                </IntroBannerTopTextWrapper>
+                <IntroBannerBottomText_Shift>
+                  <IntroBannerText>Stainless Steel</IntroBannerText>
+                </IntroBannerBottomText_Shift>
+                <SterlingSilverFeatureButton>
+                  <Link to="/starsigned-sterling-silver-stainless-steel">
+                    <SterlingSilverFeatureButtonText>
+                      Shop Now
+                    </SterlingSilverFeatureButtonText>
+                  </Link>
+                </SterlingSilverFeatureButton>
+              </SterlingSilverFeatureContentWrapper>
+            </SterlingSilverFeature>
+          )}
+        </Spring>
+
+        <FeatureGrid>
+          <FeatureHeadingWrapper>
+            <FeatureHeading>Titanium Rings:</FeatureHeading>
+            <FeatureHeading>StarSigned Sleek & Stylish</FeatureHeading>
+          </FeatureHeadingWrapper>
+
+          <Fade>
+            <Feature1>
               <Link to="/starsigned-rings">
-                <FeatureButton>Shop Rings</FeatureButton>
+                <Feature1Image />
               </Link>
-              <FeaturePrice>$14.95 USD</FeaturePrice>
-            </Feature1CardButtonAndPrice>
-          </Feature1Card>
-        </Feature1>
+              <Feature1Card />
+            </Feature1>
+          </Fade>
 
-        <MediumBlackSeparator />
-        <MediumBlackSeparator />
+          <FeatureHeadingWrapper>
+            <FeatureHeading>Titanium Rings:</FeatureHeading>
+            <FeatureHeading>StarSigned Sleek & Stylish</FeatureHeading>
+          </FeatureHeadingWrapper>
 
-        <BestSellerBanner />
-
-        <Feature1>
-        <Link to="/starsigned-necklaces"><Feature2Image />  </Link>
-          <Feature1Card>
-            <Feature1CardTitle>
-              StarSigned Birthstone Necklace
-            </Feature1CardTitle>
-            <Feature1CardButtonAndPrice>
-              <Link to="/starsigned-necklaces">
-                <FeatureButton>Shop Necklaces</FeatureButton>
+          <Fade>
+            <Feature1>
+              <Link to="/starsigned-rings">
+                <Feature2Image />
               </Link>
-              <FeaturePrice>$15.95 USD</FeaturePrice>
-            </Feature1CardButtonAndPrice>
-          </Feature1Card>
-        </Feature1>
-
-        <MediumBlackSeparator />
-
-        <IntroBanner />
-
-        <Feature1>
-        <Link to="/starsigned-bracelets"><Feature3Image /></Link>
-          <Feature1Card>
-            <Feature1CardTitle>
-              Rose-gold Plated Stainless Steel Bracelet
-            </Feature1CardTitle>
-            <Feature1CardButtonAndPrice>
-              <Link to="/starsigned-bracelets">
-                <FeatureButton>Shop Bracelets</FeatureButton>
-              </Link>
-              <FeaturePrice>$14.95 USD</FeaturePrice>
-            </Feature1CardButtonAndPrice>
-          </Feature1Card>
-        </Feature1>
-
-
-        <MediumBlackSeparator />
+              <Feature1Card />
+            </Feature1>
+          </Fade>
+        </FeatureGrid>
 
         <Header />
       </RootContainer>
     );
   }
 }
-
-// <NewReleasesShowcase>
-//             <NewReleaseFeat1>
-//               <NewReleaseFeat1Image />
-//               <NewReleaseFeatDescription>
-//                 <NewReleaseFeatDescriptionTitle>
-//                   StarSigned Sterling Silver Necklace
-//                 </NewReleaseFeatDescriptionTitle>
-//               </NewReleaseFeatDescription>
-//             </NewReleaseFeat1>
-//             <NewReleaseFeat2>
-//               <NewReleaseFeat2Image />
-//               <NewReleaseFeatDescription>
-//                 <NewReleaseFeatDescriptionTitle>
-//                   Stainless Steel Gold/Silver-plated Starbound Necklace
-//                 </NewReleaseFeatDescriptionTitle>
-//               </NewReleaseFeatDescription>
-//             </NewReleaseFeat2>
-//           </NewReleasesShowcase>
-
-//
-// <MediumBlackSeparator />
-
-// <Feature1>
-//   <Feature4Image />
-//   <Feature1Card>
-//     <Feature1CardTitle>
-//       Titanium Rose-gold Plated Starsigned Rings
-//     </Feature1CardTitle>
-//     <Feature1CardButtonAndPrice>
-//       <Link to="/starsigned-lights-home">
-//         <FeatureButton>Shop Lights</FeatureButton>
-//       </Link>
-//       <FeaturePrice>$59.95 USD</FeaturePrice>
-//     </Feature1CardButtonAndPrice>
-//   </Feature1Card>
-// </Feature1>

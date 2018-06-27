@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom';
 import ImageGallery from 'react-image-gallery';
 
 import VariantSelector from '../VariantSelector';
-import CollectionListHeader from '../CollectionListHeader';
+import CollectionListHeader from '../Header';
 import IntroBanner from '../IntroBanner';
 
 import {
@@ -21,7 +21,7 @@ import TrustBadge from '../../img/Trust_Badge_2.png';
 // ============================================================
 const RootContainer = styled.div`
   @media (max-width: 415px) {
-    padding-top: 20vw;
+    padding-top: 24vw;
   }
 `;
 

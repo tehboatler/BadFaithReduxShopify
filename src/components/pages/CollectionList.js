@@ -3,19 +3,23 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import { Instagram } from 'react-content-loader';
+import Fade from 'react-reveal/Fade';
+import { Spring } from 'react-spring';
 
 import styled from 'styled-components';
 
 import { getCollection } from '../../../reducers/collectionReducers';
 import ProductItem from '../ProductItem';
 import CollectionListHeader from '../CollectionListHeader';
+import Header from '../Header';
 import IntroBanner from '../IntroBanner';
 import BestSellerBanner from '../BestSellerBanner';
 
 // Root
 // ============================================================
 const RootContainer = styled.div`
-  width: 100%;
+  width: 90%;
+  margin: 0 5%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -40,6 +44,65 @@ const Grid = styled.div`
   }
 `;
 
+// Promo Banner
+// ============================================================
+const PromoBanner = styled.div`
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  height: 10vw;
+  width: 100%;
+  justify-content: center;
+  align-items: flex-end;
+
+  margin-bottom: 1vw;
+  // -webkit-box-shadow: 0px 3px 30px -2px rgba(54, 54, 54, 0.14);
+  // -moz-box-shadow: 0px 3px 10px -2px rgba(54, 54, 54, 0.14);
+  // box-shadow: 0px 3px 10px -2px rgba(54, 54, 54, 0.14);
+  //   background: rgba(255, 202, 110, 1);
+  //   background: -moz-linear-gradient(
+  //     top,
+  //     rgba(255, 202, 110, 1) 0%,
+  //     rgba(242, 201, 76, 1) 100%
+  //   );
+  //   background: -webkit-gradient(
+  //     left top,
+  //     left bottom,
+  //     color-stop(0%, rgba(255, 202, 110, 1)),
+  //     color-stop(100%, rgba(242, 201, 76, 1))
+  //   );
+  //   background: -webkit-linear-gradient(
+  //     top,
+  //     rgba(255, 202, 110, 1) 0%,
+  //     rgba(242, 201, 76, 1) 100%
+  //   );
+  //   background: -o-linear-gradient(
+  //     top,
+  //     rgba(255, 202, 110, 1) 0%,
+  //     rgba(242, 201, 76, 1) 100%
+  //   );
+  //   background: -ms-linear-gradient(
+  //     top,
+  //     rgba(255, 202, 110, 1) 0%,
+  //     rgba(242, 201, 76, 1) 100%
+  //   );
+  //   background: linear-gradient(
+  //     to bottom,
+  //     rgba(255, 202, 110, 1) 0%,
+  //     rgba(242, 201, 76, 1) 100%
+  //   );
+  //   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffca6e', endColorstr='#f2c94c', GradientType=0 );
+  background-color: #f5f5f5;
+`;
+
+const PromoBannerText = styled.h1`
+  font-family: 'Archivo Black', Arial;
+  align-self: flex-end;
+  font-size: 2vw;
+  padding-right: 3vw;
+  color: black;
+`;
+
 // Loading
 // ============================================================
 const Loading = styled.div`
@@ -60,7 +123,7 @@ const LoadingText = styled.h1`
 // Collection Page Description + Top Nav
 // ============================================================
 const TopNav = styled.div`
-  margin-top: 20vw;
+  margin-top: 30vw;
   background-color: #111;
   height: auto;
   text-align: center;
@@ -71,11 +134,11 @@ const TopNav = styled.div`
 `;
 
 const TopNavTitle = styled.h1`
-  font-family: 'Permanent Marker', Arial, Helvetica, sans-serif;
-  font-size: 7vw;
-  color: black;
+  font-family: 'Archivo Black', Arial, Helvetica, sans-serif;
+  font-size: 5vw;
+  color: white;
   font-weight: 800;
-  background-color: white;
+  background-color: black;
   padding: 1vw;
   margin-top: 0.5vw;
   margin-bottom: 1vw;
@@ -91,17 +154,6 @@ const TopNavDescription = styled.h1`
   font-size: 4vw;
 `;
 
-// Collection Page Nav
-// ============================================================
-const Nav = styled.div`
-  // background-color: red;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 1vw;
-  width: 100%;
-  height: auto;
-`;
-
 // Guarantee
 // ============================================================
 const GuaranteeWrapper = styled.div`
@@ -112,8 +164,6 @@ const GuaranteeWrapper = styled.div`
   -moz-box-shadow: 0px 10px 13px -1px rgba(0, 0, 0, 0.4);
   box-shadow: 0px 10px 13px -1px rgba(0, 0, 0, 0.4);
 `;
-
-
 
 class CollectionList extends Component {
   componentWillMount() {
@@ -142,11 +192,19 @@ class CollectionList extends Component {
         <div>
           <RootContainer>
             <TopNav>
-              <CollectionListHeader />
+              <Spring
+                from={{ opacity: 0, height: '0vw' }}
+                to={{ opacity: 1, height: '10vw' }}>
+                {styles => (
+                  <PromoBanner style={styles}>
+                    <PromoBannerText>
+                      25% off on Gemini Items storewide! COUPON CODE: GEMINI25
+                    </PromoBannerText>
+                  </PromoBanner>
+                )}
+              </Spring>
               <TopNavTitle>{collectionNode.title}</TopNavTitle>
-              <TopNavDescription>
-                What are we made of? Learn more.
-              </TopNavDescription>
+              <Header/>
             </TopNav>
             <Grid>
               {collection.map(collectionItem => {
@@ -154,20 +212,22 @@ class CollectionList extends Component {
                 let variants = collectionItem.variants[0];
                 console.log('images: ', image);
                 return (
-                  <ProductItem
-                    key={collectionItem.id}
-                    id={collectionItem.id}
-                    handle={collectionItem.handle}
-                    title={collectionItem.title}
-                    image={image.originalSrc}
-                    pathString={collectionStringProps}
-                    price={variants.price}
-                    compareAtPrice={variants.compareAtPrice}
-                  />
+                  <Fade>
+                    <ProductItem
+                      key={collectionItem.id}
+                      id={collectionItem.id}
+                      handle={collectionItem.handle}
+                      title={collectionItem.title}
+                      image={image.originalSrc}
+                      pathString={collectionStringProps}
+                      price={variants.price}
+                      compareAtPrice={variants.compareAtPrice}
+                    />
+                  </Fade>
                 );
               })}
             </Grid>
-            <BestSellerBanner/>
+        
             <GuaranteeWrapper>
               <TopNavDescription>
                 Our products have high quality standards that will give you the
@@ -175,7 +235,7 @@ class CollectionList extends Component {
                 30-day money back guarantee.
               </TopNavDescription>
             </GuaranteeWrapper>
-            <CollectionListHeader />
+            <Header />
           </RootContainer>
         </div>
       );

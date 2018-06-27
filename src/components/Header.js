@@ -22,9 +22,6 @@ const HeaderContainer = styled.div`
   // background: linear-gradient(to bottom, rgba(0,0,0,1) 14%,rgba(34,34,34,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   overflow: hidden;
   z-index: 3;
-  @media (max-width: 415px) {
-    background-color: #000;
-  }
 `;
 
 const HeaderTaglineWrapper = styled.div`
@@ -47,7 +44,7 @@ const HeaderTagline = styled.h1`
 `;
 
 const HeaderLinks = styled.div`
-  background-color: #f2f2f2;
+  background-color: white;
   display: flex;
   justify-content: space-between;
   width: 90%;
@@ -62,7 +59,7 @@ const LinkText = styled.h1`
   font-size: 3.5vw;
   display: inline;
   background-color: white;
-  padding: 2vw 6vw;
+  padding: 3vw 2vw;
   font-weight: 700;
   font-family: 'Roboto Condensed', cursive;
   color: #fff6e5;
@@ -78,7 +75,7 @@ export class Header extends Component {
         ref={c => (this.header = reactDOM.findDOMNode(c))}
       >
         
-        <Sticky innerZ={3} enabled={true} top={75} bottomBoundary={2400}>
+        <Sticky innerZ={3} enabled={true} top={0} bottomBoundary={2400}>
         <HeaderLinks>
     <Link to="/starsigned-rings">
     <LinkText>RINGS</LinkText>

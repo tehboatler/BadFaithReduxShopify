@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { gql } from 'babel-plugin-graphql-js-client-transform';
-
+import MediaQuery from 'react-responsive';
 
 import Nav from '../Nav';
+import DesktopNav from '../desktop/Nav';
 import CollectionList from './CollectionList';
 import ProductPage from './ProductPage';
 import Header from '../Header';
 import Featured from './Featured';
+import DesktopFeatured from '../desktop/pages/Featured';
 import Footer from '../Footer';
 import SupportCenter from './SupportCenter';
 
@@ -18,7 +20,31 @@ const RootContainer = styled.div`
   margin: 0;
 `;
 
+const LandscapeMobilePrompt = styled.div`
+  position: fixed;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: #131313;
+  z-index: 999;
+  overflow: hidden;
+`;
 
+const LandscapeMobilePromptText = styled.h1`
+  font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
+  font-size: 3vw;
+  color: #333;
+  background-color: #f2f2f2;
+  padding: 1vw;
+`;
+
+const DesktopTest = styled.div`
+  background-color: red;
+  width: 100vw;
+  height: 100vh;
+`;
 
 export default class Main extends Component {
   state = { shop: '', checkout: [], isCartOpen: false };
@@ -309,145 +335,177 @@ export default class Main extends Component {
 
   render() {
     const { shop, products, checkout } = this.state;
+
     return (
       <Router>
         <RootContainer>
-        <Nav
-          checkout={checkout}
-          updateQuantityInCart={this.updateQuantityInCart.bind(this)}
-          removeLineItemInCart={this.removeLineItemInCart.bind(this)}
-        />
-          
+          {/*Mobile Nav & Landscape Warning*/}
+          <div>
+            <MediaQuery maxDeviceWidth={1224}>
+              <Nav
+                checkout={checkout}
+                updateQuantityInCart={this.updateQuantityInCart.bind(this)}
+                removeLineItemInCart={this.removeLineItemInCart.bind(this)}
+              />
+              <MediaQuery orientation="landscape">
+                <LandscapeMobilePrompt>
+                  <LandscapeMobilePromptText>
+                    Please rotate your phone into portrait mode.
+                  </LandscapeMobilePromptText>
+                </LandscapeMobilePrompt>
+              </MediaQuery>
+            </MediaQuery>
+          </div>
 
-          <Switch>
-            <Route exact path="/" component={Featured} />
-            <Route
-              exact
-              path="/support-center"
-              render={props => <SupportCenter />}
+          {/*Desktop Nav*/}
+          <MediaQuery minDeviceWidth={1224} values={{ deviceWidth: 1600 }}>
+            <DesktopNav
+              checkout={checkout}
+              updateQuantityInCart={this.updateQuantityInCart.bind(this)}
+              removeLineItemInCart={this.removeLineItemInCart.bind(this)}
             />
+          </MediaQuery>
 
-            <Route
-              exact
-              path="/starsigned-necklaces"
-              render={props => (
-                <CollectionList
-                  collectionStringProps="starsigned-necklaces"
-                  {...props}
-                />
-              )}
-            />
-            <Route
-              path="/starsigned-necklaces/:handle"
-              render={props => (
-                <ProductPage
-                  addVariantToCart={this.addVariantToCart.bind(this)}
-                  {...props}
-                />
-              )}
-            />
+          {/*Desktop Routes*/}
+          <MediaQuery minDeviceWidth={1224} values={{ deviceWidth: 1600 }}>
+            <Switch>
+              <Route exact path="/" component={DesktopFeatured} />
+            </Switch>
+          </MediaQuery>
 
-            <Route
-              exact
-              path="/starsigned-bracelets"
-              render={props => (
-                <CollectionList
-                  collectionStringProps="starsigned-bracelets"
-                  {...props}
-                />
-              )}
-            />
-            <Route
-              path="/starsigned-bracelets/:handle"
-              render={props => (
-                <ProductPage
-                  addVariantToCart={this.addVariantToCart.bind(this)}
-                  {...props}
-                />
-              )}
-            />
+          {/*Mobile Routes*/}
+          <MediaQuery maxDeviceWidth={1224}>
+            <Switch>
+              <Route exact path="/" component={Featured} />
 
-            <Route
-              exact
-              path="/starsigned-rings"
-              render={props => (
-                <CollectionList
-                  collectionStringProps="starsigned-rings"
-                  {...props}
-                />
-              )}
-            />
-            <Route
-              path="/starsigned-rings/:handle"
-              render={props => (
-                <ProductPage
-                  addVariantToCart={this.addVariantToCart.bind(this)}
-                  {...props}
-                />
-              )}
-            />
+              <Route
+                exact
+                path="/support-center"
+                render={props => <SupportCenter />}
+              />
 
-            <Route
-              exact
-              path="/starsigned-lights-home"
-              render={props => (
-                <CollectionList
-                  collectionStringProps="starsigned-lights-home"
-                  {...props}
-                />
-              )}
-            />
-            <Route
-              path="/starsigned-lights-home/:handle"
-              render={props => (
-                <ProductPage
-                  addVariantToCart={this.addVariantToCart.bind(this)}
-                  {...props}
-                />
-              )}
-            />
+              <Route
+                exact
+                path="/starsigned-necklaces"
+                render={props => (
+                  <CollectionList
+                    collectionStringProps="starsigned-necklaces"
+                    {...props}
+                  />
+                )}
+              />
+              <Route
+                path="/starsigned-necklaces/:handle"
+                render={props => (
+                  <ProductPage
+                    addVariantToCart={this.addVariantToCart.bind(this)}
+                    {...props}
+                  />
+                )}
+              />
 
-            <Route
-              exact
-              path="/starsigned-sterling-silver-stainless-steel"
-              render={props => (
-                <CollectionList
-                  collectionStringProps="starsigned-sterling-silver-stainless-steel"
-                  {...props}
-                />
-              )}
-            />
-            <Route
-              path="/starsigned-sterling-silver-stainless-steel/:handle"
-              render={props => (
-                <ProductPage
-                  addVariantToCart={this.addVariantToCart.bind(this)}
-                  {...props}
-                />
-              )}
-            />
+              <Route
+                exact
+                path="/starsigned-bracelets"
+                render={props => (
+                  <CollectionList
+                    collectionStringProps="starsigned-bracelets"
+                    {...props}
+                  />
+                )}
+              />
+              <Route
+                path="/starsigned-bracelets/:handle"
+                render={props => (
+                  <ProductPage
+                    addVariantToCart={this.addVariantToCart.bind(this)}
+                    {...props}
+                  />
+                )}
+              />
 
-            <Route
-              exact
-              path="/starsigned-best-selling"
-              render={props => (
-                <CollectionList
-                  collectionStringProps="starsigned-best-selling"
-                  {...props}
-                />
-              )}
-            />
-            <Route
-              path="/starsigned-best-selling/:handle"
-              render={props => (
-                <ProductPage
-                  addVariantToCart={this.addVariantToCart.bind(this)}
-                  {...props}
-                />
-              )}
-            />
-          </Switch>
-          <Footer />
+              <Route
+                exact
+                path="/starsigned-rings"
+                render={props => (
+                  <CollectionList
+                    collectionStringProps="starsigned-rings"
+                    {...props}
+                  />
+                )}
+              />
+              <Route
+                path="/starsigned-rings/:handle"
+                render={props => (
+                  <ProductPage
+                    addVariantToCart={this.addVariantToCart.bind(this)}
+                    {...props}
+                  />
+                )}
+              />
+
+              <Route
+                exact
+                path="/starsigned-lights-home"
+                render={props => (
+                  <CollectionList
+                    collectionStringProps="starsigned-lights-home"
+                    {...props}
+                  />
+                )}
+              />
+              <Route
+                path="/starsigned-lights-home/:handle"
+                render={props => (
+                  <ProductPage
+                    addVariantToCart={this.addVariantToCart.bind(this)}
+                    {...props}
+                  />
+                )}
+              />
+
+              <Route
+                exact
+                path="/starsigned-sterling-silver-stainless-steel"
+                render={props => (
+                  <CollectionList
+                    collectionStringProps="starsigned-sterling-silver-stainless-steel"
+                    {...props}
+                  />
+                )}
+              />
+              <Route
+                path="/starsigned-sterling-silver-stainless-steel/:handle"
+                render={props => (
+                  <ProductPage
+                    addVariantToCart={this.addVariantToCart.bind(this)}
+                    {...props}
+                  />
+                )}
+              />
+
+              <Route
+                exact
+                path="/starsigned-best-selling"
+                render={props => (
+                  <CollectionList
+                    collectionStringProps="starsigned-best-selling"
+                    {...props}
+                  />
+                )}
+              />
+              <Route
+                path="/starsigned-best-selling/:handle"
+                render={props => (
+                  <ProductPage
+                    addVariantToCart={this.addVariantToCart.bind(this)}
+                    {...props}
+                  />
+                )}
+              />
+            </Switch>
+            <Footer />
+          </MediaQuery>
         </RootContainer>
       </Router>
     );
