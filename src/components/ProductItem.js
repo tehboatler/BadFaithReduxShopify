@@ -7,7 +7,7 @@ const CaseItemContainer = styled.div`
   // margin: 5% 0;
   height: auto;
   justify-self: center;
-  margin: 0.5vw 0;
+  margin: 2.5vw 0vw;
   border-radius: 1vw;
   //   background-color: #eee;
   -webkit-box-shadow: 0px 4px 30px -9px rgba(54, 54, 54, 0.14);

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import ImageGallery from 'react-image-gallery';
+import { Spring } from 'react-spring';
 
 import VariantSelector from '../VariantSelector';
 import CollectionListHeader from '../Header';
@@ -39,6 +40,29 @@ const ProductCardWrapper = styled.div`
   -webkit-box-shadow: 0px 4px 14px -4px rgba(0, 0, 0, 0.21);
   -moz-box-shadow: 0px 4px 14px -4px rgba(0, 0, 0, 0.21);
   box-shadow: 0px 4px 14px -4px rgba(0, 0, 0, 0.21);
+`;
+
+// Promo Banner
+// ============================================================
+const PromoBanner = styled.div`
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  height: 10vw;
+  width: 100%;
+  justify-content: center;
+  align-items: flex-end;
+
+  margin-bottom: 1vw;
+  background-color: #f5f5f5;
+`;
+
+const PromoBannerText = styled.h1`
+  font-family: 'Archivo Black', Arial;
+  align-self: flex-end;
+  font-size: 2vw;
+  padding-right: 3vw;
+  color: black;
 `;
 
 // Title, Price and Description
@@ -172,7 +196,7 @@ const ReviewsWidget = styled.div`
 const ReviewsStarRating = styled.div`
   padding-left: 5vw;
   padding-top: 1vw;
-`
+`;
 
 export class ProductPage extends Component {
   state = { selectedOptions: [] };
@@ -189,7 +213,6 @@ export class ProductPage extends Component {
   componentWillReceiveProps(nextProps) {
     const { product } = this.props;
     let arr = [];
-    window.scrollTo(0, 0);
     if (product) {
       const variantImages = product.images.map((image, index) => {
         return (arr[index] = {
@@ -200,6 +223,10 @@ export class ProductPage extends Component {
       });
       this.setState({ variantImages: arr });
     }
+  }
+  
+  componentDidMount() {
+    window.scrollTo(0, 0);
   }
 
   ReviewsStarRating = () => {
@@ -289,6 +316,18 @@ export class ProductPage extends Component {
       console.log(product);
       return (
         <RootContainer>
+          <Spring
+            from={{ opacity: 0, height: '0vw' }}
+            to={{ opacity: 1, height: '10vw' }}>
+            {styles => (
+              <PromoBanner style={styles}>
+                <PromoBannerText>
+                  25% off on Gemini Items storewide! COUPON CODE: GEMINI25
+                </PromoBannerText>
+              </PromoBanner>
+            )}
+          </Spring>
+
           <ImageGallery
             showFullscreenButton={false}
             showThumbnails={true}
@@ -300,7 +339,9 @@ export class ProductPage extends Component {
 
           <ProductCardWrapper>
             <Title>{product.title}</Title>
-            <ReviewsStarRating dangerouslySetInnerHTML={this.ReviewsStarRating()} />
+            <ReviewsStarRating
+              dangerouslySetInnerHTML={this.ReviewsStarRating()}
+            />
             <Price>${selectedVariant.price}</Price>
             <VariantSelectorAndCartWrapper>
               {product.options.map(option => {
@@ -328,7 +369,7 @@ export class ProductPage extends Component {
             </VariantSelectorAndCartWrapper>
           </ProductCardWrapper>
           <ReviewsWidget dangerouslySetInnerHTML={this.ReviewsWidget()} />
-          <IntroBanner />
+
           <CollectionListHeader />
           {console.log(yotpo)}
           {yotpo.initWidgets()}
