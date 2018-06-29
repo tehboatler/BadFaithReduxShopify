@@ -41,42 +41,6 @@ const PromoBanner = styled.div`
   align-items: flex-end;
 
   margin-bottom: 1vw;
-  // -webkit-box-shadow: 0px 3px 30px -2px rgba(54, 54, 54, 0.14);
-  // -moz-box-shadow: 0px 3px 10px -2px rgba(54, 54, 54, 0.14);
-  // box-shadow: 0px 3px 10px -2px rgba(54, 54, 54, 0.14);
-  //   background: rgba(255, 202, 110, 1);
-  //   background: -moz-linear-gradient(
-  //     top,
-  //     rgba(255, 202, 110, 1) 0%,
-  //     rgba(242, 201, 76, 1) 100%
-  //   );
-  //   background: -webkit-gradient(
-  //     left top,
-  //     left bottom,
-  //     color-stop(0%, rgba(255, 202, 110, 1)),
-  //     color-stop(100%, rgba(242, 201, 76, 1))
-  //   );
-  //   background: -webkit-linear-gradient(
-  //     top,
-  //     rgba(255, 202, 110, 1) 0%,
-  //     rgba(242, 201, 76, 1) 100%
-  //   );
-  //   background: -o-linear-gradient(
-  //     top,
-  //     rgba(255, 202, 110, 1) 0%,
-  //     rgba(242, 201, 76, 1) 100%
-  //   );
-  //   background: -ms-linear-gradient(
-  //     top,
-  //     rgba(255, 202, 110, 1) 0%,
-  //     rgba(242, 201, 76, 1) 100%
-  //   );
-  //   background: linear-gradient(
-  //     to bottom,
-  //     rgba(255, 202, 110, 1) 0%,
-  //     rgba(242, 201, 76, 1) 100%
-  //   );
-  //   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffca6e', endColorstr='#f2c94c', GradientType=0 );
   background-color: #f5f5f5;
 `;
 
@@ -275,6 +239,30 @@ const FeaturePrice = styled.h1`
   margin: 0;
 `;
 
+//  Shop Now Button
+// ============================================================
+
+const ShopNowWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  height: auto;
+  width: 30vw;
+  margin: 3.5vw 34vw;
+  border: 0.5vw solid #131313;
+  margin-bottom: 10vw;
+`;
+
+const ShopNowText = styled.h1`
+  font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
+  font-size: 5vw;
+  font-weight: 700;
+  padding: 1vw;
+  margin: 0;
+  color: black;
+`;
+
 // Misc
 // ============================================================
 
@@ -408,18 +396,34 @@ export default class Featured extends Component {
             </Feature1>
           </Fade>
 
+          <Fade bottom>
+            <Link to="/starsigned-rings">
+              <ShopNowWrapper>
+                <ShopNowText> Shop Now </ShopNowText>
+              </ShopNowWrapper>
+            </Link>
+          </Fade>
+
           <FeatureHeadingWrapper>
-            <FeatureHeading>Titanium Rings:</FeatureHeading>
-            <FeatureHeading>StarSigned Sleek & Stylish</FeatureHeading>
+            <FeatureHeading>Starbound Sterling:</FeatureHeading>
+            <FeatureHeading>925 Silver Necklaces</FeatureHeading>
           </FeatureHeadingWrapper>
 
           <Fade>
             <Feature1>
-              <Link to="/starsigned-rings">
+              <Link to="/starsigned-necklaces">
                 <Feature2Image />
               </Link>
               <Feature1Card />
             </Feature1>
+          </Fade>
+
+          <Fade bottom>
+            <Link to="/starsigned-necklaces">
+              <ShopNowWrapper>
+                <ShopNowText> Shop Now </ShopNowText>
+              </ShopNowWrapper>
+            </Link>
           </Fade>
         </FeatureGrid>
 

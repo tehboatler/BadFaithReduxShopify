@@ -62,7 +62,7 @@ export function getCollection(collection_handle) {
       { collection_handle }
     );
     const collectionProducts = await res.model.shop.collectionByHandle.products;
-    const collectionNode = await res.model.shop.collectionByHandle
+    const collectionNode = await res.model.shop.collectionByHandle;
     return dispatch({
       type: actions.GET_COLLECTION,
       collectionNode: collectionNode,
@@ -80,7 +80,13 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-  const { type, data, collectionItems, collectionHandle, collectionNode } = action;
+  const {
+    type,
+    data,
+    collectionItems,
+    collectionHandle,
+    collectionNode
+  } = action;
   switch (type) {
     case actions.NULL_CASE_LIST:
       return { ...state, cases: [] };
@@ -89,7 +95,7 @@ export default (state = initialState, action) => {
     case actions.GET_COLLECTION:
       return {
         ...state,
-        collections: {[collectionHandle]: collectionItems, collectionNode}
+        collections: { [collectionHandle]: collectionItems, collectionNode }
       };
       break;
 

@@ -93,7 +93,7 @@ const SterlingSilverFeature = styled.div`
   justify-content: flex-start;
   align-items: start;
   width: 100%;
-  height: 77vh;
+  height: 65vh;
   background-color: #f2f2f2;
   background-image: url(${IntroBannerFeatureImage});
   background-size: cover;
@@ -140,11 +140,17 @@ const IntroBannerBottomText_Shift = styled.div`
 // Best Selling Banner
 // ============================================================
 
+const BestSellingWrapper = styled.div`
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(3, 25vw);
+`;
+
 const BestSellingBanner = styled.div`
   display: flex;
   justify-content: center;
   align-items: start;
-  width: 33%;
+  width: 25vw;
   height: 20vw;
   background-color: #f2f2f2;
   background-image: url(${BestSellingNecklace});
@@ -222,7 +228,7 @@ const VignetteOverlay = styled.div`
 const HeaderMedium = styled.h1`
   font-family: 'Archivo Black', Courier, monospace;
   font-size: 4vw;
-  margin-top: 10vw;
+  margin-top: 4vw;
   line-height: 0;
   background-color: black;
   color: black;
@@ -279,7 +285,11 @@ export default class DesktopFeatured extends Component {
 
         <VignetteOverlay />
         <HeaderMedium>Best Sellers</HeaderMedium>
-        <BestSellingBanner />
+        <BestSellingWrapper>
+          <BestSellingBanner />
+          <BestSellingBanner />
+          <BestSellingBanner />
+        </BestSellingWrapper>
       </RootContainer>
     );
   }

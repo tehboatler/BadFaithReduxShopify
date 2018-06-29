@@ -7,11 +7,14 @@ import MediaQuery from 'react-responsive';
 import Nav from '../Nav';
 import DesktopNav from '../desktop/Nav';
 import CollectionList from './CollectionList';
+import DesktopCollectionList from '../desktop/pages/DesktopCollectionList';
 import ProductPage from './ProductPage';
+import DesktopProductPage from '../desktop/pages/DesktopProductPage';
 import Header from '../Header';
 import Featured from './Featured';
 import DesktopFeatured from '../desktop/pages/Featured';
 import Footer from '../Footer';
+import DesktopFooter from '../desktop/DesktopFooter';
 import SupportCenter from './SupportCenter';
 
 const RootContainer = styled.div`
@@ -370,7 +373,129 @@ export default class Main extends Component {
           <MediaQuery minDeviceWidth={1224} values={{ deviceWidth: 1600 }}>
             <Switch>
               <Route exact path="/" component={DesktopFeatured} />
+
+              <Route
+                exact
+                path="/starsigned-necklaces"
+                render={props => (
+                  <DesktopCollectionList
+                    collectionStringProps="starsigned-necklaces"
+                    {...props}
+                  />
+                )}
+              />
+              <Route
+                path="/starsigned-necklaces/:handle"
+                render={props => (
+                  <DesktopProductPage
+                    addVariantToCart={this.addVariantToCart.bind(this)}
+                    {...props}
+                  />
+                )}
+              />
+              
+              <Route
+                exact
+                path="/starsigned-bracelets"
+                render={props => (
+                  <DesktopCollectionList
+                    collectionStringProps="starsigned-bracelets"
+                    {...props}
+                  />
+                )}
+              />
+              <Route
+                path="/starsigned-bracelets/:handle"
+                render={props => (
+                  <DesktopProductPage
+                    addVariantToCart={this.addVariantToCart.bind(this)}
+                    {...props}
+                  />
+                )}
+              />
+
+              <Route
+                exact
+                path="/starsigned-rings"
+                render={props => (
+                  <DesktopCollectionList
+                    collectionStringProps="starsigned-rings"
+                    {...props}
+                  />
+                )}
+              />
+              <Route
+                path="/starsigned-rings/:handle"
+                render={props => (
+                  <DesktopProductPage
+                    addVariantToCart={this.addVariantToCart.bind(this)}
+                    {...props}
+                  />
+                )}
+              />
+
+              <Route
+                exact
+                path="/starsigned-lights-home"
+                render={props => (
+                  <DesktopCollectionList
+                    collectionStringProps="starsigned-lights-home"
+                    {...props}
+                  />
+                )}
+              />
+              <Route
+                path="/starsigned-lights-home/:handle"
+                render={props => (
+                  <DesktopProductPage
+                    addVariantToCart={this.addVariantToCart.bind(this)}
+                    {...props}
+                  />
+                )}
+              />
+
+              <Route
+                exact
+                path="/starsigned-sterling-silver-stainless-steel"
+                render={props => (
+                  <DesktopCollectionList
+                    collectionStringProps="starsigned-sterling-silver-stainless-steel"
+                    {...props}
+                  />
+                )}
+              />
+              <Route
+                path="/starsigned-sterling-silver-stainless-steel/:handle"
+                render={props => (
+                  <DesktopProductPage
+                    addVariantToCart={this.addVariantToCart.bind(this)}
+                    {...props}
+                  />
+                )}
+              />
+
+              <Route
+                exact
+                path="/starsigned-best-selling"
+                render={props => (
+                  <DesktopCollectionList
+                    collectionStringProps="starsigned-best-selling"
+                    {...props}
+                  />
+                )}
+              />
+              <Route
+                path="/starsigned-best-selling/:handle"
+                render={props => (
+                  <DesktopProductPage
+                    addVariantToCart={this.addVariantToCart.bind(this)}
+                    {...props}
+                  />
+                )}
+              />
+
             </Switch>
+            <DesktopFooter />
           </MediaQuery>
 
           {/*Mobile Routes*/}

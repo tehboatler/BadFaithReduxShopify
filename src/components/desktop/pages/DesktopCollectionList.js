@@ -5,102 +5,36 @@ import { withRouter } from 'react-router-dom';
 import { Instagram } from 'react-content-loader';
 import Fade from 'react-reveal/Fade';
 import { Spring } from 'react-spring';
+import { Link } from 'react-router-dom';
 
 import styled from 'styled-components';
+import DesktopProductItem from '../DesktopProductItem';
+import DesktopPromoBanner from '../DesktopPromoBanner';
 
-import { getCollection } from '../../../reducers/collectionReducers';
-import ProductItem from '../ProductItem';
-import CollectionListHeader from '../CollectionListHeader';
-import Header from '../Header';
-import IntroBanner from '../IntroBanner';
-import BestSellerBanner from '../BestSellerBanner';
+import { getCollection } from '../../../../reducers/collectionReducers';
+import DesktopHeader from '../DesktopHeader';
 
 // Root
 // ============================================================
 const RootContainer = styled.div`
-  width: 90%;
-  margin: 0 5%;
+  width: 75%;
+  margin: 0 12.5%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   height: auto;
 `;
 
 const Grid = styled.div`
   margin-top: 2vw;
-  width: 65%;
+  padding-top: 2vw;
+  width: 80%;
+  margin: 0 10%;
   display: grid;
-
-  // grid-template-columns: 1fr 1fr 1fr;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   //   background-color: #fff;
-  grid-gap: 1vw;
-  @media (max-width: 415px) {
-    width: 100%;
-    grid-template-columns: repeat(1, 1fr);
-    // padding: 0vw 2.5% 0 2.5%;
-    margin-bottom: 2vw;
-    padding-bottom: 2vw;
-  }
-`;
-
-// Promo Banner
-// ============================================================
-const PromoBanner = styled.div`
-  display: flex;
-  flex-direction: column;
-  text-align: right;
-  height: 10vw;
-  width: 100%;
-  justify-content: center;
-  align-items: flex-end;
-
-  margin-bottom: 1vw;
-  // -webkit-box-shadow: 0px 3px 30px -2px rgba(54, 54, 54, 0.14);
-  // -moz-box-shadow: 0px 3px 10px -2px rgba(54, 54, 54, 0.14);
-  // box-shadow: 0px 3px 10px -2px rgba(54, 54, 54, 0.14);
-  //   background: rgba(255, 202, 110, 1);
-  //   background: -moz-linear-gradient(
-  //     top,
-  //     rgba(255, 202, 110, 1) 0%,
-  //     rgba(242, 201, 76, 1) 100%
-  //   );
-  //   background: -webkit-gradient(
-  //     left top,
-  //     left bottom,
-  //     color-stop(0%, rgba(255, 202, 110, 1)),
-  //     color-stop(100%, rgba(242, 201, 76, 1))
-  //   );
-  //   background: -webkit-linear-gradient(
-  //     top,
-  //     rgba(255, 202, 110, 1) 0%,
-  //     rgba(242, 201, 76, 1) 100%
-  //   );
-  //   background: -o-linear-gradient(
-  //     top,
-  //     rgba(255, 202, 110, 1) 0%,
-  //     rgba(242, 201, 76, 1) 100%
-  //   );
-  //   background: -ms-linear-gradient(
-  //     top,
-  //     rgba(255, 202, 110, 1) 0%,
-  //     rgba(242, 201, 76, 1) 100%
-  //   );
-  //   background: linear-gradient(
-  //     to bottom,
-  //     rgba(255, 202, 110, 1) 0%,
-  //     rgba(242, 201, 76, 1) 100%
-  //   );
-  //   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffca6e', endColorstr='#f2c94c', GradientType=0 );
-  background-color: #f5f5f5;
-`;
-
-const PromoBannerText = styled.h1`
-  font-family: 'Archivo Black', Arial;
-  align-self: flex-end;
-  font-size: 2vw;
-  padding-right: 3vw;
-  color: black;
+  grid-gap: 2.5vw;
 `;
 
 // Loading
@@ -123,11 +57,12 @@ const LoadingText = styled.h1`
 // Collection Page Description + Top Nav
 // ============================================================
 const TopNav = styled.div`
-  margin-top: 30vw;
+  margin: 0 10%;
+  margin-top: 8vw;
   background-color: #111;
   height: auto;
   text-align: center;
-  width: 100%;
+  width: 80%;
   -webkit-box-shadow: 0px 4px 30px -9px rgba(54, 54, 54, 0.44);
   -moz-box-shadow: 0px 4px 30px -9px rgba(54, 54, 54, 0.44);
   box-shadow: 0px 4px 30px -9px rgba(54, 54, 54, 0.44);
@@ -135,7 +70,7 @@ const TopNav = styled.div`
 
 const TopNavTitle = styled.h1`
   font-family: 'Archivo Black', Arial, Helvetica, sans-serif;
-  font-size: 5vw;
+  font-size: 1.5vw;
   color: white;
   font-weight: 800;
   background-color: black;
@@ -150,8 +85,8 @@ const TopNavTitle = styled.h1`
 
 const TopNavDescription = styled.h1`
   color: white;
-  margin: 5vw 5vw;
-  font-size: 4vw;
+  margin: 1vw 1vw;
+  font-size: 0.7vw;
 `;
 
 // Guarantee
@@ -165,22 +100,23 @@ const GuaranteeWrapper = styled.div`
   box-shadow: 0px 10px 13px -1px rgba(0, 0, 0, 0.4);
 `;
 
-class CollectionList extends Component {
-  componentWillMount() {
-    const { getCollection, collectionStringProps } = this.props;
-    getCollection(collectionStringProps);
-  }
-
+class DesktopCollectionList extends Component {
   componentDidMount = () => {
     window.scrollTo(0, 0);
-    console.log('CollectionList CDM!');
+    console.log('DesktopCollectionList CDM!');
+    const { getCollection, collectionStringProps } = this.props;
+    getCollection(collectionStringProps);
   };
 
   componentWillReceiveProps(nextProps) {
     console.log('next props: ', nextProps);
     if (nextProps.collection === undefined) {
       nextProps.getCollection(nextProps.collectionStringProps);
+      console.log("CWRP Collection getCollection Fired!");
       window.scrollTo(0, 0);
+    }
+    if (nextProps.collectionNode) {
+      console.log('TEST!!!!!');
     }
   }
 
@@ -192,19 +128,9 @@ class CollectionList extends Component {
         <div>
           <RootContainer>
             <TopNav>
-              <Spring
-                from={{ opacity: 0, height: '0vw' }}
-                to={{ opacity: 1, height: '10vw' }}>
-                {styles => (
-                  <PromoBanner style={styles}>
-                    <PromoBannerText>
-                      25% off on Gemini Items storewide! COUPON CODE: GEMINI25
-                    </PromoBannerText>
-                  </PromoBanner>
-                )}
-              </Spring>
+              <DesktopPromoBanner />
               <TopNavTitle>{collectionNode.title}</TopNavTitle>
-              <Header/>
+              <DesktopHeader />
             </TopNav>
             <Grid>
               {collection.map(collectionItem => {
@@ -213,7 +139,7 @@ class CollectionList extends Component {
                 console.log('images: ', image);
                 return (
                   <Fade bottom>
-                    <ProductItem
+                    <DesktopProductItem
                       key={collectionItem.id}
                       id={collectionItem.id}
                       handle={collectionItem.handle}
@@ -227,6 +153,7 @@ class CollectionList extends Component {
                 );
               })}
             </Grid>
+
             <GuaranteeWrapper>
               <TopNavDescription>
                 Our products have high quality standards that will give you the
@@ -234,7 +161,8 @@ class CollectionList extends Component {
                 30-day money back guarantee.
               </TopNavDescription>
             </GuaranteeWrapper>
-            <Header />
+            <DesktopHeader />
+            {console.log('Last Render~')}
           </RootContainer>
         </div>
       );
@@ -267,5 +195,5 @@ export default withRouter(
   connect(
     mapStateToProps,
     mapDispatchToProps
-  )(CollectionList)
+  )(DesktopCollectionList)
 );

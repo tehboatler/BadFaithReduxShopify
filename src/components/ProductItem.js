@@ -74,9 +74,8 @@ const Price = styled.h1`
   font-weight: 800;
 
   @media (max-width: 415px) {
-    background-color: #eee;
-    font-size: 5vw;
-    color: #444;
+    font-size: 4vw;
+    color: #111;
     margin-bottom: 3vw;
   }
 `;

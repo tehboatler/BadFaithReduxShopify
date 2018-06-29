@@ -5,7 +5,9 @@ import { withRouter, Link } from 'react-router-dom';
 import reactDOM from 'react-dom';
 import Sticky from 'react-stickynode';
 
-import IntroBanner from './IntroBanner';
+// ============================================================
+// Styles
+// ============================================================
 
 const HeaderContainer = styled.div`
   display: flex;
@@ -45,8 +47,8 @@ const HeaderLinks = styled.div`
   background-color: white;
   display: flex;
   justify-content: space-between;
-  width: 90%;
-  padding: 4.5% 5%;
+  width: 50%;
+  padding: 1% 25%;
   -webkit-box-shadow: 0px 10px 13px -1px rgba(0, 0, 0, 0.15);
   -moz-box-shadow: 0px 10px 13px -1px rgba(0, 0, 0, 0.15);
   box-shadow: 0px 10px 13px -1px rgba(0, 0, 0, 0.15);
@@ -54,10 +56,10 @@ const HeaderLinks = styled.div`
 `;
 
 const LinkText = styled.h1`
-  font-size: 3.5vw;
+  font-size: 1vw;
   display: inline;
   background-color: white;
-  padding: 3vw 2vw;
+  padding: 1vw 2vw;
   font-weight: 700;
   font-family: 'Roboto Condensed', cursive;
   color: #fff6e5;
@@ -65,7 +67,74 @@ const LinkText = styled.h1`
   text-decoration: underline;
 `;
 
-export class Header extends Component {
+// ============================================================
+// Vignette
+// ============================================================
+
+const VignetteOverlay = styled.div`
+  position: fixed;
+  height: 15vw;
+  width: 100vw;
+  opacity: 0.25;
+  bottom: 0;
+  margin-left: -25%;
+    padding-right: 50%;
+  mix-blend-mode: multiply;
+  background: rgba(0, 0, 0, 0);
+  background: -moz-linear-gradient(
+    top,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.16) 16%,
+    rgba(0, 0, 0, 0.35) 35%,
+    rgba(0, 0, 0, 0.58) 58%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  background: -webkit-gradient(
+    left top,
+    left bottom,
+    color-stop(0%, rgba(0, 0, 0, 0)),
+    color-stop(16%, rgba(0, 0, 0, 0.16)),
+    color-stop(35%, rgba(0, 0, 0, 0.35)),
+    color-stop(58%, rgba(0, 0, 0, 0.58)),
+    color-stop(100%, rgba(0, 0, 0, 1))
+  );
+  background: -webkit-linear-gradient(
+    top,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.16) 16%,
+    rgba(0, 0, 0, 0.35) 35%,
+    rgba(0, 0, 0, 0.58) 58%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  background: -o-linear-gradient(
+    top,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.16) 16%,
+    rgba(0, 0, 0, 0.35) 35%,
+    rgba(0, 0, 0, 0.58) 58%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  background: -ms-linear-gradient(
+    top,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.16) 16%,
+    rgba(0, 0, 0, 0.35) 35%,
+    rgba(0, 0, 0, 0.58) 58%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.16) 16%,
+    rgba(0, 0, 0, 0.35) 35%,
+    rgba(0, 0, 0, 0.58) 58%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=0 );
+`;
+
+export class DesktopHeader extends Component {
+    
   render() {
     return (
       <HeaderContainer
@@ -89,6 +158,7 @@ export class Header extends Component {
     </Link>
     </HeaderLinks>
     </Sticky>
+    <VignetteOverlay/>
     </HeaderContainer>
     );
   }
@@ -98,4 +168,4 @@ const mapStateToProps = state => ({});
 
 const mapDispatchToProps = {};
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(DesktopHeader));
