@@ -78,7 +78,7 @@ const VignetteOverlay = styled.div`
   opacity: 0.25;
   bottom: 0;
   margin-left: -25%;
-    padding-right: 50%;
+  padding-right: 50%;
   mix-blend-mode: multiply;
   background: rgba(0, 0, 0, 0);
   background: -moz-linear-gradient(
@@ -134,32 +134,29 @@ const VignetteOverlay = styled.div`
 `;
 
 export class DesktopHeader extends Component {
-    
   render() {
     return (
       <HeaderContainer
         isHome={location.pathname === '/'}
-        ref={c => (this.header = reactDOM.findDOMNode(c))}
-      >
-        
+        ref={c => (this.header = reactDOM.findDOMNode(c))}>
         <Sticky innerZ={3} enabled={true} top={0} bottomBoundary={2400}>
-        <HeaderLinks>
-    <Link to="/starsigned-rings">
-    <LinkText>RINGS</LinkText>
-    </Link>
-    <Link to="/starsigned-necklaces">
-    <LinkText>NECKLACES</LinkText>
-    </Link>
-    <Link to="/starsigned-bracelets">
-    <LinkText>BRACELETS</LinkText>
-    </Link>
-    <Link to="/starsigned-lights-home">
-    <LinkText>HOME</LinkText>
-    </Link>
-    </HeaderLinks>
-    </Sticky>
-    <VignetteOverlay/>
-    </HeaderContainer>
+          <HeaderLinks>
+            <Link to="/starsigned-rings">
+              <LinkText>RINGS</LinkText>
+            </Link>
+            <Link to="/starsigned-necklaces">
+              <LinkText>NECKLACES</LinkText>
+            </Link>
+            <Link to="/starsigned-bracelets">
+              <LinkText>BRACELETS</LinkText>
+            </Link>
+            <Link to="/starsigned-lights-home">
+              <LinkText>HOME</LinkText>
+            </Link>
+          </HeaderLinks>
+        </Sticky>
+        <VignetteOverlay />
+      </HeaderContainer>
     );
   }
 }
@@ -168,4 +165,9 @@ const mapStateToProps = state => ({});
 
 const mapDispatchToProps = {};
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(DesktopHeader));
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(DesktopHeader)
+);

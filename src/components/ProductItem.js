@@ -121,6 +121,10 @@ export default class ProductItem extends Component {
 
   ReviewsStarRating = handle => {
     console.log('match: ', handle);
+    var api = new Yotpo.API(yotpo);
+    setTimeout(() => {
+      api.refreshWidgets();
+    }, 1000);
     return {
       __html: `<div
       class='yotpo bottomLine'
