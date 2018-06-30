@@ -16,6 +16,9 @@ import DesktopFeatured from '../desktop/pages/Featured';
 import Footer from '../Footer';
 import DesktopFooter from '../desktop/DesktopFooter';
 import SupportCenter from './SupportCenter';
+import TermsOfUse from './TermsOfUse';
+import RefundPolicy from './RefundPolicy';
+import PrivacyPolicy from './PrivacyPolicy';
 
 const RootContainer = styled.div`
   width: 100%;
@@ -508,6 +511,24 @@ export default class Main extends Component {
                 path="/support-center"
                 render={props => <SupportCenter />}
               />
+
+              <Route
+              exact
+              path="/terms-of-use"
+              render={props => <TermsOfUse />}
+            />
+
+              <Route
+              exact
+              path="/refund-policy"
+              render={props => <RefundPolicy />}
+            />
+
+              <Route
+              exact
+              path="/privacy-policy"
+              render={props => <PrivacyPolicy />}
+            />
 
               <Route
                 exact
