@@ -93,7 +93,7 @@ const Footer = () => {
           <Link to="/contact-us">
             <SubTitle>Contact Us</SubTitle>
           </Link>
-          <SubTitle>About Us</SubTitle>
+          <SubTitle></SubTitle>
         </GridItem>
         <GridItem2>
           <Title>Explore</Title>

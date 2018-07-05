@@ -14,7 +14,7 @@ const RootContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   z-index: 3;
-  top: 5vw;
+  top: 3vw;
   width: 75%;
   margin: 0 12.5%;
   background-color: white;
@@ -26,7 +26,7 @@ const SiteTopDetail = styled.div`
   z-index: 4;
   background-color: white;
   width: 100%;
-  height: 4vw;
+  height: 3vw;
 `;
 
 // ============================================================
@@ -199,7 +199,7 @@ export default class DesktopNav extends Component {
             </FreeShippingText>
           </FreeShipping>
           <TaglineWrapper>
-            <TaglineText>Style for the Starbound  |  What's your Star Sign?</TaglineText>
+            <TaglineText>Style for the Starbound  | What's your Star Sign?</TaglineText>
           </TaglineWrapper>
         </SiteTopDetail>
 
