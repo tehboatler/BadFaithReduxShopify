@@ -42,8 +42,37 @@ const ProductCardWrapper = styled.div`
   box-shadow: 0px 4px 14px -4px rgba(0, 0, 0, 0.21);
 `;
 
+// Go Back Button
+// ============================================================
+
+const BackButton = styled.div`
+  display: absolute;
+  height: auto;
+  width: 100%;
+  background-color: #eee;
+`;
+
+const BackButtonText = styled.h1`
+  display: inline-block;
+  font-family: 'Roboto Condensed', Arial, Helvetica;
+  font-size: 4vw;
+  color: white;
+  background-color: black;
+  padding: 2vw;
+  border-top-left-radius: 0.5vw;
+  border-bottom-right-radius: 0.5vw;
+`;
+
 // Promo Banner
 // ============================================================
+
+const PromoBannerWrapper = styled.div`
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+`;
+
 const PromoBanner = styled.div`
   display: flex;
   flex-direction: column;
@@ -52,7 +81,6 @@ const PromoBanner = styled.div`
   width: 100%;
   justify-content: center;
   align-items: flex-end;
-
   margin-bottom: 1vw;
   background-color: #f5f5f5;
 `;
@@ -224,7 +252,7 @@ export class ProductPage extends Component {
       this.setState({ variantImages: arr });
     }
   }
-  
+
   componentDidMount() {
     window.scrollTo(0, 0);
   }
@@ -310,21 +338,24 @@ export class ProductPage extends Component {
   // Render Start
   // ============================================================
   render() {
-    const { product, addVariantToCart, selectedVariant } = this.props;
+    const { product, addVariantToCart, selectedVariant, match } = this.props;
     const { variantImages } = this.state;
     if (product) {
       console.log(product);
       return (
         <RootContainer>
+          <CollectionListHeader />
           <Spring
             from={{ opacity: 0, height: '0vw' }}
             to={{ opacity: 1, height: '10vw' }}>
             {styles => (
-              <PromoBanner style={styles}>
-                <PromoBannerText>
-                  25% off on Gemini Items storewide! COUPON CODE: GEMINI25
-                </PromoBannerText>
-              </PromoBanner>
+              <PromoBannerWrapper style={styles}>
+                <PromoBanner>
+                  <PromoBannerText>
+                    25% off on Gemini Items storewide! COUPON CODE: GEMINI25
+                  </PromoBannerText>
+                </PromoBanner>
+              </PromoBannerWrapper>
             )}
           </Spring>
 
@@ -356,7 +387,14 @@ export class ProductPage extends Component {
               })}
               <AddToCartWrapper>
                 <AddToCartButton
-                  onClick={() => addVariantToCart(selectedVariant.id, 1)}>
+                  onClick={() =>
+                    addVariantToCart(
+                      selectedVariant.id,
+                      1,
+                      product.title,
+                      selectedVariant.price
+                    )
+                  }>
                   <AddToCartText>Add To Cart</AddToCartText>
                 </AddToCartButton>
               </AddToCartWrapper>
@@ -368,6 +406,7 @@ export class ProductPage extends Component {
               <TrustBadgeWrapper />
             </VariantSelectorAndCartWrapper>
           </ProductCardWrapper>
+
           <ReviewsWidget dangerouslySetInnerHTML={this.ReviewsWidget()} />
 
           <CollectionListHeader />

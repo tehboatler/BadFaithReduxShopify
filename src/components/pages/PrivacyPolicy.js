@@ -8,6 +8,10 @@ const PrivacyPolicyTextWrapper = styled.div`
 `;
 
 export default class PrivacyPolicy extends Component {
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+
   PrivacyPolicy = () => {
     return {
       __html: `<!-- HTML Codes by Quackit.com -->
@@ -110,7 +114,9 @@ export default class PrivacyPolicy extends Component {
   render() {
     return (
       <div>
-        <PrivacyPolicyTextWrapper dangerouslySetInnerHTML={this.PrivacyPolicy()} />
+        <PrivacyPolicyTextWrapper
+          dangerouslySetInnerHTML={this.PrivacyPolicy()}
+        />
       </div>
     );
   }

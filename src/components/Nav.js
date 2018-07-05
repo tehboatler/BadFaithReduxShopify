@@ -261,10 +261,12 @@ const RootContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  top: 9vw;
+  top: 11.5vw;
   width: 100%;
   background-color: white;
   height: 15vw;
+  border-bottom: 1px #eee solid;
+  margin-bottom: 1vw;
 `;
 
 const SiteTopDetail = styled.div`
@@ -272,7 +274,7 @@ const SiteTopDetail = styled.div`
   z-index: 1;
   background-color: white;
   width: 100%;
-  height: 9vw;
+  height: 11.5vw;
   overflow: hidden;
 `;
 
@@ -290,7 +292,7 @@ const FreeShipping = styled.div`
 `;
 
 const FreeShippingText = styled.h1`
-  font-size: 2vw;
+  font-size: 3vw;
   font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
   color: black;
   font-weight: 700;
@@ -450,33 +452,33 @@ export default class DesktopNav extends Component {
           </TaglineWrapper>
         </SiteTopDetail>
 
-          <RootContainer>
-            <LogoWrapper>
-              <LogoImage>StarSigned</LogoImage>
-            </LogoWrapper>
-            <MenuWrapper>
-              <Link to="/">
-                <MenuItemWrapper>
-                  <MenuItem>Home</MenuItem>
-                </MenuItemWrapper>
-              </Link>
-              <CartImageWrapper>
-                <OpenCartButton onClick={this.handleCartOpen}>
-                  <FontAwesomeIcon
-                    size="2x"
-                    color="#131313"
-                    icon={faShoppingCart}
-                  />
-                </OpenCartButton>
-              </CartImageWrapper>
-            </MenuWrapper>
-            <Cart
-              checkout={this.props.checkout}
-              handleCartClose={this.handleCartClose}
-              isCartOpen={isCartOpen}
-              line_items={lineitems}
-            />
-          </RootContainer>
+        <RootContainer>
+          <LogoWrapper>
+            <LogoImage>StarSigned</LogoImage>
+          </LogoWrapper>
+          <MenuWrapper>
+            <Link to="/">
+              <MenuItemWrapper>
+                <MenuItem>Home</MenuItem>
+              </MenuItemWrapper>
+            </Link>
+            <CartImageWrapper>
+              <OpenCartButton onClick={this.handleCartOpen}>
+                <FontAwesomeIcon
+                  size="2x"
+                  color="#131313"
+                  icon={faShoppingCart}
+                />
+              </OpenCartButton>
+            </CartImageWrapper>
+          </MenuWrapper>
+          <Cart
+            checkout={this.props.checkout}
+            handleCartClose={this.handleCartClose}
+            isCartOpen={isCartOpen}
+            line_items={lineitems}
+          />
+        </RootContainer>
       </div>
     );
   }

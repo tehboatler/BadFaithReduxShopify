@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { injectIntl, FormattedNumber } from 'react-intl';
 
 const CaseItemContainer = styled.div`
   width: 100%;
@@ -138,6 +139,7 @@ export default class ProductItem extends Component {
 
   render() {
     const {
+      intl,
       title,
       handle,
       desc,
@@ -160,7 +162,14 @@ export default class ProductItem extends Component {
             dangerouslySetInnerHTML={this.ReviewsStarRating(handle)}
           />
           <PriceWrapper>
-            <Price>${price} USD</Price>
+            <Price>
+              <FormattedNumber
+                value={`${price}`}
+                currency="AUD"
+                currencyDisplay="symbol"
+                style="currency"
+              />
+            </Price>
           </PriceWrapper>
           <Link to={`/${pathString}/${handle}`} />
         </DescriptionWrapper>

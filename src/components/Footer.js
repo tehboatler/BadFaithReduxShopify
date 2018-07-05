@@ -7,7 +7,7 @@ import PaymentOptionIcons from '../img/PaymentOptions.png';
 const RootContainer = styled.div`
   height: auto;
   width: 100%;
-  background-color: #eee;
+  background-color: #fff;
   text-align: center;
   margin-top: 1vw;
   padding-top: 4vw;
@@ -20,7 +20,7 @@ const RootGrid = styled.div`
 `;
 
 const GridItem = styled.div`
-  background-color: #eee;
+  // background-color: #eee;
   height: auto;
   width: auto;
   text-align: center;
@@ -28,14 +28,14 @@ const GridItem = styled.div`
   align-items: center;
 `;
 const GridItem2 = styled.div`
-  background-color: #eee;
+  // background-color: #eee;
   height: auto;
   text-align: center;
   justify-content: center;
   align-items: center;
 `;
 const TitleWrapper = styled.div`
-  background-color: blue;
+  // background-color: blue;
   border-bottom: 1px solid #333;
   width: 75%;
   margin: 0 12.5%;
@@ -90,17 +90,19 @@ const Footer = () => {
           <Link to="/support-center">
             <SubTitle>Support Center</SubTitle>
           </Link>
-          <SubTitle>Contact Us</SubTitle>
+          <Link to="/contact-us">
+            <SubTitle>Contact Us</SubTitle>
+          </Link>
           <SubTitle>About Us</SubTitle>
         </GridItem>
         <GridItem2>
           <Title>Explore</Title>
           <TitleWrapper />
           <Link to="/privacy-policy">
-          <SubTitle>Privacy Policy</SubTitle>
+            <SubTitle>Privacy Policy</SubTitle>
           </Link>
           <Link to="/refund-policy">
-          <SubTitle>Returns/Refunds Policy</SubTitle>
+            <SubTitle>Returns/Refunds Policy</SubTitle>
           </Link>
           <Link to="/terms-of-use">
             <SubTitle>Terms of Use</SubTitle>

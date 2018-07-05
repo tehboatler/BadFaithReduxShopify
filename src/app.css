@@ -6,6 +6,14 @@
   /* box-sizing: border-box; */
 /* } */
 
+@font-face {
+  font-family: 'helveticablack';
+  src: url('./fonts/helvetica-black-webfont.woff') format('woff2'),
+       url('./fonts/helvetica-black-webfont.woff2') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 html {
   font-size: 65%;
 }

@@ -5,8 +5,8 @@ import { withRouter } from 'react-router-dom';
 import { Instagram } from 'react-content-loader';
 import Fade from 'react-reveal/Fade';
 import { Spring } from 'react-spring';
-
 import styled from 'styled-components';
+
 
 import { getCollection } from '../../../reducers/collectionReducers';
 import ProductItem from '../ProductItem';
@@ -134,8 +134,8 @@ const TopNav = styled.div`
 `;
 
 const TopNavTitle = styled.h1`
-  font-family: 'Archivo Black', Arial, Helvetica, sans-serif;
-  font-size: 5vw;
+  font-family: 'helveticablack', Arial, Helvetica, sans-serif;
+  font-size: 4.5vw;
   color: white;
   font-weight: 800;
   background-color: black;
@@ -204,7 +204,7 @@ class CollectionList extends Component {
                 )}
               </Spring>
               <TopNavTitle>{collectionNode.title}</TopNavTitle>
-              <Header/>
+              <Header />
             </TopNav>
             <Grid>
               {collection.map(collectionItem => {

@@ -284,12 +284,7 @@ export default class DesktopFeatured extends Component {
         </Fade>
 
         <VignetteOverlay />
-        <HeaderMedium>Best Sellers</HeaderMedium>
-        <BestSellingWrapper>
-          <BestSellingBanner />
-          <BestSellingBanner />
-          <BestSellingBanner />
-        </BestSellingWrapper>
+        
       </RootContainer>
     );
   }

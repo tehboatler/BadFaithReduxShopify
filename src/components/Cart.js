@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import ReactPixel from 'react-facebook-pixel';
 
 const RootContainer = styled.div`
   z-index: 998;
@@ -7,12 +8,14 @@ const RootContainer = styled.div`
 class Cart extends Component {
   constructor(props) {
     super(props);
-
     this.openCheckout = this.openCheckout.bind(this);
   }
 
   openCheckout() {
+    console.log(this.props.line_items)
+      ReactPixel.track('InitiateCheckout', {});
     window.open(this.props.checkout.webUrl);
+
   }
 
   render() {

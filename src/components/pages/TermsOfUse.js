@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import ReactPixel from 'react-facebook-pixel';
 
 const TermsOfUseTextWrapper = styled.div`
   width: 90%;
@@ -8,6 +9,11 @@ const TermsOfUseTextWrapper = styled.div`
 `;
 
 export default class TermsOfUse extends Component {
+  componentDidMount() {
+    window.scrollTo(0, 0);
+    ReactPixel.trackCustom( 'ViewContent', {content_name: 'Terms of Use', content_type: 'Explore Pages'} ) 
+  }
+
   TermsOfUse = () => {
     return {
       __html: `<div>

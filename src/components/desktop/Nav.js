@@ -14,7 +14,7 @@ const RootContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   z-index: 3;
-  top: 3vw;
+  top: 5vw;
   width: 75%;
   margin: 0 12.5%;
   background-color: white;
@@ -26,7 +26,7 @@ const SiteTopDetail = styled.div`
   z-index: 4;
   background-color: white;
   width: 100%;
-  height: 3vw;
+  height: 4vw;
 `;
 
 // ============================================================

@@ -14,6 +14,7 @@ const HeaderContainer = styled.div`
   height: auto;
   width: 100%;
   background-color: #f2f2f2;
+  margin-top: 1vw;
   // background: rgb(0,0,0); /* Old browsers */
   // background: -moz-linear-gradient(top, rgba(0,0,0,1) 14%, rgba(34,34,34,1) 100%); /* FF3.6-15 */
   // background: -webkit-linear-gradient(top, rgba(0,0,0,1) 14%,rgba(34,34,34,1) 100%); /* Chrome10-25,Safari5.1-6 */
@@ -54,12 +55,12 @@ const HeaderLinks = styled.div`
 `;
 
 const LinkText = styled.h1`
-  font-size: 3.5vw;
+  font-size: 3vw;
   display: inline;
   background-color: white;
-  padding: 3vw 2vw;
+  padding: 2vw 4vw;
   font-weight: 700;
-  font-family: 'Roboto Condensed', cursive;
+  font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
   color: #fff6e5;
   color: black;
   text-decoration: underline;
@@ -70,26 +71,21 @@ export class Header extends Component {
     return (
       <HeaderContainer
         isHome={location.pathname === '/'}
-        ref={c => (this.header = reactDOM.findDOMNode(c))}
-      >
-        
+        ref={c => (this.header = reactDOM.findDOMNode(c))}>
         <Sticky innerZ={3} enabled={true} top={0} bottomBoundary={2400}>
-        <HeaderLinks>
-    <Link to="/starsigned-rings">
-    <LinkText>RINGS</LinkText>
-    </Link>
-    <Link to="/starsigned-necklaces">
-    <LinkText>NECKLACES</LinkText>
-    </Link>
-    <Link to="/starsigned-bracelets">
-    <LinkText>BRACELETS</LinkText>
-    </Link>
-    <Link to="/starsigned-lights-home">
-    <LinkText>HOME</LinkText>
-    </Link>
-    </HeaderLinks>
-    </Sticky>
-    </HeaderContainer>
+          <HeaderLinks>
+            <Link to="/starsigned-rings">
+              <LinkText>RINGS</LinkText>
+            </Link>
+            <Link to="/starsigned-necklaces">
+              <LinkText>NECKLACES</LinkText>
+            </Link>
+            <Link to="/starsigned-bracelets">
+              <LinkText>BRACELETS</LinkText>
+            </Link>
+          </HeaderLinks>
+        </Sticky>
+      </HeaderContainer>
     );
   }
 }
@@ -98,4 +94,13 @@ const mapStateToProps = state => ({});
 
 const mapDispatchToProps = {};
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Header)
+);
+
+// <Link to="/starsigned-lights-home">
+// <LinkText>HOME</LinkText>
+// </Link>

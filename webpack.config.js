@@ -33,7 +33,7 @@ module.exports = {
         use: [{ loader: 'style-loader' }, { loader: 'css-loader' }]
       },
       {
-        test: /\.(png|jpg|gif)$/,
+        test: /\.(png|jpg|gif|eot|svg|ttf|woff|woff2)$/,
         use: [
           {
             loader: 'file-loader',
@@ -41,6 +41,10 @@ module.exports = {
           }
         ]
       },
+      // {
+      //   test: /\.(eot|svg|ttf|woff|woff2)$/,
+      //   loader: 'file?name=src/fonts/[name].[ext]'
+      // },
       {
         test: /\.(html)$/,
         use: {
@@ -53,9 +57,9 @@ module.exports = {
     ]
   },
   plugins: [
-    // new HardSourceWebpackPlugin(),
+    // new HardSourceWebpackPlugin()
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('production')
+    'process.env.NODE_ENV': JSON.stringify('production')
     }),
     new UglifyJSPlugin()
     // new BundleAnalyzerPlugin()

@@ -45,7 +45,7 @@ const PromoBanner = styled.div`
 `;
 
 const PromoBannerText = styled.h1`
-  font-family: 'Archivo Black', Arial;
+  font-family: 'helveticablack', Arial;
   align-self: flex-end;
   font-size: 2vw;
   padding-right: 3vw;
@@ -70,6 +70,7 @@ const SterlingSilverFeature = styled.div`
 
 const SterlingSilverFeatureContentWrapper = styled.div`
   position: absolute;
+  left: 0;
   bottom: 15vw;
   display: flex;
   flex-direction: column;
@@ -77,7 +78,7 @@ const SterlingSilverFeatureContentWrapper = styled.div`
   align-items: center;
   margin: 0;
   margin-left: -8vw;
-  width: 100%;
+  width: 100vw;
   //   padding-right: 15vw;
   height: 30%;
   //   background-color: #131313;
@@ -86,21 +87,23 @@ const SterlingSilverFeatureContentWrapper = styled.div`
 `;
 
 const IntroBannerText = styled.h1`
-  font-family: 'Archivo Black', Courier, monospace;
+  font-family: 'helveticablack', Courier, monospace;
   font-size: 8vw;
   line-height: 0;
-  background-color: white;
+  // background-color: white;
   color: black;
   font-weight: 700vw;
 `;
 
 const IntroBannerTopTextWrapper = styled.div`
   background-color: #f2f2f2;
+  // opacity: 0;
 `;
 
 const IntroBannerBottomText_Shift = styled.div`
   margin-left: 30vw;
   background-color: white;
+  // opacity: 0;
 `;
 
 const SterlingSilverFeatureButton = styled.div`
@@ -128,21 +131,54 @@ const FeatureGrid = styled.div`
   margin-bottom: 4vw;
   margin-top: vw;
   z-index: 2;
+  background: rgba(240, 239, 238, 1);
+  background: -moz-linear-gradient(
+    top,
+    rgba(240, 239, 238, 1) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  background: -webkit-gradient(
+    left top,
+    left bottom,
+    color-stop(0%, rgba(240, 239, 238, 1)),
+    color-stop(100%, rgba(255, 255, 255, 1))
+  );
+  background: -webkit-linear-gradient(
+    top,
+    rgba(240, 239, 238, 1) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  background: -o-linear-gradient(
+    top,
+    rgba(240, 239, 238, 1) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  background: -ms-linear-gradient(
+    top,
+    rgba(240, 239, 238, 1) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  background: linear-gradient(
+    to bottom,
+    rgba(240, 239, 238, 1) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0efee', endColorstr='#ffffff', GradientType=0 );
 `;
 
 const FeatureHeadingWrapper = styled.div`
   width: 100%;
   text-align: left;
-  background-color: white;
+  // background-color: white;
   padding: 5% 0;
   padding-bottom: 2.5%;
 `;
 
 const FeatureHeading = styled.h1`
-  font-family: 'Archivo Black', Arial, Helvetica, sans-serif;
+  font-family: 'helveticablack', Arial, Helvetica, sans-serif;
   font-size: 4vw;
   color: black;
-  background-color: white;
+  // background-color: white;
   margin: 0 5%;
 `;
 
@@ -154,7 +190,6 @@ const Feature1 = styled.div`
   height: auto;
   width: 90vw;
   margin: 0 5vw;
-  background-color: white;
   border-radius: 1vw;
   z-index: 3;
   overflow: hidden;
@@ -172,7 +207,7 @@ const Feature1Image = styled.div`
 `;
 const Feature2Image = styled.div`
   width: 90vw;
-  height: 104.09vw;
+  height: 90vw;
   background-image: url(${v2Feat2});
   background-size: cover;
   border-radius: 1vw;
@@ -344,6 +379,7 @@ export default class Featured extends Component {
     return (
       <RootContainer>
         <VignetteOverlay />
+        <Header />
 
         <Spring
           from={{ opacity: 0, height: '0vw' }}
@@ -426,8 +462,6 @@ export default class Featured extends Component {
             </Link>
           </Fade>
         </FeatureGrid>
-
-        <Header />
       </RootContainer>
     );
   }

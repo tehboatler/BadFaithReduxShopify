@@ -91,18 +91,26 @@ const DesktopFooter = () => {
         <GridItem>
           <Title>Need Help?</Title>
           <TitleWrapper />
-          <Link style={{ gridArea: 'feat1' }} to="/support-center">
+          <Link to="/support-center">
             <SubTitle>Support Center</SubTitle>
           </Link>
-          <SubTitle>Contact Us</SubTitle>
+          <Link to="/contact-us">
+            <SubTitle>Contact Us</SubTitle>
+          </Link>
           <SubTitle>About Us</SubTitle>
         </GridItem>
         <GridItem2>
           <Title>Explore</Title>
           <TitleWrapper />
-          <SubTitle>Privacy Policy</SubTitle>
-          <SubTitle>Returns Policy</SubTitle>
-          <SubTitle>Terms of Use</SubTitle>
+          <Link to="/privacy-policy">
+            <SubTitle>Privacy Policy</SubTitle>
+          </Link>
+          <Link to="/refund-policy">
+            <SubTitle>Returns/Refunds Policy</SubTitle>
+          </Link>
+          <Link to="/terms-of-use">
+            <SubTitle>Terms of Use</SubTitle>
+          </Link>
         </GridItem2>
       </RootGrid>
       <StarSignedCopyRight>© StarSigned 2018 ☾</StarSignedCopyRight>

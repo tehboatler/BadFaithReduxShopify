@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
@@ -9,6 +8,9 @@ const RefundPolicyTextWrapper = styled.div`
 `;
 
 export default class RefundPolicy extends Component {
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
   RefundPolicy = () => {
     return {
       __html: `<div>
@@ -74,7 +76,9 @@ export default class RefundPolicy extends Component {
   render() {
     return (
       <div>
-        <RefundPolicyTextWrapper dangerouslySetInnerHTML={this.RefundPolicy()} />
+        <RefundPolicyTextWrapper
+          dangerouslySetInnerHTML={this.RefundPolicy()}
+        />
       </div>
     );
   }
