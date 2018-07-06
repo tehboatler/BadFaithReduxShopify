@@ -150,9 +150,12 @@ const ReviewsWidget = styled.div`
 export default class DesktopProductItem extends Component {
   state = {};
 
-  componentDidMount = () => {
-    console.log('Product Item CDM:', yotpo);
-  };
+  componentDidMount() {
+    const { price } = this.props;
+    const convertedPrice = window.Currency.convert(price, 'AUD', 'USD');
+    const roundedConvertedPrice = Math.round(convertedPrice * 100) / 100;
+    this.setState({ convertedPrice: roundedConvertedPrice });
+  }
 
   ReviewsStarRating = handle => {
     console.log('match: ', handle);
@@ -182,6 +185,7 @@ export default class DesktopProductItem extends Component {
       price,
       compareAtPrice
     } = this.props;
+        const { convertedPrice } = this.state;
     return (
       <CaseItemContainer>
         <CaseImageWrapper>
@@ -197,7 +201,7 @@ export default class DesktopProductItem extends Component {
               dangerouslySetInnerHTML={this.ReviewsStarRating(handle)}
             />
             <PriceWrapper>
-              <Price>${price} USD</Price>
+              <Price>${convertedPrice} USD</Price>
             </PriceWrapper>
             <Link to={`/${pathString}/${handle}`} />
           </Fade>

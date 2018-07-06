@@ -14,7 +14,7 @@ import 'react-accessible-accordion/dist/fancy-example.css';
 const Root = styled.div`
   width: 100%;
   height: auto;
-  padding-top: 20vw;
+  padding-top: 30vw;
   overflow: hidden;
 `;
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { injectIntl, FormattedNumber } from 'react-intl';
+// import { injectIntl, FormattedNumber } from 'react-intl';
 
 const CaseItemContainer = styled.div`
   width: 100%;
@@ -66,7 +66,7 @@ const PriceWrapper = styled.div`
   align-items: center;
 `;
 
-const Price = styled.h1`
+const PriceText = styled.h1`
   color: #111;
   margin: 1vw;
   margin-top: 3vw;
@@ -120,6 +120,13 @@ const ReviewsWidget = styled.div`
 export default class ProductItem extends Component {
   state = {};
 
+  componentDidMount() {
+    const { price } = this.props;
+    const convertedPrice = window.Currency.convert(price, 'AUD', 'USD');
+    const roundedConvertedPrice = Math.round(convertedPrice * 100) / 100;
+    this.setState({ convertedPrice: roundedConvertedPrice });
+  }
+
   ReviewsStarRating = handle => {
     console.log('match: ', handle);
     var api = new Yotpo.API(yotpo);
@@ -149,6 +156,7 @@ export default class ProductItem extends Component {
       price,
       compareAtPrice
     } = this.props;
+    const { convertedPrice } = this.state;
     return (
       <CaseItemContainer>
         <CaseImageWrapper>
@@ -158,23 +166,28 @@ export default class ProductItem extends Component {
         </CaseImageWrapper>
         <DescriptionWrapper>
           <CaseTitle>{title}</CaseTitle>
-          <ReviewsWidget
-            dangerouslySetInnerHTML={this.ReviewsStarRating(handle)}
-          />
+          {convertedPrice && (
+            <ReviewsWidget
+              dangerouslySetInnerHTML={this.ReviewsStarRating(handle)}
+            />
+          )}
           <PriceWrapper>
-            <Price>
-              <FormattedNumber
-                value={`${price}`}
-                currency="AUD"
-                currencyDisplay="symbol"
-                style="currency"
-              />
-            </Price>
+            <PriceText>${convertedPrice} USD</PriceText>
           </PriceWrapper>
-          <Link to={`/${pathString}/${handle}`} />
+          <Link
+            to={{
+              pathname: `/${pathString}/${handle}`
+            }}
+          />
         </DescriptionWrapper>
-        {yotpo.initWidgets()}
       </CaseItemContainer>
     );
   }
 }
+
+// <FormattedNumber
+//                 value={`${price}`}
+//                 currency="AUD"
+//                 currencyDisplay="symbol"
+//                 style="currency"
+//               />

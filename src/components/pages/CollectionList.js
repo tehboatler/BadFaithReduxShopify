@@ -213,7 +213,7 @@ class CollectionList extends Component {
                 let variants = collectionItem.variants[0];
                 console.log('images: ', image);
                 return (
-                  <Fade bottom>
+                  <Fade left>
                     <ProductItem
                       key={collectionItem.id}
                       id={collectionItem.id}

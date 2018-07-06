@@ -6,6 +6,7 @@ import { withRouter } from 'react-router-dom';
 import ImageGallery from 'react-image-gallery';
 import { Spring } from 'react-spring';
 import Fade from 'react-reveal/Fade';
+import { injectIntl, FormattedNumber } from 'react-intl';
 
 import VariantSelector from '../../VariantSelector';
 import DesktopHeader from '../DesktopHeader';
@@ -126,15 +127,11 @@ const AddToCartButton = styled.button`
   background-color: #131313;
   border: none;
   border-radius: 0.2vw;
-  @media (max-width: 415px) {
-    height: 15vw;
-    border-radius: 1vw;
-  }
 `;
 
 const AddToCartText = styled.h1`
   color: white;
-  font-size: 4vw;
+  font-size: 0.7vw;
 `;
 
 // Trust Badge Image
@@ -177,8 +174,8 @@ export class DesktopProductPage extends Component {
   };
 
   componentWillReceiveProps(nextProps) {
+    const { product, selectedVariant } = this.props;
     let arr = [];
-    const { product } = this.props;
     if (product) {
       const variantImages = product.images.map((image, index) => {
         return (arr[index] = {
@@ -187,9 +184,24 @@ export class DesktopProductPage extends Component {
           originalClass: `image_styles`
         });
       });
-      var api = new Yotpo.API(yotpo);
-      api.refreshWidgets();
-      this.setState({ variantImages: arr });
+
+      this.setState(
+        {
+          variantImages: arr
+        },
+        () => {
+          const { price } = this.props.selectedVariant;
+          const convertedPrice = window.Currency.convert(price, 'AUD', 'USD');
+          const roundedConvertedPrice = Math.round(convertedPrice * 100) / 100;
+
+          this.setState({ convertedPrice: roundedConvertedPrice }, () => {
+            var api = new Yotpo.API(yotpo);
+            setTimeout(() => {
+              api.refreshWidgets();
+            }, 1000);
+          });
+        }
+      );
     }
   }
 
@@ -279,7 +291,7 @@ export class DesktopProductPage extends Component {
   // ============================================================
   render() {
     const { product, addVariantToCart, selectedVariant } = this.props;
-    const { variantImages } = this.state;
+    const { variantImages, convertedPrice } = this.state;
     if (product) {
       console.log(product);
       return (
@@ -301,7 +313,17 @@ export class DesktopProductPage extends Component {
               <ReviewsStarRating
                 dangerouslySetInnerHTML={this.ReviewsStarRating()}
               />
-              <Price>${selectedVariant.price}</Price>
+              {convertedPrice && (
+                <Price>
+                  <FormattedNumber
+                    value={`${convertedPrice}`}
+                    currency="USD"
+                    currencyDisplay="symbol"
+                    style="currency"
+                  />{' '}
+                  USD
+                </Price>
+              )}
               <VariantSelectorAndCartWrapper>
                 {product.options.map(option => {
                   return (
@@ -315,7 +337,14 @@ export class DesktopProductPage extends Component {
                 })}
                 <AddToCartWrapper>
                   <AddToCartButton
-                    onClick={() => addVariantToCart(selectedVariant.id, 1)}>
+                    onClick={() =>
+                      addVariantToCart(
+                        selectedVariant.id,
+                        1,
+                        product.title,
+                        convertedPrice
+                      )
+                    }>
                     <AddToCartText>Add To Cart</AddToCartText>
                   </AddToCartButton>
                 </AddToCartWrapper>
@@ -330,7 +359,6 @@ export class DesktopProductPage extends Component {
           </Grid>
 
           <ReviewsWidget dangerouslySetInnerHTML={this.ReviewsWidget()} />
-
           <DesktopHeader />
         </RootContainer>
       );

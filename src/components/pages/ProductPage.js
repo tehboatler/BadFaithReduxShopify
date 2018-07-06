@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import ImageGallery from 'react-image-gallery';
 import { Spring } from 'react-spring';
+import { injectIntl, FormattedNumber } from 'react-intl';
 
 import VariantSelector from '../VariantSelector';
 import CollectionListHeader from '../Header';
@@ -33,7 +34,7 @@ const ProductCardWrapper = styled.div`
   height: auto;
   padding-bottom: 5vw;
   // border: solid 1px #ccc;
-  border-bottom: solid 3px #ddd;
+  // border-bottom: solid 3px #ddd;
   // border-radius: 5px;
   overflow: hidden;
   margin: 0 0.5%;
@@ -239,7 +240,7 @@ export class ProductPage extends Component {
   };
 
   componentWillReceiveProps(nextProps) {
-    const { product } = this.props;
+    const { product, selectedVariant } = this.props;
     let arr = [];
     if (product) {
       const variantImages = product.images.map((image, index) => {
@@ -249,7 +250,23 @@ export class ProductPage extends Component {
           originalClass: `image_styles`
         });
       });
-      this.setState({ variantImages: arr });
+
+      this.setState(
+        {
+          variantImages: arr
+        },
+        () => {
+          const { price } = this.props.selectedVariant;
+          const convertedPrice = window.Currency.convert(price, 'AUD', 'USD');
+          const roundedConvertedPrice = Math.round(convertedPrice * 100) / 100;
+          this.setState({ convertedPrice: roundedConvertedPrice }, () => {
+            var api = new Yotpo.API(yotpo);
+            setTimeout(() => {
+              api.refreshWidgets();
+            }, 1000);
+          });
+        }
+      );
     }
   }
 
@@ -272,7 +289,7 @@ export class ProductPage extends Component {
   };
 
   ReviewsWidget = () => {
-    const { product, match } = this.props;
+    const { product, match, selectedVariant } = this.props;
     return {
       __html: `<div
         class='yotpo yotpo-main-widget'
@@ -339,7 +356,8 @@ export class ProductPage extends Component {
   // ============================================================
   render() {
     const { product, addVariantToCart, selectedVariant, match } = this.props;
-    const { variantImages } = this.state;
+    const { variantImages, convertedPrice } = this.state;
+
     if (product) {
       console.log(product);
       return (
@@ -370,10 +388,22 @@ export class ProductPage extends Component {
 
           <ProductCardWrapper>
             <Title>{product.title}</Title>
-            <ReviewsStarRating
-              dangerouslySetInnerHTML={this.ReviewsStarRating()}
-            />
-            <Price>${selectedVariant.price}</Price>
+            {convertedPrice && (
+              <ReviewsStarRating
+                dangerouslySetInnerHTML={this.ReviewsStarRating()}
+              />
+            )}
+            {convertedPrice && (
+              <Price>
+                <FormattedNumber
+                  value={`${convertedPrice}`}
+                  currency="USD"
+                  currencyDisplay="symbol"
+                  style="currency"
+                />{' '}
+                USD
+              </Price>
+            )}
             <VariantSelectorAndCartWrapper>
               {product.options.map(option => {
                 return (
@@ -392,7 +422,7 @@ export class ProductPage extends Component {
                       selectedVariant.id,
                       1,
                       product.title,
-                      selectedVariant.price
+                      convertedPrice
                     )
                   }>
                   <AddToCartText>Add To Cart</AddToCartText>
@@ -408,10 +438,7 @@ export class ProductPage extends Component {
           </ProductCardWrapper>
 
           <ReviewsWidget dangerouslySetInnerHTML={this.ReviewsWidget()} />
-
           <CollectionListHeader />
-          {console.log(yotpo)}
-          {yotpo.initWidgets()}
         </RootContainer>
       );
     } else {

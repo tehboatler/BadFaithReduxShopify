@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const RootContainer = styled.div`
-  height: auto;
+  height: 20vw;
   width: 100%;
 `;
 
@@ -17,7 +17,7 @@ export default class About extends Component {
   render() {
     return (
       <RootContainer>
-        <Heading> Who is StarSigned? </Heading>
+        <Heading>Who is StarSigned?</Heading>
       </RootContainer>
     );
   }
