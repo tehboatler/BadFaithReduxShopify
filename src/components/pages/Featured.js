@@ -423,14 +423,14 @@ export default class Featured extends Component {
             <FeatureHeading>StarSigned Sleek & Stylish</FeatureHeading>
           </FeatureHeadingWrapper>
 
-          <Fade left>
+      
             <Feature1>
               <Link to="/starsigned-rings">
                 <Feature1Image />
               </Link>
               <Feature1Card />
             </Feature1>
-          </Fade>
+       
 
           <Fade>
             <Link to="/starsigned-rings">
@@ -445,14 +445,14 @@ export default class Featured extends Component {
             <FeatureHeading>925 Silver Necklaces</FeatureHeading>
           </FeatureHeadingWrapper>
 
-          <Fade right>
+       
             <Feature1>
               <Link to="/starsigned-necklaces">
                 <Feature2Image />
               </Link>
               <Feature1Card />
             </Feature1>
-          </Fade>
+          
 
           <Fade>
             <Link to="/starsigned-necklaces">

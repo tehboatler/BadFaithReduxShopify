@@ -24,7 +24,6 @@ class Cart extends Component {
 
   openCheckout() {
     console.log(this.props.line_items);
-    ReactPixel.track('InitiateCheckout', {});
     window.open(this.props.checkout.webUrl);
   }
 

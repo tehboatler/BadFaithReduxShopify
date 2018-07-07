@@ -63,7 +63,7 @@ export default class SupportCenter extends Component {
             </AccordionItemTitle>
             <AccordionItemBody>
               <ItemDesc>
-                Once your order is placed, there is a 2-3 business day
+                Once your order is placed, there is a 1 business day
                 processing period, followed by a 10-20 business day shipping
                 period.
               </ItemDesc>
@@ -77,7 +77,7 @@ export default class SupportCenter extends Component {
                 weeks to arrive.
               </ItemDesc>
               <ItemDesc>
-                Please contact us at: support@starsigned.com if you have any
+                Please contact us at: support@starsignedstyle.com if you have any
                 questions for us.
               </ItemDesc>
             </AccordionItemBody>

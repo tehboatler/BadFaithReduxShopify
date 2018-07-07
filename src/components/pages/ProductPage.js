@@ -6,6 +6,12 @@ import { withRouter } from 'react-router-dom';
 import ImageGallery from 'react-image-gallery';
 import { Spring } from 'react-spring';
 import { injectIntl, FormattedNumber } from 'react-intl';
+import {
+  Accordion,
+  AccordionItem,
+  AccordionItemTitle,
+  AccordionItemBody
+} from 'react-accessible-accordion';
 
 import VariantSelector from '../VariantSelector';
 import CollectionListHeader from '../Header';
@@ -17,6 +23,7 @@ import {
 } from '../../../reducers/productReducers';
 
 import TrustBadge from '../../img/Trust_Badge_2.png';
+import TrustBadge2 from '../../img/Trust_Badge_1.png';
 
 // ============================================================
 // Styles Start
@@ -103,7 +110,7 @@ const Title = styled.h1`
   @media (max-width: 415px) {
     background-color: #fff;
     width: auto;
-    font-size: 6vw;
+    font-size: 5.5vw;
     font-weight: 400;
     padding: 3vw;
     padding-bottom: 0;
@@ -132,6 +139,19 @@ const Price = styled.h1`
     margin-bottom: 0vw;
   }
 `;
+
+const FreeShippingTag = styled.h1`
+float: right;
+color: #e1e1e1;
+font-family: 'Roboto Condensed', cursive;
+font-size: 3vw;
+font-weight: 700;
+padding: 1vw;
+border-radius: 1vw;
+margin-left: 2vw;
+
+background-color: #be1509;
+`
 
 const Description = styled.h1`
   font-family: 'Roboto', cursive;
@@ -203,9 +223,17 @@ const AddToCartText = styled.h1`
 // Trust Badge Image
 // ============================================================
 const TrustBadgeWrapper = styled.div`
-  height: 16vw;
+  height: 18.62vw;
   width: 90vw;
   background-image: url(${TrustBadge});
+  background-size: contain;
+`;
+const TrustBadgeWrapper2 = styled.div`
+  height: 24.69vw;
+  width: 90vw;
+  margin: 1vw 5vw;
+  margin-top: 3vw;
+  background-image: url(${TrustBadge2});
   background-size: contain;
 `;
 
@@ -226,6 +254,28 @@ const ReviewsStarRating = styled.div`
   padding-left: 5vw;
   padding-top: 1vw;
 `;
+
+// Accordion
+// ============================================================
+const AccordionWrapper = styled.div`
+width: 100%;
+height: auto;
+  
+`
+
+const ItemTitle = styled.h1`
+  font-size: 3.5vw;
+  font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  color: black;
+`;
+const ItemDesc = styled.h1`
+  font-size: 3vw;
+  font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  color: black;
+`;
+
 
 export class ProductPage extends Component {
   state = { selectedOptions: [] };
@@ -402,7 +452,7 @@ export class ProductPage extends Component {
                   style="currency"
                 />{' '}
                 USD
-              </Price>
+              <FreeShippingTag>Free Shipping</FreeShippingTag> </Price>
             )}
             <VariantSelectorAndCartWrapper>
               {product.options.map(option => {
@@ -428,17 +478,58 @@ export class ProductPage extends Component {
                   <AddToCartText>Add To Cart</AddToCartText>
                 </AddToCartButton>
               </AddToCartWrapper>
-
-              <Description
-                dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
-              />
-
               <TrustBadgeWrapper />
-            </VariantSelectorAndCartWrapper>
-          </ProductCardWrapper>
 
-          <ReviewsWidget dangerouslySetInnerHTML={this.ReviewsWidget()} />
-          <CollectionListHeader />
+              <AccordionWrapper>
+              <Accordion>
+              <AccordionItem expanded>
+                  <AccordionItemTitle>
+                    <ItemTitle>Description</ItemTitle>
+                  </AccordionItemTitle>
+                  <AccordionItemBody>
+                    <ItemDesc>
+                    <Description
+                    dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
+                  />
+                    </ItemDesc>
+                  </AccordionItemBody>
+                </AccordionItem>
+                </Accordion>
+                <Accordion>
+                <AccordionItem expanded>
+                <AccordionItemTitle>
+                <ItemTitle>Shipping & Delivery</ItemTitle>
+                </AccordionItemTitle>
+                <AccordionItemBody>
+                <ItemDesc>
+                Once your order is placed, there is a 1 business day
+                processing period, followed by a 10-20 business day
+                shipping period.
+                </ItemDesc>
+                <ItemDesc>
+                Please take this into account when purchasing from our
+                website. Allow 2-3 weeks (depending on location) for your
+                shipment to arrive.
+                </ItemDesc>
+                <ItemDesc>
+                For international shipping outside the US, orders may take
+                4-6 weeks to arrive.
+                </ItemDesc>
+                <ItemDesc>
+                Please contact us at: support@starsignedstyle.com if you have
+                any questions for us.
+                </ItemDesc>
+                </AccordionItemBody>
+                </AccordionItem>
+                </Accordion>
+                </AccordionWrapper>
+                
+                </VariantSelectorAndCartWrapper>
+                </ProductCardWrapper>
+                <TrustBadgeWrapper2 />
+                
+                <ReviewsWidget dangerouslySetInnerHTML={this.ReviewsWidget()} />
+                <CollectionListHeader />
         </RootContainer>
       );
     } else {

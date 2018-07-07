@@ -7,7 +7,6 @@ import ReactPixel from 'react-facebook-pixel';
 import { IntlProvider } from 'react-intl';
 import Cookie from 'js-cookie';
 
-
 import Nav from '../Nav';
 import DesktopNav from '../desktop/Nav';
 import CollectionList from './CollectionList';
@@ -243,20 +242,9 @@ export default class Main extends Component {
         { checkoutId, lineItems }
       )
       .then(res => {
-        this.setState(
-          {
-            checkout: res.model.checkoutLineItemsAdd.checkout
-          },
-          () => {
-            ReactPixel.track('AddToCart', {
-              content_name: `${title}`,
-              content_ids: `${variantId}`,
-              content_type: 'product',
-              value: `${price}`,
-              currency: 'USD'
-            });
-          }
-        );
+        this.setState({
+          checkout: res.model.checkoutLineItemsAdd.checkout
+        });
       });
   }
 
@@ -364,7 +352,7 @@ export default class Main extends Component {
   render() {
     const { shop, products, checkout } = this.state;
     const locale = Cookie.get('locale') || 'en';
-    
+
     return (
       <IntlProvider locale={locale}>
         <Router>
@@ -549,7 +537,6 @@ export default class Main extends Component {
                     />
                   )}
                 />
-
               </Switch>
               <DesktopFooter />
             </MediaQuery>
