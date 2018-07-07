@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import ImageGallery from 'react-image-gallery';
 import { Spring } from 'react-spring';
+import ReactPixel from 'react-facebook-pixel';
 import { injectIntl, FormattedNumber } from 'react-intl';
 import {
   Accordion,
@@ -322,6 +323,7 @@ export class ProductPage extends Component {
 
   componentDidMount() {
     window.scrollTo(0, 0);
+    ReactPixel.pageView();
   }
 
   ReviewsStarRating = () => {
