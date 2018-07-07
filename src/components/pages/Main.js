@@ -244,6 +244,14 @@ export default class Main extends Component {
       .then(res => {
         this.setState({
           checkout: res.model.checkoutLineItemsAdd.checkout
+        },() => {
+          ReactPixel.track('AddToCart', {
+            content_name: `${title}`,
+            content_ids: `${variantId}`,
+            content_type: 'product',
+            value: `${price}`,
+            currency: 'AUD',
+          })
         });
       });
   }
