@@ -7,20 +7,18 @@ import Fade from 'react-reveal/Fade';
 import { Spring } from 'react-spring';
 import styled from 'styled-components';
 
-
-
 import { getCollection } from '../../../reducers/collectionReducers';
 import ProductItem from '../ProductItem';
 import CollectionListHeader from '../CollectionListHeader';
-import Header from '../Header';
+import Header from '../CollectionListHeader';
 import IntroBanner from '../IntroBanner';
 import BestSellerBanner from '../BestSellerBanner';
 
 // Root
 // ============================================================
 const RootContainer = styled.div`
-  width: 90%;
-  margin: 0 5%;
+  width: 100%;
+  // margin: 0 5%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -213,7 +211,7 @@ class CollectionList extends Component {
                 let variants = collectionItem.variants[0];
                 console.log('images: ', image);
                 return (
-                  <Fade left>
+                  <Fade>
                     <ProductItem
                       key={collectionItem.id}
                       id={collectionItem.id}
@@ -228,13 +226,7 @@ class CollectionList extends Component {
                 );
               })}
             </Grid>
-            <GuaranteeWrapper>
-              <TopNavDescription>
-                Our products have high quality standards that will give you the
-                best value for your money. Every product we sell come with a
-                30-day money back guarantee.
-              </TopNavDescription>
-            </GuaranteeWrapper>
+            <GuaranteeWrapper />
             <Header />
           </RootContainer>
         </div>
@@ -270,3 +262,9 @@ export default withRouter(
     mapDispatchToProps
   )(CollectionList)
 );
+
+// <TopNavDescription>
+// Our products have high quality standards that will give you the
+// best value for your money. Every product we sell come with a
+// 30-day money back guarantee.
+// </TopNavDescription>

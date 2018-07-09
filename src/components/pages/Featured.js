@@ -59,9 +59,9 @@ const SterlingSilverFeature = styled.div`
   display: flex;
   position: relative;
   justify-content: center;
-  align-items: start;
-  width: 100vw;
-  height: 100vw;
+  align-items: center;
+  width: 100%;
+  height: 95vw;
   background-color: #f2f2f2;
   background-image: url(${SterlingSilverBracletFeatureImage});
   background-size: cover;
@@ -71,17 +71,17 @@ const SterlingSilverFeature = styled.div`
 const SterlingSilverFeatureContentWrapper = styled.div`
   position: absolute;
   left: 0;
-  bottom: 15vw;
+  bottom: 5vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 0;
-  margin-left: -8vw;
-  width: 100vw;
+  // margin-left: -8vw;
+  width: 100%;
   //   padding-right: 15vw;
   height: 30%;
-  //   background-color: #131313;
+  // background-color: #131313;
   text-align: center;
   // opacity: 0.8;
 `;
@@ -97,28 +97,60 @@ const IntroBannerText = styled.h1`
 
 const IntroBannerTopTextWrapper = styled.div`
   background-color: #f2f2f2;
-  // opacity: 0;
+  opacity: 0;
 `;
 
 const IntroBannerBottomText_Shift = styled.div`
   margin-left: 30vw;
   background-color: white;
-  // opacity: 0;
+  opacity: 0;
 `;
 
 const SterlingSilverFeatureButton = styled.div`
-  border-radius: 1px;
+  // border-radius: 1px;
   z-index: 2;
-  margin-left: 8vw;
-`;
-
-const SterlingSilverFeatureButtonText = styled.h1`
+  // opacity: 0;
+  // background-color: red;
+  `;
+  
+  const SterlingSilverFeatureButtonText = styled.h1`
   font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
+  border: 0.5vw solid #eee;
   font-size: 4vw;
   color: #131313;
   padding: 3vw 10vw;
   background-color: white;
   text-shadow: 1px 3px 3px rgba(0, 0, 0, 0.2);
+  // border: 2px black solid;
+  -webkit-box-shadow: 0px 3px 30px -2px rgba(54, 54, 54, 0.14);
+  -moz-box-shadow: 0px 3px 10px -2px rgba(54, 54, 54, 0.14);
+  box-shadow: 0px 3px 10px -2px rgba(54, 54, 54, 0.14);
+`;
+
+// Feature Blurb
+// ============================================================
+
+const FeatureBlurb = styled.div`
+  width: 90%;
+  margin: 0 5%;
+  background-color: white;
+  height: auto;
+`;
+
+const FeatureBlurbHeading = styled.h1`
+  font-family: 'Archivo Black', Helvetica, Arial;
+  font-size: 5vw;
+  color: black;
+  margin: 0;
+  padding: 2vw;
+`;
+
+const FeatureBlurbSubText = styled.h1`
+  font-family: 'Roboto Condensed', Helvetica, Arial;
+  font-size: 5vw;
+  color: black;
+  margin: 0;
+  padding: 2vw 10vw;
 `;
 
 // Feature
@@ -126,51 +158,54 @@ const SterlingSilverFeatureButtonText = styled.h1`
 
 const FeatureGrid = styled.div`
   display: grid;
+  overflow: hidden;
   grid-template-columns: repeat(1, 1fr);
   justify-content: center;
   margin-bottom: 4vw;
-  margin-top: vw;
+  width: 95%;
+  margin: 0 2.5%;
   z-index: 2;
-  background: rgba(240, 239, 238, 1);
-  background: -moz-linear-gradient(
-    top,
-    rgba(240, 239, 238, 1) 0%,
-    rgba(255, 255, 255, 1) 100%
-  );
-  background: -webkit-gradient(
-    left top,
-    left bottom,
-    color-stop(0%, rgba(240, 239, 238, 1)),
-    color-stop(100%, rgba(255, 255, 255, 1))
-  );
-  background: -webkit-linear-gradient(
-    top,
-    rgba(240, 239, 238, 1) 0%,
-    rgba(255, 255, 255, 1) 100%
-  );
-  background: -o-linear-gradient(
-    top,
-    rgba(240, 239, 238, 1) 0%,
-    rgba(255, 255, 255, 1) 100%
-  );
-  background: -ms-linear-gradient(
-    top,
-    rgba(240, 239, 238, 1) 0%,
-    rgba(255, 255, 255, 1) 100%
-  );
-  background: linear-gradient(
-    to bottom,
-    rgba(240, 239, 238, 1) 0%,
-    rgba(255, 255, 255, 1) 100%
-  );
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0efee', endColorstr='#ffffff', GradientType=0 );
+  background-color: white;
+  // background: rgba(240, 239, 238, 1);
+  // background: -moz-linear-gradient(
+  //   top,
+  //   rgba(240, 239, 238, 1) 0%,
+  //   rgba(255, 255, 255, 1) 100%
+  // );
+  // background: -webkit-gradient(
+  //   left top,
+  //   left bottom,
+  //   color-stop(0%, rgba(240, 239, 238, 1)),
+  //   color-stop(100%, rgba(255, 255, 255, 1))
+  // );
+  // background: -webkit-linear-gradient(
+  //   top,
+  //   rgba(240, 239, 238, 1) 0%,
+  //   rgba(255, 255, 255, 1) 100%
+  // );
+  // background: -o-linear-gradient(
+  //   top,
+  //   rgba(240, 239, 238, 1) 0%,
+  //   rgba(255, 255, 255, 1) 100%
+  // );
+  // background: -ms-linear-gradient(
+  //   top,
+  //   rgba(240, 239, 238, 1) 0%,
+  //   rgba(255, 255, 255, 1) 100%
+  // );
+  // background: linear-gradient(
+  //   to bottom,
+  //   rgba(240, 239, 238, 1) 0%,
+  //   rgba(255, 255, 255, 1) 100%
+  // );
+  // filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0efee', endColorstr='#ffffff', GradientType=0 );
 `;
 
 const FeatureHeadingWrapper = styled.div`
-  width: 100%;
+  width: 95%;
   text-align: left;
   // background-color: white;
-  padding: 5% 0;
+  padding: 5% 2.5%;
   padding-bottom: 2.5%;
 `;
 
@@ -188,16 +223,16 @@ const Feature1 = styled.div`
   justify-content: center;
   align-items: center;
   height: auto;
-  width: 90vw;
-  margin: 0 5vw;
+  width: 100%;
+  margin: 0vw 0vw;
   border-radius: 1vw;
   z-index: 3;
   overflow: hidden;
 `;
 
 const Feature1Image = styled.div`
-  width: 90vw;
-  height: 90vw;
+  width: 95vw;
+  height: 95vw;
   z-index: 1;
   background-image: url(${v2Feat1});
   background-size: cover;
@@ -206,8 +241,8 @@ const Feature1Image = styled.div`
   border-bottom-right-radius: 0;
 `;
 const Feature2Image = styled.div`
-  width: 90vw;
-  height: 90vw;
+  width: 95vw;
+  height: 95vw;
   background-image: url(${v2Feat2});
   background-size: cover;
   border-radius: 1vw;
@@ -232,8 +267,8 @@ const Feature1Card = styled.div`
   flex-direction: column;
   text-align: right;
   background-color: #131313;
-  width: 90vw;
-  height: 10vw;
+  width: 95vw;
+  height: 5vw;
   border-bottom-left-radius: 1vw;
   border-bottom-right-radius: 1vw;
 `;
@@ -283,19 +318,25 @@ const ShopNowWrapper = styled.div`
   align-items: center;
   align-self: center;
   height: auto;
-  width: 30vw;
-  margin: 3.5vw 34vw;
-  border: 0.5vw solid #131313;
+  width: auto;
+  margin: 3.5vw 10vw;
+  border: 0.5vw solid #eee;
+  border-radius: 0.5vw;
+  background-color: #fff;
   margin-bottom: 10vw;
+  padding: 2vw;
+  -webkit-box-shadow: 0px 3px 30px -2px rgba(54, 54, 54, 0.14);
+  -moz-box-shadow: 0px 3px 10px -2px rgba(54, 54, 54, 0.14);
+  box-shadow: 0px 3px 10px -2px rgba(54, 54, 54, 0.14);
 `;
 
 const ShopNowText = styled.h1`
   font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
-  font-size: 5vw;
+  font-size: 3.5vw;
   font-weight: 700;
   padding: 1vw;
   margin: 0;
-  color: black;
+  color: #1e1e1e;
 `;
 
 // Misc
@@ -313,8 +354,9 @@ const WhiteSeparator = styled.div`
 
 const VignetteOverlay = styled.div`
   position: fixed;
+  z-index: 2;
   height: 30vw;
-  width: 100vw;
+  width: 100%;
   opacity: 0.7;
   bottom: 0;
   mix-blend-mode: multiply;
@@ -393,7 +435,31 @@ export default class Featured extends Component {
           )}
         </Spring>
 
-        <Spring
+
+
+        <FeatureGrid>
+          <FeatureHeadingWrapper>
+            <FeatureHeading>Titanium Rings:</FeatureHeading>
+            <FeatureHeading>StarSigned Sleek & Stylish</FeatureHeading>
+          </FeatureHeadingWrapper>
+
+          <Feature1>
+            <Link to="/starsigned-rings">
+              <Feature1Image />
+            </Link>
+            <Feature1Card />
+          </Feature1>
+
+          <Fade>
+            <Link to="/starsigned-rings">
+              <ShopNowWrapper>
+                <ShopNowText> Shop Rings </ShopNowText>
+              </ShopNowWrapper>
+            </Link>
+          </Fade>
+          <Feature1>
+
+          <Spring
           from={{ opacity: 0, backgroundSize: '150%' }}
           to={{ opacity: 1, backgroundSize: '100%' }}>
           {styles => (
@@ -408,7 +474,7 @@ export default class Featured extends Component {
                 <SterlingSilverFeatureButton>
                   <Link to="/starsigned-sterling-silver-stainless-steel">
                     <SterlingSilverFeatureButtonText>
-                      Shop Now
+                      Shop Stainless/Sterling 
                     </SterlingSilverFeatureButtonText>
                   </Link>
                 </SterlingSilverFeatureButton>
@@ -417,52 +483,34 @@ export default class Featured extends Component {
           )}
         </Spring>
 
-        <FeatureGrid>
-          <FeatureHeadingWrapper>
-            <FeatureHeading>Titanium Rings:</FeatureHeading>
-            <FeatureHeading>StarSigned Sleek & Stylish</FeatureHeading>
-          </FeatureHeadingWrapper>
+            <FeatureHeadingWrapper>
+              <FeatureHeading>Starbound Sterling:</FeatureHeading>
+              <FeatureHeading>925 Silver Necklaces</FeatureHeading>
+            </FeatureHeadingWrapper>
 
-      
-            <Feature1>
-              <Link to="/starsigned-rings">
-                <Feature1Image />
-              </Link>
-              <Feature1Card />
-            </Feature1>
-       
-
-          <Fade>
-            <Link to="/starsigned-rings">
-              <ShopNowWrapper>
-                <ShopNowText> Shop Now </ShopNowText>
-              </ShopNowWrapper>
+            <Link to="/starsigned-necklaces">
+              <Feature2Image />
             </Link>
-          </Fade>
-
-          <FeatureHeadingWrapper>
-            <FeatureHeading>Starbound Sterling:</FeatureHeading>
-            <FeatureHeading>925 Silver Necklaces</FeatureHeading>
-          </FeatureHeadingWrapper>
-
-       
-            <Feature1>
-              <Link to="/starsigned-necklaces">
-                <Feature2Image />
-              </Link>
-              <Feature1Card />
-            </Feature1>
-          
+            <Feature1Card />
+          </Feature1>
 
           <Fade>
             <Link to="/starsigned-necklaces">
               <ShopNowWrapper>
-                <ShopNowText> Shop Now </ShopNowText>
+                <ShopNowText> Shop Necklaces </ShopNowText>
               </ShopNowWrapper>
             </Link>
           </Fade>
+
         </FeatureGrid>
       </RootContainer>
     );
   }
 }
+
+// <FeatureBlurb>
+// <FeatureBlurbSubText>
+// A small collection of the
+// best StarSigned merch a girl can wear, all in one place.
+// </FeatureBlurbSubText>
+// </FeatureBlurb>

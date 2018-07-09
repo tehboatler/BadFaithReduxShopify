@@ -7,6 +7,12 @@ import ImageGallery from 'react-image-gallery';
 import { Spring } from 'react-spring';
 import Fade from 'react-reveal/Fade';
 import { injectIntl, FormattedNumber } from 'react-intl';
+import {
+    Accordion,
+    AccordionItem,
+    AccordionItemTitle,
+    AccordionItemBody
+  } from 'react-accessible-accordion';
 
 import VariantSelector from '../../VariantSelector';
 import DesktopHeader from '../DesktopHeader';
@@ -18,6 +24,7 @@ import {
 } from '../../../../reducers/productReducers';
 
 import TrustBadge from '../../../img/Trust_Badge_2.png';
+import TrustBadge2 from '../../../img/Trust_Badge_1.png';
 
 // ============================================================
 // Styles Start
@@ -143,6 +150,15 @@ const TrustBadgeWrapper = styled.div`
   background-size: contain;
 `;
 
+const TrustBadgeWrapper2 = styled.div`
+  height: 5.5vw;
+  width: 20vw;
+//   margin: 1vw 5vw;
+//   margin-top: 3vw;
+  background-image: url(${TrustBadge2});
+  background-size: contain;
+`;
+
 const Loading = styled.div`
   height: 20vh;
   width: 100%;
@@ -159,6 +175,27 @@ const ReviewsWidget = styled.div`
 const ReviewsStarRating = styled.div`
   padding-left: 0.5vw;
   padding-top: 0.25vw;
+`;
+
+// Accordion
+// ============================================================
+const AccordionWrapper = styled.div`
+width: 100%;
+height: auto;
+  
+`
+
+const ItemTitle = styled.h1`
+  font-size: 1vw;
+  font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  color: black;
+`;
+const ItemDesc = styled.h1`
+  font-size: 0.7vw;
+  font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  color: black;
 `;
 
 export class DesktopProductPage extends Component {
@@ -348,13 +385,55 @@ export class DesktopProductPage extends Component {
                     <AddToCartText>Add To Cart</AddToCartText>
                   </AddToCartButton>
                 </AddToCartWrapper>
-
-                <Description
-                  dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
-                />
-
                 <TrustBadgeWrapper />
+
+                <AccordionWrapper>
+                  <Accordion>
+                    <AccordionItem expanded>
+                      <AccordionItemTitle>
+                        <ItemTitle>Description</ItemTitle>
+                      </AccordionItemTitle>
+                      <AccordionItemBody>
+                        <ItemDesc>
+                          <Description
+                            dangerouslySetInnerHTML={{
+                              __html: product.descriptionHtml
+                            }}
+                          />
+                        </ItemDesc>
+                      </AccordionItemBody>
+                    </AccordionItem>
+                  </Accordion>
+                  <Accordion>
+                    <AccordionItem expanded>
+                      <AccordionItemTitle>
+                        <ItemTitle>Shipping & Delivery</ItemTitle>
+                      </AccordionItemTitle>
+                      <AccordionItemBody>
+                        <ItemDesc>
+                          Once your order is placed, there is a 1 business day
+                          processing period, followed by a 10-20 business day
+                          shipping period.
+                        </ItemDesc>
+                        <ItemDesc>
+                          Please take this into account when purchasing from our
+                          website. Allow 2-3 weeks (depending on location) for
+                          your shipment to arrive.
+                        </ItemDesc>
+                        <ItemDesc>
+                          For international shipping outside the US, orders may
+                          take 4-6 weeks to arrive.
+                        </ItemDesc>
+                        <ItemDesc>
+                          Please contact us at: support@starsignedstyle.com if
+                          you have any questions for us.
+                        </ItemDesc>
+                      </AccordionItemBody>
+                    </AccordionItem>
+                  </Accordion>
+                </AccordionWrapper>
               </VariantSelectorAndCartWrapper>
+              <TrustBadgeWrapper2 />
             </ProductCardWrapper>
           </Grid>
 

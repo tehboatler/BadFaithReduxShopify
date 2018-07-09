@@ -14,6 +14,7 @@
   font-style: normal;
 }
 
+
 html {
   font-size: 65%;
 }
@@ -46,7 +47,8 @@ h2 {
 
 /* BASE APP
  * ============================== */
-.App__header {
+
+ .App__header {
   background-color: #222;
   background-image: url('https://unsplash.it/1000/300?image=823');
   background-size: cover;

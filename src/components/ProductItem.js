@@ -25,7 +25,7 @@ const CaseImageWrapper = styled.div`
   width: 13.25vw;
 
   @media (max-width: 415px) {
-    height: 90vw;
+    height: 100vw;
     width: 100%;
   }
 `;
@@ -113,6 +113,7 @@ const ReviewsWidget = styled.div`
   padding-top: 2vw;
   background-color: white;
   width: 100%;
+  height: 3vw;
   text-align: center;
   justify-content: center;
 `;

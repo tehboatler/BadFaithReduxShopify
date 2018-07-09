@@ -17,6 +17,7 @@ import {
 import VariantSelector from '../VariantSelector';
 import CollectionListHeader from '../Header';
 import IntroBanner from '../IntroBanner';
+import './yotpo.css';
 
 import {
   getProduct,
@@ -301,7 +302,7 @@ export class ProductPage extends Component {
           originalClass: `image_styles`
         });
       });
-
+ 
       this.setState(
         {
           variantImages: arr
