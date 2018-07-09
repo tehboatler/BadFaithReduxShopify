@@ -23,6 +23,7 @@ import TermsOfUse from './TermsOfUse';
 import RefundPolicy from './RefundPolicy';
 import PrivacyPolicy from './PrivacyPolicy';
 import ContactUs from './ContactUs';
+import TrackMyOrder from './TrackMyOrder';
 
 const RootContainer = styled.div`
   width: 100%;
@@ -558,6 +559,11 @@ export default class Main extends Component {
                   exact
                   path="/support-center"
                   render={props => <SupportCenter />}
+                />
+                <Route
+                  exact
+                  path="/track-my-order"
+                  render={props => <TrackMyOrder />}
                 />
                 <Route
                   exact

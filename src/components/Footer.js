@@ -49,7 +49,7 @@ const Title = styled.h1`
   font-family: 'Roboto Condensed', cursive;
 `;
 const SubTitle = styled.h1`
-height: 4vw; 
+  height: 4vw;
   font-size: 3.5vw;
   color: #555;
   margin: 4% 5%;
@@ -94,7 +94,7 @@ const Footer = () => {
           <Link to="/contact-us">
             <SubTitle>Contact Us</SubTitle>
           </Link>
-          <SubTitle>Track My Order</SubTitle>
+          <SubTitle> </SubTitle>
         </GridItem>
         <GridItem2>
           <Title>Explore</Title>
