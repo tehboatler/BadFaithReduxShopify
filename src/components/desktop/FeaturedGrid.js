@@ -3,8 +3,6 @@ import styled from 'styled-components';
 import Fade from 'react-reveal/Fade';
 import { Link } from 'react-router-dom';
 
-
-
 import v2Feat1 from '../../img/v2Feat1.jpg';
 import DesktopFeat2 from '../../img/DesktopFeat2.jpg';
 
@@ -12,15 +10,18 @@ import DesktopFeat2 from '../../img/DesktopFeat2.jpg';
 // ============================================================
 
 const FeatureGrid = styled.div`
+  width: 70%;
+  margin: 0 15%;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   justify-content: center;
   margin-bottom: 4vw;
+  margin-top: 5vw;
 `;
 
 const Feature = styled.div`
-  height: 50vw;
-  width: 33vw;
+  height: auto;
+  width: 20vw;
   margin: 0 2vw;
   background-color: white;
   text-align: left;
@@ -36,15 +37,15 @@ const FeatureHeading = styled.h1`
   margin: 0;
 `;
 const Feature1Image = styled.div`
-  width: 33vw;
-  height: 33vw;
+  width: 20vw;
+  height: 20vw;
   background-image: url(${v2Feat1});
   background-size: cover;
   padding-top: 1vw;
 `;
 const Feature2Image = styled.div`
-  width: 33vw;
-  height: 33vw;
+  width: 20vw;
+  height: 20vw;
   background-image: url(${DesktopFeat2});
   background-size: cover;
   padding-top: 1vw;
@@ -62,7 +63,7 @@ const ShopNowWrapper = styled.div`
   align-items: center;
   height: auto;
   width: auto;
-  margin: 1vw 10vw;
+  margin: 1vw 0;
   border: 0.1vw solid black;
 `;
 
@@ -83,32 +84,66 @@ export default class FeaturedGrid extends Component {
           <FeatureHeading>Titanium Rings:</FeatureHeading>
           <FeatureHeading>StarSigned Sleek & Stylish</FeatureHeading>
           <Link to="/starsigned-rings">
-          <Feature1Image />
+            <Feature1Image />
           </Link>
           <FeatureDescription />
           <Fade bottom>
-          <Link to="/starsigned-rings">
-          <ShopNowWrapper>
-          <ShopNowText> Shop Now </ShopNowText>
-          </ShopNowWrapper>
-          </Link>
+            <Link to="/starsigned-rings">
+              <ShopNowWrapper>
+                <ShopNowText> Shop Now </ShopNowText>
+              </ShopNowWrapper>
+            </Link>
           </Fade>
         </Feature>
+
         <Feature>
           <FeatureHeading>It's In The Stars:</FeatureHeading>
           <FeatureHeading>StarSigned Sterling Silver</FeatureHeading>
           <Link to="/starsigned-necklaces">
-          <Feature2Image />
+            <Feature2Image />
           </Link>
           <FeatureDescription />
           <Fade bottom>
+            <Link to="/starsigned-necklaces">
+              <ShopNowWrapper>
+                <ShopNowText> Shop Now </ShopNowText>
+              </ShopNowWrapper>
+            </Link>
+          </Fade>
+        </Feature>
+
+        <Feature>
+          <FeatureHeading>Titanium Rings:</FeatureHeading>
+          <FeatureHeading>StarSigned Sleek & Stylish</FeatureHeading>
+          <Link to="/starsigned-rings">
+            <Feature1Image />
+          </Link>
+          <FeatureDescription />
+          <Fade bottom>
+            <Link to="/starsigned-rings">
+              <ShopNowWrapper>
+                <ShopNowText> Shop Now </ShopNowText>
+              </ShopNowWrapper>
+            </Link>
+          </Fade>
+        </Feature>
+
+        <Feature>
+        <FeatureHeading>It's In The Stars:</FeatureHeading>
+        <FeatureHeading>StarSigned Sterling Silver</FeatureHeading>
+        <Link to="/starsigned-necklaces">
+          <Feature2Image />
+        </Link>
+        <FeatureDescription />
+        <Fade bottom>
           <Link to="/starsigned-necklaces">
-          <ShopNowWrapper>
-            <ShopNowText> Shop Now </ShopNowText>
-          </ShopNowWrapper>
+            <ShopNowWrapper>
+              <ShopNowText> Shop Now </ShopNowText>
+            </ShopNowWrapper>
           </Link>
         </Fade>
-        </Feature>
+      </Feature>
+        
       </FeatureGrid>
     );
   }

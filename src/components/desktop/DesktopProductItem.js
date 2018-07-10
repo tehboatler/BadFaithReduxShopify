@@ -25,63 +25,62 @@ const CaseImageWrapper = styled.div`
 `;
 
 const DescriptionWrapper = styled.div`
-  position: absolute;
-  bottom: 0;
   text-align: center;
-  height: 10vw;
-  opacity: 1;
+  height: auto;
+  opacity: 0.8;
   width: 100%;
-  background: rgba(0, 0, 0, 0);
-  background: -moz-linear-gradient(
-    top,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.16) 16%,
-    rgba(0, 0, 0, 0.35) 35%,
-    rgba(0, 0, 0, 0.58) 58%,
-    rgba(0, 0, 0, 1) 100%
-  );
-  background: -webkit-gradient(
-    left top,
-    left bottom,
-    color-stop(0%, rgba(0, 0, 0, 0)),
-    color-stop(16%, rgba(0, 0, 0, 0.16)),
-    color-stop(35%, rgba(0, 0, 0, 0.35)),
-    color-stop(58%, rgba(0, 0, 0, 0.58)),
-    color-stop(100%, rgba(0, 0, 0, 1))
-  );
-  background: -webkit-linear-gradient(
-    top,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.16) 16%,
-    rgba(0, 0, 0, 0.35) 35%,
-    rgba(0, 0, 0, 0.58) 58%,
-    rgba(0, 0, 0, 1) 100%
-  );
-  background: -o-linear-gradient(
-    top,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.16) 16%,
-    rgba(0, 0, 0, 0.35) 35%,
-    rgba(0, 0, 0, 0.58) 58%,
-    rgba(0, 0, 0, 1) 100%
-  );
-  background: -ms-linear-gradient(
-    top,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.16) 16%,
-    rgba(0, 0, 0, 0.35) 35%,
-    rgba(0, 0, 0, 0.58) 58%,
-    rgba(0, 0, 0, 1) 100%
-  );
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.16) 16%,
-    rgba(0, 0, 0, 0.35) 35%,
-    rgba(0, 0, 0, 0.58) 58%,
-    rgba(0, 0, 0, 1) 100%
-  );
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=0 );
+  background-color: black;
+  margin-top: -1vw;
+//   background: -moz-linear-gradient(
+//     top,
+//     rgba(0, 0, 0, 0) 0%,
+//     rgba(0, 0, 0, 0.16) 16%,
+//     rgba(0, 0, 0, 0.35) 35%,
+//     rgba(0, 0, 0, 0.58) 58%,
+//     rgba(0, 0, 0, 1) 100%
+//   );
+//   background: -webkit-gradient(
+//     left top,
+//     left bottom,
+//     color-stop(0%, rgba(0, 0, 0, 0)),
+//     color-stop(16%, rgba(0, 0, 0, 0.16)),
+//     color-stop(35%, rgba(0, 0, 0, 0.35)),
+//     color-stop(58%, rgba(0, 0, 0, 0.58)),
+//     color-stop(100%, rgba(0, 0, 0, 1))
+//   );
+//   background: -webkit-linear-gradient(
+//     top,
+//     rgba(0, 0, 0, 0) 0%,
+//     rgba(0, 0, 0, 0.16) 16%,
+//     rgba(0, 0, 0, 0.35) 35%,
+//     rgba(0, 0, 0, 0.58) 58%,
+//     rgba(0, 0, 0, 1) 100%
+//   );
+//   background: -o-linear-gradient(
+//     top,
+//     rgba(0, 0, 0, 0) 0%,
+//     rgba(0, 0, 0, 0.16) 16%,
+//     rgba(0, 0, 0, 0.35) 35%,
+//     rgba(0, 0, 0, 0.58) 58%,
+//     rgba(0, 0, 0, 1) 100%
+//   );
+//   background: -ms-linear-gradient(
+//     top,
+//     rgba(0, 0, 0, 0) 0%,
+//     rgba(0, 0, 0, 0.16) 16%,
+//     rgba(0, 0, 0, 0.35) 35%,
+//     rgba(0, 0, 0, 0.58) 58%,
+//     rgba(0, 0, 0, 1) 100%
+//   );
+//   background: linear-gradient(
+//     to bottom,
+//     rgba(0, 0, 0, 0) 0%,
+//     rgba(0, 0, 0, 0.16) 16%,
+//     rgba(0, 0, 0, 0.35) 35%,
+//     rgba(0, 0, 0, 0.58) 58%,
+//     rgba(0, 0, 0, 1) 100%
+//   );
+//   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=0 );
 `;
 
 const CaseTitle = styled.h1`
@@ -89,7 +88,7 @@ const CaseTitle = styled.h1`
   margin: 1vw;
   margin-bottom: 0.5vw;
   padding-top: 2vw;
-  font-size: 1vw;
+  font-size: 0.8vw;
   font-family: 'Roboto Condensed', cursive;
 `;
 
@@ -102,7 +101,7 @@ const PriceWrapper = styled.div`
 const Price = styled.h1`
   color: white;
   margin: 1vw;
-  font-size: 1vw;
+  font-size: 0.8vw;
   font-family: 'Roboto Condensed', cursive;
   font-weight: 800;
 `;
@@ -139,9 +138,10 @@ const ReviewsWidget = styled.div`
   padding-top: 0vw;
   background-color: #fff;
   border-radius: 1vw;
-  width: 40%;
+  width: 60%;
+  margin: 0 20%;
+  height: 1vw;
   padding: 1% 0;
-  margin: 0 30%;
   opacity: 0.9;
   text-align: center;
   justify-content: center;

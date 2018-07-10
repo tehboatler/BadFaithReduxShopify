@@ -84,10 +84,9 @@ const Price = styled.h1`
 
 const Description = styled.h1`
   font-family: 'Roboto', cursive;
-  font-size: 0.85vw;
+  font-size: 0.7vw;
   font-weight: 500;
   color: black;
-  margin-top: 0.5vw;
   padding: 1vw;
 `;
 
@@ -144,16 +143,16 @@ const AddToCartText = styled.h1`
 // Trust Badge Image
 // ============================================================
 const TrustBadgeWrapper = styled.div`
-  height: 4.44vw;
+  height: 5.17vw;
   width: 25vw;
   background-image: url(${TrustBadge});
   background-size: contain;
 `;
 
 const TrustBadgeWrapper2 = styled.div`
-  height: 5.5vw;
+  height: 5.512vw;
   width: 20vw;
-//   margin: 1vw 5vw;
+  margin: 1vw 2.5vw;
 //   margin-top: 3vw;
   background-image: url(${TrustBadge2});
   background-size: contain;
@@ -411,7 +410,7 @@ export class DesktopProductPage extends Component {
                       </AccordionItemTitle>
                       <AccordionItemBody>
                         <ItemDesc>
-                          Once your order is placed, there is a 1 business day
+                          Once your order is placed, there is a 3-5 business day
                           processing period, followed by a 10-20 business day
                           shipping period.
                         </ItemDesc>
@@ -427,13 +426,13 @@ export class DesktopProductPage extends Component {
                         <ItemDesc>
                           Please contact us at: support@starsignedstyle.com if
                           you have any questions for us.
-                        </ItemDesc>
-                      </AccordionItemBody>
+                          </ItemDesc>
+                          </AccordionItemBody>
+                          <TrustBadgeWrapper2 />
                     </AccordionItem>
                   </Accordion>
                 </AccordionWrapper>
               </VariantSelectorAndCartWrapper>
-              <TrustBadgeWrapper2 />
             </ProductCardWrapper>
           </Grid>
 

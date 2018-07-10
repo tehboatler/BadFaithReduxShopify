@@ -111,9 +111,9 @@ const SterlingSilverFeatureButton = styled.div`
   z-index: 2;
   // opacity: 0;
   // background-color: red;
-  `;
-  
-  const SterlingSilverFeatureButtonText = styled.h1`
+`;
+
+const SterlingSilverFeatureButtonText = styled.h1`
   font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
   border: 0.5vw solid #eee;
   font-size: 4vw;
@@ -133,6 +133,7 @@ const SterlingSilverFeatureButton = styled.div`
 const FeatureBlurb = styled.div`
   width: 90%;
   margin: 0 5%;
+  margin-top: 3vw;
   background-color: white;
   height: auto;
 `;
@@ -147,7 +148,7 @@ const FeatureBlurbHeading = styled.h1`
 
 const FeatureBlurbSubText = styled.h1`
   font-family: 'Roboto Condensed', Helvetica, Arial;
-  font-size: 5vw;
+  font-size: 4vw;
   color: black;
   margin: 0;
   padding: 2vw 10vw;
@@ -435,7 +436,21 @@ export default class Featured extends Component {
           )}
         </Spring>
 
+        <FeatureBlurbHeading>A Thank You from StarSigned:</FeatureBlurbHeading>
 
+        <FeatureBlurbSubText>
+          We are a small collection of the best astrological charms and trinkets
+          you didn’t know could be this cute.
+        </FeatureBlurbSubText>
+
+        <FeatureBlurbSubText />
+        <FeatureBlurbSubText>
+          Our horoscopes told us great things were in the stars for us.
+        </FeatureBlurbSubText>
+        <FeatureBlurbSubText>
+          So we made StarSigned to send you keepsakes that might remind you that
+          great things are in the stars for you too.
+        </FeatureBlurbSubText>
 
         <FeatureGrid>
           <FeatureHeadingWrapper>
@@ -457,31 +472,31 @@ export default class Featured extends Component {
               </ShopNowWrapper>
             </Link>
           </Fade>
-          <Feature1>
 
-          <Spring
-          from={{ opacity: 0, backgroundSize: '150%' }}
-          to={{ opacity: 1, backgroundSize: '100%' }}>
-          {styles => (
-            <SterlingSilverFeature style={styles}>
-              <SterlingSilverFeatureContentWrapper>
-                <IntroBannerTopTextWrapper>
-                  <IntroBannerText>925 Sterling/</IntroBannerText>
-                </IntroBannerTopTextWrapper>
-                <IntroBannerBottomText_Shift>
-                  <IntroBannerText>Stainless Steel</IntroBannerText>
-                </IntroBannerBottomText_Shift>
-                <SterlingSilverFeatureButton>
-                  <Link to="/starsigned-sterling-silver-stainless-steel">
-                    <SterlingSilverFeatureButtonText>
-                      Shop Stainless/Sterling 
-                    </SterlingSilverFeatureButtonText>
-                  </Link>
-                </SterlingSilverFeatureButton>
-              </SterlingSilverFeatureContentWrapper>
-            </SterlingSilverFeature>
-          )}
-        </Spring>
+          <Feature1>
+            <Spring
+              from={{ opacity: 0, backgroundSize: '150%' }}
+              to={{ opacity: 1, backgroundSize: '100%' }}>
+              {styles => (
+                <SterlingSilverFeature style={styles}>
+                  <SterlingSilverFeatureContentWrapper>
+                    <IntroBannerTopTextWrapper>
+                      <IntroBannerText>925 Sterling/</IntroBannerText>
+                    </IntroBannerTopTextWrapper>
+                    <IntroBannerBottomText_Shift>
+                      <IntroBannerText>Stainless Steel</IntroBannerText>
+                    </IntroBannerBottomText_Shift>
+                    <SterlingSilverFeatureButton>
+                      <Link to="/starsigned-sterling-silver-stainless-steel">
+                        <SterlingSilverFeatureButtonText>
+                          Shop Stainless/Sterling
+                        </SterlingSilverFeatureButtonText>
+                      </Link>
+                    </SterlingSilverFeatureButton>
+                  </SterlingSilverFeatureContentWrapper>
+                </SterlingSilverFeature>
+              )}
+            </Spring>
 
             <FeatureHeadingWrapper>
               <FeatureHeading>Starbound Sterling:</FeatureHeading>
@@ -501,7 +516,6 @@ export default class Featured extends Component {
               </ShopNowWrapper>
             </Link>
           </Fade>
-
         </FeatureGrid>
       </RootContainer>
     );

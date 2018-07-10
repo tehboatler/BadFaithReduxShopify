@@ -25,6 +25,7 @@ import PrivacyPolicy from './PrivacyPolicy';
 import ContactUs from './ContactUs';
 import TrackMyOrder from './TrackMyOrder';
 
+
 const RootContainer = styled.div`
   width: 100%;
   height: auto;
@@ -38,7 +39,7 @@ const LandscapeMobilePrompt = styled.div`
   height: 100vh;
   justify-content: center;
   align-items: center;
-  background-color: #131313;
+  background-color: #e1e1e1;
   z-index: 999;
   overflow: hidden;
 `;
@@ -374,6 +375,7 @@ export default class Main extends Component {
                   updateQuantityInCart={this.updateQuantityInCart.bind(this)}
                   removeLineItemInCart={this.removeLineItemInCart.bind(this)}
                 />
+                
                 <MediaQuery orientation="landscape">
                   <LandscapeMobilePrompt>
                     <LandscapeMobilePromptText>

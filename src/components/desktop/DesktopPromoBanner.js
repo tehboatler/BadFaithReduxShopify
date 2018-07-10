@@ -16,9 +16,9 @@ const PromoBanner = styled.div`
   justify-content: center;
 
   margin-bottom: 1vw;
-  -webkit-box-shadow: 0px 4px 30px -9px rgba(54, 54, 54, 0.44);
-  -moz-box-shadow: 0px 4px 30px -9px rgba(54, 54, 54, 0.44);
-  box-shadow: 0px 4px 30px -9px rgba(54, 54, 54, 0.44);
+//   -webkit-box-shadow: 0px 4px 30px -9px rgba(54, 54, 54, 0.44);
+//   -moz-box-shadow: 0px 4px 30px -9px rgba(54, 54, 54, 0.44);
+//   box-shadow: 0px 4px 30px -9px rgba(54, 54, 54, 0.44);
   //   background: rgba(255, 202, 110, 1);
   //   background: -moz-linear-gradient(
   //     top,
@@ -52,7 +52,7 @@ const PromoBanner = styled.div`
   //     rgba(242, 201, 76, 1) 100%
   //   );
   //   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffca6e', endColorstr='#f2c94c', GradientType=0 );
-  background-color: #f5f5f5;
+//   background-color: #f5f5f5;
 `;
 
 const PromoBannerText = styled.h1`

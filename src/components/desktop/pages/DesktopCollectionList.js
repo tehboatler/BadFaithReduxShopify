@@ -32,9 +32,9 @@ const Grid = styled.div`
   width: 80%;
   margin: 0 10%;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   //   background-color: #fff;
-  grid-gap: 2.5vw;
+  grid-gap: 0.5vw;
 `;
 
 // Loading
@@ -59,27 +59,23 @@ const LoadingText = styled.h1`
 const TopNav = styled.div`
   margin: 0 10%;
   margin-top: 8vw;
-  background-color: #111;
   height: auto;
   text-align: center;
   width: 80%;
-  -webkit-box-shadow: 0px 4px 30px -9px rgba(54, 54, 54, 0.44);
-  -moz-box-shadow: 0px 4px 30px -9px rgba(54, 54, 54, 0.44);
-  box-shadow: 0px 4px 30px -9px rgba(54, 54, 54, 0.44);
 `;
 
 const TopNavTitle = styled.h1`
   font-family: 'Archivo Black', Arial, Helvetica, sans-serif;
   font-size: 1.5vw;
-  color: white;
+  color: #1e1e1e;
   font-weight: 800;
-  background-color: black;
+  background-color: white;
   padding: 1vw;
   margin-top: 0.5vw;
   margin-bottom: 1vw;
-  -webkit-box-shadow: 0px 10px 13px -2px rgba(0, 0, 0, 0.4);
-  -moz-box-shadow: 0px 10px 13px -2px rgba(0, 0, 0, 0.4);
-  box-shadow: 0px 10px 13px -2px rgba(0, 0, 0, 0.4);
+//   -webkit-box-shadow: 0px 10px 13px -2px rgba(0, 0, 0, 0.4);
+//   -moz-box-shadow: 0px 10px 13px -2px rgba(0, 0, 0, 0.4);
+//   box-shadow: 0px 10px 13px -2px rgba(0, 0, 0, 0.4);
   z-index: 2;
 `;
 
@@ -112,7 +108,7 @@ class DesktopCollectionList extends Component {
     console.log('next props: ', nextProps);
     if (nextProps.collection === undefined) {
       nextProps.getCollection(nextProps.collectionStringProps);
-      console.log("CWRP Collection getCollection Fired!");
+      console.log('CWRP Collection getCollection Fired!');
       window.scrollTo(0, 0);
     }
     if (nextProps.collectionNode) {
@@ -154,14 +150,6 @@ class DesktopCollectionList extends Component {
               })}
             </Grid>
 
-            <GuaranteeWrapper>
-              <TopNavDescription>
-                Our products have high quality standards that will give you the
-                best value for your money. Every product we sell come with a
-                30-day money back guarantee.
-              </TopNavDescription>
-            </GuaranteeWrapper>
-            <DesktopHeader />
             {console.log('Last Render~')}
           </RootContainer>
         </div>

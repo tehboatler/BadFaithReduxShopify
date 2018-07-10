@@ -63,7 +63,7 @@ export default class SupportCenter extends Component {
             </AccordionItemTitle>
             <AccordionItemBody>
               <ItemDesc>
-                Once your order is placed, there is a 1 business day
+                Once your order is placed, there is a 3-5 business day
                 processing period, followed by a 10-20 business day shipping
                 period.
               </ItemDesc>

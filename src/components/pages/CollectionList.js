@@ -29,14 +29,9 @@ const Grid = styled.div`
   margin-top: 2vw;
   width: 65%;
   display: grid;
-
-  // grid-template-columns: 1fr 1fr 1fr;
-  grid-template-columns: repeat(4, 1fr);
-  //   background-color: #fff;
-  grid-gap: 1vw;
   @media (max-width: 415px) {
     width: 100%;
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     // padding: 0vw 2.5% 0 2.5%;
     margin-bottom: 2vw;
     padding-bottom: 2vw;
@@ -123,7 +118,7 @@ const LoadingText = styled.h1`
 // ============================================================
 const TopNav = styled.div`
   margin-top: 30vw;
-  background-color: #111;
+  // background-color: #111;
   height: auto;
   text-align: center;
   width: 100%;
@@ -134,10 +129,10 @@ const TopNav = styled.div`
 
 const TopNavTitle = styled.h1`
   font-family: 'helveticablack', Arial, Helvetica, sans-serif;
-  font-size: 4.5vw;
-  color: white;
+  font-size: 4vw;
+  color: black;
   font-weight: 800;
-  background-color: black;
+  background-color: white;
   padding: 1vw;
   margin-top: 0.5vw;
   margin-bottom: 1vw;

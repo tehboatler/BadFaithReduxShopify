@@ -150,9 +150,6 @@ export class DesktopHeader extends Component {
             <Link to="/starsigned-bracelets">
               <LinkText>BRACELETS</LinkText>
             </Link>
-            <Link to="/starsigned-lights-home">
-              <LinkText>HOME</LinkText>
-            </Link>
           </HeaderLinks>
         </Sticky>
         <VignetteOverlay />

@@ -43,7 +43,7 @@ const FreeShipping = styled.div`
 `;
 
 const FreeShippingText = styled.h1`
-  font-size: 0.6vw;
+  font-size: 0.78vw;
   font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
   color: black;
   font-weight: 700;

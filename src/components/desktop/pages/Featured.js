@@ -38,9 +38,9 @@ const PromoBanner = styled.div`
   justify-content: center;
 
   margin-bottom: 1vw;
-  -webkit-box-shadow: 0px 4px 30px -9px rgba(54, 54, 54, 0.44);
-  -moz-box-shadow: 0px 4px 30px -9px rgba(54, 54, 54, 0.44);
-  box-shadow: 0px 4px 30px -9px rgba(54, 54, 54, 0.44);
+//   -webkit-box-shadow: 0px 4px 30px -9px rgba(54, 54, 54, 0.44);
+//   -moz-box-shadow: 0px 4px 30px -9px rgba(54, 54, 54, 0.44);
+//   box-shadow: 0px 4px 30px -9px rgba(54, 54, 54, 0.44);
   //   background: rgba(255, 202, 110, 1);
   //   background: -moz-linear-gradient(
   //     top,
@@ -74,7 +74,7 @@ const PromoBanner = styled.div`
   //     rgba(242, 201, 76, 1) 100%
   //   );
   //   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffca6e', endColorstr='#f2c94c', GradientType=0 );
-  background-color: #f5f5f5;
+  background-color: #fff;
 `;
 
 const PromoBannerText = styled.h1`
@@ -97,7 +97,7 @@ const SterlingSilverFeature = styled.div`
   background-color: #f2f2f2;
   background-image: url(${IntroBannerFeatureImage});
   background-size: cover;
-  background-position: 50% 35%;
+  background-position: 50% 100%;
   margin-bottom: 5vw;
   z-index: 1;
 `;
@@ -262,22 +262,7 @@ export default class DesktopFeatured extends Component {
           )}
         </Spring>
 
-        <Spring
-          from={{ opacity: 0, backgroundSize: '150%' }}
-          to={{ opacity: 1, backgroundSize: '100%' }}>
-          {styles => (
-            <SterlingSilverFeature style={styles}>
-              <SterlingSilverFeatureContentWrapper>
-                <IntroBannerTopTextWrapper>
-                  <IntroBannerText>StarSigned/</IntroBannerText>
-                </IntroBannerTopTextWrapper>
-                <IntroBannerBottomText_Shift>
-                  <IntroBannerText>Stainless Steel</IntroBannerText>
-                </IntroBannerBottomText_Shift>
-              </SterlingSilverFeatureContentWrapper>
-            </SterlingSilverFeature>
-          )}
-        </Spring>
+       
 
         <Fade>
           <FeaturedGrid />

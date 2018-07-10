@@ -13,6 +13,7 @@ import {
   AccordionItemTitle,
   AccordionItemBody
 } from 'react-accessible-accordion';
+import Countdown from 'react-countdown-now';
 
 import VariantSelector from '../VariantSelector';
 import CollectionListHeader from '../Header';
@@ -143,17 +144,17 @@ const Price = styled.h1`
 `;
 
 const FreeShippingTag = styled.h1`
-float: right;
-color: #e1e1e1;
-font-family: 'Roboto Condensed', cursive;
-font-size: 3vw;
-font-weight: 700;
-padding: 1vw;
-border-radius: 1vw;
-margin-left: 2vw;
+  float: right;
+  color: #e1e1e1;
+  font-family: 'Roboto Condensed', cursive;
+  font-size: 3vw;
+  font-weight: 700;
+  padding: 1vw;
+  border-radius: 1vw;
+  margin-left: 2vw;
 
-background-color: #be1509;
-`
+  background-color: #be1509;
+`;
 
 const Description = styled.h1`
   font-family: 'Roboto', cursive;
@@ -199,7 +200,6 @@ const AddToCartWrapper = styled.div`
   background-color: #fff;
   @media (max-width: 415px) {
     height: auto;
-    padding-bottom: 3vh;
     align-items: flex-start;
     justify-content: center;
   }
@@ -225,14 +225,15 @@ const AddToCartText = styled.h1`
 // Trust Badge Image
 // ============================================================
 const TrustBadgeWrapper = styled.div`
+  margin-top: 5vw;
   height: 18.62vw;
   width: 90vw;
   background-image: url(${TrustBadge});
   background-size: contain;
 `;
 const TrustBadgeWrapper2 = styled.div`
-  height: 24.69vw;
-  width: 90vw;
+  height: 20.57vw;
+  width: 75vw;
   margin: 1vw 5vw;
   margin-top: 3vw;
   background-image: url(${TrustBadge2});
@@ -255,15 +256,15 @@ const ReviewsWidget = styled.div`
 const ReviewsStarRating = styled.div`
   padding-left: 5vw;
   padding-top: 1vw;
+  height: 3vw;
 `;
 
 // Accordion
 // ============================================================
 const AccordionWrapper = styled.div`
-width: 100%;
-height: auto;
-  
-`
+  width: 100%;
+  height: auto;
+`;
 
 const ItemTitle = styled.h1`
   font-size: 3.5vw;
@@ -278,9 +279,45 @@ const ItemDesc = styled.h1`
   color: black;
 `;
 
+const CouponCountdown = styled.div`
+  width: 90%;
+  height: auto;
+  text-align: center;
+  background-color: #19b420;
+  margin: 1% 5%;
+  border-radius: 1vw;
+`;
+
+const CouponCountdownPrompt = styled.h1`
+  font-family: 'Roboto Condensed', Helvetica, Arial;
+  font-size: 3vw;
+  color: white;
+`;
+
+// Random component
+const Completionist = () => <span>You are good to go!</span>;
+
+// Renderer callback with condition
+const renderer = ({ hours, minutes, seconds, completed, product}) => {
+  if (completed || product !== 'Rose-gold Plated Stainless Steel Bracelet') {
+    // Render a complete state
+    return <div />;
+  } else {
+    // Render a countdown
+    return (
+      <CouponCountdown>
+          <CouponCountdownPrompt>
+            Coupons on this item valid for the next: {hours}h:{minutes}m:{
+              seconds
+            }s
+          </CouponCountdownPrompt>
+        </CouponCountdown>
+    );
+  }
+};
 
 export class ProductPage extends Component {
-  state = { selectedOptions: [] };
+  state = { selectedOptions: [], };
 
   // ============================================================
   // Methods
@@ -302,7 +339,7 @@ export class ProductPage extends Component {
           originalClass: `image_styles`
         });
       });
- 
+
       this.setState(
         {
           variantImages: arr
@@ -325,6 +362,7 @@ export class ProductPage extends Component {
   componentDidMount() {
     window.scrollTo(0, 0);
     ReactPixel.pageView();
+    
   }
 
   ReviewsStarRating = () => {
@@ -455,7 +493,8 @@ export class ProductPage extends Component {
                   style="currency"
                 />{' '}
                 USD
-              <FreeShippingTag>Free Shipping</FreeShippingTag> </Price>
+                <FreeShippingTag>Free Shipping</FreeShippingTag>{' '}
+              </Price>
             )}
             <VariantSelectorAndCartWrapper>
               {product.options.map(option => {
@@ -481,58 +520,67 @@ export class ProductPage extends Component {
                   <AddToCartText>Add To Cart</AddToCartText>
                 </AddToCartButton>
               </AddToCartWrapper>
+              <Countdown
+                product={product.title}
+                date={'Sat, 11 July 2018 17:00:00'}
+                intervalDelay={0}
+                daysInHours={true}
+                precision={1000}
+                renderer={renderer}
+              />
               <TrustBadgeWrapper />
 
               <AccordionWrapper>
-              <Accordion>
-              <AccordionItem expanded>
-                  <AccordionItemTitle>
-                    <ItemTitle>Description</ItemTitle>
-                  </AccordionItemTitle>
-                  <AccordionItemBody>
-                    <ItemDesc>
-                    <Description
-                    dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
-                  />
-                    </ItemDesc>
-                  </AccordionItemBody>
-                </AccordionItem>
+                <Accordion>
+                  <AccordionItem expanded>
+                    <AccordionItemTitle>
+                      <ItemTitle>Description</ItemTitle>
+                    </AccordionItemTitle>
+                    <AccordionItemBody>
+                      <ItemDesc>
+                        <Description
+                          dangerouslySetInnerHTML={{
+                            __html: product.descriptionHtml
+                          }}
+                        />
+                      </ItemDesc>
+                    </AccordionItemBody>
+                  </AccordionItem>
                 </Accordion>
                 <Accordion>
-                <AccordionItem expanded>
-                <AccordionItemTitle>
-                <ItemTitle>Shipping & Delivery</ItemTitle>
-                </AccordionItemTitle>
-                <AccordionItemBody>
-                <ItemDesc>
-                Once your order is placed, there is a 1 business day
-                processing period, followed by a 10-20 business day
-                shipping period.
-                </ItemDesc>
-                <ItemDesc>
-                Please take this into account when purchasing from our
-                website. Allow 2-3 weeks (depending on location) for your
-                shipment to arrive.
-                </ItemDesc>
-                <ItemDesc>
-                For international shipping outside the US, orders may take
-                4-6 weeks to arrive.
-                </ItemDesc>
-                <ItemDesc>
-                Please contact us at: support@starsignedstyle.com if you have
-                any questions for us.
-                </ItemDesc>
-                </AccordionItemBody>
-                </AccordionItem>
+                  <AccordionItem expanded>
+                    <AccordionItemTitle>
+                      <ItemTitle>Shipping & Delivery</ItemTitle>
+                    </AccordionItemTitle>
+                    <AccordionItemBody>
+                      <ItemDesc>
+                        Once your order is placed, there is a 3-5 business day
+                        processing period, followed by a 10-20 business day
+                        shipping period.
+                      </ItemDesc>
+                      <ItemDesc>
+                        Please take this into account when purchasing from our
+                        website. Allow 2-3 weeks (depending on location) for
+                        your shipment to arrive.
+                      </ItemDesc>
+                      <ItemDesc>
+                        For international shipping outside the US, orders may
+                        take 4-6 weeks to arrive.
+                      </ItemDesc>
+                      <ItemDesc>
+                        Please contact us at: support@starsignedstyle.com if you
+                        have any questions for us.
+                      </ItemDesc>
+                      <TrustBadgeWrapper2 />
+                    </AccordionItemBody>
+                  </AccordionItem>
                 </Accordion>
-                </AccordionWrapper>
-                
-                </VariantSelectorAndCartWrapper>
-                </ProductCardWrapper>
-                <TrustBadgeWrapper2 />
-                
-                <ReviewsWidget dangerouslySetInnerHTML={this.ReviewsWidget()} />
-                <CollectionListHeader />
+              </AccordionWrapper>
+            </VariantSelectorAndCartWrapper>
+          </ProductCardWrapper>
+
+          <ReviewsWidget dangerouslySetInnerHTML={this.ReviewsWidget()} />
+          <CollectionListHeader />
         </RootContainer>
       );
     } else {
