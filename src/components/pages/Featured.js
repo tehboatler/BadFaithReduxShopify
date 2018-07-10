@@ -17,6 +17,7 @@ import v2Feat4 from '../../img/v2Feat4.jpg';
 import Header from '../Header';
 import IntroBanner from '../IntroBanner';
 import BestSellerBanner from '../BestSellerBanner';
+import MonthlyGiveaway from '../../img/MonthlyGiveawayBanner.jpg';
 
 import NewReleasesBracelet from '../../img/NewReleasesBracelet.png';
 
@@ -28,6 +29,30 @@ const RootContainer = styled.div`
   text-align: center;
   z-index: 2;
 `;
+
+// Monthly Banner
+// ============================================================
+
+const MonthlyGiveawayBannerWrapper = styled.div`
+  position: relative;
+  text-align: center;
+  height: 100vw;
+  width: 100vw;
+  background-image: url(${MonthlyGiveaway});
+  background-size: cover;
+`;
+
+const LearnMoreButton = styled.h1`
+  position: absolute;
+  bottom: 10vw;
+  font-family: 'helveticablack', Helvetica, Arial;
+  font-size: 4vw;
+  width: 40%;
+  margin: 0 30%;
+  background-color: white;
+  color: #111;
+  padding: 1vw;
+`
 
 // Promo Banner
 // ============================================================
@@ -435,22 +460,9 @@ export default class Featured extends Component {
             </PromoBanner>
           )}
         </Spring>
-
-        <FeatureBlurbHeading>A Thank You from StarSigned:</FeatureBlurbHeading>
-
-        <FeatureBlurbSubText>
-          We are a small collection of the best astrological charms and trinkets
-          you didn’t know could be this cute.
-        </FeatureBlurbSubText>
-
-        <FeatureBlurbSubText />
-        <FeatureBlurbSubText>
-          Our horoscopes told us great things were in the stars for us.
-        </FeatureBlurbSubText>
-        <FeatureBlurbSubText>
-          So we made StarSigned to send you keepsakes that might remind you that
-          great things are in the stars for you too.
-        </FeatureBlurbSubText>
+        <MonthlyGiveawayBannerWrapper>
+          <LearnMoreButton>Learn More</LearnMoreButton>
+        </MonthlyGiveawayBannerWrapper>
 
         <FeatureGrid>
           <FeatureHeadingWrapper>
@@ -517,6 +529,21 @@ export default class Featured extends Component {
             </Link>
           </Fade>
         </FeatureGrid>
+        <FeatureBlurbHeading>A Thank You from StarSigned:</FeatureBlurbHeading>
+
+        <FeatureBlurbSubText>
+          We are a small collection of the best astrological charms and trinkets
+          you didn’t know could be this cute.
+        </FeatureBlurbSubText>
+
+        <FeatureBlurbSubText />
+        <FeatureBlurbSubText>
+          Our horoscopes told us great things were in the stars for us.
+        </FeatureBlurbSubText>
+        <FeatureBlurbSubText>
+          So we made StarSigned to send you keepsakes that might remind you that
+          great things are in the stars for you too.
+        </FeatureBlurbSubText>
       </RootContainer>
     );
   }

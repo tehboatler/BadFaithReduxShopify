@@ -24,6 +24,7 @@ import RefundPolicy from './RefundPolicy';
 import PrivacyPolicy from './PrivacyPolicy';
 import ContactUs from './ContactUs';
 import TrackMyOrder from './TrackMyOrder';
+import InfluencerGiveaway from '../InfluencerGiveaway';
 
 
 const RootContainer = styled.div`
@@ -557,6 +558,11 @@ export default class Main extends Component {
               <Switch>
                 <Route exact path="/" component={Featured} />
 
+                <Route
+                  exact
+                  path="/influencer-giveaway"
+                  render={props => <InfluencerGiveaway />}
+                />
                 <Route
                   exact
                   path="/support-center"

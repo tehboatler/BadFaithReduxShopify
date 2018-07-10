@@ -69,10 +69,8 @@ const LinkText = styled.h1`
 export class Header extends Component {
   render() {
     return (
-      <HeaderContainer
-        isHome={location.pathname === '/'}
-        ref={c => (this.header = reactDOM.findDOMNode(c))}>
-        <Sticky innerZ={3} enabled={true} top={0} bottomBoundary={2400}>
+      <HeaderContainer>
+      <Sticky innerZ={3} enabled={true} top={0} bottomBoundary={2400}>
           <HeaderLinks>
             <Link to="/starsigned-rings">
               <LinkText>RINGS</LinkText>

@@ -307,7 +307,7 @@ const renderer = ({ hours, minutes, seconds, completed, product}) => {
     return (
       <CouponCountdown>
           <CouponCountdownPrompt>
-            Coupons on this item valid for the next: {hours}h:{minutes}m:{
+            ZODIACGUIDES25 Coupon on this item valid for the next: {hours}h:{minutes}m:{
               seconds
             }s
           </CouponCountdownPrompt>
