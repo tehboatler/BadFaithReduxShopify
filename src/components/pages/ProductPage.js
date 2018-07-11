@@ -522,7 +522,7 @@ export class ProductPage extends Component {
               </AddToCartWrapper>
               <Countdown
                 product={product.title}
-                date={'Sat, 11 July 2018 17:00:00'}
+                date={'Sat, 12 July 2018 09:00:00'}
                 intervalDelay={0}
                 daysInHours={true}
                 precision={1000}

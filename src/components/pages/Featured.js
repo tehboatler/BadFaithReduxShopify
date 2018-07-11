@@ -472,6 +472,22 @@ export default class Featured extends Component {
           </LearnMoreButton>
         </MonthlyGiveawayBannerWrapper>
 
+        <FeatureBlurbHeading>A Thank You from StarSigned:</FeatureBlurbHeading>
+
+        <FeatureBlurbSubText>
+          We are a small collection of the best astrological charms and trinkets
+          you didn’t know could be this cute.
+        </FeatureBlurbSubText>
+
+        <FeatureBlurbSubText />
+        <FeatureBlurbSubText>
+          Our horoscopes told us great things were in the stars for us.
+        </FeatureBlurbSubText>
+        <FeatureBlurbSubText>
+          So we made StarSigned to send you keepsakes that might remind you that
+          great things are in the stars for you too.
+        </FeatureBlurbSubText>
+
         <FeatureGrid>
           <FeatureHeadingWrapper>
             <FeatureHeading>Titanium Rings:</FeatureHeading>
@@ -537,21 +553,7 @@ export default class Featured extends Component {
             </Link>
           </Fade>
         </FeatureGrid>
-        <FeatureBlurbHeading>A Thank You from StarSigned:</FeatureBlurbHeading>
 
-        <FeatureBlurbSubText>
-          We are a small collection of the best astrological charms and trinkets
-          you didn’t know could be this cute.
-        </FeatureBlurbSubText>
-
-        <FeatureBlurbSubText />
-        <FeatureBlurbSubText>
-          Our horoscopes told us great things were in the stars for us.
-        </FeatureBlurbSubText>
-        <FeatureBlurbSubText>
-          So we made StarSigned to send you keepsakes that might remind you that
-          great things are in the stars for you too.
-        </FeatureBlurbSubText>
       </RootContainer>
     );
   }
