@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import Fade from 'react-reveal/Fade';
+import Pulse from 'react-reveal/Pulse';
 import { Spring } from 'react-spring';
 
 import Lined from '../../img/lined-paper-2.png';
@@ -251,7 +252,7 @@ const Feature1 = styled.div`
   height: auto;
   width: 100%;
   margin: 0vw 0vw;
-  border-radius: 1vw;
+  // border-radius: 1vw;
   z-index: 3;
   overflow: hidden;
 `;
@@ -292,7 +293,7 @@ const Feature1Card = styled.div`
   display: flex;
   flex-direction: column;
   text-align: right;
-  background-color: #131313;
+  background-color: #fff;
   width: 95vw;
   height: 5vw;
   border-bottom-left-radius: 1vw;
@@ -472,22 +473,6 @@ export default class Featured extends Component {
           </LearnMoreButton>
         </MonthlyGiveawayBannerWrapper>
 
-        <FeatureBlurbHeading>A Thank You from StarSigned:</FeatureBlurbHeading>
-
-        <FeatureBlurbSubText>
-          We are a small collection of the best astrological charms and trinkets
-          you didn’t know could be this cute.
-        </FeatureBlurbSubText>
-
-        <FeatureBlurbSubText />
-        <FeatureBlurbSubText>
-          Our horoscopes told us great things were in the stars for us.
-        </FeatureBlurbSubText>
-        <FeatureBlurbSubText>
-          So we made StarSigned to send you keepsakes that might remind you that
-          great things are in the stars for you too.
-        </FeatureBlurbSubText>
-
         <FeatureGrid>
           <FeatureHeadingWrapper>
             <FeatureHeading>Titanium Rings:</FeatureHeading>
@@ -498,14 +483,15 @@ export default class Featured extends Component {
             <Link to="/starsigned-rings">
               <Feature1Image />
             </Link>
-            <Feature1Card />
           </Feature1>
 
           <Fade>
             <Link to="/starsigned-rings">
-              <ShopNowWrapper>
-                <ShopNowText> Shop Rings </ShopNowText>
-              </ShopNowWrapper>
+              <Pulse>
+                <ShopNowWrapper>
+                  <ShopNowText> Shop Rings </ShopNowText>
+                </ShopNowWrapper>
+              </Pulse>
             </Link>
           </Fade>
 
@@ -524,9 +510,11 @@ export default class Featured extends Component {
                     </IntroBannerBottomText_Shift>
                     <SterlingSilverFeatureButton>
                       <Link to="/starsigned-sterling-silver-stainless-steel">
-                        <SterlingSilverFeatureButtonText>
-                          Shop Stainless/Sterling
-                        </SterlingSilverFeatureButtonText>
+                        <Pulse>
+                          <SterlingSilverFeatureButtonText>
+                            Shop Stainless/Sterling
+                          </SterlingSilverFeatureButtonText>
+                        </Pulse>
                       </Link>
                     </SterlingSilverFeatureButton>
                   </SterlingSilverFeatureContentWrapper>
@@ -542,18 +530,36 @@ export default class Featured extends Component {
             <Link to="/starsigned-necklaces">
               <Feature2Image />
             </Link>
-            <Feature1Card />
           </Feature1>
 
           <Fade>
             <Link to="/starsigned-necklaces">
-              <ShopNowWrapper>
-                <ShopNowText> Shop Necklaces </ShopNowText>
-              </ShopNowWrapper>
+              <Pulse>
+                <ShopNowWrapper>
+                  <ShopNowText> Shop Necklaces </ShopNowText>
+                </ShopNowWrapper>
+              </Pulse>
             </Link>
           </Fade>
         </FeatureGrid>
-
+        <FeatureBlurbHeading>A Thank You from StarSigned:</FeatureBlurbHeading>
+        <Fade bottom>
+          <FeatureBlurbSubText>
+            We are a small hole-in-the-wall collection of the best astrological
+            charms and trinkets you didn’t know could be this cute.
+          </FeatureBlurbSubText>
+        </Fade>
+        <Fade bottom>
+          <FeatureBlurbSubText>
+            Our horoscopes told us great things were in the stars for us.
+          </FeatureBlurbSubText>
+        </Fade>
+        <Fade bottom>
+          <FeatureBlurbSubText>
+            So we made StarSigned to send you keepsakes that might remind you
+            that great things are in the stars for you too.
+          </FeatureBlurbSubText>
+        </Fade>
       </RootContainer>
     );
   }

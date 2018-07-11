@@ -15,6 +15,7 @@ import {
 } from 'react-accessible-accordion';
 import Countdown from 'react-countdown-now';
 
+import './accordion.css';
 import VariantSelector from '../VariantSelector';
 import CollectionListHeader from '../Header';
 import IntroBanner from '../IntroBanner';
@@ -145,7 +146,7 @@ const Price = styled.h1`
 
 const FreeShippingTag = styled.h1`
   float: right;
-  color: #e1e1e1;
+  color: #fff;
   font-family: 'Roboto Condensed', cursive;
   font-size: 3vw;
   font-weight: 700;
@@ -153,20 +154,17 @@ const FreeShippingTag = styled.h1`
   border-radius: 1vw;
   margin-left: 2vw;
 
-  background-color: #be1509;
+  background-color: #EB5757;
 `;
 
 const Description = styled.h1`
   font-family: 'Roboto', cursive;
-  font-size: 0.75vw;
   font-weight: 500;
-  color: black;
+  color: #BCBCBC;
   margin-top: 0.5vw;
-  @media (max-width: 415px) {
-    font-size: 4vw;
-    padding: 0 4vw;
-    color: #333;
-  }
+  font-size: 4vw;
+  padding: 0 3vw;
+  color: #333;
 `;
 
 //  VariantSelector Wrapper
@@ -262,7 +260,8 @@ const ReviewsStarRating = styled.div`
 // Accordion
 // ============================================================
 const AccordionWrapper = styled.div`
-  width: 100%;
+  width: 95%;
+  margin: 2.5%;
   height: auto;
 `;
 
@@ -273,7 +272,7 @@ const ItemTitle = styled.h1`
   color: black;
 `;
 const ItemDesc = styled.h1`
-  font-size: 3vw;
+  font-size: 4vw;
   font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
   font-weight: 400;
   color: black;
@@ -298,7 +297,7 @@ const CouponCountdownPrompt = styled.h1`
 const Completionist = () => <span>You are good to go!</span>;
 
 // Renderer callback with condition
-const renderer = ({ hours, minutes, seconds, completed, product}) => {
+const renderer = ({ hours, minutes, seconds, completed, product }) => {
   if (completed || product !== 'Rose-gold Plated Stainless Steel Bracelet') {
     // Render a complete state
     return <div />;
@@ -306,18 +305,18 @@ const renderer = ({ hours, minutes, seconds, completed, product}) => {
     // Render a countdown
     return (
       <CouponCountdown>
-          <CouponCountdownPrompt>
-            ZODIACGUIDES25 Coupon on this item valid for the next: {hours}h:{minutes}m:{
-              seconds
-            }s
-          </CouponCountdownPrompt>
-        </CouponCountdown>
+        <CouponCountdownPrompt>
+          ZODIACGUIDES25 Coupon on this item valid for the next: {hours}h:{
+            minutes
+          }m:{seconds}s
+        </CouponCountdownPrompt>
+      </CouponCountdown>
     );
   }
 };
 
 export class ProductPage extends Component {
-  state = { selectedOptions: [], };
+  state = { selectedOptions: [] };
 
   // ============================================================
   // Methods
@@ -362,7 +361,6 @@ export class ProductPage extends Component {
   componentDidMount() {
     window.scrollTo(0, 0);
     ReactPixel.pageView();
-    
   }
 
   ReviewsStarRating = () => {
@@ -531,9 +529,12 @@ export class ProductPage extends Component {
               <TrustBadgeWrapper />
 
               <AccordionWrapper>
+
+              
+
                 <Accordion>
-                  <AccordionItem expanded>
-                    <AccordionItemTitle>
+                  <AccordionItem expanded style={{overflow: 'hidden'}}>
+                    <AccordionItemTitle style={{backgroundColor: '#f9f9f9'}}>
                       <ItemTitle>Description</ItemTitle>
                     </AccordionItemTitle>
                     <AccordionItemBody>
@@ -547,9 +548,9 @@ export class ProductPage extends Component {
                     </AccordionItemBody>
                   </AccordionItem>
                 </Accordion>
-                <Accordion>
-                  <AccordionItem expanded>
-                    <AccordionItemTitle>
+                <Accordion style={{marginTop: "1.5vw"}}>
+                  <AccordionItem expanded style={{overflow: 'hidden'}}  >
+                    <AccordionItemTitle style={{backgroundColor: '$f8f8f8'}}>
                       <ItemTitle>Shipping & Delivery</ItemTitle>
                     </AccordionItemTitle>
                     <AccordionItemBody>
