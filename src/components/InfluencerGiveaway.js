@@ -16,11 +16,26 @@ const MonthlyGiveawayBannerWrapper = styled.div`
   background-size: cover;
 `;
 
+const KlaviyoFormWrapper = styled.div`
+  height: 100vw;
+  width: 100vw;
+`;
+
 export default class InfluencerGiveaway extends Component {
+
+  KlaviyoForm = () => {
+    return {
+      __html: `<div class="klaviyo-form-JC4Laz"></div>`
+    };
+  };
+
   render() {
     return (
       <RootContainer>
         <MonthlyGiveawayBannerWrapper />
+        <KlaviyoFormWrapper
+          dangerouslySetInnerHTML={this.KlaviyoForm()}
+        />
       </RootContainer>
     );
   }
