@@ -16,26 +16,25 @@ const MonthlyGiveawayBannerWrapper = styled.div`
   background-size: cover;
 `;
 
-const KlaviyoFormWrapper = styled.div`
-  height: 100vw;
-  width: 100vw;
-`;
+const GiveawaySignUpButton = styled.div`
+    height: 10vw;
+    width: 90vw;
+    margin: 0 5vw;
+    background-color: lightblue;
+`
+
 
 export default class InfluencerGiveaway extends Component {
-
-  KlaviyoForm = () => {
-    return {
-      __html: `<div class="klaviyo-form-JC4Laz"></div>`
-    };
+    
+  GiveawaySignUp = () => {
+    window.open('https://mailchi.mp/b6b98550bb92/starsigned');
   };
 
   render() {
     return (
       <RootContainer>
         <MonthlyGiveawayBannerWrapper />
-        <KlaviyoFormWrapper
-          dangerouslySetInnerHTML={this.KlaviyoForm()}
-        />
+        <GiveawaySignUpButton onClick={() => this.GiveawaySignUp}>Sign me up!</GiveawaySignUpButton>
       </RootContainer>
     );
   }

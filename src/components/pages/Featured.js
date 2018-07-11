@@ -52,7 +52,7 @@ const LearnMoreButton = styled.h1`
   background-color: white;
   color: #111;
   padding: 1vw;
-`
+`;
 
 // Promo Banner
 // ============================================================
@@ -379,6 +379,7 @@ const WhiteSeparator = styled.div`
 `;
 
 const VignetteOverlay = styled.div`
+  pointer-events: none;
   position: fixed;
   z-index: 2;
   height: 30vw;
@@ -443,6 +444,11 @@ const VignetteOverlay = styled.div`
 
 export default class Featured extends Component {
   state = {};
+
+  GiveawaySignUp = () => {
+    window.open('https://mailchi.mp/b6b98550bb92/starsigned');
+  };
+
   render() {
     return (
       <RootContainer>
@@ -461,7 +467,9 @@ export default class Featured extends Component {
           )}
         </Spring>
         <MonthlyGiveawayBannerWrapper>
-          <LearnMoreButton>Learn More</LearnMoreButton>
+          <LearnMoreButton onClick={this.GiveawaySignUp}>
+            Learn More
+          </LearnMoreButton>
         </MonthlyGiveawayBannerWrapper>
 
         <FeatureGrid>
