@@ -8,6 +8,7 @@ import { Spring } from 'react-spring';
 import styled from 'styled-components';
 
 import { getCollection } from '../../../reducers/collectionReducers';
+import CollectionListGiveawayBanner from '../../img/GiveawayBannerCollectionList.jpg';
 import ProductItem from '../ProductItem';
 import CollectionListHeader from '../CollectionListHeader';
 import Header from '../CollectionListHeader';
@@ -150,13 +151,14 @@ const TopNavDescription = styled.h1`
 
 // Guarantee
 // ============================================================
-const GuaranteeWrapper = styled.div`
-  width: 100%;
-  margin: 2vw 0;
-  background-color: black;
-  -webkit-box-shadow: 0px 10px 13px -1px rgba(0, 0, 0, 0.4);
-  -moz-box-shadow: 0px 10px 13px -1px rgba(0, 0, 0, 0.4);
-  box-shadow: 0px 10px 13px -1px rgba(0, 0, 0, 0.4);
+const GiveawayWrapper = styled.div`
+  width: 100vw;
+  height: 31.3vw;
+  background-image: url(${CollectionListGiveawayBanner});
+  background-size: cover;
+  // -webkit-box-shadow: 0px 10px 13px -1px rgba(0, 0, 0, 0.4);
+  // -moz-box-shadow: 0px 10px 13px -1px rgba(0, 0, 0, 0.4);
+  // box-shadow: 0px 10px 13px -1px rgba(0, 0, 0, 0.4);
 `;
 
 class CollectionList extends Component {
@@ -177,6 +179,11 @@ class CollectionList extends Component {
       window.scrollTo(0, 0);
     }
   }
+
+  GiveawaySignUp = () => {
+    window.open('https://mailchi.mp/b6b98550bb92/starsigned');
+  };
+
 
   render() {
     const { collection, collectionNode, collectionStringProps } = this.props;
@@ -221,8 +228,7 @@ class CollectionList extends Component {
                 );
               })}
             </Grid>
-            <GuaranteeWrapper />
-            <Header />
+            <GiveawayWrapper onClick={this.GiveawaySignUp}/>
           </RootContainer>
         </div>
       );

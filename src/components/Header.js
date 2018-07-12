@@ -72,7 +72,7 @@ export class Header extends Component {
       <HeaderContainer
         isHome={location.pathname === '/'}
         ref={c => (this.header = reactDOM.findDOMNode(c))}>
-        <Sticky innerZ={3} enabled={true} top={0} bottomBoundary={2400}>
+        <Sticky innerZ={4} enabled={true} top={0} bottomBoundary={2400}>
           <HeaderLinks>
             <Link to="/starsigned-rings">
               <LinkText>RINGS</LinkText>

@@ -9,7 +9,7 @@ import Lined from '../../img/lined-paper-2.png';
 
 import v2Feat1 from '../../img/v2Feat1.jpg';
 import v2Feat2 from '../../img/DesktopFeat2.jpg';
-import SterlingSilverBracletFeatureImage from '../../img/IntroBannerFeatureImage.jpg';
+// import SterlingSilverBracletFeatureImage from '../../img/IntroBannerFeatureImage.jpg';
 import SterlingSilverNecklaceImage from '../../img/SterlingSilverNecklace.jpg';
 import NewReleasesNecklace from '../../img/SterlingSilverNewReleasesNecklace.jpg';
 import SterlingSilverSimpleNecklaceImage from '../../img/SterlingSilverSimpleNecklace.jpg';
@@ -19,6 +19,7 @@ import Header from '../Header';
 import IntroBanner from '../IntroBanner';
 import BestSellerBanner from '../BestSellerBanner';
 import MonthlyGiveaway from '../../img/MonthlyGiveawayBanner.jpg';
+import Feature2PromoBanner from '../../img/Feature2PromoBanner.jpg';
 
 import NewReleasesBracelet from '../../img/NewReleasesBracelet.png';
 
@@ -86,10 +87,11 @@ const SterlingSilverFeature = styled.div`
   position: relative;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 95vw;
+  width: 92.5vw;
+  margin: 0 3.75vw;
+  height: 92.5vw;
   background-color: #f2f2f2;
-  background-image: url(${SterlingSilverBracletFeatureImage});
+  background-image: url(${Feature2PromoBanner});
   background-size: cover;
   background-position: center center;
 `;
@@ -140,7 +142,7 @@ const SterlingSilverFeatureButton = styled.div`
 `;
 
 const SterlingSilverFeatureButtonText = styled.h1`
-  font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
+  font-family: 'Archivo Black', Arial, Helvetica, sans-serif;
   border: 0.5vw solid #eee;
   font-size: 4vw;
   color: #131313;
@@ -246,6 +248,7 @@ const FeatureHeading = styled.h1`
 
 const Feature1 = styled.div`
   display: flex;
+  position: relative;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -290,6 +293,7 @@ const Feature4Image = styled.div`
 `;
 
 const Feature1Card = styled.div`
+  position: absolute;
   display: flex;
   flex-direction: column;
   text-align: right;
@@ -347,18 +351,18 @@ const ShopNowWrapper = styled.div`
   height: auto;
   width: auto;
   margin: 3.5vw 10vw;
-  border: 0.5vw solid #eee;
   border-radius: 0.5vw;
   background-color: #fff;
   margin-bottom: 10vw;
   padding: 2vw;
+  border: 0.5vw solid #eee;
   -webkit-box-shadow: 0px 3px 30px -2px rgba(54, 54, 54, 0.14);
   -moz-box-shadow: 0px 3px 10px -2px rgba(54, 54, 54, 0.14);
   box-shadow: 0px 3px 10px -2px rgba(54, 54, 54, 0.14);
 `;
 
 const ShopNowText = styled.h1`
-  font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
+  font-family: 'Archivo Black', Arial, Helvetica, sans-serif;
   font-size: 3.5vw;
   font-weight: 700;
   padding: 1vw;
@@ -446,15 +450,16 @@ const VignetteOverlay = styled.div`
 export default class Featured extends Component {
   state = {};
 
-  GiveawaySignUp = () => {
-    window.open('https://mailchi.mp/b6b98550bb92/starsigned');
-  };
-
   render() {
     return (
       <RootContainer>
-        <VignetteOverlay />
+        {/* */}
+        {/* */}
+
         <Header />
+
+        {/* */}
+        {/* PROMO BANNER */}
 
         <Spring
           from={{ opacity: 0, height: '0vw' }}
@@ -468,21 +473,81 @@ export default class Featured extends Component {
           )}
         </Spring>
         <MonthlyGiveawayBannerWrapper>
-          <LearnMoreButton onClick={this.GiveawaySignUp}>
-            Learn More
-          </LearnMoreButton>
+          <Link to="starsigned-necklaces/sterling-silver-starsigned-necklace">
+            <LearnMoreButton>Shop Now</LearnMoreButton>
+          </Link>
         </MonthlyGiveawayBannerWrapper>
 
+        {/* */}
+        {/* FEATURE GRID START */}
+
         <FeatureGrid>
+          {/* */}
+          {/* FEATURE 1*/}
+
+          <Feature1>
+            <FeatureHeadingWrapper>
+              <FeatureHeading>Starbound Stainless:</FeatureHeading>
+              <FeatureHeading>Charms from the Stars</FeatureHeading>
+            </FeatureHeadingWrapper>
+
+            <Fade>
+              <Link to="/starsigned-sterling-silver-stainless-steel">
+                <Feature3Image />
+              </Link>
+            </Fade>
+          </Feature1>
+
+          <Fade>
+            <Link to="/starsigned-sterling-silver-stainless-steel">
+              <Pulse>
+                <ShopNowWrapper>
+                  <ShopNowText> Shop Stainless & Sterling </ShopNowText>
+                </ShopNowWrapper>
+              </Pulse>
+            </Link>
+          </Fade>
+
+          {/* */}
+          {/* FEATURE 2*/}
+
+          <Feature1>
+            <FeatureHeadingWrapper>
+              <FeatureHeading>Better than a Hair-Tie:</FeatureHeading>
+              <FeatureHeading>StarSigned Wrist Decor</FeatureHeading>
+            </FeatureHeadingWrapper>
+
+            <Fade>
+              <Link to="/starsigned-bracelets">
+                <Feature2Image />
+              </Link>
+            </Fade>
+          </Feature1>
+
+          <Fade>
+            <Link to="/starsigned-braclets">
+              <Pulse>
+                <ShopNowWrapper>
+                  <ShopNowText> Shop Bracelets </ShopNowText>
+                </ShopNowWrapper>
+              </Pulse>
+            </Link>
+          </Fade>
+
+          {/* */}
+          {/* FEATURE 3*/}
+
           <FeatureHeadingWrapper>
-            <FeatureHeading>Titanium Rings:</FeatureHeading>
+            <FeatureHeading>Sterling Rings:</FeatureHeading>
             <FeatureHeading>StarSigned Sleek & Stylish</FeatureHeading>
           </FeatureHeadingWrapper>
 
           <Feature1>
-            <Link to="/starsigned-rings">
-              <Feature1Image />
-            </Link>
+            <Fade>
+              <Link to="/starsigned-rings">
+                <Feature1Image />
+              </Link>
+            </Fade>
           </Feature1>
 
           <Fade>
@@ -495,53 +560,13 @@ export default class Featured extends Component {
             </Link>
           </Fade>
 
-          <Feature1>
-            <Spring
-              from={{ opacity: 0, backgroundSize: '150%' }}
-              to={{ opacity: 1, backgroundSize: '100%' }}>
-              {styles => (
-                <SterlingSilverFeature style={styles}>
-                  <SterlingSilverFeatureContentWrapper>
-                    <IntroBannerTopTextWrapper>
-                      <IntroBannerText>925 Sterling/</IntroBannerText>
-                    </IntroBannerTopTextWrapper>
-                    <IntroBannerBottomText_Shift>
-                      <IntroBannerText>Stainless Steel</IntroBannerText>
-                    </IntroBannerBottomText_Shift>
-                    <SterlingSilverFeatureButton>
-                      <Link to="/starsigned-sterling-silver-stainless-steel">
-                        <Pulse>
-                          <SterlingSilverFeatureButtonText>
-                            Shop Stainless/Sterling
-                          </SterlingSilverFeatureButtonText>
-                        </Pulse>
-                      </Link>
-                    </SterlingSilverFeatureButton>
-                  </SterlingSilverFeatureContentWrapper>
-                </SterlingSilverFeature>
-              )}
-            </Spring>
-
-            <FeatureHeadingWrapper>
-              <FeatureHeading>Starbound Sterling:</FeatureHeading>
-              <FeatureHeading>925 Silver Necklaces</FeatureHeading>
-            </FeatureHeadingWrapper>
-
-            <Link to="/starsigned-necklaces">
-              <Feature2Image />
-            </Link>
-          </Feature1>
-
-          <Fade>
-            <Link to="/starsigned-necklaces">
-              <Pulse>
-                <ShopNowWrapper>
-                  <ShopNowText> Shop Necklaces </ShopNowText>
-                </ShopNowWrapper>
-              </Pulse>
-            </Link>
-          </Fade>
+          {/* */}
+          {/* FEATURES END*/}
         </FeatureGrid>
+
+        {/* */}
+        {/* THANK YOU MESSAGE*/}
+
         <FeatureBlurbHeading>A Thank You from StarSigned:</FeatureBlurbHeading>
         <Fade bottom>
           <FeatureBlurbSubText>
@@ -560,6 +585,8 @@ export default class Featured extends Component {
             that great things are in the stars for you too.
           </FeatureBlurbSubText>
         </Fade>
+
+        {/* */}
       </RootContainer>
     );
   }

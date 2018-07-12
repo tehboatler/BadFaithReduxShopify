@@ -14,6 +14,7 @@ import {
   AccordionItemBody
 } from 'react-accessible-accordion';
 import Countdown from 'react-countdown-now';
+import Fade from 'react-reveal/Fade';
 
 import './accordion.css';
 import VariantSelector from '../VariantSelector';
@@ -293,6 +294,33 @@ const CouponCountdownPrompt = styled.h1`
   color: white;
 `;
 
+// Feature Blurb
+// ============================================================
+
+const FeatureBlurb = styled.div`
+  width: 90%;
+  margin: 0 5%;
+  margin-top: 3vw;
+  background-color: white;
+  height: auto;
+`;
+
+const FeatureBlurbHeading = styled.h1`
+  font-family: 'Archivo Black', Helvetica, Arial;
+  font-size: 5vw;
+  color: black;
+  margin: 0;
+  padding: 2vw;
+`;
+
+const FeatureBlurbSubText = styled.h1`
+  font-family: 'Roboto Condensed', Helvetica, Arial;
+  font-size: 4vw;
+  color: black;
+  margin: 0;
+  padding: 2vw 10vw;
+`;
+
 // Random component
 const Completionist = () => <span>You are good to go!</span>;
 
@@ -535,7 +563,7 @@ export class ProductPage extends Component {
                 <Accordion>
                   <AccordionItem expanded style={{overflow: 'hidden'}}>
                     <AccordionItemTitle style={{backgroundColor: '#f9f9f9'}}>
-                      <ItemTitle>Description</ItemTitle>
+                      <ItemTitle>🌐 Description</ItemTitle>
                     </AccordionItemTitle>
                     <AccordionItemBody>
                       <ItemDesc>
@@ -548,10 +576,11 @@ export class ProductPage extends Component {
                     </AccordionItemBody>
                   </AccordionItem>
                 </Accordion>
+                
                 <Accordion style={{marginTop: "1.5vw"}}>
                   <AccordionItem expanded style={{overflow: 'hidden'}}  >
                     <AccordionItemTitle style={{backgroundColor: '$f8f8f8'}}>
-                      <ItemTitle>Shipping & Delivery</ItemTitle>
+                      <ItemTitle>❗️ Shipping & Delivery</ItemTitle>
                     </AccordionItemTitle>
                     <AccordionItemBody>
                       <ItemDesc>
@@ -576,6 +605,40 @@ export class ProductPage extends Component {
                     </AccordionItemBody>
                   </AccordionItem>
                 </Accordion>
+
+                <Accordion style={{marginTop: "1.5vw"}}>
+                  <AccordionItem style={{overflow: 'hidden'}}  >
+                    <AccordionItemTitle style={{backgroundColor: '$f8f8f8'}}>
+                      <ItemTitle>💛 A Thank You from StarSigned</ItemTitle>
+                    </AccordionItemTitle>
+                    <AccordionItemBody>
+                    <FeatureBlurbHeading>A Thank You from StarSigned:</FeatureBlurbHeading>
+                    <Fade bottom>
+                      <FeatureBlurbSubText>
+                      Established June of 2018, we are a small hole-in-the-wall collection of the best astrological
+                        charms and trinkets you didn’t know could be this cute.
+                      </FeatureBlurbSubText>
+                    </Fade>
+                    <Fade bottom>
+                      <FeatureBlurbSubText>
+                        Our horoscopes told us great things were in the stars for us.
+                      </FeatureBlurbSubText>
+                    </Fade>
+                    <Fade bottom>
+                      <FeatureBlurbSubText>
+                        So we made StarSigned to send you keepsakes that might remind you
+                        that great things are in the stars for you too.
+                      </FeatureBlurbSubText>
+                      </Fade>
+                    <Fade bottom>
+                      <FeatureBlurbSubText>
+                        Thank you for supporting the StarSigned revolution :)
+                      </FeatureBlurbSubText>
+                      </Fade>
+                    </AccordionItemBody>
+                  </AccordionItem>
+                </Accordion>
+
               </AccordionWrapper>
             </VariantSelectorAndCartWrapper>
           </ProductCardWrapper>
@@ -589,6 +652,8 @@ export class ProductPage extends Component {
     }
   }
 }
+
+
 
 const mapStateToProps = (state, { match }) => ({
   product: state.products.products[match.params.handle],
