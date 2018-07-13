@@ -467,7 +467,7 @@ export default class Featured extends Component {
           {styles => (
             <PromoBanner style={styles}>
               <PromoBannerText>
-                25% off on Gemini Items storewide! COUPON CODE: GEMINI25
+                25% off on Cancer Items storewide! COUPON CODE: CANCER25
               </PromoBannerText>
             </PromoBanner>
           )}
