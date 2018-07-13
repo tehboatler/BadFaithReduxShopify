@@ -24,7 +24,7 @@ import RefundPolicy from './RefundPolicy';
 import PrivacyPolicy from './PrivacyPolicy';
 import ContactUs from './ContactUs';
 import TrackMyOrder from './TrackMyOrder';
-
+import DesktopComingSoon from '../desktop/pages/DesktopComingSoon';
 
 const RootContainer = styled.div`
   width: 100%;
@@ -244,17 +244,20 @@ export default class Main extends Component {
         { checkoutId, lineItems }
       )
       .then(res => {
-        this.setState({
-          checkout: res.model.checkoutLineItemsAdd.checkout
-        },() => {
-          ReactPixel.track('AddToCart', {
-            content_name: `${title}`,
-            content_ids: `${variantId}`,
-            content_type: 'product',
-            value: `${price}`,
-            currency: 'AUD',
-          })
-        });
+        this.setState(
+          {
+            checkout: res.model.checkoutLineItemsAdd.checkout
+          },
+          () => {
+            ReactPixel.track('AddToCart', {
+              content_name: `${title}`,
+              content_ids: `${variantId}`,
+              content_type: 'product',
+              value: `${price}`,
+              currency: 'AUD'
+            });
+          }
+        );
       });
   }
 
@@ -375,7 +378,7 @@ export default class Main extends Component {
                   updateQuantityInCart={this.updateQuantityInCart.bind(this)}
                   removeLineItemInCart={this.removeLineItemInCart.bind(this)}
                 />
-                
+
                 <MediaQuery orientation="landscape">
                   <LandscapeMobilePrompt>
                     <LandscapeMobilePromptText>
@@ -398,7 +401,7 @@ export default class Main extends Component {
             {/*Desktop Routes*/}
             <MediaQuery minDeviceWidth={1224} values={{ deviceWidth: 1600 }}>
               <Switch>
-                <Route exact path="/" component={DesktopFeatured} />
+                <Route exact path="/" component={DesktopComingSoon} />
 
                 <Route
                   exact
@@ -549,7 +552,7 @@ export default class Main extends Component {
                   )}
                 />
               </Switch>
-              <DesktopFooter />
+           
             </MediaQuery>
 
             {/*Mobile Routes*/}
