@@ -155,13 +155,13 @@ const FreeShippingTag = styled.h1`
   border-radius: 1vw;
   margin-left: 2vw;
 
-  background-color: #EB5757;
+  background-color: #eb5757;
 `;
 
 const Description = styled.h1`
   font-family: 'Roboto', cursive;
   font-weight: 500;
-  color: #BCBCBC;
+  color: #bcbcbc;
   margin-top: 0.5vw;
   font-size: 4vw;
   padding: 0 3vw;
@@ -285,6 +285,7 @@ const CouponCountdown = styled.div`
   text-align: center;
   background-color: #19b420;
   margin: 1% 5%;
+  padding: 0.5vw 0;
   border-radius: 1vw;
 `;
 
@@ -321,24 +322,49 @@ const FeatureBlurbSubText = styled.h1`
   padding: 2vw 10vw;
 `;
 
+const CountdownPrice = styled.h1`
+  margin-left: 1vw;
+  text-decoration: line-through;
+  color: red;
+  display: inline-block;
+  font-size: 3vw;
+`;
+
 // Random component
 const Completionist = () => <span>You are good to go!</span>;
 
 // Renderer callback with condition
-const renderer = ({ hours, minutes, seconds, completed, product }) => {
-  if (completed || product !== 'Rose-gold Plated Stainless Steel Bracelet') {
+const renderer = ({ hours, minutes, seconds, completed, product, price }) => {
+  if (
+    completed ||
+    (product !== 'Sterling Silver Finger Charm' &&
+      product !== 'Sterling Zodiac Constellation Choker')
+  ) {
     // Render a complete state
     return <div />;
   } else {
     // Render a countdown
     return (
-      <CouponCountdown>
-        <CouponCountdownPrompt>
-          ZODIACGUIDES25 Coupon on this item valid for the next: {hours}h:{
-            minutes
-          }m:{seconds}s
-        </CouponCountdownPrompt>
-      </CouponCountdown>
+      <div style={{ width: '100%' }}>
+        <CouponCountdown>
+          <CouponCountdownPrompt>
+            @zodiacguides Coupon on this item valid for the next: {hours}h:{
+              minutes
+            }m:{seconds}s
+          </CouponCountdownPrompt>
+        </CouponCountdown>
+        <div style={{ marginLeft: '5vw' }}>
+          <FormattedNumber
+            style={{ color: 'white' }}
+            value={`${price * 0.75}`}
+            currency="USD"
+            currencyDisplay="symbol"
+            style="currency"
+          />{' '}
+          USD
+          <CountdownPrice>${price} USD</CountdownPrice>
+        </div>
+      </div>
     );
   }
 };
@@ -548,7 +574,8 @@ export class ProductPage extends Component {
               </AddToCartWrapper>
               <Countdown
                 product={product.title}
-                date={'Sat, 12 July 2018 09:00:00'}
+                price={convertedPrice}
+                date={'Sat, 16 July 2018 07:00:00'}
                 intervalDelay={0}
                 daysInHours={true}
                 precision={1000}
@@ -557,12 +584,9 @@ export class ProductPage extends Component {
               <TrustBadgeWrapper />
 
               <AccordionWrapper>
-
-              
-
                 <Accordion>
-                  <AccordionItem expanded style={{overflow: 'hidden'}}>
-                    <AccordionItemTitle style={{backgroundColor: '#f9f9f9'}}>
+                  <AccordionItem expanded style={{ overflow: 'hidden' }}>
+                    <AccordionItemTitle style={{ backgroundColor: '#f9f9f9' }}>
                       <ItemTitle>🌐 Description</ItemTitle>
                     </AccordionItemTitle>
                     <AccordionItemBody>
@@ -576,10 +600,10 @@ export class ProductPage extends Component {
                     </AccordionItemBody>
                   </AccordionItem>
                 </Accordion>
-                
-                <Accordion style={{marginTop: "1.5vw"}}>
-                  <AccordionItem expanded style={{overflow: 'hidden'}}  >
-                    <AccordionItemTitle style={{backgroundColor: '$f8f8f8'}}>
+
+                <Accordion style={{ marginTop: '1.5vw' }}>
+                  <AccordionItem expanded style={{ overflow: 'hidden' }}>
+                    <AccordionItemTitle style={{ backgroundColor: '$f8f8f8' }}>
                       <ItemTitle>❗️ Shipping & Delivery</ItemTitle>
                     </AccordionItemTitle>
                     <AccordionItemBody>
@@ -606,39 +630,44 @@ export class ProductPage extends Component {
                   </AccordionItem>
                 </Accordion>
 
-                <Accordion style={{marginTop: "1.5vw"}}>
-                  <AccordionItem style={{overflow: 'hidden'}}  >
-                    <AccordionItemTitle style={{backgroundColor: '$f8f8f8'}}>
+                <Accordion style={{ marginTop: '1.5vw' }}>
+                  <AccordionItem style={{ overflow: 'hidden' }}>
+                    <AccordionItemTitle style={{ backgroundColor: '$f8f8f8' }}>
                       <ItemTitle>💛 A Thank You from StarSigned</ItemTitle>
                     </AccordionItemTitle>
                     <AccordionItemBody>
-                    <FeatureBlurbHeading>A Thank You from StarSigned:</FeatureBlurbHeading>
-                    <Fade bottom>
-                      <FeatureBlurbSubText>
-                      Established June of 2018, we are a small hole-in-the-wall collection of the best astrological
-                        charms and trinkets you didn’t know could be this cute.
-                      </FeatureBlurbSubText>
-                    </Fade>
-                    <Fade bottom>
-                      <FeatureBlurbSubText>
-                        Our horoscopes told us great things were in the stars for us.
-                      </FeatureBlurbSubText>
-                    </Fade>
-                    <Fade bottom>
-                      <FeatureBlurbSubText>
-                        So we made StarSigned to send you keepsakes that might remind you
-                        that great things are in the stars for you too.
-                      </FeatureBlurbSubText>
+                      <FeatureBlurbHeading>
+                        A Thank You from StarSigned:
+                      </FeatureBlurbHeading>
+                      <Fade bottom>
+                        <FeatureBlurbSubText>
+                          Established June of 2018, we are a small
+                          hole-in-the-wall collection of the best astrological
+                          charms and trinkets you didn’t know could be this
+                          cute.
+                        </FeatureBlurbSubText>
                       </Fade>
-                    <Fade bottom>
-                      <FeatureBlurbSubText>
-                        Thank you for supporting the StarSigned revolution :)
-                      </FeatureBlurbSubText>
+                      <Fade bottom>
+                        <FeatureBlurbSubText>
+                          Our horoscopes told us great things were in the stars
+                          for us.
+                        </FeatureBlurbSubText>
+                      </Fade>
+                      <Fade bottom>
+                        <FeatureBlurbSubText>
+                          So we made StarSigned to send you keepsakes that might
+                          remind you that great things are in the stars for you
+                          too.
+                        </FeatureBlurbSubText>
+                      </Fade>
+                      <Fade bottom>
+                        <FeatureBlurbSubText>
+                          Thank you for supporting the StarSigned revolution :)
+                        </FeatureBlurbSubText>
                       </Fade>
                     </AccordionItemBody>
                   </AccordionItem>
                 </Accordion>
-
               </AccordionWrapper>
             </VariantSelectorAndCartWrapper>
           </ProductCardWrapper>
@@ -652,8 +681,6 @@ export class ProductPage extends Component {
     }
   }
 }
-
-
 
 const mapStateToProps = (state, { match }) => ({
   product: state.products.products[match.params.handle],
