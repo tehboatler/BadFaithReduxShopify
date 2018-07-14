@@ -513,7 +513,7 @@ export class ProductPage extends Component {
               <PromoBannerWrapper style={styles}>
                 <PromoBanner>
                   <PromoBannerText>
-                    25% off on Gemini Items storewide! COUPON CODE: GEMINI25
+                    25% off on Cancer Items storewide! COUPON CODE: CANCER25
                   </PromoBannerText>
                 </PromoBanner>
               </PromoBannerWrapper>
