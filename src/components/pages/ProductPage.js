@@ -28,7 +28,7 @@ import {
 } from '../../../reducers/productReducers';
 
 import TrustBadge from '../../img/Trust_Badge_2.png';
-import TrustBadge2 from '../../img/Trust_Badge_1.png';
+import TrustBadge2 from '../../img/Trust_Badge_1.png'; 
 
 // ============================================================
 // Styles Start
