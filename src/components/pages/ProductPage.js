@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom';
 import ImageGallery from 'react-image-gallery';
 import { Spring } from 'react-spring';
 import ReactPixel from 'react-facebook-pixel';
-import { injectIntl, FormattedNumber } from 'react-intl';
+import { FormattedNumber } from 'react-intl';
 import {
   Accordion,
   AccordionItem,
@@ -19,7 +19,6 @@ import Fade from 'react-reveal/Fade';
 import './accordion.css';
 import VariantSelector from '../VariantSelector';
 import CollectionListHeader from '../Header';
-import IntroBanner from '../IntroBanner';
 import Footer from '../Footer';
 import './yotpo.css';
 

@@ -1,18 +1,9 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import { Spring } from 'react-spring';
-import Fade from 'react-reveal/Fade';
 
-import v2Feat1 from '../../../img/v2Feat1.jpg';
-import DesktopFeat2 from '../../../img/DesktopFeat2.jpg';
-import IntroBannerFeatureImage from '../../../img/IntroBannerFeatureImage.jpg';
-import BestSellingNecklace from '../../../img/SterlingSilverNewReleasesNecklace.jpg';
-import SterlingSilverSimpleNecklaceImage from '../../../img/SterlingSilverSimpleNecklace.jpg';
-import v2Feat3 from '../../../img/v2Feat3.jpg';
-import v2Feat4 from '../../../img/v2Feat4.jpg';
 
-import FeaturedGrid from '../FeaturedGrid';
+
 
 const RootContainer = styled.div`
   padding-top: 8vw;
@@ -82,81 +73,6 @@ const PromoBannerText = styled.h1`
   align-self: right;
   font-size: 0.7vw;
   color: black;
-`;
-
-// Sterling Silver Feature
-// ============================================================
-
-const SterlingSilverFeature = styled.div`
-  display: flex;
-  position: relative;
-  justify-content: flex-start;
-  align-items: start;
-  width: 100%;
-  height: 65vh;
-  background-color: #f2f2f2;
-  background-image: url(${IntroBannerFeatureImage});
-  background-size: cover;
-  background-position: 50% 100%;
-  margin-bottom: 5vw;
-  z-index: 1;
-`;
-
-const SterlingSilverFeatureContentWrapper = styled.div`
-  position: absolute;
-  bottom: 5vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
-  margin-left: -6vw;
-  width: 100%;
-  //   padding-right: 15vw;
-  height: 30%;
-  //   background-color: #131313;
-  text-align: center;
-  // opacity: 0.8;
-`;
-
-const IntroBannerText = styled.h1`
-  font-family: 'Archivo Black', Courier, monospace;
-  font-size: 3vw;
-  line-height: 0;
-  background-color: white;
-  color: black;
-  font-weight: 700vw;
-`;
-
-const IntroBannerTopTextWrapper = styled.div`
-  background-color: #f2f2f2;
-`;
-
-const IntroBannerBottomText_Shift = styled.div`
-  margin-left: 20vw;
-  background-color: white;
-`;
-
-// Best Selling Banner
-// ============================================================
-
-const BestSellingWrapper = styled.div`
-  display: grid;
-  width: 100%;
-  grid-template-columns: repeat(3, 25vw);
-`;
-
-const BestSellingBanner = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: start;
-  width: 25vw;
-  height: 20vw;
-  background-color: #f2f2f2;
-  background-image: url(${BestSellingNecklace});
-  background-size: 150%;
-  background-position: 50% 55%;
-  margin-bottom: 5vw;
 `;
 
 // ============================================================

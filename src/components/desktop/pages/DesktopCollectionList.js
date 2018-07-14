@@ -4,11 +4,8 @@ import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import { Instagram } from 'react-content-loader';
 import Fade from 'react-reveal/Fade';
-import { Spring } from 'react-spring';
-import { Link } from 'react-router-dom';
 
 import styled from 'styled-components';
-import DesktopProductItem from '../DesktopProductItem';
 import DesktopPromoBanner from '../DesktopPromoBanner';
 
 import { getCollection } from '../../../../reducers/collectionReducers';

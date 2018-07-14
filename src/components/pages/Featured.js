@@ -5,23 +5,10 @@ import Fade from 'react-reveal/Fade';
 import Pulse from 'react-reveal/Pulse';
 import { Spring } from 'react-spring';
 
-import Lined from '../../img/lined-paper-2.png';
-
 import v2Feat1 from '../../img/v2Feat1.jpg';
 import v2Feat2 from '../../img/DesktopFeat2.jpg';
-// import SterlingSilverBracletFeatureImage from '../../img/IntroBannerFeatureImage.jpg';
-import SterlingSilverNecklaceImage from '../../img/SterlingSilverNecklace.jpg';
-import NewReleasesNecklace from '../../img/SterlingSilverNewReleasesNecklace.jpg';
-import SterlingSilverSimpleNecklaceImage from '../../img/SterlingSilverSimpleNecklace.jpg';
 import v2Feat3 from '../../img/v2Feat3.jpg';
-import v2Feat4 from '../../img/v2Feat4.jpg';
 import Header from '../Header';
-import IntroBanner from '../IntroBanner';
-import BestSellerBanner from '../BestSellerBanner';
-
-import Feature2PromoBanner from '../../img/Feature2PromoBanner.jpg';
-
-import NewReleasesBracelet from '../../img/NewReleasesBracelet.png';
 
 const RootContainer = styled.div`
   padding-top: 25vw;
@@ -53,82 +40,6 @@ const PromoBannerText = styled.h1`
   font-size: 2vw;
   padding-right: 3vw;
   color: black;
-`;
-
-// Sterling Silver Feature
-// ============================================================
-
-const SterlingSilverFeature = styled.div`
-  display: flex;
-  position: relative;
-  justify-content: center;
-  align-items: center;
-  width: 92.5vw;
-  margin: 0 3.75vw;
-  height: 92.5vw;
-  background-color: #f2f2f2;
-  background-image: url(${Feature2PromoBanner});
-  background-size: cover;
-  background-position: center center;
-`;
-
-const SterlingSilverFeatureContentWrapper = styled.div`
-  position: absolute;
-  left: 0;
-  bottom: 5vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
-  // margin-left: -8vw;
-  width: 100%;
-  //   padding-right: 15vw;
-  height: 30%;
-  // background-color: #131313;
-  text-align: center;
-  // opacity: 0.8;
-`;
-
-const IntroBannerText = styled.h1`
-  font-family: 'helveticablack', Courier, monospace;
-  font-size: 8vw;
-  line-height: 0;
-  // background-color: white;
-  color: black;
-  font-weight: 700vw;
-`;
-
-const IntroBannerTopTextWrapper = styled.div`
-  background-color: #f2f2f2;
-  opacity: 0;
-`;
-
-const IntroBannerBottomText_Shift = styled.div`
-  margin-left: 30vw;
-  background-color: white;
-  opacity: 0;
-`;
-
-const SterlingSilverFeatureButton = styled.div`
-  // border-radius: 1px;
-  z-index: 2;
-  // opacity: 0;
-  // background-color: red;
-`;
-
-const SterlingSilverFeatureButtonText = styled.h1`
-  font-family: 'Archivo Black', Arial, Helvetica, sans-serif;
-  border: 0.5vw solid #eee;
-  font-size: 4vw;
-  color: #131313;
-  padding: 3vw 10vw;
-  background-color: white;
-  text-shadow: 1px 3px 3px rgba(0, 0, 0, 0.2);
-  // border: 2px black solid;
-  -webkit-box-shadow: 0px 3px 30px -2px rgba(54, 54, 54, 0.14);
-  -moz-box-shadow: 0px 3px 10px -2px rgba(54, 54, 54, 0.14);
-  box-shadow: 0px 3px 10px -2px rgba(54, 54, 54, 0.14);
 `;
 
 // Feature
@@ -232,12 +143,6 @@ const Feature3Image = styled.div`
   width: 100vw;
   height: 100vw;
   background-image: url(${v2Feat3});
-  background-size: cover;
-`;
-const Feature4Image = styled.div`
-  width: 100vw;
-  height: 115.67vw;
-  background-image: url(${v2Feat4});
   background-size: cover;
 `;
 

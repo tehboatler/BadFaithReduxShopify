@@ -4,7 +4,8 @@ var UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 var HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 var BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
   .BundleAnalyzerPlugin;
-
+  var CompressionPlugin = require('compression-webpack-plugin');
+  
 module.exports = {
   entry: ['babel-polyfill', './src/app.js'],
   output: {
@@ -59,9 +60,16 @@ module.exports = {
   plugins: [
     // new HardSourceWebpackPlugin()
     new webpack.DefinePlugin({
-    'process.env.NODE_ENV': JSON.stringify('production')
+      'process.env.NODE_ENV': JSON.stringify('production')
     }),
-    new UglifyJSPlugin()
+    new UglifyJSPlugin(),
+    new CompressionPlugin({
+      asset: "[path].gz[query]",
+      algorithm: "gzip",
+      test: /\.js$|\.css$|\.html$/,
+      threshold: 10240,
+      minRatio: 0.8
+    })
     // new BundleAnalyzerPlugin()
   ],
   // devtool: 'eval',

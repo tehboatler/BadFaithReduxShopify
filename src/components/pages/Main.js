@@ -13,17 +13,12 @@ import CollectionList from './CollectionList';
 import DesktopCollectionList from '../desktop/pages/DesktopCollectionList';
 import ProductPage from './ProductPage';
 import DesktopProductPage from '../desktop/pages/DesktopProductPage';
-import Header from '../Header';
-import Featured from './Featured';
-import DesktopFeatured from '../desktop/pages/Featured';
 import Footer from '../Footer';
-import DesktopFooter from '../desktop/DesktopFooter';
 import SupportCenter from './SupportCenter';
 import TermsOfUse from './TermsOfUse';
 import RefundPolicy from './RefundPolicy';
 import PrivacyPolicy from './PrivacyPolicy';
 import ContactUs from './ContactUs';
-import TrackMyOrder from './TrackMyOrder';
 import DesktopComingSoon from '../desktop/pages/DesktopComingSoon';
 import HomepageBanner from './HomepageBanner';
 import HomepageFooter from '../HomepageFooter';
@@ -559,18 +554,14 @@ export default class Main extends Component {
             {/*Mobile Routes*/}
             <MediaQuery maxDeviceWidth={1224}>
               <Switch>
-              <Route exact path="/" component={HomepageBanner} />
-              
+                <Route exact path="/" component={HomepageBanner} />
+
                 <Route
                   exact
                   path="/support-center"
                   render={props => <SupportCenter />}
                 />
-                <Route
-                  exact
-                  path="/track-my-order"
-                  render={props => <TrackMyOrder />}
-                />
+
                 <Route
                   exact
                   path="/contact-us"
@@ -716,12 +707,11 @@ export default class Main extends Component {
                     />
                   )}
                 />
-                </Switch>
-                <Switch>
+              </Switch>
+              <Switch>
                 <Route exact path="/" component={HomepageFooter} />
                 <Route exact path="/featured" component={Footer} />
-                </Switch>
-              
+              </Switch>
             </MediaQuery>
           </RootContainer>
         </Router>

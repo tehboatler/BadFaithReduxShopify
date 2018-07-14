@@ -5,8 +5,6 @@ import { withRouter, Link } from 'react-router-dom';
 import reactDOM from 'react-dom';
 import Sticky from 'react-stickynode';
 
-import IntroBanner from './IntroBanner';
-
 const HeaderContainer = styled.div`
   display: flex;
   flex-direction: column;

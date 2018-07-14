@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import Fade from 'react-reveal/Fade';
 
 import MonthlyGiveaway from '../../img/MonthlyGiveawayBanner.jpg';
-import MonthlyGiveawayFooter from '../../img/MonthlyGiveawayBannerFooter.jpg';
-import HomepageFooter from '../HomepageFooter';
 
 const RootContainer = styled.div`
   padding-top: 27.5vw;

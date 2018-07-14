@@ -4,9 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import ImageGallery from 'react-image-gallery';
-import { Spring } from 'react-spring';
-import Fade from 'react-reveal/Fade';
-import { injectIntl, FormattedNumber } from 'react-intl';
+import { FormattedNumber } from 'react-intl';
 import {
     Accordion,
     AccordionItem,
