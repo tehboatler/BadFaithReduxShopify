@@ -85,7 +85,7 @@ const PaymentOptionsWrapper = styled.div`
 const Footer = () => {
   return (
     <RootContainer>
-      <Fade bottom>
+      <Fade>
         <RootGrid>
           <GridItem>
             <Title>Need Help?</Title>

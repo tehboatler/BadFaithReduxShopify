@@ -716,9 +716,12 @@ export default class Main extends Component {
                     />
                   )}
                 />
-                
-              </Switch>
-              <Footer/>
+                </Switch>
+                <Switch>
+                <Route exact path="/" component={HomepageFooter} />
+                <Route exact path="/featured" component={Footer} />
+                </Switch>
+              
             </MediaQuery>
           </RootContainer>
         </Router>

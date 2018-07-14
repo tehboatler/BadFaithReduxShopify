@@ -25,7 +25,7 @@ const MonthlyGiveawayBannerWrapper = styled.div`
 
 const LearnMoreButton = styled.h1`
   position: absolute;
-  bottom: 10vw;
+  bottom: 30vw;
   font-family: 'helveticablack', Helvetica, Arial;
   font-size: 4vw;
   width: 40%;
@@ -80,15 +80,15 @@ export default class HomepageBanner extends Component {
         </MonthlyGiveawayBannerWrapper>
 
         {/* THANK YOU MESSAGE*/}
-        {/*<ThankYouMessageWrapper>
+        <ThankYouMessageWrapper>
           <FeatureBlurbHeading>
             A Thank You from StarSigned:
           </FeatureBlurbHeading>
           <Fade bottom>
             <FeatureBlurbSubText>
-              Established June of 2018, we are a small hole-in-the-wall collection of the best
-              astrological charms and trinkets you didn’t know could be this
-              cute.
+              Established June of 2018, we are a small hole-in-the-wall
+              collection of the best astrological charms and trinkets you didn’t
+              know could be this cute.
             </FeatureBlurbSubText>
           </Fade>
           <Fade bottom>
@@ -102,12 +102,11 @@ export default class HomepageBanner extends Component {
               that great things are in the stars for you too.
             </FeatureBlurbSubText>
             <FeatureBlurbSubText>
-            Thank you for supporting the StarSigned Revolution 💛
-          </FeatureBlurbSubText>
+              Thank you for supporting the StarSigned Revolution 💛
+            </FeatureBlurbSubText>
           </Fade>
         </ThankYouMessageWrapper>
-            <HomepageFooter/>
-    */}
+        
       </RootContainer>
     );
   }

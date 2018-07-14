@@ -20,6 +20,7 @@ import './accordion.css';
 import VariantSelector from '../VariantSelector';
 import CollectionListHeader from '../Header';
 import IntroBanner from '../IntroBanner';
+import Footer from '../Footer';
 import './yotpo.css';
 
 import {
@@ -674,6 +675,7 @@ export class ProductPage extends Component {
 
           <ReviewsWidget dangerouslySetInnerHTML={this.ReviewsWidget()} />
           <CollectionListHeader />
+          <Footer />
         </RootContainer>
       );
     } else {

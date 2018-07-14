@@ -13,6 +13,7 @@ import ProductItem from '../ProductItem';
 import CollectionListHeader from '../CollectionListHeader';
 import Header from '../CollectionListHeader';
 import IntroBanner from '../IntroBanner';
+import Footer from '../Footer';
 import BestSellerBanner from '../BestSellerBanner';
 
 // Root
@@ -229,6 +230,7 @@ class CollectionList extends Component {
               })}
             </Grid>
             <GiveawayWrapper onClick={this.GiveawaySignUp}/>
+            <Footer/>
           </RootContainer>
         </div>
       );
