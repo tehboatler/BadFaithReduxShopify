@@ -11,6 +11,7 @@ import { getCollection } from '../../../reducers/collectionReducers';
 import CollectionListGiveawayBanner from '../../img/GiveawayBannerCollectionList.jpg';
 import Header from '../CollectionListHeader';
 import Footer from '../Footer';
+import ProductItem from '../ProductItem';
 
 // Root
 // ============================================================

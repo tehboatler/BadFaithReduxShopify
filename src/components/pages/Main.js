@@ -22,6 +22,7 @@ import ContactUs from './ContactUs';
 import DesktopComingSoon from '../desktop/pages/DesktopComingSoon';
 import HomepageBanner from './HomepageBanner';
 import HomepageFooter from '../HomepageFooter';
+import Featured from './Featured';
 
 const RootContainer = styled.div`
   width: 100%;
