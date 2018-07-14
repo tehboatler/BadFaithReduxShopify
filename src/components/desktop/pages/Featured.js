@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Spring } from 'react-spring';
-
-
-
+import Fade from 'react-reveal/Fade';
 
 const RootContainer = styled.div`
   padding-top: 8vw;
@@ -29,9 +27,9 @@ const PromoBanner = styled.div`
   justify-content: center;
 
   margin-bottom: 1vw;
-//   -webkit-box-shadow: 0px 4px 30px -9px rgba(54, 54, 54, 0.44);
-//   -moz-box-shadow: 0px 4px 30px -9px rgba(54, 54, 54, 0.44);
-//   box-shadow: 0px 4px 30px -9px rgba(54, 54, 54, 0.44);
+  //   -webkit-box-shadow: 0px 4px 30px -9px rgba(54, 54, 54, 0.44);
+  //   -moz-box-shadow: 0px 4px 30px -9px rgba(54, 54, 54, 0.44);
+  //   box-shadow: 0px 4px 30px -9px rgba(54, 54, 54, 0.44);
   //   background: rgba(255, 202, 110, 1);
   //   background: -moz-linear-gradient(
   //     top,
@@ -179,11 +177,10 @@ export default class DesktopFeatured extends Component {
         </Spring>
 
         <Fade>
-        <FeaturedGrid />
-      </Fade>
+          <FeaturedGrid />
+        </Fade>
 
         <VignetteOverlay />
-        
       </RootContainer>
     );
   }
