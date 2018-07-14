@@ -262,11 +262,9 @@ export default class DesktopFeatured extends Component {
           )}
         </Spring>
 
-       
-
         <Fade>
-          <FeaturedGrid />
-        </Fade>
+        <FeaturedGrid />
+      </Fade>
 
         <VignetteOverlay />
         

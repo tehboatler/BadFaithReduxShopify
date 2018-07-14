@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import Fade from 'react-reveal/Fade';
 
 import PaymentOptionIcons from '../img/PaymentOptions.png';
 
@@ -71,6 +72,7 @@ const PaymentOptionsSection = styled.div`
   width: 100%;
   height: 10vw;
   // background-color: red;
+  padding-bottom: 5vw;
 `;
 
 const PaymentOptionsWrapper = styled.div`
@@ -84,36 +86,38 @@ const PaymentOptionsWrapper = styled.div`
 const Footer = () => {
   return (
     <RootContainer>
-      <RootGrid>
-        <GridItem>
-          <Title>Need Help?</Title>
-          <TitleWrapper />
-          <Link to="/support-center">
-            <SubTitle>Support Center</SubTitle>
-          </Link>
-          <Link to="/contact-us">
-            <SubTitle>Contact Us</SubTitle>
-          </Link>
-          <SubTitle> </SubTitle>
-        </GridItem>
-        <GridItem2>
-          <Title>Explore</Title>
-          <TitleWrapper />
-          <Link to="/privacy-policy">
-            <SubTitle>Privacy Policy</SubTitle>
-          </Link>
-          <Link to="/refund-policy">
-            <SubTitle>Returns/Refunds Policy</SubTitle>
-          </Link>
-          <Link to="/terms-of-use">
-            <SubTitle>Terms of Use</SubTitle>
-          </Link>
-        </GridItem2>
-      </RootGrid>
-      <StarSignedCopyRight>© StarSigned 2018 ☾</StarSignedCopyRight>
-      <PaymentOptionsSection>
-        <PaymentOptionsWrapper />
-      </PaymentOptionsSection>
+      <Fade bottom>
+        <RootGrid>
+          <GridItem>
+            <Title>Need Help?</Title>
+            <TitleWrapper />
+            <Link to="/support-center">
+              <SubTitle>Support Center</SubTitle>
+            </Link>
+            <Link to="/contact-us">
+              <SubTitle>Contact Us</SubTitle>
+            </Link>
+            <SubTitle> </SubTitle>
+          </GridItem>
+          <GridItem2>
+            <Title>Explore</Title>
+            <TitleWrapper />
+            <Link to="/privacy-policy">
+              <SubTitle>Privacy Policy</SubTitle>
+            </Link>
+            <Link to="/refund-policy">
+              <SubTitle>Returns/Refunds Policy</SubTitle>
+            </Link>
+            <Link to="/terms-of-use">
+              <SubTitle>Terms of Use</SubTitle>
+            </Link>
+          </GridItem2>
+        </RootGrid>
+        <StarSignedCopyRight>© StarSigned 2018 ☾</StarSignedCopyRight>
+        <PaymentOptionsSection>
+          <PaymentOptionsWrapper />
+        </PaymentOptionsSection>
+      </Fade>
     </RootContainer>
   );
 };

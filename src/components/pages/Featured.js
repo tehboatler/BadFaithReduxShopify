@@ -18,7 +18,7 @@ import v2Feat4 from '../../img/v2Feat4.jpg';
 import Header from '../Header';
 import IntroBanner from '../IntroBanner';
 import BestSellerBanner from '../BestSellerBanner';
-import MonthlyGiveaway from '../../img/MonthlyGiveawayBanner.jpg';
+
 import Feature2PromoBanner from '../../img/Feature2PromoBanner.jpg';
 
 import NewReleasesBracelet from '../../img/NewReleasesBracelet.png';
@@ -30,30 +30,6 @@ const RootContainer = styled.div`
   background-color: white;
   text-align: center;
   z-index: 2;
-`;
-
-// Monthly Banner
-// ============================================================
-
-const MonthlyGiveawayBannerWrapper = styled.div`
-  position: relative;
-  text-align: center;
-  height: 100vw;
-  width: 100vw;
-  background-image: url(${MonthlyGiveaway});
-  background-size: cover;
-`;
-
-const LearnMoreButton = styled.h1`
-  position: absolute;
-  bottom: 10vw;
-  font-family: 'helveticablack', Helvetica, Arial;
-  font-size: 4vw;
-  width: 40%;
-  margin: 0 30%;
-  background-color: white;
-  color: #111;
-  padding: 1vw;
 `;
 
 // Promo Banner
@@ -153,33 +129,6 @@ const SterlingSilverFeatureButtonText = styled.h1`
   -webkit-box-shadow: 0px 3px 30px -2px rgba(54, 54, 54, 0.14);
   -moz-box-shadow: 0px 3px 10px -2px rgba(54, 54, 54, 0.14);
   box-shadow: 0px 3px 10px -2px rgba(54, 54, 54, 0.14);
-`;
-
-// Feature Blurb
-// ============================================================
-
-const FeatureBlurb = styled.div`
-  width: 90%;
-  margin: 0 5%;
-  margin-top: 3vw;
-  background-color: white;
-  height: auto;
-`;
-
-const FeatureBlurbHeading = styled.h1`
-  font-family: 'Archivo Black', Helvetica, Arial;
-  font-size: 5vw;
-  color: black;
-  margin: 0;
-  padding: 2vw;
-`;
-
-const FeatureBlurbSubText = styled.h1`
-  font-family: 'Roboto Condensed', Helvetica, Arial;
-  font-size: 4vw;
-  color: black;
-  margin: 0;
-  padding: 2vw 10vw;
 `;
 
 // Feature
@@ -450,6 +399,11 @@ const VignetteOverlay = styled.div`
 export default class Featured extends Component {
   state = {};
 
+  componentDidMount() {
+    window.scrollTo(0, 0);
+    
+  }
+
   render() {
     return (
       <RootContainer>
@@ -472,11 +426,6 @@ export default class Featured extends Component {
             </PromoBanner>
           )}
         </Spring>
-        <MonthlyGiveawayBannerWrapper>
-          <Link to="starsigned-necklaces/sterling-silver-starsigned-necklace">
-            <LearnMoreButton>Shop Now</LearnMoreButton>
-          </Link>
-        </MonthlyGiveawayBannerWrapper>
 
         {/* */}
         {/* FEATURE GRID START */}
@@ -563,28 +512,6 @@ export default class Featured extends Component {
           {/* */}
           {/* FEATURES END*/}
         </FeatureGrid>
-
-        {/* */}
-        {/* THANK YOU MESSAGE*/}
-
-        <FeatureBlurbHeading>A Thank You from StarSigned:</FeatureBlurbHeading>
-        <Fade bottom>
-          <FeatureBlurbSubText>
-            We are a small hole-in-the-wall collection of the best astrological
-            charms and trinkets you didn’t know could be this cute.
-          </FeatureBlurbSubText>
-        </Fade>
-        <Fade bottom>
-          <FeatureBlurbSubText>
-            Our horoscopes told us great things were in the stars for us.
-          </FeatureBlurbSubText>
-        </Fade>
-        <Fade bottom>
-          <FeatureBlurbSubText>
-            So we made StarSigned to send you keepsakes that might remind you
-            that great things are in the stars for you too.
-          </FeatureBlurbSubText>
-        </Fade>
 
         {/* */}
       </RootContainer>

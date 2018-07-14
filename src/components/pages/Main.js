@@ -25,6 +25,7 @@ import PrivacyPolicy from './PrivacyPolicy';
 import ContactUs from './ContactUs';
 import TrackMyOrder from './TrackMyOrder';
 import DesktopComingSoon from '../desktop/pages/DesktopComingSoon';
+import HomepageBanner from './HomepageBanner';
 
 const RootContainer = styled.div`
   width: 100%;
@@ -558,7 +559,7 @@ export default class Main extends Component {
             {/*Mobile Routes*/}
             <MediaQuery maxDeviceWidth={1224}>
               <Switch>
-                <Route exact path="/" component={Featured} />
+                <Route exact path="/" component={HomepageBanner} />
 
                 <Route
                   exact
@@ -593,6 +594,12 @@ export default class Main extends Component {
                   path="/privacy-policy"
                   render={props => <PrivacyPolicy />}
                 />
+
+                <Route
+                exact
+                path="/featured"
+                render={props => <Featured />}
+              />
 
                 <Route
                   exact
