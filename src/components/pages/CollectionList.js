@@ -5,6 +5,7 @@ import { withRouter } from 'react-router-dom';
 import { Instagram } from 'react-content-loader';
 import { Spring } from 'react-spring';
 import styled from 'styled-components';
+import Fade from 'react-reveal/Fade';
 
 import { getCollection } from '../../../reducers/collectionReducers';
 import CollectionListGiveawayBanner from '../../img/GiveawayBannerCollectionList.jpg';
