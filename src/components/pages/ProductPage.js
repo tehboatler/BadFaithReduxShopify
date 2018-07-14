@@ -603,7 +603,7 @@ export class ProductPage extends Component {
                 </Accordion>
 
                 <Accordion style={{ marginTop: '1.5vw' }}>
-                  <AccordionItem expanded style={{ overflow: 'hidden' }}>
+                  <AccordionItem style={{ overflow: 'hidden' }}>
                     <AccordionItemTitle style={{ backgroundColor: '$f8f8f8' }}>
                       <ItemTitle>❗️ Shipping & Delivery</ItemTitle>
                     </AccordionItemTitle>
