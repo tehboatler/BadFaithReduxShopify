@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import Fade from 'react-reveal/Fade';
 
 import MonthlyGiveaway from '../../img/MonthlyGiveawayBanner.jpg';
+import MonthlyGiveawayFooter from '../../img/MonthlyGiveawayBannerFooter.jpg';
+import HomepageFooter from '../HomepageFooter';
 
 const RootContainer = styled.div`
   padding-top: 27.5vw;
@@ -15,7 +17,7 @@ const RootContainer = styled.div`
 const MonthlyGiveawayBannerWrapper = styled.div`
   position: relative;
   text-align: center;
-  height: 128.80vw;
+  height: 128.8vw;
   width: 100vw;
   background-image: url(${MonthlyGiveaway});
   background-size: cover;
@@ -78,7 +80,7 @@ export default class HomepageBanner extends Component {
         </MonthlyGiveawayBannerWrapper>
 
         {/* THANK YOU MESSAGE*/}
-        <ThankYouMessageWrapper>
+        {/*<ThankYouMessageWrapper>
           <FeatureBlurbHeading>
             A Thank You from StarSigned:
           </FeatureBlurbHeading>
@@ -104,6 +106,8 @@ export default class HomepageBanner extends Component {
           </FeatureBlurbSubText>
           </Fade>
         </ThankYouMessageWrapper>
+            <HomepageFooter/>
+    */}
       </RootContainer>
     );
   }

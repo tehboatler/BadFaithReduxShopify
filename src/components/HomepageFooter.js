@@ -8,9 +8,8 @@ import PaymentOptionIcons from '../img/PaymentOptions.png';
 const RootContainer = styled.div`
   height: auto;
   width: 100%;
-  background-color: #fff;
+  background-color: #111;
   text-align: center;
-  margin-top: 1vw;
   padding-top: 4vw;
 `;
 const RootGrid = styled.div`
@@ -46,13 +45,13 @@ const TitleWrapper = styled.div`
 
 const Title = styled.h1`
   font-size: 4vw;
-  color: #111;
+  color: #999;
   font-family: 'Roboto Condensed', cursive;
 `;
 const SubTitle = styled.h1`
   height: 4vw;
   font-size: 3.5vw;
-  color: #555;
+  color: #888;
   margin: 4% 5%;
   font-family: 'Roboto Condensed', cursive;
 `;
@@ -86,37 +85,37 @@ const PaymentOptionsWrapper = styled.div`
 const Footer = () => {
   return (
     <RootContainer>
-    <Fade bottom>
-      <RootGrid>
-        <GridItem>
-          <Title>Need Help?</Title>
-          <TitleWrapper />
-          <Link to="/support-center">
-            <SubTitle>Support Center</SubTitle>
-          </Link>
-          <Link to="/contact-us">
-            <SubTitle>Contact Us</SubTitle>
-          </Link>
-          <SubTitle> </SubTitle>
-        </GridItem>
-        <GridItem2>
-          <Title>Explore</Title>
-          <TitleWrapper />
-          <Link to="/privacy-policy">
-            <SubTitle>Privacy Policy</SubTitle>
-          </Link>
-          <Link to="/refund-policy">
-            <SubTitle>Returns/Refunds Policy</SubTitle>
-          </Link>
-          <Link to="/terms-of-use">
-            <SubTitle>Terms of Use</SubTitle>
-          </Link>
-        </GridItem2>
-      </RootGrid>
-      <StarSignedCopyRight>© StarSigned 2018 ☾</StarSignedCopyRight>
-      <PaymentOptionsSection>
-        <PaymentOptionsWrapper />
-      </PaymentOptionsSection>
+      <Fade bottom>
+        <RootGrid>
+          <GridItem>
+            <Title>Need Help?</Title>
+            <TitleWrapper />
+            <Link to="/support-center">
+              <SubTitle>Support Center</SubTitle>
+            </Link>
+            <Link to="/contact-us">
+              <SubTitle>Contact Us</SubTitle>
+            </Link>
+            <SubTitle> </SubTitle>
+          </GridItem>
+          <GridItem2>
+            <Title>Explore</Title>
+            <TitleWrapper />
+            <Link to="/privacy-policy">
+              <SubTitle>Privacy Policy</SubTitle>
+            </Link>
+            <Link to="/refund-policy">
+              <SubTitle>Returns/Refunds Policy</SubTitle>
+            </Link>
+            <Link to="/terms-of-use">
+              <SubTitle>Terms of Use</SubTitle>
+            </Link>
+          </GridItem2>
+        </RootGrid>
+        <StarSignedCopyRight>© StarSigned 2018 ☾</StarSignedCopyRight>
+        <PaymentOptionsSection>
+          <PaymentOptionsWrapper />
+        </PaymentOptionsSection>
       </Fade>
     </RootContainer>
   );
