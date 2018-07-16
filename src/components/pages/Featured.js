@@ -9,6 +9,8 @@ import v2Feat1 from '../../img/v2Feat1.jpg';
 import v2Feat2 from '../../img/DesktopFeat2.jpg';
 import v2Feat3 from '../../img/v2Feat3.jpg';
 import Header from '../Header';
+import GiveawayBannerBottom from '../../img/GiveawayBannerCollectionList.jpg';
+import GiveawayBannerTop from '../../img/GiveawayBannerCollectionListTop.jpg';
 
 const RootContainer = styled.div`
   padding-top: 25vw;
@@ -301,13 +303,38 @@ const VignetteOverlay = styled.div`
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000', GradientType=0 );
 `;
 
+// Giveaway Wrapper
+// ============================================================
+const GiveawayWrapperTop = styled.div`
+  width: 100vw;
+  height: 31.3vw;
+  background-image: url(${GiveawayBannerTop});
+  background-size: cover;
+  // -webkit-box-shadow: 0px 10px 13px -1px rgba(0, 0, 0, 0.4);
+  // -moz-box-shadow: 0px 10px 13px -1px rgba(0, 0, 0, 0.4);
+  // box-shadow: 0px 10px 13px -1px rgba(0, 0, 0, 0.4);
+`;
+
+const GiveawayWrapperBottom = styled.div`
+  width: 100vw;
+  height: 31.3vw;
+  background-image: url(${GiveawayBannerBottom});
+  background-size: cover;
+  // -webkit-box-shadow: 0px 10px 13px -1px rgba(0, 0, 0, 0.4);
+  // -moz-box-shadow: 0px 10px 13px -1px rgba(0, 0, 0, 0.4);
+  // box-shadow: 0px 10px 13px -1px rgba(0, 0, 0, 0.4);
+`;
+
 export default class Featured extends Component {
   state = {};
 
   componentDidMount() {
     window.scrollTo(0, 0);
-    
   }
+
+  GiveawaySignUp = () => {
+    window.open('https://mailchi.mp/b6b98550bb92/starsigned');
+  };
 
   render() {
     return (
@@ -333,6 +360,9 @@ export default class Featured extends Component {
         </Spring>
 
         {/* */}
+
+        <GiveawayWrapperTop onClick={this.GiveawaySignUp} />
+
         {/* FEATURE GRID START */}
 
         <FeatureGrid>
@@ -419,6 +449,7 @@ export default class Featured extends Component {
         </FeatureGrid>
 
         {/* */}
+        <GiveawayWrapperBottom onClick={this.giveawaySignUp} />
       </RootContainer>
     );
   }

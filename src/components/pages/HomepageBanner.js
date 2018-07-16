@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Fade from 'react-reveal/Fade';
 
 import MonthlyGiveaway from '../../img/MonthlyGiveawayBanner.jpg';
+import SmallMonthlyGiveaway from '../../img/MonthlyGiveawayBannerSmallHomepage.jpg';
 
 const RootContainer = styled.div`
   padding-top: 27.5vw;
@@ -26,6 +27,14 @@ const LearnMoreButton = styled.h1`
   bottom: 30vw;
   font-family: 'helveticablack', Helvetica, Arial;
   font-size: 4vw;
+  border-radius: 0.5vw;
+  background-color: #fff;
+  margin-bottom: 10vw;
+  padding: 2vw;
+  border: 0.5vw solid #eee;
+  -webkit-box-shadow: 0px 3px 30px -2px rgba(54, 54, 54, 0.14);
+  -moz-box-shadow: 0px 3px 10px -2px rgba(54, 54, 54, 0.14);
+  box-shadow: 0px 3px 10px -2px rgba(54, 54, 54, 0.14);
   width: 40%;
   margin: 0 30%;
   background-color: white;
@@ -66,6 +75,13 @@ const FeatureBlurbSubText = styled.h1`
   padding: 2vw 10vw;
 `;
 
+const SmallMonthlyGiveawayBanner = styled.div`
+  background-image: url(${SmallMonthlyGiveaway});
+  background-size: cover;
+  height: 31.3vw;
+  width: 100vw;
+`;
+
 export default class HomepageBanner extends Component {
   render() {
     return (
@@ -78,7 +94,7 @@ export default class HomepageBanner extends Component {
         </MonthlyGiveawayBannerWrapper>
 
         {/* THANK YOU MESSAGE*/}
-        <ThankYouMessageWrapper>
+        {/*<ThankYouMessageWrapper>
           <FeatureBlurbHeading>
             A Thank You from StarSigned:
           </FeatureBlurbHeading>
@@ -100,11 +116,10 @@ export default class HomepageBanner extends Component {
               that great things are in the stars for you too.
             </FeatureBlurbSubText>
             <FeatureBlurbSubText>
-              Thank you for supporting the StarSigned Revolution 💛
+              Thank you for supporting the StarSigned Revolution 💛💛
             </FeatureBlurbSubText>
           </Fade>
-        </ThankYouMessageWrapper>
-        
+        </ThankYouMessageWrapper>*/}
       </RootContainer>
     );
   }
