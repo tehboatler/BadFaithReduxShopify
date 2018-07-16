@@ -398,7 +398,7 @@ export default class Featured extends Component {
           <Feature1>
             <FeatureHeadingWrapper>
               <FeatureHeading>Better than a Hair-Tie:</FeatureHeading>
-              <FeatureHeading>StarSigned Wrist Decor</FeatureHeading>
+              <FeatureHeading>StarSigned Wrist Wear</FeatureHeading>
             </FeatureHeadingWrapper>
 
             <Fade>

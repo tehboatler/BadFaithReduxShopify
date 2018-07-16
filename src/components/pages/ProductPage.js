@@ -28,7 +28,7 @@ import {
 } from '../../../reducers/productReducers';
 
 import TrustBadge from '../../img/Trust_Badge_2.png';
-import TrustBadge2 from '../../img/Trust_Badge_1.png'; 
+import TrustBadge2 from '../../img/Trust_Badge_1.png';
 
 // ============================================================
 // Styles Start
@@ -336,9 +336,10 @@ const Completionist = () => <span>You are good to go!</span>;
 // Renderer callback with condition
 const renderer = ({ hours, minutes, seconds, completed, product, price }) => {
   if (
-    completed ||
-    (product !== 'Sterling Silver Finger Charm' &&
-      product !== 'Sterling Zodiac Constellation Choker')
+    completed
+    // ||
+    // (product !== 'Sterling Silver Finger Charm' &&
+    //   product !== 'Sterling Zodiac Constellation Choker')
   ) {
     // Render a complete state
     return <div />;
@@ -348,9 +349,9 @@ const renderer = ({ hours, minutes, seconds, completed, product, price }) => {
       <div style={{ width: '100%' }}>
         <CouponCountdown>
           <CouponCountdownPrompt>
-            @zodiacguides Coupon on this item valid for the next: {hours}h:{
-              minutes
-            }m:{seconds}s
+            Coupon on this item valid for the next: {hours}h:{minutes}m:{
+              seconds
+            }s
           </CouponCountdownPrompt>
         </CouponCountdown>
         <div style={{ marginLeft: '5vw' }}>
@@ -575,7 +576,7 @@ export class ProductPage extends Component {
               <Countdown
                 product={product.title}
                 price={convertedPrice}
-                date={'Sun, 14 July 2018 13:00:00'}
+                date={'Sun, 17 July 2018 13:00:00'}
                 intervalDelay={0}
                 daysInHours={true}
                 precision={1000}
