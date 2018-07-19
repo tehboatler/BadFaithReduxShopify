@@ -5,6 +5,11 @@ import ReactPixel from 'react-facebook-pixel';
 const RootContainer = styled.div`
   z-index: 998;
 `;
+
+const CheckoutCurrencyPrompt = styled.h1`
+  font-family: 'Roboto Condensed', Helvetica, Arial;
+  font-size: 4vw;
+`
 class Cart extends Component {
   constructor(props) {
     super(props);
@@ -71,10 +76,10 @@ class Cart extends Component {
               onClick={this.openCheckout}>
               Checkout
             </button>
-            <p>
+            <CheckoutCurrencyPrompt>
               Your cart is displayed in USD. You will checkout with AUD at the
               current exchange rate. No extra charges or fees.
-            </p>
+            </CheckoutCurrencyPrompt>
           </footer>
         </div>
       </RootContainer>

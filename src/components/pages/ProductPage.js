@@ -414,8 +414,12 @@ export class ProductPage extends Component {
   }
 
   componentDidMount() {
+        const { match } = this.props;
     window.scrollTo(0, 0);
     ReactPixel.pageView();
+    ReactPixel.track('ViewContent', {
+      content_name: `${match.params.handle}`
+    })
   }
 
   ReviewsStarRating = () => {
@@ -576,7 +580,7 @@ export class ProductPage extends Component {
               <Countdown
                 product={product.title}
                 price={convertedPrice}
-                date={'Sun, 17 July 2018 13:00:00'}
+                date={'Sun, 21 July 2018 00:00:00'}
                 intervalDelay={0}
                 daysInHours={true}
                 precision={1000}
@@ -602,7 +606,7 @@ export class ProductPage extends Component {
                   </AccordionItem>
                 </Accordion>
 
-                <Accordion style={{ marginTop: '1.5vw' }}>
+                <Accordion expanded style={{ marginTop: '1.5vw' }}>
                   <AccordionItem style={{ overflow: 'hidden' }}>
                     <AccordionItemTitle style={{ backgroundColor: '$f8f8f8' }}>
                       <ItemTitle>❗️ Shipping & Delivery</ItemTitle>
