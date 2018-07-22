@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Fade from 'react-reveal/Fade';
 import Pulse from 'react-reveal/Pulse';
 import { Spring } from 'react-spring';
+import ReactPixel from 'react-facebook-pixel';
 
 import v2Feat1 from '../../img/v2Feat1.jpg';
 import v2Feat2 from '../../img/DesktopFeat2.jpg';

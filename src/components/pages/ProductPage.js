@@ -580,7 +580,7 @@ export class ProductPage extends Component {
               <Countdown
                 product={product.title}
                 price={convertedPrice}
-                date={'Sun, 21 July 2018 00:00:00'}
+                date={'Sun, 23 July 2018 00:00:00'}
                 intervalDelay={0}
                 daysInHours={true}
                 precision={1000}

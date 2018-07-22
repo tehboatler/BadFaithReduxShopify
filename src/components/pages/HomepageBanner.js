@@ -86,7 +86,7 @@ export default class HomepageBanner extends Component {
   render() {
     return (
       <RootContainer>
-        {/* BANNER*/}
+      {/* BANNER*/}
         <MonthlyGiveawayBannerWrapper>
           <Link to="/featured">
             <LearnMoreButton>Shop Now</LearnMoreButton>
@@ -94,7 +94,7 @@ export default class HomepageBanner extends Component {
         </MonthlyGiveawayBannerWrapper>
 
         {/* THANK YOU MESSAGE*/}
-        {/*<ThankYouMessageWrapper>
+        <ThankYouMessageWrapper>
           <FeatureBlurbHeading>
             A Thank You from StarSigned:
           </FeatureBlurbHeading>
@@ -119,7 +119,7 @@ export default class HomepageBanner extends Component {
               Thank you for supporting the StarSigned Revolution 💛💛
             </FeatureBlurbSubText>
           </Fade>
-        </ThankYouMessageWrapper>*/}
+        </ThankYouMessageWrapper>
       </RootContainer>
     );
   }
