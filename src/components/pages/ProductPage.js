@@ -580,7 +580,7 @@ export class ProductPage extends Component {
               <Countdown
                 product={product.title}
                 price={convertedPrice}
-                date={'Sun, 23 July 2018 00:00:00'}
+                date={'Sun, 25 July 2018 00:00:00'}
                 intervalDelay={0}
                 daysInHours={true}
                 precision={1000}
@@ -606,8 +606,8 @@ export class ProductPage extends Component {
                   </AccordionItem>
                 </Accordion>
 
-                <Accordion expanded style={{ marginTop: '1.5vw' }}>
-                  <AccordionItem style={{ overflow: 'hidden' }}>
+                <Accordion  style={{ marginTop: '1.5vw' }}>
+                  <AccordionItem expanded style={{ overflow: 'hidden' }}>
                     <AccordionItemTitle style={{ backgroundColor: '$f8f8f8' }}>
                       <ItemTitle>❗️ Shipping & Delivery</ItemTitle>
                     </AccordionItemTitle>

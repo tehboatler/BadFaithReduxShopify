@@ -7,6 +7,7 @@ import Cart from './Cart';
 
 import faShoppingCart from '@fortawesome/fontawesome-free-solid/faShoppingCart';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+import StarSignedLogo from '../img/Logo.png';
 
 const RootContainer = styled.div`
   position: absolute;
@@ -80,6 +81,13 @@ const LogoWrapper = styled.div`
   height: 5vw;
   width: 50%;
 `;
+
+const LogoImageWrapper = styled.div`
+  background-image: url(${StarSignedLogo});
+  background-size: cover;
+  height: 10vw;
+  width: 31.84vw;
+`
 
 const LogoImage = styled.h3`
   align-self: center;
@@ -194,7 +202,7 @@ export default class DesktopNav extends Component {
         <SiteTopDetail>
           <FreeShipping>
             <FreeShippingText>
-              🌐 Free Shipping on all orders worldwide! 🌐
+              Free Shipping on all orders worldwide!
             </FreeShippingText>
           </FreeShipping>
           <TaglineWrapper>
@@ -206,7 +214,7 @@ export default class DesktopNav extends Component {
 
         <RootContainer>
           <LogoWrapper>
-            <LogoImage>StarSigned</LogoImage>
+            <LogoImageWrapper/>
           </LogoWrapper>
           <MenuWrapper>
             <Link to="/">
