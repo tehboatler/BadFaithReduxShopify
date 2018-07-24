@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 // import { injectIntl, FormattedNumber } from 'react-intl';
 
 const CaseItemContainer = styled.div`
-  width: 100%;
+  width: 95%;
   // margin: 5% 0;
   height: auto;
   justify-self: center;

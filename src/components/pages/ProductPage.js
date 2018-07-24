@@ -155,7 +155,7 @@ const FreeShippingTag = styled.h1`
   border-radius: 1vw;
   margin-left: 2vw;
 
-  background-color: #eb5757;
+  background-color: lightgrey;
 `;
 
 const Description = styled.h1`
@@ -164,7 +164,7 @@ const Description = styled.h1`
   color: #bcbcbc;
   margin: 1vw;
   margin-top: 0.5vw;
-  font-size: 4.5vw;
+  font-size: 4.25vw;
   padding: 0 4vw;
   color: #333;
 `;
@@ -214,12 +214,16 @@ const AddToCartButton = styled.button`
   @media (max-width: 415px) {
     height: 15vw;
     border-radius: 1vw;
+    -webkit-box-shadow: 0px 4px 14px -4px rgba(0, 0, 0, 0.07);
+    -moz-box-shadow: 0px 4px 14px -4px rgba(0, 0, 0, 0.07);
+    box-shadow: 0px 4px 14px -4px rgba(0, 0, 0, 0.07);
   }
 `;
 
 const AddToCartText = styled.h1`
   color: white;
-  font-size: 4vw;
+  font-weight: 800;
+  font-size: 5vw;
 `;
 
 // Trust Badge Image
@@ -229,7 +233,7 @@ const TrustBadgeWrapper = styled.div`
   height: 18.62vw;
   width: 90vw;
   background-image: url(${TrustBadge});
-  background-size: contain;
+  background-size: cover;
 `;
 const TrustBadgeWrapper2 = styled.div`
   height: 20.57vw;
@@ -284,15 +288,16 @@ const CouponCountdown = styled.div`
   width: 90%;
   height: auto;
   text-align: center;
-  background-color: lightgrey;
+  background-color: #F2C94C;
   margin: 1% 5%;
   padding: 0.5vw 0;
   border-radius: 1vw;
 `;
 
 const CouponCountdownPrompt = styled.h1`
-  font-family: 'Roboto Condensed', Helvetica, Arial;
-  font-size: 3vw;
+  // font-family: 'Roboto Condensed', Helvetica, Arial;
+  font-size: 2.5vw;
+  font-weight: 800;
   color: white;
 `;
 
@@ -331,7 +336,6 @@ const CountdownPrice = styled.h1`
   font-size: 3vw;
 `;
 
-
 // Random component
 const Completionist = () => <span>You are good to go!</span>;
 
@@ -351,12 +355,12 @@ const renderer = ({ hours, minutes, seconds, completed, product, price }) => {
       <div style={{ width: '100%' }}>
         <CouponCountdown>
           <CouponCountdownPrompt>
-            HOROSCOPE25 Coupon on this item valid for the next: {hours}h:{minutes}m:{
-              seconds
-            }s
+            HOROSCOPE25 Coupon on this item valid for the next: {hours}h:{
+              minutes
+            }m:{seconds}s
           </CouponCountdownPrompt>
         </CouponCountdown>
-        <div style={{ marginLeft: '5vw' }}>
+        <div style={{ marginLeft: '5vw', textAlign: 'center', width: '90vw' }}>
           25% off Today Only!{' '}
           <FormattedNumber
             style={{ color: 'white' }}
@@ -539,11 +543,11 @@ export class ProductPage extends Component {
 
           <ProductCardWrapper>
             <Title>{product.title}</Title>
-            {/* {convertedPrice && (
+            {convertedPrice && (
               <ReviewsStarRating
                 dangerouslySetInnerHTML={this.ReviewsStarRating()}
               />
-            )} */}
+            )}
             {convertedPrice && (
               <Price>
                 <FormattedNumber
@@ -553,7 +557,9 @@ export class ProductPage extends Component {
                   style="currency"
                 />{' '}
                 USD
-                <FreeShippingTag>Free Shipping</FreeShippingTag>{' '}
+                <FreeShippingTag>
+                  Free 2-3 Week Shipping 📦
+                </FreeShippingTag>{' '}
               </Price>
             )}
             <VariantSelectorAndCartWrapper>
@@ -577,7 +583,7 @@ export class ProductPage extends Component {
                       convertedPrice
                     )
                   }>
-                  <AddToCartText>Add To Cart</AddToCartText>
+                  <AddToCartText>Checkout Now</AddToCartText>
                 </AddToCartButton>
               </AddToCartWrapper>
               <Countdown
@@ -595,6 +601,7 @@ export class ProductPage extends Component {
                   __html: product.descriptionHtml
                 }}
               />
+              
 
               <AccordionWrapper>
                 {/* <Accordion>
@@ -610,7 +617,7 @@ export class ProductPage extends Component {
                   </AccordionItem>
                 </Accordion> */}
 
-                <Accordion style={{ marginTop: '1.5vw' }}>
+                {/* <Accordion style={{ marginTop: '1.5vw' }}>
                   <AccordionItem expanded style={{ overflow: 'hidden' }}>
                     <AccordionItemTitle style={{ backgroundColor: '$f8f8f8' }}>
                       <ItemTitle>Shipping & Delivery</ItemTitle>
@@ -633,10 +640,10 @@ export class ProductPage extends Component {
                       <TrustBadgeWrapper2 />
                     </AccordionItemBody>
                   </AccordionItem>
-                </Accordion>
+                </Accordion> */}
 
                 <Accordion style={{ marginTop: '1.5vw' }}>
-                  <AccordionItem style={{ overflow: 'hidden' }}>
+                  <AccordionItem expanded style={{ overflow: 'hidden' }}>
                     <AccordionItemTitle style={{ backgroundColor: '$f8f8f8' }}>
                       <ItemTitle>💛 A Thank You from StarSigned</ItemTitle>
                     </AccordionItemTitle>
@@ -646,9 +653,9 @@ export class ProductPage extends Component {
                       </FeatureBlurbHeading>
 
                       <FeatureBlurbSubText>
-                        We are a small
-                        hole-in-the-wall collection of the best astrological
-                        charms and trinkets you didn’t know could be this cute.
+                        We are a small hole-in-the-wall collection of the best
+                        astrological charms and trinkets you didn’t know could
+                        be this cute.
                       </FeatureBlurbSubText>
 
                       <FeatureBlurbSubText>
@@ -665,6 +672,13 @@ export class ProductPage extends Component {
                       <FeatureBlurbSubText>
                         Thank you for supporting the StarSigned revolution :)
                       </FeatureBlurbSubText>
+
+                      <FeatureBlurbSubText>
+                        For any issues or inquiries please contact:
+                        support@starsignedstyle.com or visit our support center
+                        in the links down below.
+                      </FeatureBlurbSubText>
+                      <TrustBadgeWrapper2 />
                     </AccordionItemBody>
                   </AccordionItem>
                 </Accordion>
@@ -672,7 +686,7 @@ export class ProductPage extends Component {
             </VariantSelectorAndCartWrapper>
           </ProductCardWrapper>
 
-          {/* <ReviewsWidget dangerouslySetInnerHTML={this.ReviewsWidget()} /> */}
+          <ReviewsWidget dangerouslySetInnerHTML={this.ReviewsWidget()} />
           <CollectionListHeader />
           <Footer />
         </RootContainer>

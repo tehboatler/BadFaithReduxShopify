@@ -25,10 +25,9 @@ const RootContainer = styled.div`
 `;
 
 const Grid = styled.div`
+margin: 0 1.25vw;
   margin-top: 2vw;
-  width: 65%;
   display: grid;
-  @media (max-width: 415px) {
     width: 100%;
     grid-template-columns: repeat(2, 1fr);
     // padding: 0vw 2.5% 0 2.5%;
