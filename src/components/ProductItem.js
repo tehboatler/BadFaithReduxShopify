@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom';
 // import { injectIntl, FormattedNumber } from 'react-intl';
 
 const CaseItemContainer = styled.div`
-  width: 95%;
+  width: 100%;
   // margin: 5% 0;
   height: auto;
   justify-self: center;
   margin: 1vw 0vw;
-  border-radius: 1vw;
+  // border-radius: 1vw;
   //   background-color: #eee;
   -webkit-box-shadow: 0px 4px 30px -9px rgba(54, 54, 54, 0.14);
   -moz-box-shadow: 0px 4px 30px -9px rgba(54, 54, 54, 0.14);

@@ -25,7 +25,6 @@ const RootContainer = styled.div`
 `;
 
 const Grid = styled.div`
-margin: 0 1.25vw;
   margin-top: 2vw;
   display: grid;
     width: 100%;
