@@ -127,9 +127,9 @@ const TopNav = styled.div`
 `;
 
 const TopNavTitle = styled.h1`
-  font-family: 'helveticablack', Arial, Helvetica, sans-serif;
+  font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
   font-size: 4vw;
-  color: black;
+  color: grey;
   font-weight: 800;
   background-color: white;
   padding: 1vw;

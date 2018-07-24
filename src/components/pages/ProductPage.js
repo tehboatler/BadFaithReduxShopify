@@ -162,9 +162,10 @@ const Description = styled.h1`
   font-family: 'Roboto', cursive;
   font-weight: 500;
   color: #bcbcbc;
+  margin: 1vw;
   margin-top: 0.5vw;
-  font-size: 4vw;
-  padding: 0 3vw;
+  font-size: 4.5vw;
+  padding: 0 4vw;
   color: #333;
 `;
 
@@ -207,7 +208,7 @@ const AddToCartWrapper = styled.div`
 const AddToCartButton = styled.button`
   width: 90%;
   height: 3vw;
-  background-color: #131313;
+  background-color: #f2c94c;
   border: none;
   border-radius: 0.2vw;
   @media (max-width: 415px) {
@@ -240,7 +241,7 @@ const TrustBadgeWrapper2 = styled.div`
 `;
 
 const Loading = styled.div`
-  height: 20vh;
+  height: 100vh;
   width: 100%;
   background-color: white;
 `;
@@ -283,7 +284,7 @@ const CouponCountdown = styled.div`
   width: 90%;
   height: auto;
   text-align: center;
-  background-color: #19b420;
+  background-color: lightgrey;
   margin: 1% 5%;
   padding: 0.5vw 0;
   border-radius: 1vw;
@@ -330,6 +331,7 @@ const CountdownPrice = styled.h1`
   font-size: 3vw;
 `;
 
+
 // Random component
 const Completionist = () => <span>You are good to go!</span>;
 
@@ -349,12 +351,13 @@ const renderer = ({ hours, minutes, seconds, completed, product, price }) => {
       <div style={{ width: '100%' }}>
         <CouponCountdown>
           <CouponCountdownPrompt>
-            Coupon on this item valid for the next: {hours}h:{minutes}m:{
+            HOROSCOPE25 Coupon on this item valid for the next: {hours}h:{minutes}m:{
               seconds
             }s
           </CouponCountdownPrompt>
         </CouponCountdown>
         <div style={{ marginLeft: '5vw' }}>
+          25% off Today Only!{' '}
           <FormattedNumber
             style={{ color: 'white' }}
             value={`${price * 0.75}`}
@@ -414,12 +417,12 @@ export class ProductPage extends Component {
   }
 
   componentDidMount() {
-        const { match } = this.props;
+    const { match } = this.props;
     window.scrollTo(0, 0);
     ReactPixel.pageView();
     ReactPixel.track('ViewContent', {
       content_name: `${match.params.handle}`
-    })
+    });
   }
 
   ReviewsStarRating = () => {
@@ -536,11 +539,11 @@ export class ProductPage extends Component {
 
           <ProductCardWrapper>
             <Title>{product.title}</Title>
-            {convertedPrice && (
+            {/* {convertedPrice && (
               <ReviewsStarRating
                 dangerouslySetInnerHTML={this.ReviewsStarRating()}
               />
-            )}
+            )} */}
             {convertedPrice && (
               <Price>
                 <FormattedNumber
@@ -587,29 +590,30 @@ export class ProductPage extends Component {
                 renderer={renderer}
               />
               <TrustBadgeWrapper />
+              <Description
+                dangerouslySetInnerHTML={{
+                  __html: product.descriptionHtml
+                }}
+              />
 
               <AccordionWrapper>
-                <Accordion>
+                {/* <Accordion>
                   <AccordionItem expanded style={{ overflow: 'hidden' }}>
                     <AccordionItemTitle style={{ backgroundColor: '#f9f9f9' }}>
                       <ItemTitle>🌐 Description</ItemTitle>
                     </AccordionItemTitle>
                     <AccordionItemBody>
                       <ItemDesc>
-                        <Description
-                          dangerouslySetInnerHTML={{
-                            __html: product.descriptionHtml
-                          }}
-                        />
+                        
                       </ItemDesc>
                     </AccordionItemBody>
                   </AccordionItem>
-                </Accordion>
+                </Accordion> */}
 
-                <Accordion  style={{ marginTop: '1.5vw' }}>
+                <Accordion style={{ marginTop: '1.5vw' }}>
                   <AccordionItem expanded style={{ overflow: 'hidden' }}>
                     <AccordionItemTitle style={{ backgroundColor: '$f8f8f8' }}>
-                      <ItemTitle>❗️ Shipping & Delivery</ItemTitle>
+                      <ItemTitle>Shipping & Delivery</ItemTitle>
                     </AccordionItemTitle>
                     <AccordionItemBody>
                       <ItemDesc>
@@ -621,10 +625,6 @@ export class ProductPage extends Component {
                         Please take this into account when purchasing from our
                         website. Allow 2-3 weeks (depending on location) for
                         your shipment to arrive.
-                      </ItemDesc>
-                      <ItemDesc>
-                        For international shipping outside the US, orders may
-                        take 4-6 weeks to arrive.
                       </ItemDesc>
                       <ItemDesc>
                         Please contact us at: support@starsignedstyle.com if you
@@ -644,32 +644,27 @@ export class ProductPage extends Component {
                       <FeatureBlurbHeading>
                         A Thank You from StarSigned:
                       </FeatureBlurbHeading>
-                      <Fade bottom>
-                        <FeatureBlurbSubText>
-                          Established June of 2018, we are a small
-                          hole-in-the-wall collection of the best astrological
-                          charms and trinkets you didn’t know could be this
-                          cute.
-                        </FeatureBlurbSubText>
-                      </Fade>
-                      <Fade bottom>
-                        <FeatureBlurbSubText>
-                          Our horoscopes told us great things were in the stars
-                          for us.
-                        </FeatureBlurbSubText>
-                      </Fade>
-                      <Fade bottom>
-                        <FeatureBlurbSubText>
-                          So we made StarSigned to send you keepsakes that might
-                          remind you that great things are in the stars for you
-                          too.
-                        </FeatureBlurbSubText>
-                      </Fade>
-                      <Fade bottom>
-                        <FeatureBlurbSubText>
-                          Thank you for supporting the StarSigned revolution :)
-                        </FeatureBlurbSubText>
-                      </Fade>
+
+                      <FeatureBlurbSubText>
+                        We are a small
+                        hole-in-the-wall collection of the best astrological
+                        charms and trinkets you didn’t know could be this cute.
+                      </FeatureBlurbSubText>
+
+                      <FeatureBlurbSubText>
+                        Our horoscopes told us great things were in the stars
+                        for us.
+                      </FeatureBlurbSubText>
+
+                      <FeatureBlurbSubText>
+                        So we made StarSigned to send you keepsakes that might
+                        remind you that great things are in the stars for you
+                        too.
+                      </FeatureBlurbSubText>
+
+                      <FeatureBlurbSubText>
+                        Thank you for supporting the StarSigned revolution :)
+                      </FeatureBlurbSubText>
                     </AccordionItemBody>
                   </AccordionItem>
                 </Accordion>
@@ -677,7 +672,7 @@ export class ProductPage extends Component {
             </VariantSelectorAndCartWrapper>
           </ProductCardWrapper>
 
-          <ReviewsWidget dangerouslySetInnerHTML={this.ReviewsWidget()} />
+          {/* <ReviewsWidget dangerouslySetInnerHTML={this.ReviewsWidget()} /> */}
           <CollectionListHeader />
           <Footer />
         </RootContainer>

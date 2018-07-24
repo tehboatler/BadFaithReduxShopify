@@ -57,6 +57,7 @@ const FeatureGrid = styled.div`
   width: 95%;
   margin: 0 2.5%;
   z-index: 2;
+  margin-bottom: 5vw;
   background-color: white;
   // background: rgba(240, 239, 238, 1);
   // background: -moz-linear-gradient(
@@ -384,13 +385,13 @@ export default class Featured extends Component {
           </Feature1>
 
           <Fade>
-            <Link to="/starsigned-sterling-silver-stainless-steel">
+            {/*  <Link to="/starsigned-sterling-silver-stainless-steel">
               <Pulse>
                 <ShopNowWrapper>
                   <ShopNowText> Shop Stainless & Sterling </ShopNowText>
                 </ShopNowWrapper>
               </Pulse>
-            </Link>
+            </Link> */}
           </Fade>
 
           {/* */}
@@ -410,13 +411,13 @@ export default class Featured extends Component {
           </Feature1>
 
           <Fade>
-            <Link to="/starsigned-braclets">
+          {/*   <Link to="/starsigned-braclets">
               <Pulse>
                 <ShopNowWrapper>
                   <ShopNowText> Shop Bracelets </ShopNowText>
                 </ShopNowWrapper>
               </Pulse>
-            </Link>
+            </Link> */}
           </Fade>
 
           {/* */}
@@ -436,13 +437,13 @@ export default class Featured extends Component {
           </Feature1>
 
           <Fade>
-            <Link to="/starsigned-rings">
+            {/*  <Link to="/starsigned-rings">
               <Pulse>
                 <ShopNowWrapper>
                   <ShopNowText> Shop Rings </ShopNowText>
                 </ShopNowWrapper>
               </Pulse>
-            </Link>
+            </Link> */}
           </Fade>
 
           {/* */}
