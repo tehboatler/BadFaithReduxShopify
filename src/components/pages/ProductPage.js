@@ -164,7 +164,7 @@ const Description = styled.h1`
   color: #bcbcbc;
   margin: 1vw;
   margin-top: 0.5vw;
-  font-size: 4.25vw;
+  font-size: 4.3vw;
   padding: 0 4vw;
   color: #333;
 `;
@@ -275,7 +275,7 @@ const ItemTitle = styled.h1`
   font-size: 3.5vw;
   font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
   font-weight: 700;
-  color: black;
+  color: #bbb;
 `;
 const ItemDesc = styled.h1`
   font-size: 4vw;
@@ -288,7 +288,7 @@ const CouponCountdown = styled.div`
   width: 90%;
   height: auto;
   text-align: center;
-  background-color: #F2C94C;
+  background-color: #f2c94c;
   margin: 1% 5%;
   padding: 0.5vw 0;
   border-radius: 1vw;
@@ -583,7 +583,7 @@ export class ProductPage extends Component {
                       convertedPrice
                     )
                   }>
-                  <AddToCartText>Checkout Now</AddToCartText>
+                  <AddToCartText>Add To Cart</AddToCartText>
                 </AddToCartButton>
               </AddToCartWrapper>
               <Countdown
@@ -596,26 +596,24 @@ export class ProductPage extends Component {
                 renderer={renderer}
               />
               <TrustBadgeWrapper />
-              <Description
-                dangerouslySetInnerHTML={{
-                  __html: product.descriptionHtml
-                }}
-              />
-              
 
               <AccordionWrapper>
-                {/* <Accordion>
+                <Accordion>
                   <AccordionItem expanded style={{ overflow: 'hidden' }}>
                     <AccordionItemTitle style={{ backgroundColor: '#f9f9f9' }}>
-                      <ItemTitle>🌐 Description</ItemTitle>
+                      <ItemTitle>Description</ItemTitle>
                     </AccordionItemTitle>
                     <AccordionItemBody>
                       <ItemDesc>
-                        
+                        <Description
+                          dangerouslySetInnerHTML={{
+                            __html: product.descriptionHtml
+                          }}
+                        />
                       </ItemDesc>
                     </AccordionItemBody>
                   </AccordionItem>
-                </Accordion> */}
+                </Accordion>
 
                 {/* <Accordion style={{ marginTop: '1.5vw' }}>
                   <AccordionItem expanded style={{ overflow: 'hidden' }}>
@@ -643,7 +641,7 @@ export class ProductPage extends Component {
                 </Accordion> */}
 
                 <Accordion style={{ marginTop: '1.5vw' }}>
-                  <AccordionItem expanded style={{ overflow: 'hidden' }}>
+                  <AccordionItem style={{ overflow: 'hidden' }}>
                     <AccordionItemTitle style={{ backgroundColor: '$f8f8f8' }}>
                       <ItemTitle>💛 A Thank You from StarSigned</ItemTitle>
                     </AccordionItemTitle>
