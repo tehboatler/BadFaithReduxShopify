@@ -6,6 +6,7 @@ import { Instagram } from 'react-content-loader';
 import { Spring } from 'react-spring';
 import styled from 'styled-components';
 import Fade from 'react-reveal/Fade';
+import Pulse from 'react-reveal/Pulse';
 
 import { getCollection } from '../../../reducers/collectionReducers';
 import CollectionListGiveawayBanner from '../../img/GiveawayBannerCollectionListTop.jpg';
@@ -14,6 +15,7 @@ import LunarCrescentBannerImage from '../../img/LunarCrescentBanner.jpg';
 import Header from '../CollectionListHeader';
 import Footer from '../Footer';
 import ProductItem from '../ProductItem';
+import DefaultSlider from '../../img/DefaultSlider.png';
 
 // Root
 // ============================================================
@@ -105,9 +107,9 @@ const Loading = styled.div`
   justify-content: center;
   align-items: center;
   background-color: #fff;
-  padding: 20vw 0 0 0;
-  height: 80vh;
-  width: 100%;
+  padding: 40vw 0 0 0;
+  height: 100vw;
+  width: 100vw;
 `;
 const LoadingText = styled.h1`
   font-family: 'Patua One', cursive;
@@ -179,6 +181,15 @@ const LunarCrescentBanner = styled.div`
   // box-shadow: 0px 10px 13px -1px rgba(0, 0, 0, 0.4);
 `;
 
+//
+// ============================================================
+const DefaultSliderWrapper = styled.div`
+  background-image: url(${DefaultSlider});
+  background-size: cover;
+  width: 100vw;
+  height: 100vw;
+`;
+
 class CollectionList extends Component {
   componentWillMount() {
     const { getCollection, collectionStringProps } = this.props;
@@ -202,7 +213,6 @@ class CollectionList extends Component {
     window.open('https://mailchi.mp/d1621e04444e/ssprintsandapparel');
   };
 
-
   render() {
     const { collection, collectionNode, collectionStringProps } = this.props;
     if (collection) {
@@ -216,18 +226,20 @@ class CollectionList extends Component {
                 to={{ opacity: 1, height: '10vw' }}>
                 {styles => (
                   <PromoBanner style={styles}>
-                   
-                 
                     <PromoBannerText>
                       25% off on Cancer Items storewide! COUPON CODE: CANCER25
                     </PromoBannerText>
                   </PromoBanner>
                 )}
               </Spring>
-               {collectionNode.title === 'Lunar Crescent Collection' && <LunarCrescentBanner/> }
-               {collectionNode.title === 'StarSigned Keepsakes' && <StarSignedKeepsakesBanner/> }
+              {collectionNode.title === 'Lunar Crescent Collection' && (
+                <LunarCrescentBanner />
+              )}
+              {collectionNode.title === 'StarSigned Keepsakes' && (
+                <StarSignedKeepsakesBanner />
+              )}
               {/* <TopNavTitle>{collectionNode.title}</TopNavTitle> */}
-              <Header selectionToggle={collectionNode.title}/>
+              <Header selectionToggle={collectionNode.title} />
             </TopNav>
             <Grid>
               {collection.map(collectionItem => {
@@ -250,16 +262,17 @@ class CollectionList extends Component {
                 );
               })}
             </Grid>
-            <GiveawayWrapper onClick={this.GiveawaySignUp}/>
-            <Footer/>
+            <GiveawayWrapper onClick={this.GiveawaySignUp} />
+            <Footer />
           </RootContainer>
         </div>
       );
     } else {
       return (
         <Loading>
-          <Instagram />
-          <LoadingText>Loading...</LoadingText>
+          <Pulse>
+            <DefaultSliderWrapper />
+          </Pulse>
         </Loading>
       );
     }

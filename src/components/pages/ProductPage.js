@@ -15,6 +15,7 @@ import {
 } from 'react-accessible-accordion';
 import Countdown from 'react-countdown-now';
 import Fade from 'react-reveal/Fade';
+import Pulse from 'react-reveal/Pulse';
 
 import './accordion.css';
 import VariantSelector from '../VariantSelector';
@@ -27,6 +28,7 @@ import {
   getSelectedVariantByID
 } from '../../../reducers/productReducers';
 
+import DefaultSlider from '../../img/DefaultSlider.png';
 import TrustBadge from '../../img/Trust_Badge_2.png';
 import TrustBadge2 from '../../img/Trust_Badge_1.png';
 
@@ -147,15 +149,15 @@ const Price = styled.h1`
 
 const FreeShippingTag = styled.h1`
   float: right;
-  color: #999;
+  color: #BBB;
   font-family: 'Roboto Condensed', cursive;
   font-size: 3vw;
-  font-weight: 700;
+  font-weight: 500;
   padding: 1vw;
   border-radius: 1vw;
   margin-left: 2vw;
 
-  background-color: whitesmoke;
+  // background-color: #F2C94C;
 `;
 
 const Description = styled.h1`
@@ -288,7 +290,7 @@ const CouponCountdown = styled.div`
   width: 90%;
   height: auto;
   text-align: center;
-  background-color: #f2c94c;
+  background-color: whitesmoke;
   margin: 1% 5%;
   padding: 0.5vw 0;
   border-radius: 1vw;
@@ -298,7 +300,7 @@ const CouponCountdownPrompt = styled.h1`
   // font-family: 'Roboto Condensed', Helvetica, Arial;
   font-size: 2.5vw;
   font-weight: 800;
-  color: white;
+  color: #111;
 `;
 
 // Feature Blurb
@@ -335,6 +337,15 @@ const CountdownPrice = styled.h1`
   display: inline-block;
   font-size: 3vw;
 `;
+
+//
+// ============================================================
+const DefaultSliderWrapper = styled.div`
+  background-image: url(${DefaultSlider});
+  background-size: cover;
+  width: 100vw;
+  height: 100vw;
+`
 
 // Random component
 const Completionist = () => <span>You are good to go!</span>;
@@ -531,15 +542,18 @@ export class ProductPage extends Component {
               </PromoBannerWrapper>
             )}
           </Spring>
-
+           {variantImages === undefined ? (<Pulse><DefaultSliderWrapper/></Pulse>) : (
           <ImageGallery
-            showFullscreenButton={false}
+            defaultImage={DefaultSlider}
+            lazyLoad={true}
+            showFullscreenButton={true}
             showThumbnails={true}
             style={{ background: 'transparent' }}
             //   showNav={false}
             showPlayButton={false}
             items={variantImages}
           />
+        )}
 
           <ProductCardWrapper>
             <Title>{product.title}</Title>
@@ -574,6 +588,7 @@ export class ProductPage extends Component {
                 );
               })}
               <AddToCartWrapper>
+            
                 <AddToCartButton
                   onClick={() =>
                     addVariantToCart(
@@ -585,25 +600,28 @@ export class ProductPage extends Component {
                   }>
                   <AddToCartText>Add To Cart</AddToCartText>
                 </AddToCartButton>
+              
               </AddToCartWrapper>
+              <Fade bottom>
               <Countdown
                 product={product.title}
                 price={convertedPrice}
-                date={'Sun, 27 July 2018 00:00:00'}
+                date={'Sun, 29 July 2018 00:00:00'}
                 intervalDelay={0}
                 daysInHours={true}
                 precision={1000}
                 renderer={renderer}
               />
+              </Fade>
               <TrustBadgeWrapper />
 
               <AccordionWrapper>
                 <Accordion>
                   <AccordionItem expanded style={{ overflow: 'hidden' }}>
-                    <AccordionItemTitle style={{ backgroundColor: '#f8f8f8' }}>
+                    <AccordionItemTitle style={{ backgroundColor: '#fff' }}>
                       <ItemTitle>Description</ItemTitle>
                     </AccordionItemTitle>
-                    <AccordionItemBody style={{ backgroundColor: '#f9f9f9' }}>
+                    <AccordionItemBody style={{ backgroundColor: '#fff' }}>
                       <ItemDesc>
                         <Description
                           dangerouslySetInnerHTML={{
@@ -642,10 +660,10 @@ export class ProductPage extends Component {
 
                 <Accordion style={{ marginTop: '1.5vw' }}>
                   <AccordionItem style={{ overflow: 'hidden' }}>
-                    <AccordionItemTitle style={{ backgroundColor: '$f8f8f8' }}>
+                    <AccordionItemTitle style={{ backgroundColor: '#fff' }}>
                       <ItemTitle>💛 A Thank You from StarSigned</ItemTitle>
                     </AccordionItemTitle>
-                    <AccordionItemBody style={{ backgroundColor: '#f9f9f9'}}>
+                    <AccordionItemBody style={{ backgroundColor: '#fff'}}>
                       <FeatureBlurbHeading>
                         A Thank You from StarSigned:
                       </FeatureBlurbHeading>
