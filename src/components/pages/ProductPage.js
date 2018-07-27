@@ -290,7 +290,7 @@ const CouponCountdown = styled.div`
   width: 90%;
   height: auto;
   text-align: center;
-  background-color: whitesmoke;
+  // background-color: whitesmoke;
   margin: 1% 5%;
   padding: 0.5vw 0;
   border-radius: 1vw;
@@ -300,7 +300,7 @@ const CouponCountdownPrompt = styled.h1`
   // font-family: 'Roboto Condensed', Helvetica, Arial;
   font-size: 2.5vw;
   font-weight: 800;
-  color: #111;
+  color: #BBB;
 `;
 
 // Feature Blurb
