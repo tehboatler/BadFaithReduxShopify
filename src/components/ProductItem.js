@@ -8,12 +8,12 @@ const CaseItemContainer = styled.div`
   // margin: 5% 0;
   height: auto;
   justify-self: center;
-  margin: 1vw 0vw;
+  margin: 1vw 0%;
   // border-radius: 1vw;
   //   background-color: #eee;
-  -webkit-box-shadow: 0px 4px 30px -9px rgba(54, 54, 54, 0.14);
-  -moz-box-shadow: 0px 4px 30px -9px rgba(54, 54, 54, 0.14);
-  box-shadow: 0px 4px 30px -9px rgba(54, 54, 54, 0.14);
+  // -webkit-box-shadow: 0px 4px 30px -9px rgba(54, 54, 54, 0.14);
+  // -moz-box-shadow: 0px 4px 30px -9px rgba(54, 54, 54, 0.14);
+  // box-shadow: 0px 4px 30px -9px rgba(54, 54, 54, 0.14);
 
   @media (max-width: 415px) {
     overflow: hidden;
@@ -34,7 +34,7 @@ const DescriptionWrapper = styled.div`
   text-align: center;
   height: 10vw;
   width: 100%;
-  background-color: #fff;
+  // background-color: #fff;
   // padding: 1vw 1vw 0vh 1vw;
   @media (max-width: 415px) {
     padding-top: 5vw;
@@ -46,18 +46,14 @@ const DescriptionWrapper = styled.div`
 
 const CaseTitle = styled.h1`
   color: #111;
-  margin: 1vw;
-  padding-top: 5vw;
-  font-size: 1vw;
+  margin: 2vw;
+  margin-bottom: 0;
   font-family: 'Roboto Condensed', cursive;
-
-  @media (max-width: 415px) {
-    font-size: 3.75vw;
-    font-weight: 700;
-    // line-height: 0;
-    padding-top: 1vw;
-    color: #131313;
-  }
+  font-size: 3vw;
+  font-weight: 500;
+  // line-height: 0;
+  padding-top: 0.5vw;
+  color: #131313;
 `;
 
 const PriceWrapper = styled.div`
@@ -75,7 +71,7 @@ const PriceText = styled.h1`
   font-weight: 800;
 
   @media (max-width: 415px) {
-    font-size: 4vw;
+    font-size: 3vw;
     color: #111;
     margin-bottom: 3vw;
   }
@@ -167,7 +163,7 @@ export default class ProductItem extends Component {
         </CaseImageWrapper>
         <DescriptionWrapper>
           <CaseTitle>{title}</CaseTitle>
-         {/*  {convertedPrice && (
+          {/* {convertedPrice && (
             <ReviewsWidget
               dangerouslySetInnerHTML={this.ReviewsStarRating(handle)}
             />

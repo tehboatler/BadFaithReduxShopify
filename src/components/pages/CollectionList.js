@@ -8,7 +8,9 @@ import styled from 'styled-components';
 import Fade from 'react-reveal/Fade';
 
 import { getCollection } from '../../../reducers/collectionReducers';
-import CollectionListGiveawayBanner from '../../img/GiveawayBannerCollectionList.jpg';
+import CollectionListGiveawayBanner from '../../img/GiveawayBannerCollectionListTop.jpg';
+import StarSignedKeepsakesBannerImage from '../../img/StarSignedKeepsakesBanner.jpg';
+import LunarCrescentBannerImage from '../../img/LunarCrescentBanner.jpg';
 import Header from '../CollectionListHeader';
 import Footer from '../Footer';
 import ProductItem from '../ProductItem';
@@ -27,13 +29,14 @@ const RootContainer = styled.div`
 const Grid = styled.div`
   margin-top: 2vw;
   display: grid;
+  background-color: white;
     width: 100%;
     grid-template-columns: repeat(2, 1fr);
     // padding: 0vw 2.5% 0 2.5%;
     margin-bottom: 2vw;
     padding-bottom: 2vw;
   }
-`;
+  `;
 
 // Promo Banner
 // ============================================================
@@ -91,6 +94,7 @@ const PromoBannerText = styled.h1`
   align-self: flex-end;
   font-size: 2vw;
   padding-right: 3vw;
+  // padding-top: 1vw;
   color: black;
 `;
 
@@ -119,9 +123,9 @@ const TopNav = styled.div`
   height: auto;
   text-align: center;
   width: 100%;
-  -webkit-box-shadow: 0px 4px 30px -9px rgba(54, 54, 54, 0.44);
-  -moz-box-shadow: 0px 4px 30px -9px rgba(54, 54, 54, 0.44);
-  box-shadow: 0px 4px 30px -9px rgba(54, 54, 54, 0.44);
+  -webkit-box-shadow: 0px 4px 15px -9px rgba(54, 54, 54, 0.15);
+  -moz-box-shadow: 0px 4px 15px -9px rgba(54, 54, 54, 0.15);
+  box-shadow: 0px 4px 15px -9px rgba(54, 54, 54, 0.15);
 `;
 
 const TopNavTitle = styled.h1`
@@ -145,12 +149,30 @@ const TopNavDescription = styled.h1`
   font-size: 4vw;
 `;
 
-// Guarantee
+// Banners
 // ============================================================
 const GiveawayWrapper = styled.div`
   width: 100vw;
   height: 31.3vw;
   background-image: url(${CollectionListGiveawayBanner});
+  background-size: cover;
+  // -webkit-box-shadow: 0px 10px 13px -1px rgba(0, 0, 0, 0.4);
+  // -moz-box-shadow: 0px 10px 13px -1px rgba(0, 0, 0, 0.4);
+  // box-shadow: 0px 10px 13px -1px rgba(0, 0, 0, 0.4);
+`;
+const StarSignedKeepsakesBanner = styled.div`
+  width: 100vw;
+  height: 31.3vw;
+  background-image: url(${StarSignedKeepsakesBannerImage});
+  background-size: cover;
+  // -webkit-box-shadow: 0px 10px 13px -1px rgba(0, 0, 0, 0.4);
+  // -moz-box-shadow: 0px 10px 13px -1px rgba(0, 0, 0, 0.4);
+  // box-shadow: 0px 10px 13px -1px rgba(0, 0, 0, 0.4);
+`;
+const LunarCrescentBanner = styled.div`
+  width: 100vw;
+  height: 31.3vw;
+  background-image: url(${LunarCrescentBannerImage});
   background-size: cover;
   // -webkit-box-shadow: 0px 10px 13px -1px rgba(0, 0, 0, 0.4);
   // -moz-box-shadow: 0px 10px 13px -1px rgba(0, 0, 0, 0.4);
@@ -177,7 +199,7 @@ class CollectionList extends Component {
   }
 
   GiveawaySignUp = () => {
-    window.open('https://mailchi.mp/b6b98550bb92/starsigned');
+    window.open('https://mailchi.mp/d1621e04444e/ssprintsandapparel');
   };
 
 
@@ -194,14 +216,18 @@ class CollectionList extends Component {
                 to={{ opacity: 1, height: '10vw' }}>
                 {styles => (
                   <PromoBanner style={styles}>
+                   
+                 
                     <PromoBannerText>
                       25% off on Cancer Items storewide! COUPON CODE: CANCER25
                     </PromoBannerText>
                   </PromoBanner>
                 )}
               </Spring>
-              <TopNavTitle>{collectionNode.title}</TopNavTitle>
-              <Header />
+               {collectionNode.title === 'Lunar Crescent Collection' && <LunarCrescentBanner/> }
+               {collectionNode.title === 'StarSigned Keepsakes' && <StarSignedKeepsakesBanner/> }
+              {/* <TopNavTitle>{collectionNode.title}</TopNavTitle> */}
+              <Header selectionToggle={collectionNode.title}/>
             </TopNav>
             <Grid>
               {collection.map(collectionItem => {

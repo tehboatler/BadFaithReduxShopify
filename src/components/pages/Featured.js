@@ -42,6 +42,7 @@ const PromoBannerText = styled.h1`
   align-self: flex-end;
   font-size: 2vw;
   padding-right: 3vw;
+  padding-top: 1vw;
   color: black;
 `;
 
@@ -344,7 +345,7 @@ export default class Featured extends Component {
         {/* */}
         {/* */}
 
-        <Header />
+        {/* <Header /> */}
 
         {/* */}
         {/* PROMO BANNER */}
@@ -363,7 +364,7 @@ export default class Featured extends Component {
 
         {/* */}
 
-        <GiveawayWrapperTop onClick={this.GiveawaySignUp} />
+        <GiveawayWrapperTop />
 
         {/* FEATURE GRID START */}
 
@@ -373,63 +374,63 @@ export default class Featured extends Component {
 
           <Feature1>
             <FeatureHeadingWrapper>
-              <FeatureHeading>Starbound Stainless:</FeatureHeading>
-              <FeatureHeading>Charms from the Stars</FeatureHeading>
+              <FeatureHeading>Starbound Style:</FeatureHeading>
+              <FeatureHeading>It's In The Stars for You</FeatureHeading>
             </FeatureHeadingWrapper>
 
-            <Fade>
-              <Link to="/starsigned-sterling-silver-stainless-steel">
+            <Fade bottom>
+              <Link to="/starsigned-keepsakes">
                 <Feature3Image />
               </Link>
             </Fade>
           </Feature1>
 
           <Fade>
-            {/*  <Link to="/starsigned-sterling-silver-stainless-steel">
+             <Link to="/starsigned-keepsakes">
               <Pulse>
                 <ShopNowWrapper>
-                  <ShopNowText> Shop Stainless & Sterling </ShopNowText>
+                  <ShopNowText> Shop StarSigned </ShopNowText>
                 </ShopNowWrapper>
               </Pulse>
-            </Link> */}
+            </Link> 
           </Fade>
 
           {/* */}
           {/* FEATURE 2*/}
 
-          <Feature1>
+           <Feature1>
             <FeatureHeadingWrapper>
-              <FeatureHeading>Better than a Hair-Tie:</FeatureHeading>
-              <FeatureHeading>StarSigned Wrist Wear</FeatureHeading>
+              <FeatureHeading>Once in a Blue Moon:</FeatureHeading>
+              <FeatureHeading>The Lunar Pull At It's Peak</FeatureHeading>
             </FeatureHeadingWrapper>
 
-            <Fade>
-              <Link to="/starsigned-bracelets">
+            <Fade bottom>
+              <Link to="/lunar-crescent-collection">
                 <Feature2Image />
               </Link>
             </Fade>
           </Feature1>
 
           <Fade>
-          {/*   <Link to="/starsigned-braclets">
+           <Link to="/lunar-crescent-collection">
               <Pulse>
                 <ShopNowWrapper>
-                  <ShopNowText> Shop Bracelets </ShopNowText>
+                  <ShopNowText> Shop Lunar Crescent </ShopNowText>
                 </ShopNowWrapper>
               </Pulse>
-            </Link> */}
+            </Link> 
           </Fade>
 
           {/* */}
           {/* FEATURE 3*/}
 
-          <FeatureHeadingWrapper>
-            <FeatureHeading>Sterling Rings:</FeatureHeading>
-            <FeatureHeading>StarSigned Sleek & Stylish</FeatureHeading>
+           <FeatureHeadingWrapper>
+           <FeatureHeading>Artists, Creators and Designers:</FeatureHeading>
+           <FeatureHeading>Show Us What You're Made Of</FeatureHeading>
           </FeatureHeadingWrapper>
 
           <Feature1>
-            <Fade>
+            <Fade bottom>
               <Link to="/starsigned-rings">
                 <Feature1Image />
               </Link>
@@ -437,13 +438,13 @@ export default class Featured extends Component {
           </Feature1>
 
           <Fade>
-            {/*  <Link to="/starsigned-rings">
+            <Link to="/starsigned-rings">
               <Pulse>
                 <ShopNowWrapper>
-                  <ShopNowText> Shop Rings </ShopNowText>
+                  <ShopNowText> Apply Now </ShopNowText>
                 </ShopNowWrapper>
               </Pulse>
-            </Link> */}
+            </Link> 
           </Fade>
 
           {/* */}
@@ -451,7 +452,7 @@ export default class Featured extends Component {
         </FeatureGrid>
 
         {/* */}
-        <GiveawayWrapperBottom onClick={this.giveawaySignUp} />
+        {/* <GiveawayWrapperBottom onClick={this.giveawaySignUp} /> */}
       </RootContainer>
     );
   }

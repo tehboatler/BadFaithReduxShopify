@@ -147,7 +147,7 @@ const Price = styled.h1`
 
 const FreeShippingTag = styled.h1`
   float: right;
-  color: #fff;
+  color: #999;
   font-family: 'Roboto Condensed', cursive;
   font-size: 3vw;
   font-weight: 700;
@@ -155,17 +155,17 @@ const FreeShippingTag = styled.h1`
   border-radius: 1vw;
   margin-left: 2vw;
 
-  background-color: lightgrey;
+  background-color: whitesmoke;
 `;
 
 const Description = styled.h1`
-  font-family: 'Roboto', cursive;
+  font-family: 'Rubik', cursive;
   font-weight: 500;
   color: #bcbcbc;
   margin: 1vw;
   margin-top: 0.5vw;
   font-size: 4.3vw;
-  padding: 0 4vw;
+  padding: 0vw;
   color: #333;
 `;
 
@@ -279,7 +279,7 @@ const ItemTitle = styled.h1`
 `;
 const ItemDesc = styled.h1`
   font-size: 4vw;
-  font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
+  font-family: 'font-family: 'Rubik', cursive;', Arial, Helvetica, sans-serif;
   font-weight: 400;
   color: black;
 `;
@@ -589,7 +589,7 @@ export class ProductPage extends Component {
               <Countdown
                 product={product.title}
                 price={convertedPrice}
-                date={'Sun, 25 July 2018 00:00:00'}
+                date={'Sun, 27 July 2018 00:00:00'}
                 intervalDelay={0}
                 daysInHours={true}
                 precision={1000}
@@ -600,10 +600,10 @@ export class ProductPage extends Component {
               <AccordionWrapper>
                 <Accordion>
                   <AccordionItem expanded style={{ overflow: 'hidden' }}>
-                    <AccordionItemTitle style={{ backgroundColor: '#f9f9f9' }}>
+                    <AccordionItemTitle style={{ backgroundColor: '#f8f8f8' }}>
                       <ItemTitle>Description</ItemTitle>
                     </AccordionItemTitle>
-                    <AccordionItemBody>
+                    <AccordionItemBody style={{ backgroundColor: '#f9f9f9' }}>
                       <ItemDesc>
                         <Description
                           dangerouslySetInnerHTML={{
@@ -645,7 +645,7 @@ export class ProductPage extends Component {
                     <AccordionItemTitle style={{ backgroundColor: '$f8f8f8' }}>
                       <ItemTitle>💛 A Thank You from StarSigned</ItemTitle>
                     </AccordionItemTitle>
-                    <AccordionItemBody>
+                    <AccordionItemBody style={{ backgroundColor: '#f9f9f9'}}>
                       <FeatureBlurbHeading>
                         A Thank You from StarSigned:
                       </FeatureBlurbHeading>

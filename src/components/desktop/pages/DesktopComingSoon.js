@@ -11,26 +11,26 @@ const RootContainer = styled.div`
 `;
 
 const ComingSoonCard = styled.div`
-  width: 50vw;
+  width: 33vw;
   height: auto;
   padding: 5vw;
   text-align: center;
-  background-color: #f3f3f3;
+  background-color: #fff;
   border-radius: 1vw;
-  -webkit-box-shadow: 0px 3px 30px -2px rgba(54, 54, 54, 0.14);
-  -moz-box-shadow: 0px 3px 10px -2px rgba(54, 54, 54, 0.14);
-  box-shadow: 0px 3px 10px -2px rgba(54, 54, 54, 0.14);
+  // -webkit-box-shadow: 0px 3px 30px -2px rgba(54, 54, 54, 0.14);
+  // -moz-box-shadow: 0px 3px 10px -2px rgba(54, 54, 54, 0.14);
+  // box-shadow: 0px 3px 10px -2px rgba(54, 54, 54, 0.14);
 `;
 
 const ComingSoonText = styled.h1`
   font-family: 'helveticablack', Helvetica, Arial;
-  font-size: 3vw;
-  color: white;
+  font-size: 1.5vw;
+  color: black;
 `;
 const ComingSoonSubText = styled.h1`
-  font-family: 'helveticablack', Helvetica, Arial;
-  font-size: 1.5vw;
-  color: #d1d1d1;
+  font-family: 'Roboto', Helvetica, Arial;
+  font-size: 1vw;
+  color: #222;
 `;
 
 export default class DesktopComingSoon extends Component {
@@ -39,7 +39,7 @@ export default class DesktopComingSoon extends Component {
       <RootContainer>
         <ComingSoonCard>
           <ComingSoonText>
-             🙈 Don't look! We're changing.
+             🙈 Don't look! We're getting changed.
           </ComingSoonText>
           <ComingSoonSubText>It's a good thing we've got a great mobile site. 📲</ComingSoonSubText>
         </ComingSoonCard>

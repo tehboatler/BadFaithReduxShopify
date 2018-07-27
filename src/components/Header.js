@@ -70,19 +70,16 @@ export class Header extends Component {
       <HeaderContainer
         isHome={location.pathname === '/'}
         ref={c => (this.header = reactDOM.findDOMNode(c))}>
-        <Sticky innerZ={4} enabled={true} top={0} bottomBoundary={2400}>
+        {/* <Sticky innerZ={4} enabled={true} top={0} bottomBoundary={2400}> */}
           <HeaderLinks>
-            <Link to="/starsigned-rings">
-              <LinkText>RINGS</LinkText>
+            <Link to="/lunar-crescent-collection">
+              <LinkText>Lunar Crescent Collection</LinkText>
             </Link>
-            <Link to="/starsigned-necklaces">
-              <LinkText>NECKLACES</LinkText>
-            </Link>
-            <Link to="/starsigned-bracelets">
-              <LinkText>BRACELETS</LinkText>
+            <Link to="/starsigned-keepsakes">
+              <LinkText>StarSigned Keepsakes</LinkText>
             </Link>
           </HeaderLinks>
-        </Sticky>
+        {/* </Sticky> */}
       </HeaderContainer>
     );
   }

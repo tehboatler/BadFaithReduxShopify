@@ -37,7 +37,7 @@ const LandscapeMobilePrompt = styled.div`
   height: 100vh;
   justify-content: center;
   align-items: center;
-  background-color: #e1e1e1;
+  background-color: #fff;
   z-index: 999;
   overflow: hidden;
 `;
@@ -46,7 +46,7 @@ const LandscapeMobilePromptText = styled.h1`
   font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
   font-size: 3vw;
   color: #333;
-  background-color: #f2f2f2;
+  background-color: #fff;
   padding: 1vw;
 `;
 
@@ -380,7 +380,7 @@ export default class Main extends Component {
                 <MediaQuery orientation="landscape">
                   <LandscapeMobilePrompt>
                     <LandscapeMobilePromptText>
-                      Please rotate your phone into portrait mode.
+                      Who on the internet even uses their phone in landscape.
                     </LandscapeMobilePromptText>
                   </LandscapeMobilePrompt>
                 </MediaQuery>
@@ -399,9 +399,9 @@ export default class Main extends Component {
             {/*Desktop Routes*/}
             <MediaQuery minDeviceWidth={1224} values={{ deviceWidth: 1600 }}>
               <Switch>
-                <Route exact path="/" component={DesktopComingSoon} />
+                <Route path="/" component={DesktopComingSoon} />
 
-                <Route
+                {/* <Route
                   exact
                   path="/support-center"
                   render={props => <SupportCenter />}
@@ -548,14 +548,15 @@ export default class Main extends Component {
                       {...props}
                     />
                   )}
-                />
+                /> */}
               </Switch>
             </MediaQuery>
 
             {/*Mobile Routes*/}
             <MediaQuery maxDeviceWidth={1224}>
               <Switch>
-                <Route exact path="/" component={HomepageBanner} />
+                {/* <Route exact path="/" component={HomepageBanner} /> */}
+                <Route exact path="/" render={props => <Featured />} />
 
                 <Route
                   exact
@@ -587,7 +588,7 @@ export default class Main extends Component {
                   render={props => <PrivacyPolicy />}
                 />
 
-                <Route exact path="/featured" render={props => <Featured />} />
+              
 
                 <Route
                   exact
@@ -651,16 +652,16 @@ export default class Main extends Component {
 
                 <Route
                   exact
-                  path="/starsigned-lights-home"
+                  path="/lunar-crescent-collection"
                   render={props => (
                     <CollectionList
-                      collectionStringProps="starsigned-lights-home"
+                      collectionStringProps="lunar-crescent-collection"
                       {...props}
                     />
                   )}
                 />
                 <Route
-                  path="/starsigned-lights-home/:handle"
+                  path="/lunar-crescent-collection/:handle"
                   render={props => (
                     <ProductPage
                       addVariantToCart={this.addVariantToCart.bind(this)}
@@ -691,16 +692,16 @@ export default class Main extends Component {
 
                 <Route
                   exact
-                  path="/starsigned-best-selling"
+                  path="/starsigned-keepsakes"
                   render={props => (
                     <CollectionList
-                      collectionStringProps="starsigned-best-selling"
+                      collectionStringProps="starsigned-keepsakes"
                       {...props}
                     />
                   )}
                 />
                 <Route
-                  path="/starsigned-best-selling/:handle"
+                  path="/starsigned-keepsakes/:handle"
                   render={props => (
                     <ProductPage
                       addVariantToCart={this.addVariantToCart.bind(this)}
@@ -710,8 +711,8 @@ export default class Main extends Component {
                 />
               </Switch>
               <Switch>
-                <Route exact path="/" component={HomepageFooter} />
-                <Route exact path="/featured" component={Footer} />
+                {/* <Route exact path="/" component={HomepageFooter} /> */}
+                <Route exact path="/" component={Footer} />
               </Switch>
             </MediaQuery>
           </RootContainer>

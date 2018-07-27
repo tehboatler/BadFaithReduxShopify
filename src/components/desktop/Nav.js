@@ -208,7 +208,7 @@ export default class DesktopNav extends Component {
             <LogoImage>StarSigned</LogoImage>
           </LogoWrapper>
           <MenuWrapper>
-            <Link to="/">
+            <Link to="/featured">
               <MenuItemWrapper>
                 <MenuItem>Home</MenuItem>
               </MenuItemWrapper>

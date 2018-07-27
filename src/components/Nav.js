@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+
 import LineItem from './LineItem';
 import Cart from './Cart';
 
@@ -85,9 +86,10 @@ const LogoWrapper = styled.div`
 const LogoImageWrapper = styled.div`
   background-image: url(${StarSignedLogo});
   background-size: cover;
+  margin-left: 2.5vw;
   height: 10vw;
   width: 31.84vw;
-`
+`;
 
 const LogoImage = styled.h3`
   align-self: center;
@@ -207,38 +209,40 @@ export default class DesktopNav extends Component {
           </FreeShipping>
           <TaglineWrapper>
             <TaglineText>
-              ♈︎ ♉︎ ♊︎ ♋︎ ♌︎ ♍︎ ♎︎ ♏︎ ♐︎ ♑︎ ♒︎ ♓︎ | What's your Star Sign?
+              ♈︎ ♉︎ ♊︎ ♋︎ ♌︎ ♍︎ ♎︎ ♏︎ ♐︎ ♑︎ ♒︎ ♓︎ | What's your Star
+              Sign?
             </TaglineText>
           </TaglineWrapper>
         </SiteTopDetail>
 
-        <RootContainer>
-          <LogoWrapper>
-            <LogoImageWrapper/>
-          </LogoWrapper>
-          <MenuWrapper>
-            <Link to="/">
-              <MenuItemWrapper>
-                <MenuItem>Home</MenuItem>
-              </MenuItemWrapper>
-            </Link>
-            <CartImageWrapper>
-              <OpenCartButton onClick={this.handleCartOpen}>
-                <FontAwesomeIcon
-                  size="2x"
-                  color="#131313"
-                  icon={faShoppingCart}
-                />
-              </OpenCartButton>
-            </CartImageWrapper>
-          </MenuWrapper>
-          <Cart
-            checkout={this.props.checkout}
-            handleCartClose={this.handleCartClose}
-            isCartOpen={isCartOpen}
-            line_items={lineitems}
-          />
-        </RootContainer>
+          <RootContainer>
+            <LogoWrapper>
+              <LogoImageWrapper />
+            </LogoWrapper>
+            <MenuWrapper>
+              <Link to="/">
+                <MenuItemWrapper>
+                  <MenuItem>Home</MenuItem>
+                </MenuItemWrapper>
+              </Link>
+              <CartImageWrapper>
+                <OpenCartButton onClick={this.handleCartOpen}>
+                  <FontAwesomeIcon
+                    size="2x"
+                    color="#131313"
+                    icon={faShoppingCart}
+                  />
+                </OpenCartButton>
+              </CartImageWrapper>
+            </MenuWrapper>
+            <Cart
+              checkout={this.props.checkout}
+              handleCartClose={this.handleCartClose}
+              isCartOpen={isCartOpen}
+              line_items={lineitems}
+            />
+          </RootContainer>
+
       </div>
     );
   }
