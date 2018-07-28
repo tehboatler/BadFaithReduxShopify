@@ -21,7 +21,10 @@ import './accordion.css';
 import VariantSelector from '../VariantSelector';
 import CollectionListHeader from '../Header';
 import Footer from '../Footer';
+import PayPalButton from '../../img/PayPalButton.jpg';
 import './yotpo.css';
+
+import { base } from '../../config/config';
 
 import {
   getProduct,
@@ -149,7 +152,7 @@ const Price = styled.h1`
 
 const FreeShippingTag = styled.h1`
   float: right;
-  color: #BBB;
+  color: #bbb;
   font-family: 'Roboto Condensed', cursive;
   font-size: 3vw;
   font-weight: 500;
@@ -210,9 +213,10 @@ const AddToCartWrapper = styled.div`
 const AddToCartButton = styled.button`
   width: 90%;
   height: 3vw;
+  background-color: #111;
   background-color: #f2c94c;
-  border: none;
-  border-radius: 0.2vw;
+  border: 2px #eee solid;
+  // border-bottom: 2px;
   @media (max-width: 415px) {
     height: 15vw;
     border-radius: 1vw;
@@ -224,6 +228,7 @@ const AddToCartButton = styled.button`
 
 const AddToCartText = styled.h1`
   color: white;
+  opacity: 0.9;
   font-weight: 800;
   font-size: 5vw;
 `;
@@ -281,7 +286,7 @@ const ItemTitle = styled.h1`
 `;
 const ItemDesc = styled.h1`
   font-size: 4vw;
-  font-family: 'font-family: 'Rubik', cursive;', Arial, Helvetica, sans-serif;
+  font-family: 'font-family: ' Rubik ', cursive;', Arial, Helvetica, sans-serif;
   font-weight: 400;
   color: black;
 `;
@@ -300,7 +305,7 @@ const CouponCountdownPrompt = styled.h1`
   // font-family: 'Roboto Condensed', Helvetica, Arial;
   font-size: 2.5vw;
   font-weight: 800;
-  color: #BBB;
+  color: #bbb;
 `;
 
 // Feature Blurb
@@ -338,14 +343,37 @@ const CountdownPrice = styled.h1`
   font-size: 3vw;
 `;
 
-//
+// Slider Loading Image
 // ============================================================
 const DefaultSliderWrapper = styled.div`
   background-image: url(${DefaultSlider});
   background-size: cover;
   width: 100vw;
   height: 100vw;
-`
+`;
+
+// PayPal Button
+// ============================================================
+const PayPalButtonWrapper = styled.div`
+  margin-top: 1vw;
+  background-image: url(${PayPalButton});
+  background-size: cover;
+  width: 75vw;
+  height: 14.47vw;
+`;
+
+// Inventory Counter Component
+// ============================================================
+const InventoryCounter = styled.div`
+  position: fixed !important;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #111;
+  -webkit-box-shadow: 0px 4px 14px -4px rgba(0, 0, 0, 0.07);
+  -moz-box-shadow: 0px 4px 14px -4px rgba(0, 0, 0, 0.07);
+  box-shadow: 0px 4px 14px -4px rgba(0, 0, 0, 0.07);
+`;
 
 // Random component
 const Completionist = () => <span>You are good to go!</span>;
@@ -362,27 +390,16 @@ const renderer = ({ hours, minutes, seconds, completed, product, price }) => {
     return <div />;
   } else {
     // Render a countdown
+
     return (
       <div style={{ width: '100%' }}>
         <CouponCountdown>
           <CouponCountdownPrompt>
-            HOROSCOPE25 Coupon on this item valid for the next: {hours}h:{
-              minutes
-            }m:{seconds}s
+            SS25 Coupon on this item valid for the next: {hours}h:{minutes}m:{
+              seconds
+            }s
           </CouponCountdownPrompt>
         </CouponCountdown>
-        <div style={{ marginLeft: '5vw', textAlign: 'center', width: '90vw' }}>
-          25% off Today Only!{' '}
-          <FormattedNumber
-            style={{ color: 'white' }}
-            value={`${price * 0.75}`}
-            currency="USD"
-            currencyDisplay="symbol"
-            style="currency"
-          />{' '}
-          USD
-          <CountdownPrice>${price} USD</CountdownPrice>
-        </div>
       </div>
     );
   }
@@ -398,12 +415,36 @@ export class ProductPage extends Component {
   componentWillMount = () => {
     const { getProduct, match, product } = this.props;
     getProduct(match.params.handle);
+    setTimeout(() => {
+      this.counterRef = base.syncState('counter', {
+        context: this,
+        state: 'inventory'
+      });
+    }, 1000);
   };
+
+  decrementCounter = () => {
+    const { inventory } = this.state;
+    const UpdatedInventory = inventory - 1;
+    console.log('Decremented: ', UpdatedInventory);
+    this.setState({ inventory: UpdatedInventory });
+  };
+
+  componentDidMount() {}
+
+  componentWillUnmount() {
+    base.removeBinding(this.counterRef);
+  }
 
   componentWillReceiveProps(nextProps) {
     const { product, selectedVariant } = this.props;
     let arr = [];
+
     if (product) {
+      if (this.state.inventory > 17) {setTimeout(() => {
+        this.decrementCounter();
+      }, 10000)};
+
       const variantImages = product.images.map((image, index) => {
         return (arr[index] = {
           original: `${image.originalSrc}`,
@@ -479,6 +520,11 @@ export class ProductPage extends Component {
     let selectedOptions = Object.assign({}, this.state.selectedOptions);
     selectedOptions[props.props.parent] = props.props.value;
     console.log('onSelectorChange: ', selectedOptions);
+
+    // 0. Configure Product Reducer to populate this.props.product w/ alt tags of images
+    // 1. map through array and return index of matched property (alt tag)
+    // 2. trigger callback to ImageGallery Slide function
+
     this.setState({ selectedOptions }, params => this.findVariantByOptions());
   };
 
@@ -542,18 +588,22 @@ export class ProductPage extends Component {
               </PromoBannerWrapper>
             )}
           </Spring>
-           {variantImages === undefined ? (<Pulse><DefaultSliderWrapper/></Pulse>) : (
-          <ImageGallery
-            defaultImage={DefaultSlider}
-            lazyLoad={true}
-            showFullscreenButton={true}
-            showThumbnails={true}
-            style={{ background: 'transparent' }}
-            //   showNav={false}
-            showPlayButton={false}
-            items={variantImages}
-          />
-        )}
+          {variantImages === undefined ? (
+            <Pulse>
+              <DefaultSliderWrapper />
+            </Pulse>
+          ) : (
+            <ImageGallery
+              defaultImage={DefaultSlider}
+              lazyLoad={true}
+              showFullscreenButton={true}
+              showThumbnails={true}
+              style={{ background: 'transparent' }}
+              //   showNav={false}
+              showPlayButton={false}
+              items={variantImages}
+            />
+          )}
 
           <ProductCardWrapper>
             <Title>{product.title}</Title>
@@ -588,7 +638,6 @@ export class ProductPage extends Component {
                 );
               })}
               <AddToCartWrapper>
-            
                 <AddToCartButton
                   onClick={() =>
                     addVariantToCart(
@@ -600,19 +649,38 @@ export class ProductPage extends Component {
                   }>
                   <AddToCartText>Add To Cart</AddToCartText>
                 </AddToCartButton>
-              
               </AddToCartWrapper>
+
               <Fade bottom>
-              <Countdown
-                product={product.title}
-                price={convertedPrice}
-                date={'Sun, 29 July 2018 00:00:00'}
-                intervalDelay={0}
-                daysInHours={true}
-                precision={1000}
-                renderer={renderer}
-              />
+                <Countdown
+                  product={product.title}
+                  price={convertedPrice}
+                  date={'Sun, 28 July 2018 00:00:00'}
+                  intervalDelay={0}
+                  daysInHours={true}
+                  precision={1000}
+                  renderer={renderer}
+                />
               </Fade>
+              <InventoryCounter
+                style={{
+                  zIndex: '998',
+                  textAlign: 'center',
+                  width: '100vw',
+                  padding: '2vw 0',
+                  color: 'white'
+                }}>
+                {this.state.inventory} left @ 25% off!{' '}
+                <FormattedNumber
+                  value={`${convertedPrice * 0.75}`}
+                  currency="USD"
+                  currencyDisplay="symbol"
+                  style="currency"
+                />{' '}
+                USD w/ SS25 Coupon
+                {/* <CountdownPrice>${convertedPrice} USD</CountdownPrice> */}
+              </InventoryCounter>
+
               <TrustBadgeWrapper />
 
               <AccordionWrapper>
@@ -663,7 +731,7 @@ export class ProductPage extends Component {
                     <AccordionItemTitle style={{ backgroundColor: '#fff' }}>
                       <ItemTitle>💛 A Thank You from StarSigned</ItemTitle>
                     </AccordionItemTitle>
-                    <AccordionItemBody style={{ backgroundColor: '#fff'}}>
+                    <AccordionItemBody style={{ backgroundColor: '#fff' }}>
                       <FeatureBlurbHeading>
                         A Thank You from StarSigned:
                       </FeatureBlurbHeading>

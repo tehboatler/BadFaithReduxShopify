@@ -11,6 +11,7 @@ export default class RefundPolicy extends Component {
   componentDidMount() {
     window.scrollTo(0, 0);
   }
+  
   RefundPolicy = () => {
     return {
       __html: `<div>
