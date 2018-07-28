@@ -609,11 +609,11 @@ export class ProductPage extends Component {
 
           <ProductCardWrapper>
             <Title>{product.title}</Title>
-            {convertedPrice && (
+            {/* {convertedPrice && (
               <ReviewsStarRating
                 dangerouslySetInnerHTML={this.ReviewsStarRating()}
               />
-            )}
+            )} */}
             {convertedPrice && (
               <Price>
                 <FormattedNumber
@@ -776,9 +776,7 @@ export class ProductPage extends Component {
             </VariantSelectorAndCartWrapper>
           </ProductCardWrapper>
 
-          <CollectionListHeader />
-
-          <ReviewsWidget dangerouslySetInnerHTML={this.ReviewsWidget()} />
+          {/* <ReviewsWidget dangerouslySetInnerHTML={this.ReviewsWidget()} /> */}
           <CollectionListHeader />
           <Footer />
         </RootContainer>

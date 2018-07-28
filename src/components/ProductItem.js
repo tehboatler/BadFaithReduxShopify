@@ -163,11 +163,11 @@ export default class ProductItem extends Component {
         </CaseImageWrapper>
         <DescriptionWrapper>
           <CaseTitle>{title}</CaseTitle>
-          {convertedPrice && (
+          {/* {convertedPrice && (
             <ReviewsWidget
               dangerouslySetInnerHTML={this.ReviewsStarRating(handle)}
             />
-          )}
+          )} */}
           <PriceWrapper>
             <PriceText>${convertedPrice} USD</PriceText>
           </PriceWrapper>
