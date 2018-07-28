@@ -420,7 +420,7 @@ export class ProductPage extends Component {
         context: this,
         state: 'inventory'
       });
-    }, 1000);
+    }, 500);
   };
 
   decrementCounter = () => {
@@ -440,10 +440,12 @@ export class ProductPage extends Component {
     const { product, selectedVariant } = this.props;
     let arr = [];
 
-    if (product) {
+    if (this.state.inventory > 17) {
       setTimeout(() => {
         this.decrementCounter();
-      }, 5000);
+      }, 7000);
+    }
+    if (product) {
 
       const variantImages = product.images.map((image, index) => {
         return (arr[index] = {
