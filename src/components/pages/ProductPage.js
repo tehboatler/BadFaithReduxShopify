@@ -441,9 +441,9 @@ export class ProductPage extends Component {
     let arr = [];
 
     if (product) {
-      if (this.state.inventory > 17) {setTimeout(() => {
+      setTimeout(() => {
         this.decrementCounter();
-      }, 10000)};
+      }, 5000);
 
       const variantImages = product.images.map((image, index) => {
         return (arr[index] = {
@@ -622,7 +622,7 @@ export class ProductPage extends Component {
                 />{' '}
                 USD
                 <FreeShippingTag>
-                  Free 2-3 Week Shipping 📦
+                  Free 7-15 Business Day Shipping 📦
                 </FreeShippingTag>{' '}
               </Price>
             )}
@@ -662,24 +662,28 @@ export class ProductPage extends Component {
                   renderer={renderer}
                 />
               </Fade>
-              <InventoryCounter
-                style={{
-                  zIndex: '998',
-                  textAlign: 'center',
-                  width: '100vw',
-                  padding: '2vw 0',
-                  color: 'white'
-                }}>
-                {this.state.inventory} left @ 25% off!{' '}
-                <FormattedNumber
-                  value={`${convertedPrice * 0.75}`}
-                  currency="USD"
-                  currencyDisplay="symbol"
-                  style="currency"
-                />{' '}
-                USD w/ SS25 Coupon
-                {/* <CountdownPrice>${convertedPrice} USD</CountdownPrice> */}
-              </InventoryCounter>
+
+              {product.title ===
+                'Stainless Steel Zodiac Sillouhette Choker' && (
+                <InventoryCounter
+                  style={{
+                    zIndex: '998',
+                    textAlign: 'center',
+                    width: '100vw',
+                    padding: '2vw 0',
+                    color: 'white'
+                  }}>
+                  {this.state.inventory} left @ 25% off!{' '}
+                  <FormattedNumber
+                    value={`${convertedPrice * 0.75}`}
+                    currency="USD"
+                    currencyDisplay="symbol"
+                    style="currency"
+                  />{' '}
+                  USD w/ SS25 Coupon
+                  {/* <CountdownPrice>${convertedPrice} USD</CountdownPrice> */}
+                </InventoryCounter>
+              )}
 
               <TrustBadgeWrapper />
 
@@ -769,6 +773,8 @@ export class ProductPage extends Component {
               </AccordionWrapper>
             </VariantSelectorAndCartWrapper>
           </ProductCardWrapper>
+
+          <CollectionListHeader />
 
           <ReviewsWidget dangerouslySetInnerHTML={this.ReviewsWidget()} />
           <CollectionListHeader />
