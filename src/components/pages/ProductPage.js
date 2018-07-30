@@ -21,7 +21,6 @@ import './accordion.css';
 import VariantSelector from '../VariantSelector';
 import CollectionListHeader from '../Header';
 import Footer from '../Footer';
-import PayPalButton from '../../img/PayPalButton.jpg';
 import './yotpo.css';
 
 import { base } from '../../config/config';
@@ -34,6 +33,7 @@ import {
 import DefaultSlider from '../../img/DefaultSlider.png';
 import TrustBadge from '../../img/Trust_Badge_2.png';
 import TrustBadge2 from '../../img/Trust_Badge_1.png';
+import TrustBadge3 from '../../img/TrustBadge3.png';
 
 // ============================================================
 // Styles Start
@@ -214,7 +214,7 @@ const AddToCartButton = styled.button`
   width: 90%;
   height: 3vw;
   background-color: #111;
-  background-color: #f2c94c;
+  // background-color: #f2c94c;
   border: 2px #eee solid;
   // border-bottom: 2px;
   @media (max-width: 415px) {
@@ -240,6 +240,13 @@ const TrustBadgeWrapper = styled.div`
   height: 18.62vw;
   width: 90vw;
   background-image: url(${TrustBadge});
+  background-size: cover;
+`;
+const TrustBadgeWrapper3 = styled.div`
+  margin-top: 5vw;
+  height: 11.86vw;
+  width: 90vw;
+  background-image: url(${TrustBadge3});
   background-size: cover;
 `;
 const TrustBadgeWrapper2 = styled.div`
@@ -352,16 +359,6 @@ const DefaultSliderWrapper = styled.div`
   height: 100vw;
 `;
 
-// PayPal Button
-// ============================================================
-const PayPalButtonWrapper = styled.div`
-  margin-top: 1vw;
-  background-image: url(${PayPalButton});
-  background-size: cover;
-  width: 75vw;
-  height: 14.47vw;
-`;
-
 // Inventory Counter Component
 // ============================================================
 const InventoryCounter = styled.div`
@@ -373,6 +370,14 @@ const InventoryCounter = styled.div`
   -webkit-box-shadow: 0px 4px 14px -4px rgba(0, 0, 0, 0.07);
   -moz-box-shadow: 0px 4px 14px -4px rgba(0, 0, 0, 0.07);
   box-shadow: 0px 4px 14px -4px rgba(0, 0, 0, 0.07);
+`;
+
+const LiveText = styled.span`
+  background-color: #56ff23;
+  font-size: 0.75em;
+  color: white;
+  padding: 0.2vw 1.5vw;
+  border-radius: 2vw;
 `;
 
 // Random component
@@ -430,8 +435,6 @@ export class ProductPage extends Component {
     this.setState({ inventory: UpdatedInventory });
   };
 
-  componentDidMount() {}
-
   componentWillUnmount() {
     base.removeBinding(this.counterRef);
   }
@@ -440,13 +443,10 @@ export class ProductPage extends Component {
     const { product, selectedVariant } = this.props;
     let arr = [];
 
-    if (this.state.inventory > 17) {
-      setTimeout(() => {
-        this.decrementCounter();
-      }, 7000);
-    }
     if (product) {
-
+      // setTimeout(() => {
+      //   this.decrementCounter();
+      // }, 45000);
       const variantImages = product.images.map((image, index) => {
         return (arr[index] = {
           original: `${image.originalSrc}`,
@@ -481,6 +481,36 @@ export class ProductPage extends Component {
     ReactPixel.track('ViewContent', {
       content_name: `${match.params.handle}`
     });
+    setTimeout(() => {
+      if (this.state.inventory > 17) {
+        setTimeout(() => {
+          this.decrementCounter();
+        }, 5000);
+        setTimeout(() => {
+          this.decrementCounter();
+        }, 18000);
+        setTimeout(() => {
+          this.decrementCounter();
+        }, 35000);
+        setTimeout(() => {
+          this.decrementCounter();
+        }, 60000);
+        setTimeout(() => {
+          this.decrementCounter();
+        }, 87000);
+        setTimeout(() => {
+          this.decrementCounter();
+        }, 90000);
+        setTimeout(() => {
+          this.decrementCounter();
+        }, 111000);
+      }
+      if (this.state.inventory > 100) {
+        setTimeout(() => {
+          this.decrementCounter();
+        }, 15000);
+      }
+    }, 2000);
   }
 
   ReviewsStarRating = () => {
@@ -641,14 +671,22 @@ export class ProductPage extends Component {
               })}
               <AddToCartWrapper>
                 <AddToCartButton
-                  onClick={() =>
+                  onClick={() => {
+                    if (this.state.inventory > 17) {
+                      setTimeout(() => {
+                        this.decrementCounter();
+                      }, 7000);
+                      setTimeout(() => {
+                        this.decrementCounter();
+                      }, 11000);
+                    }
                     addVariantToCart(
                       selectedVariant.id,
                       1,
                       product.title,
                       convertedPrice
-                    )
-                  }>
+                    );
+                  }}>
                   <AddToCartText>Add To Cart</AddToCartText>
                 </AddToCartButton>
               </AddToCartWrapper>
@@ -675,19 +713,22 @@ export class ProductPage extends Component {
                     padding: '2vw 0',
                     color: 'white'
                   }}>
-                  {this.state.inventory} left @ 25% off!{' '}
-                  <FormattedNumber
-                    value={`${convertedPrice * 0.75}`}
-                    currency="USD"
-                    currencyDisplay="symbol"
-                    style="currency"
-                  />{' '}
-                  USD w/ SS25 Coupon
+                  <LiveText> </LiveText>- <b>{this.state.inventory}</b> left @
+                  35% off!{' '}
+                  <b>
+                    <FormattedNumber
+                      value={`${convertedPrice * 0.65}`}
+                      currency="USD"
+                      currencyDisplay="symbol"
+                      style="currency"
+                    />
+                  </b>{' '}
+                  USD w/ <b>SS35</b> Coupon
                   {/* <CountdownPrice>${convertedPrice} USD</CountdownPrice> */}
                 </InventoryCounter>
               )}
 
-              <TrustBadgeWrapper />
+              <TrustBadgeWrapper3 />
 
               <AccordionWrapper>
                 <Accordion>

@@ -179,7 +179,7 @@ h2 {
 @media (max-width:480px)  { 
   .Cart__close {
     top: 8px;
-    right: -4px;
+    right: -8px;
   }
   .selector_option_styles {
     font-size: 4vw;
@@ -193,8 +193,8 @@ h2 {
 
 .Cart__close {
   position: absolute;
-  right: 9px;
-  top: 8px;
+  /* right: 0px; */
+  top: 10px;
   font-size: 35px;
   color: #999;
   border: none;
@@ -214,6 +214,13 @@ h2 {
   flex: 1 0 auto;
   margin: 0;
   padding: 15px;
+}
+
+.Cart__line-items_full {
+  flex: 1 0 auto;
+  margin: 0;
+  padding: 15px;
+  background-color: red;
 }
 
 .Cart__footer {

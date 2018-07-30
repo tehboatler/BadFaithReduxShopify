@@ -339,6 +339,10 @@ export default class Featured extends Component {
     window.open('https://mailchi.mp/b6b98550bb92/starsigned');
   };
 
+  HiringForm = () => {
+    window.open('https://mailchi.mp/c36189b223c5/creators');
+  };
+
   render() {
     return (
       <RootContainer>
@@ -386,19 +390,19 @@ export default class Featured extends Component {
           </Feature1>
 
           <Fade>
-             <Link to="/starsigned-keepsakes">
+            <Link to="/starsigned-keepsakes">
               <Pulse>
                 <ShopNowWrapper>
                   <ShopNowText> Shop StarSigned </ShopNowText>
                 </ShopNowWrapper>
               </Pulse>
-            </Link> 
+            </Link>
           </Fade>
 
           {/* */}
           {/* FEATURE 2*/}
 
-           <Feature1>
+          <Feature1>
             <FeatureHeadingWrapper>
               <FeatureHeading>Once in a Blue Moon:</FeatureHeading>
               <FeatureHeading>The Lunar Pull At It's Peak</FeatureHeading>
@@ -412,39 +416,35 @@ export default class Featured extends Component {
           </Feature1>
 
           <Fade>
-           <Link to="/lunar-crescent-collection">
+            <Link to="/lunar-crescent-collection">
               <Pulse>
                 <ShopNowWrapper>
                   <ShopNowText> Shop Lunar Crescent </ShopNowText>
                 </ShopNowWrapper>
               </Pulse>
-            </Link> 
+            </Link>
           </Fade>
 
           {/* */}
           {/* FEATURE 3*/}
 
-           <FeatureHeadingWrapper>
-           <FeatureHeading>Artists, Creators and Designers:</FeatureHeading>
-           <FeatureHeading>Show Us What You're Made Of</FeatureHeading>
+          <FeatureHeadingWrapper>
+            <FeatureHeading>Artists, Creators and Designers:</FeatureHeading>
+            <FeatureHeading>Show Us What You're Made Of</FeatureHeading>
           </FeatureHeadingWrapper>
 
           <Feature1>
             <Fade bottom>
-              <Link to="/starsigned-rings">
-                <Feature1Image />
-              </Link>
+              <Feature1Image onClick={this.HiringForm} />
             </Fade>
           </Feature1>
 
           <Fade>
-            <Link to="/starsigned-rings">
-              <Pulse>
-                <ShopNowWrapper>
-                  <ShopNowText> Apply Now </ShopNowText>
-                </ShopNowWrapper>
-              </Pulse>
-            </Link> 
+            <Pulse>
+              <ShopNowWrapper onClick={this.HiringForm}>
+                <ShopNowText> Apply Now </ShopNowText>
+              </ShopNowWrapper>
+            </Pulse>
           </Fade>
 
           {/* */}

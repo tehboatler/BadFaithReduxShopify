@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-
 import LineItem from './LineItem';
 import Cart from './Cart';
 
@@ -151,16 +150,22 @@ export default class DesktopNav extends Component {
     super(props);
     this.state = {
       isCartOpen: false,
-      drawerOpen: false
+      drawerOpen: false,
+      cartempty: true
     };
 
     this.openCheckout = this.openCheckout.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.checkout.lineItems.length === 0) {
-      this.setState({ lineitems: [] });
+    if (nextProps.checkout.lineItems.length === 0 || undefined) {
+      this.setState({
+        lineitems: [],
+        cartempty: true,
+        cartweight: nextProps.checkout.lineItems.length + 1
+      });
     } else {
+      this.setState({ cartempty: false });
       let line_items = nextProps.checkout.lineItems.map(line_item => {
         return (
           <LineItem
@@ -199,6 +204,7 @@ export default class DesktopNav extends Component {
 
   render() {
     const { lineitems, isCartOpen, drawerOpen } = this.state;
+    console.log('Cart Line Items: ', lineitems);
     return (
       <div>
         <SiteTopDetail>
@@ -215,34 +221,45 @@ export default class DesktopNav extends Component {
           </TaglineWrapper>
         </SiteTopDetail>
 
-          <RootContainer>
-            <LogoWrapper>
-              <LogoImageWrapper />
-            </LogoWrapper>
-            <MenuWrapper>
-              <Link to="/">
-                <MenuItemWrapper>
-                  <MenuItem>Home</MenuItem>
-                </MenuItemWrapper>
-              </Link>
-              <CartImageWrapper>
-                <OpenCartButton onClick={this.handleCartOpen}>
-                  <FontAwesomeIcon
-                    size="2x"
-                    color="#131313"
-                    icon={faShoppingCart}
-                  />
-                </OpenCartButton>
-              </CartImageWrapper>
-            </MenuWrapper>
-            <Cart
-              checkout={this.props.checkout}
-              handleCartClose={this.handleCartClose}
-              isCartOpen={isCartOpen}
-              line_items={lineitems}
-            />
-          </RootContainer>
-
+        <RootContainer>
+          <LogoWrapper>
+            <LogoImageWrapper />
+          </LogoWrapper>
+          <MenuWrapper>
+            <Link to="/">
+              <MenuItemWrapper>
+                <MenuItem>Home</MenuItem>
+              </MenuItemWrapper>
+            </Link>
+            <CartImageWrapper>
+              <OpenCartButton onClick={this.handleCartOpen}>
+                {this.state.cartempty ? (
+                  <div>
+                    <FontAwesomeIcon
+                      size="2x"
+                      color="#131313"
+                      icon={faShoppingCart}
+                    />
+                  </div>
+                ) : (
+                  <div style={{ textAlign: 'center' }}>
+                    <FontAwesomeIcon
+                      size="2x"
+                      color="gold"
+                      icon={faShoppingCart}
+                    />{' '}
+                  </div>
+                )}
+              </OpenCartButton>
+            </CartImageWrapper>
+          </MenuWrapper>
+          <Cart
+            checkout={this.props.checkout}
+            handleCartClose={this.handleCartClose}
+            isCartOpen={isCartOpen}
+            line_items={lineitems}
+          />
+        </RootContainer>
       </div>
     );
   }

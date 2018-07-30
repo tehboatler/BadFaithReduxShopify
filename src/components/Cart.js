@@ -9,7 +9,7 @@ const RootContainer = styled.div`
 const CheckoutCurrencyPrompt = styled.h1`
   font-family: 'Roboto Condensed', Helvetica, Arial;
   font-size: 4vw;
-`
+`;
 class Cart extends Component {
   constructor(props) {
     super(props);
@@ -32,6 +32,8 @@ class Cart extends Component {
     ReactPixel.track('InitiateCheckout', {});
     window.open(this.props.checkout.webUrl);
   }
+
+  
 
   render() {
     return (
