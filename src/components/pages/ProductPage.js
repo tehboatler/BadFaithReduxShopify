@@ -713,7 +713,7 @@ export class ProductPage extends Component {
                     padding: '2vw 0',
                     color: 'white'
                   }}>
-                  <LiveText> </LiveText>- <b>{this.state.inventory}</b> left @
+                  <b>{this.state.inventory}</b> left @
                   35% off!{' '}
                   <b>
                     <FormattedNumber

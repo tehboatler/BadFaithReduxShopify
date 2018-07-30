@@ -27,6 +27,7 @@ export function getCollection(collection_handle) {
                           id
                           handle
                           description
+                          tags
                           variants(first: 1) {
                             pageInfo {
                               hasNextPage

@@ -257,6 +257,7 @@ class CollectionList extends Component {
                       pathString={collectionStringProps}
                       price={variants.price}
                       compareAtPrice={variants.compareAtPrice}
+                      tags={collectionItem.tags}
                     />
                   </Fade>
                 );

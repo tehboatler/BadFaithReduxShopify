@@ -20,6 +20,7 @@ const CaseItemContainer = styled.div`
   }
 `;
 const CaseImageWrapper = styled.div`
+  position: relative;
   // background-color: #222;
   height: 13.25vw;
   width: 13.25vw;
@@ -28,6 +29,28 @@ const CaseImageWrapper = styled.div`
     height: 50vw;
     width: 100%;
   }
+`;
+
+const TagsWrapper = styled.div`
+  position: absolute;
+  opacity: 0.5;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: black;
+  text-align: center;
+
+`;
+
+const ProductTag = styled.h1`
+  margin: 40% 0;
+  height: 20%;
+  font-size: 1.75em;
+  padding: 0.5vw 2vw;
+  color: white;
+  background-color: black;
+  font-weight: 800;
 `;
 
 const DescriptionWrapper = styled.div`
@@ -151,7 +174,8 @@ export default class ProductItem extends Component {
       image,
       pathString,
       price,
-      compareAtPrice
+      compareAtPrice,
+      tags
     } = this.props;
     const { convertedPrice } = this.state;
     return (
@@ -160,6 +184,13 @@ export default class ProductItem extends Component {
           <Link to={`/${pathString}/${handle}`}>
             <CaseImage src={image} />
           </Link>
+          {tags.length > 0 && (
+            <TagsWrapper>
+              {tags.map(ProductTags => {
+                return <ProductTag>{ProductTags.value}</ProductTag>;
+              })}
+            </TagsWrapper>
+          )}
         </CaseImageWrapper>
         <DescriptionWrapper>
           <CaseTitle>{title}</CaseTitle>
