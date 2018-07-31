@@ -299,20 +299,23 @@ const ItemDesc = styled.h1`
 `;
 
 const CouponCountdown = styled.div`
-  width: 90%;
-  height: auto;
+  position: fixed !important;
+  z-index: 997;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #111;
+  -webkit-box-shadow: 0px 4px 14px -4px rgba(0, 0, 0, 0.07);
+  -moz-box-shadow: 0px 4px 14px -4px rgba(0, 0, 0, 0.07);
+  box-shadow: 0px 4px 14px -4px rgba(0, 0, 0, 0.07);
   text-align: center;
-  // background-color: whitesmoke;
-  margin: 1% 5%;
-  padding: 0.5vw 0;
-  border-radius: 1vw;
 `;
 
 const CouponCountdownPrompt = styled.h1`
   // font-family: 'Roboto Condensed', Helvetica, Arial;
   font-size: 2.5vw;
   font-weight: 800;
-  color: #bbb;
+  color: white;
 `;
 
 // Feature Blurb
@@ -399,11 +402,13 @@ const renderer = ({ hours, minutes, seconds, completed, product, price }) => {
     return (
       <div style={{ width: '100%' }}>
         <CouponCountdown>
-          <CouponCountdownPrompt>
-            SS25 Coupon on this item valid for the next: {hours}h:{minutes}m:{
-              seconds
-            }s
-          </CouponCountdownPrompt>
+          <Fade bottom>
+            <CouponCountdownPrompt>
+              <b>SS25</b> Store-wide coupon valid for the next: {hours}h:{
+                minutes
+              }m:{seconds}s
+            </CouponCountdownPrompt>
+          </Fade>
         </CouponCountdown>
       </div>
     );
@@ -691,17 +696,15 @@ export class ProductPage extends Component {
                 </AddToCartButton>
               </AddToCartWrapper>
 
-              <Fade bottom>
-                <Countdown
-                  product={product.title}
-                  price={convertedPrice}
-                  date={'Sun, 28 July 2018 00:00:00'}
-                  intervalDelay={0}
-                  daysInHours={true}
-                  precision={1000}
-                  renderer={renderer}
-                />
-              </Fade>
+              <Countdown
+                product={product.title}
+                price={convertedPrice}
+                date={'Sun, 1 August 2018 00:00:00'}
+                intervalDelay={0}
+                daysInHours={true}
+                precision={1000}
+                renderer={renderer}
+              />
 
               {product.title ===
                 'Stainless Steel Zodiac Sillouhette Choker' && (
@@ -713,8 +716,7 @@ export class ProductPage extends Component {
                     padding: '2vw 0',
                     color: 'white'
                   }}>
-                  <b>{this.state.inventory}</b> left @
-                  35% off!{' '}
+                  <b>{this.state.inventory}</b> left @ 35% off!{' '}
                   <b>
                     <FormattedNumber
                       value={`${convertedPrice * 0.65}`}

@@ -232,12 +232,12 @@ class CollectionList extends Component {
                   </PromoBanner>
                 )}
               </Spring>
-              {collectionNode.title === 'Lunar Crescent Collection' && (
+              {/* {collectionNode.title === 'Lunar Crescent Collection' && (
                 <LunarCrescentBanner />
               )}
               {collectionNode.title === 'StarSigned Keepsakes' && (
                 <StarSignedKeepsakesBanner />
-              )}
+              )} */}
               {/* <TopNavTitle>{collectionNode.title}</TopNavTitle> */}
               <Header selectionToggle={collectionNode.title} />
             </TopNav>
