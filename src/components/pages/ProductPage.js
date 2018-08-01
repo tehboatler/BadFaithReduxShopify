@@ -717,7 +717,7 @@ export class ProductPage extends Component {
               />
 
               {product.title ===
-                'Rose-Gold Plated Stainless Steel Zodiac Bracelet' && (
+                'Rose Gold StarSigned Zodiac Bracelet' && (
                 <InventoryCounter
                   style={{
                     zIndex: '998',
