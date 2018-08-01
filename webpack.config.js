@@ -58,11 +58,11 @@ module.exports = {
     ]
   },
   plugins: [
-    // new HardSourceWebpackPlugin(),
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('production')
-    }),
-    new UglifyJSPlugin(),
+    new HardSourceWebpackPlugin(),
+    // new webpack.DefinePlugin({
+      // 'process.env.NODE_ENV': JSON.stringify('production')
+    // }),
+    // new UglifyJSPlugin(),
     new CompressionPlugin({
       asset: "[path].gz[query]",
       algorithm: "gzip",
@@ -72,7 +72,7 @@ module.exports = {
     }),
     // new BundleAnalyzerPlugin()
   ],
-  // devtool: 'eval',
+  devtool: 'eval',
   devServer: {
     historyApiFallback: true
   }

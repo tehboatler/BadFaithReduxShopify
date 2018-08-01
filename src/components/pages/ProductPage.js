@@ -430,6 +430,14 @@ export class ProductPage extends Component {
         context: this,
         state: 'inventory'
       });
+      this.countdownDateRef = base.syncState('countdownDate', {
+        context: this,
+        state: 'date'
+      });
+      this.reviewsToggleRef = base.syncState('reviews', {
+        context: this,
+        state: 'reviews'
+      });
     }, 500);
   };
 
@@ -442,6 +450,8 @@ export class ProductPage extends Component {
 
   componentWillUnmount() {
     base.removeBinding(this.counterRef);
+    base.removeBinding(this.countdownDateRef);
+    base.removeBinding(this.reviewsToggleRef);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -490,19 +500,19 @@ export class ProductPage extends Component {
       if (this.state.inventory > 17) {
         setTimeout(() => {
           this.decrementCounter();
-        }, 5000);
+        }, 3000);
         setTimeout(() => {
           this.decrementCounter();
-        }, 18000);
+        }, 7000);
         setTimeout(() => {
           this.decrementCounter();
-        }, 35000);
+        }, 15000);
         setTimeout(() => {
           this.decrementCounter();
-        }, 60000);
+        }, 30000);
         setTimeout(() => {
           this.decrementCounter();
-        }, 87000);
+        }, 67000);
         setTimeout(() => {
           this.decrementCounter();
         }, 90000);
@@ -644,11 +654,11 @@ export class ProductPage extends Component {
 
           <ProductCardWrapper>
             <Title>{product.title}</Title>
-            {/* {convertedPrice && (
+            {this.state.reviews && (
               <ReviewsStarRating
                 dangerouslySetInnerHTML={this.ReviewsStarRating()}
               />
-            )} */}
+            )}
             {convertedPrice && (
               <Price>
                 <FormattedNumber
@@ -699,7 +709,7 @@ export class ProductPage extends Component {
               <Countdown
                 product={product.title}
                 price={convertedPrice}
-                date={'Fri, 3 August 2018 00:00:00'}
+                date={this.state.date}
                 intervalDelay={0}
                 daysInHours={true}
                 precision={1000}
@@ -707,7 +717,7 @@ export class ProductPage extends Component {
               />
 
               {product.title ===
-                'Stainless Steel Zodiac Sillouhette Choker' && (
+                'Rose-Gold Plated Stainless Steel Zodiac Bracelet' && (
                 <InventoryCounter
                   style={{
                     zIndex: '998',
@@ -819,7 +829,9 @@ export class ProductPage extends Component {
             </VariantSelectorAndCartWrapper>
           </ProductCardWrapper>
 
-          {/* <ReviewsWidget dangerouslySetInnerHTML={this.ReviewsWidget()} /> */}
+          {this.state.reviews && (
+            <ReviewsWidget dangerouslySetInnerHTML={this.ReviewsWidget()} />
+          )}
           <CollectionListHeader />
           <Footer />
         </RootContainer>
