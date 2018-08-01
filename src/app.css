@@ -216,13 +216,6 @@ h2 {
   padding: 15px;
 }
 
-.Cart__line-items_full {
-  flex: 1 0 auto;
-  margin: 0;
-  padding: 15px;
-  background-color: red;
-}
-
 .Cart__footer {
   padding: 20px;
   border-top: 1px solid #e5e5e5;
